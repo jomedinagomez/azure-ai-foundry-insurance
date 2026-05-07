@@ -1,0 +1,491 @@
+[
+  {
+    "file": "01_acme_SOV.xlsx",
+    "kind": "xlsx",
+    "sheets": {
+      "SOV": {
+        "dims": "A1:O44",
+        "rows": 44,
+        "cols": 15,
+        "header_block": [
+          {
+            "row": 1,
+            "cells": [
+              "STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc."
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "Named Insured",
+              "Acme Manufacturing & Distribution, Inc."
+            ]
+          },
+          {
+            "row": 4,
+            "cells": [
+              "DBA",
+              "Acme Industrial"
+            ]
+          },
+          {
+            "row": 5,
+            "cells": [
+              "Mailing Address",
+              "4500 Industrial Pkwy, Cleveland, OH 44109"
+            ]
+          },
+          {
+            "row": 6,
+            "cells": [
+              "Effective Date",
+              "2026-07-01"
+            ]
+          },
+          {
+            "row": 7,
+            "cells": [
+              "Policy Period",
+              "2026-07-01 to 2027-07-01"
+            ]
+          },
+          {
+            "row": 8,
+            "cells": [
+              "Currency",
+              "USD"
+            ]
+          },
+          {
+            "row": 9,
+            "cells": [
+              "Valuation Date",
+              "2026-04-30"
+            ]
+          },
+          {
+            "row": 10,
+            "cells": [
+              "Primary Operations",
+              "Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels."
+            ]
+          },
+          {
+            "row": 11,
+            "cells": [
+              "NAICS",
+              "332722"
+            ]
+          },
+          {
+            "row": 12,
+            "cells": [
+              "Total Insured Value",
+              "$370,100,000"
+            ]
+          },
+          {
+            "row": 13,
+            "cells": [
+              "Number of Locations",
+              "22 (+3 see embedded image below)"
+            ]
+          },
+          {
+            "row": 14,
+            "cells": [
+              "Broker",
+              "Sterling Risk Partners"
+            ]
+          },
+          {
+            "row": 15,
+            "cells": [
+              "Producer Contact",
+              "Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142"
+            ]
+          },
+          {
+            "row": 16,
+            "cells": [
+              "Prepared By / Date",
+              "Jennifer Walsh, CPCU \u2014 2026-05-02"
+            ]
+          },
+          {
+            "row": 18,
+            "cells": [
+              "SCHEDULE OF LOCATIONS"
+            ]
+          }
+        ],
+        "table_header": [
+          "Loc #",
+          "Building #",
+          "Street Address",
+          "City",
+          "State",
+          "ZIP",
+          "Construction",
+          "Occupancy / Operations",
+          "Year Built",
+          "Sq Ft",
+          "Bldg Value",
+          "BPP Value",
+          "BI/EE Value",
+          "Notes",
+          "Internal"
+        ],
+        "table_header_row": 20
+      }
+    }
+  },
+  {
+    "file": "02_cascade_SOV.xlsx",
+    "kind": "xlsx",
+    "sheets": {
+      "SOV": {
+        "dims": "A1:N9",
+        "rows": 9,
+        "cols": 14,
+        "header_block": [],
+        "table_header": [
+          "Loc #",
+          "Address",
+          "City",
+          "State",
+          "ZIP",
+          "Construction",
+          "Occupancy",
+          "Year Built",
+          "Square Footage",
+          "Building Value",
+          "BPP",
+          "BI",
+          "Sprinklered",
+          "Protection Class"
+        ],
+        "table_header_row": 1
+      }
+    }
+  },
+  {
+    "file": "03_magnolia_SOV.xlsx",
+    "kind": "xlsx",
+    "sheets": {
+      "Summary": {
+        "dims": "A1:F15",
+        "rows": 15,
+        "cols": 6,
+        "header_block": [
+          {
+            "row": 1,
+            "cells": [
+              "SOV SUMMARY \u2014 Magnolia Hospitality Group LLC"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "Named Insured",
+              "Magnolia Hospitality Group LLC"
+            ]
+          },
+          {
+            "row": 4,
+            "cells": [
+              "DBA",
+              "Magnolia Hotels & Restaurants"
+            ]
+          },
+          {
+            "row": 5,
+            "cells": [
+              "Mailing Address",
+              "200 Bourbon St, New Orleans, LA 70130"
+            ]
+          },
+          {
+            "row": 6,
+            "cells": [
+              "Effective Date",
+              "2026-09-01"
+            ]
+          },
+          {
+            "row": 7,
+            "cells": [
+              "Currency",
+              "USD"
+            ]
+          },
+          {
+            "row": 8,
+            "cells": [
+              "Valuation Date",
+              "2026-05-15"
+            ]
+          },
+          {
+            "row": 9,
+            "cells": [
+              "Primary Operations",
+              "Owner and operator of boutique hotels and full-service restaurants across the Gulf Coast region."
+            ]
+          },
+          {
+            "row": 10,
+            "cells": [
+              "Total Insured Value",
+              "510500000"
+            ]
+          },
+          {
+            "row": 11,
+            "cells": [
+              "Location Count",
+              "15"
+            ]
+          },
+          {
+            "row": 12,
+            "cells": [
+              "Broker",
+              "Crescent Insurance Services"
+            ]
+          },
+          {
+            "row": 13,
+            "cells": [
+              "Producer Contact",
+              "Marie Boudreaux | mboudreaux@crescentins.example.com | (504) 555-0167"
+            ]
+          },
+          {
+            "row": 14,
+            "cells": [
+              "Prepared By",
+              "Marie Boudreaux, CIC"
+            ]
+          },
+          {
+            "row": 15,
+            "cells": [
+              "Prepared Date",
+              "2026-05-10"
+            ]
+          }
+        ],
+        "table_header": null,
+        "table_header_row": null
+      },
+      "Locations": {
+        "dims": "A1:U16",
+        "rows": 16,
+        "cols": 21,
+        "header_block": [],
+        "table_header": [
+          "Loc #",
+          "Property Name / Street",
+          "City",
+          "State",
+          "ZIP",
+          "County",
+          "Bldg Type",
+          "Use",
+          "Year",
+          "# Stories",
+          "# Units",
+          "Sq Ft",
+          "Building $",
+          "Contents $",
+          "Business Income $",
+          "Sprinkler",
+          "Prot. Class",
+          "Roof Yr",
+          "Flood Zone",
+          "Dist Coast (mi)",
+          "Notes"
+        ],
+        "table_header_row": 1
+      },
+      "CAT Exposure": {
+        "dims": "A1:E15",
+        "rows": 15,
+        "cols": 5,
+        "header_block": [
+          {
+            "row": 1,
+            "cells": [
+              "CAT EXPOSURE SUMMARY"
+            ]
+          }
+        ],
+        "table_header": [
+          "Loc #",
+          "City, State",
+          "Peril Flags",
+          "Flood Zone",
+          "TIV"
+        ],
+        "table_header_row": 3
+      },
+      "Notes": {
+        "dims": "A1:D3",
+        "rows": 3,
+        "cols": 4,
+        "header_block": [
+          {
+            "row": 1,
+            "cells": [
+              "Broker Notes & Annotations"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "1. Significant Gulf Coast hurricane exposure across LA, MS, FL locations. Recommend named-storm sublimit review at quote.\n2. Location 3 (555 Magazine St) recently renovated \u2014 please verify replacement cost basis.\n3. All FL coastal locations carry wind tier 1 designation; storm-surge values per 2024 ARA model.\n4. Historic structures at locations 1, 11, and 15 \u2014 limited retrofit options."
+            ]
+          }
+        ],
+        "table_header": null,
+        "table_header_row": null
+      }
+    }
+  },
+  {
+    "file": "04_summit_SOV.pdf",
+    "kind": "pdf",
+    "pages": [
+      {
+        "page": 1,
+        "text_preview": "STATEMENT OF VALUES \u2014 Summit Outdoor Retail Co.\nNamed Insured Summit Outdoor Retail Co.\nDBA Summit Outdoors\nMailing Address 2400 Mountain Way, Boulder, CO 80301\nEffective Date 2026-10-01\nPolicy Period 2026-10-01 to 2027-10-01\nCurrency USD\nValuation Date 2026-05-20\nPrimary Operations Retail sale of outdoor recreation equipment, apparel, and sporting goods including firearms and ammunition at select locations.\nNAICS 451110\nTotal Insured Value $105,200,000\nLocation Count 12\nBroker Rocky Mountain Brokerage\nProducer Contact Tyler Brennan | tbrennan@rockymtnbrokerage.example.com | (303) 555-0119\nPre",
+        "tables": [
+          {
+            "rows": 14,
+            "cols": 2,
+            "header": [
+              "Named Insured",
+              "Summit Outdoor Retail Co."
+            ]
+          },
+          {
+            "rows": 11,
+            "cols": 12,
+            "header": [
+              "Loc",
+              "Address",
+              "City",
+              "ST",
+              "Construction",
+              "Occupancy / Operations",
+              "Year",
+              "Sq Ft",
+              "Bldg $",
+              "BPP $",
+              "BI/EE $",
+              "Notes"
+            ]
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "text_preview": "Loc Address City ST Construction Occupancy / Operations Year Sq Ft Bldg $ BPP $ BI/EE $ Notes\n11 330 Mountain View Rd Bozeman MT Joisted Masonry Outdoor retail \u2014 Montana flagship 2003 28,000 $5,800,000 $2,900,000 $1,300,000 Building under\n(2) renovation\nthrough Q3 2026;\nreported value\nreflects\npost-completion\nreplacement cost\n(2)\n12 2200 Snake River Way Idaho Falls ID Joisted Masonry Outdoor and fishing retail 2013 19,000 $3,600,000 $1,900,000 $850,000\nFOOTNOTES\n1 Location 8 includes a 25-lane indoor firearms range and gunsmith services. Range is constructed with reinforced ballistic panels pe",
+        "tables": [
+          {
+            "rows": 3,
+            "cols": 12,
+            "header": [
+              "Loc",
+              "Address",
+              "City",
+              "ST",
+              "Construction",
+              "Occupancy / Operations",
+              "Year",
+              "Sq Ft",
+              "Bldg $",
+              "BPP $",
+              "BI/EE $",
+              "Notes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "05_heartland_SOV.pdf",
+    "kind": "pdf",
+    "pages": [
+      {
+        "page": 1,
+        "text_preview": "",
+        "tables": []
+      }
+    ]
+  },
+  {
+    "file": "06_coastal_SOV.xlsx",
+    "kind": "xlsx",
+    "sheets": {
+      "Submission": {
+        "dims": "A1:M17",
+        "rows": 17,
+        "cols": 13,
+        "header_block": [
+          {
+            "row": 1,
+            "cells": [
+              "ATLANTIC SPECIALTY BROKERS \u2014 Property Submission"
+            ]
+          },
+          {
+            "row": 2,
+            "cells": [
+              "Insured: Coastal Marine Services Inc.    |    Effective: 2026-12-01    |    Currency: USD (mostly)"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173)    Prepared: 2026-06-18"
+            ]
+          }
+        ],
+        "table_header": [
+          "Loc",
+          "Property Address",
+          null,
+          null,
+          null,
+          "Construction",
+          "Occupancy / Use",
+          "Building",
+          null,
+          "Contents",
+          null,
+          "Bldg Val",
+          "Notes"
+        ],
+        "table_header_row": 5,
+        "table_header_row2": [
+          null,
+          "Street",
+          "City",
+          "State",
+          "ZIP",
+          null,
+          null,
+          "Year",
+          "Sq Ft",
+          "BPP",
+          "BI/EE",
+          null,
+          null
+        ]
+      }
+    }
+  }
+]

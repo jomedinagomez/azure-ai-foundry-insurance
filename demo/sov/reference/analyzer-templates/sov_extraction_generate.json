@@ -1,0 +1,236 @@
+{
+  "description": "SOV extractor for non-PDF inputs (Excel and per-image fan-outs). Mirrors sov_extraction.json but flips method='extract' to 'generate' since pixel-coordinate grounding doesn't apply to spreadsheet cells (would return null values). Classify fields stay as classify.",
+  "baseAnalyzerId": "prebuilt-document",
+  "config": {
+    "returnDetails": true,
+    "enableOcr": true,
+    "enableLayout": true
+  },
+  "fieldSchema": {
+    "name": "SOVFields",
+    "description": "Canonical insurance Statement of Values schema covering account header and per-location schedule.",
+    "fields": {
+      "InsuredName": {
+        "type": "string",
+        "method": "generate",
+        "description": "Legal name of the named insured / policyholder. Often labeled 'Named Insured', 'Insured', 'Account Name', or 'Insured Name'."
+      },
+      "DBA": {
+        "type": "string",
+        "method": "generate",
+        "description": "Doing-business-as / trade name of the insured, if shown separately from the legal name."
+      },
+      "MailingAddress": {
+        "type": "string",
+        "method": "generate",
+        "description": "Insured's mailing address as a single string (street, city, state, ZIP)."
+      },
+      "EffectiveDate": {
+        "type": "date",
+        "method": "generate",
+        "description": "Policy effective date. Sometimes labeled 'Effective Date', 'Inception Date', 'Policy Period Start', or shown as the start of a date range like '2026-07-01 to 2027-07-01'."
+      },
+      "ExpirationDate": {
+        "type": "date",
+        "method": "generate",
+        "description": "Policy expiration date. End of the policy period."
+      },
+      "PrimaryOperations": {
+        "type": "string",
+        "method": "generate",
+        "description": "Free-text description of the insured's primary business operations. Labels include 'Primary Operations', 'Business Description', or 'Nature of Business'."
+      },
+      "NAICS": {
+        "type": "string",
+        "method": "generate",
+        "description": "NAICS industry classification code, if shown."
+      },
+      "Currency": {
+        "type": "string",
+        "method": "classify",
+        "description": "Currency in which the account-level values are reported. Pick a single ISO 4217 code; ignore parenthetical qualifiers like '(mostly)'.",
+        "enum": [
+          "USD",
+          "CAD",
+          "EUR",
+          "GBP",
+          "MXN",
+          "AUD"
+        ]
+      },
+      "ValuationDate": {
+        "type": "date",
+        "method": "generate",
+        "description": "Date the values were last valued. Labels include 'Valuation Date', 'As-of Date', or 'Values As Of'."
+      },
+      "TotalInsuredValue": {
+        "type": "number",
+        "method": "generate",
+        "description": "Account-level total insured value (TIV). ALWAYS pick the bottom-most grand total covering ALL locations, typically labeled 'Grand Total', 'Total Insured Value', 'Total Values', or 'Building Replacement Cost' total. IGNORE intermediate subtotals (e.g. 'US Subtotal', per-state subtotals) -- those are not the account TIV."
+      },
+      "LocationCount": {
+        "type": "number",
+        "method": "generate",
+        "description": "Number of distinct insured locations on the SOV. Return the actual count of physical location rows; if a stated count and the actual schedule row count disagree, return the actual count, NOT the stated value."
+      },
+      "BrokerName": {
+        "type": "string",
+        "method": "generate",
+        "description": "Name of the brokerage / agency submitting the SOV. Labels include 'Broker', 'Producer', 'Agency'."
+      },
+      "BrokerContact": {
+        "type": "string",
+        "method": "generate",
+        "description": "Name of the individual broker / producer contact who prepared or submitted the SOV."
+      },
+      "BrokerEmail": {
+        "type": "string",
+        "method": "generate",
+        "description": "Email address of the broker contact."
+      },
+      "BrokerPhone": {
+        "type": "string",
+        "method": "generate",
+        "description": "Phone number of the broker contact."
+      },
+      "PreparedBy": {
+        "type": "string",
+        "method": "generate",
+        "description": "Person who prepared the SOV, if stated."
+      },
+      "PreparedDate": {
+        "type": "date",
+        "method": "generate",
+        "description": "Date the SOV was prepared, if stated."
+      },
+      "Locations": {
+        "type": "array",
+        "method": "generate",
+        "description": "Repeating schedule of insured locations / buildings. One entry per row of the location table. Capture EVERY location visible in the document, including any rows shown only inside embedded images or screenshots.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "LocationNumber": {
+              "type": "number",
+              "method": "generate",
+              "description": "Integer location number from the leftmost 'Loc #' / 'Location #' / 'Site #' column of the location schedule. Typically 1, 2, 3 ... in row order."
+            },
+            "BuildingNumber": {
+              "type": "string",
+              "method": "generate",
+              "description": "Building number within the location, if separately tracked."
+            },
+            "Street": {
+              "type": "string",
+              "method": "generate",
+              "description": "Street address of the location (line 1 only)."
+            },
+            "City": {
+              "type": "string",
+              "method": "generate",
+              "description": "City of the location."
+            },
+            "State": {
+              "type": "string",
+              "method": "generate",
+              "description": "Two-letter state or province code (e.g., 'OH', 'CA', 'NS')."
+            },
+            "Zip": {
+              "type": "string",
+              "method": "generate",
+              "description": "ZIP / postal code of the location, if present."
+            },
+            "ConstructionType": {
+              "type": "string",
+              "method": "generate",
+              "description": "ISO construction class -- typically one of: Frame, Joisted Masonry, Non-Combustible, Masonry Non-Combustible, Modified Fire Resistive, Fire Resistive. Labels vary: 'Construction', 'Bldg Type', 'Construction Class'."
+            },
+            "Occupancy": {
+              "type": "string",
+              "method": "generate",
+              "description": "ISO occupancy class only -- a SHORT one- or two-word category. Pick from: Warehouse, Manufacturing, Cold Storage, Retail, Hotel, Restaurant, Office, Marine/Boatyard, Food Processing, Apartment, Habitational, Other. Do NOT include detailed operations text, business names, or full sentences here -- those belong in OperationsDescription."
+            },
+            "OperationsDescription": {
+              "type": "string",
+              "method": "generate",
+              "description": "FULL free-text description of operations at this location, captured VERBATIM. Always return the COMPLETE phrase, never a trailing fragment. If the source cell contains an occupancy class followed by a separator (em-dash, hyphen, slash, colon, parentheses) and then a description, return ONLY the description part -- the occupancy class belongs in the Occupancy field, not here. May include hazard signals like 'firearms range', 'shooting', 'plating', 'chemical processing'."
+            },
+            "YearBuilt": {
+              "type": "number",
+              "method": "generate",
+              "description": "Year the building was constructed."
+            },
+            "Stories": {
+              "type": "number",
+              "method": "generate",
+              "description": "Number of stories."
+            },
+            "SquareFootage": {
+              "type": "number",
+              "method": "generate",
+              "description": "Total square footage of the building. Labels include 'Sq Ft', 'SF', 'Square Footage', 'Area'."
+            },
+            "UnitCount": {
+              "type": "number",
+              "method": "generate",
+              "description": "Number of units (rooms, apartments) where applicable (hospitality / multi-family)."
+            },
+            "BuildingValue": {
+              "type": "number",
+              "method": "generate",
+              "description": "Replacement cost value of the building. Labels vary widely: 'Bldg Val', 'Building Value', 'Building $', 'RC Bldg', 'Building Replacement Cost'."
+            },
+            "BPPValue": {
+              "type": "number",
+              "method": "generate",
+              "description": "Business Personal Property / Contents value at the location. Labels include 'BPP', 'Contents', 'Personal Property'."
+            },
+            "BIEEValue": {
+              "type": "number",
+              "method": "generate",
+              "description": "Business Income / Extra Expense value. Labels include 'BI', 'BI/EE', 'Business Income', 'Extra Expense'."
+            },
+            "Sprinklered": {
+              "type": "string",
+              "method": "classify",
+              "description": "Whether the building is sprinklered. Map any of 'Yes', 'Y', 'true', 'sprinklered', a checked box, etc. to 'Yes'; 'No', 'N', 'false', or 'unsprinklered' to 'No'.",
+              "enum": [
+                "Yes",
+                "No"
+              ]
+            },
+            "ProtectionClass": {
+              "type": "number",
+              "method": "generate",
+              "description": "ISO Protection Class (PPC) integer 1-10, if shown."
+            },
+            "RoofYear": {
+              "type": "number",
+              "method": "generate",
+              "description": "Year of last roof update / replacement, if shown."
+            },
+            "FloodZone": {
+              "type": "string",
+              "method": "generate",
+              "description": "FEMA flood zone designation (e.g., 'X', 'AE', 'VE')."
+            },
+            "DistanceToCoastMiles": {
+              "type": "number",
+              "method": "generate",
+              "description": "Distance to nearest coastline in miles, if shown."
+            },
+            "Notes": {
+              "type": "string",
+              "method": "generate",
+              "description": "Any free-text notes, footnotes, margin annotations, or comments tied to this location row."
+            }
+          }
+        }
+      }
+    }
+  },
+  "models": {
+    "completion": "gpt-4.1",
+    "embedding": "text-embedding-3-large"
+  }
+}

@@ -1,0 +1,35 @@
+construction_type,occupancy_class,region,low_psf,typical_psf,high_psf
+Frame,Warehouse,Midwest,55,80,110
+Frame,Warehouse,Northeast,70,95,130
+Frame,Warehouse,South,55,78,108
+Frame,Warehouse,West,75,105,145
+Joisted Masonry,Warehouse,Midwest,65,90,120
+Joisted Masonry,Warehouse,Northeast,80,108,145
+Joisted Masonry,Warehouse,South,65,88,118
+Joisted Masonry,Warehouse,West,85,115,155
+Non-Combustible,Warehouse,Midwest,75,100,135
+Non-Combustible,Warehouse,Northeast,90,120,160
+Non-Combustible,Warehouse,South,75,98,130
+Non-Combustible,Warehouse,West,95,128,170
+Masonry Non-Combustible,Manufacturing,Midwest,110,150,200
+Masonry Non-Combustible,Manufacturing,Northeast,130,175,235
+Masonry Non-Combustible,Manufacturing,South,105,145,195
+Masonry Non-Combustible,Manufacturing,West,140,185,250
+Fire Resistive,Office,Midwest,180,240,320
+Fire Resistive,Office,Northeast,220,290,385
+Fire Resistive,Office,South,175,230,310
+Fire Resistive,Office,West,235,310,415
+Joisted Masonry,Retail,Midwest,90,125,170
+Joisted Masonry,Retail,Northeast,110,150,200
+Joisted Masonry,Retail,South,88,120,165
+Joisted Masonry,Retail,West,115,155,210
+Masonry Non-Combustible,Hotel,South,160,215,290
+Masonry Non-Combustible,Hotel,West,200,265,355
+Non-Combustible,Cold Storage,West,140,185,250
+Non-Combustible,Cold Storage,Northeast,150,200,270
+Frame,Restaurant,South,150,205,275
+Joisted Masonry,Restaurant,South,165,220,295
+Non-Combustible,Food Processing,Midwest,135,180,245
+Masonry Non-Combustible,Food Processing,Midwest,155,210,280
+Frame,Marine/Boatyard,South,75,105,145
+Joisted Masonry,Marine/Boatyard,South,90,125,170

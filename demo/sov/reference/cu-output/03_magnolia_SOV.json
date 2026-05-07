@@ -1,0 +1,1748 @@
+{
+  "analyzerId": "sovGenerateV1",
+  "apiVersion": "2025-11-01",
+  "createdAt": "2026-05-07T15:22:27Z",
+  "stringEncoding": "codePoint",
+  "warnings": [
+    {
+      "code": "LLMStats",
+      "message": "completion calls: 1; completion latency: 13.58s"
+    }
+  ],
+  "contents": [
+    {
+      "path": "input1",
+      "markdown": "# Summary\n\n| SOV SUMMARY \u2014 Magnolia Hospitality Group LLC | SOV SUMMARY \u2014 Magnolia Hospitality Group LLC | SOV SUMMARY \u2014 Magnolia Hospitality Group LLC | SOV SUMMARY \u2014 Magnolia Hospitality Group LLC | SOV SUMMARY \u2014 Magnolia Hospitality Group LLC | SOV SUMMARY \u2014 Magnolia Hospitality Group LLC |\n| - | - | - | - | - | - |\n\n| Named Insured | Magnolia Hospitality Group LLC | Magnolia Hospitality Group LLC | Magnolia Hospitality Group LLC | Magnolia Hospitality Group LLC | Magnolia Hospitality Group LLC |\n| - | - | - | - | - | - |\n| DBA | Magnolia Hotels & Restaurants | Magnolia Hotels & Restaurants | Magnolia Hotels & Restaurants | Magnolia Hotels & Restaurants | Magnolia Hotels & Restaurants |\n| Mailing Address | 200 Bourbon St, New Orleans, LA 70130 | 200 Bourbon St, New Orleans, LA 70130 | 200 Bourbon St, New Orleans, LA 70130 | 200 Bourbon St, New Orleans, LA 70130 | 200 Bourbon St, New Orleans, LA 70130 |\n| Effective Date | 2026-09-01 | 2026-09-01 | 2026-09-01 | 2026-09-01 | 2026-09-01 |\n| Currency | USD | USD | USD | USD | USD |\n| Valuation Date | 2026-05-15 | 2026-05-15 | 2026-05-15 | 2026-05-15 | 2026-05-15 |\n| Primary Operations | Owner and operator of boutique hotels and full-service restaurants across the Gulf Coast region. | Owner and operator of boutique hotels and full-service restaurants across the Gulf Coast region. | Owner and operator of boutique hotels and full-service restaurants across the Gulf Coast region. | Owner and operator of boutique hotels and full-service restaurants across the Gulf Coast region. | Owner and operator of boutique hotels and full-service restaurants across the Gulf Coast region. |\n| Total Insured Value | 510500000 | 510500000 | 510500000 | 510500000 | 510500000 |\n| Location Count | 15 | 15 | 15 | 15 | 15 |\n| Broker | Crescent Insurance Services | Crescent Insurance Services | Crescent Insurance Services | Crescent Insurance Services | Crescent Insurance Services |\n| Producer Contact | Marie Boudreaux | mboudreaux@crescentins.example.com | (504) 555-0167 | Marie Boudreaux | mboudreaux@crescentins.example.com | (504) 555-0167 | Marie Boudreaux | mboudreaux@crescentins.example.com | (504) 555-0167 | Marie Boudreaux | mboudreaux@crescentins.example.com | (504) 555-0167 | Marie Boudreaux | mboudreaux@crescentins.example.com | (504) 555-0167 |\n| Prepared By | Marie Boudreaux, CIC | Marie Boudreaux, CIC | Marie Boudreaux, CIC | Marie Boudreaux, CIC | Marie Boudreaux, CIC |\n| Prepared Date | 2026-05-10 | 2026-05-10 | 2026-05-10 | 2026-05-10 | 2026-05-10 |\n\n# Locations\n\n| Loc # | Property Name / Street | City | State | ZIP | County | Bldg Type | Use | Year | # Stories | # Units | Sq Ft | Building $ | Contents $ | Business Income $ | Sprinkler | Prot. Class | Roof Yr | Flood Zone | Dist Coast (mi) | Notes |\n| - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |\n| 1 | 200 Bourbon St | New Orleans | LA | 70130 |  | Masonry Non-Combustible | Hotel | 1925 | 4 | 120 | 65000 | 22400000 | 4800000 | 6200000 | Yes | 3 | 2019 | AE | 0.5 | Historic structure, post-Katrina retrofit |\n| 2 | 418 Royal St | New Orleans | LA | 70130 |  | Joisted Masonry | Restaurant | 1890 | 2 |  | 8500 | 4200000 | 1100000 | 1800000 | Yes | 3 | 2018 | AE | 0.5 |  |\n| 3 | 555 Magazine St | New Orleans | LA | 70130 |  | Joisted Masonry | Restaurant | 1905 | 2 |  | 12000 | 9800000 | 1400000 | 2200000 | Yes | 3 | 2020 | X | 1.2 | Recent renovation \u2014 verify replacement cost |\n| 4 | 1200 Decatur St | New Orleans | LA | 70116 |  | Masonry Non-Combustible | Hotel | 1998 | 6 | 155 | 88000 | 28600000 | 5400000 | 7100000 | Yes | 3 | 2017 | AE | 0.3 |  |\n| 5 | 100 Beachfront Dr | Gulfport | MS | 39507 |  | Masonry Non-Combustible | Hotel | 2010 | 5 | 180 | 110000 | 32400000 | 6200000 | 8800000 | Yes | 3 | 2018 | VE | 0.05 | Post-Katrina rebuild |\n| 6 | 850 Casino Way | Biloxi | MS | 39530 |  | Masonry Non-Combustible | Hotel | 2008 | 8 | 220 | 145000 | 41200000 | 7800000 | 11400000 | Yes | 3 | 2019 | VE | 0.1 |  |\n| 7 | 1500 Beach Blvd | Pensacola | FL | 32507 |  | Masonry Non-Combustible | Hotel | 2005 | 4 | 140 | 95000 | 24800000 | 4600000 | 6400000 | Yes | 4 | 2016 | VE | 0.08 |  |\n| 8 | 200 Pier Dr | Destin | FL | 32541 |  | Masonry Non-Combustible | Hotel | 2012 | 4 | 115 | 78000 | 21600000 | 4100000 | 5800000 | Yes | 4 | 2020 | VE | 0.02 |  |\n| 9 | 440 Gulfshore Pkwy | Naples | FL | 34102 |  | Fire Resistive | Hotel | 2018 | 7 | 200 | 125000 | 48400000 | 9200000 | 13200000 | Yes | 3 | 2021 | VE | 0.1 |  |\n| 10 | 1100 Beach Rd | Sarasota | FL | 34242 |  | Masonry Non-Combustible | Hotel | 2006 | 3 | 90 | 62000 | 18200000 | 3400000 | 4800000 | Yes | 4 | 2017 | VE | 0.5 |  |\n| 11 | 300 Ocean Dr | Miami Beach | FL | 33139 |  | Fire Resistive | Hotel | 1937 | 5 | 105 | 72000 | 26400000 | 5100000 | 7400000 | Yes | 3 | 2015 | AE | 0.05 | Historic landmark |\n| 12 | 850 Restaurant Row | Miami | FL | 33132 |  | Joisted Masonry | Restaurant | 1995 | 1 |  | 9500 | 3800000 | 900000 | 1500000 | Yes | 3 | 2019 | X | 0.8 |  |\n| 13 | 75 Inland Ave | Atlanta | GA | 30308 |  | Fire Resistive | Hotel | 2014 | 12 | 240 | 180000 | 52800000 | 9800000 | 14200000 | Yes | 3 | 2021 | X |  |  |\n| 14 | 200 Peachtree Way | Atlanta | GA | 30309 |  | Joisted Masonry | Restaurant | 2008 | 2 |  | 11000 | 4400000 | 1100000 | 1700000 | Yes | 3 | 2020 | X |  |  |\n| 15 | 1450 Mountain View Dr | Asheville | NC | 28804 |  | Joisted Masonry | Hotel | 1925 | 3 | 56 | 38000 | 9800000 | 1900000 | 2400000 | Yes | 5 | 2018 | X |  | Historic property |\n\n# CAT Exposure\n\n| CAT EXPOSURE SUMMARY | CAT EXPOSURE SUMMARY | CAT EXPOSURE SUMMARY | CAT EXPOSURE SUMMARY | CAT EXPOSURE SUMMARY |\n| - | - | - | - | - |\n\n| Loc # | City, State | Peril Flags | Flood Zone | TIV |\n| - | - | - | - | - |\n| 1 | New Orleans, LA | hurricane, named_storm, flood | AE | 33400000 |\n| 2 | New Orleans, LA | hurricane, named_storm, flood | AE | 7100000 |\n| 3 | New Orleans, LA | hurricane, named_storm | X | 13400000 |\n| 4 | New Orleans, LA | hurricane, named_storm, flood | AE | 41100000 |\n| 5 | Gulfport, MS | hurricane, named_storm, storm_surge, wind_tier_1 | VE | 47400000 |\n| 6 | Biloxi, MS | hurricane, named_storm, storm_surge, wind_tier_1 | VE | 60400000 |\n| 7 | Pensacola, FL | hurricane, named_storm, storm_surge, wind_tier_1 | VE | 35800000 |\n| 8 | Destin, FL | hurricane, named_storm, storm_surge, wind_tier_1 | VE | 31500000 |\n| 9 | Naples, FL | hurricane, named_storm, storm_surge, wind_tier_1 | VE | 70800000 |\n| 10 | Sarasota, FL | hurricane, named_storm, wind_tier_1 | VE | 26400000 |\n| 11 | Miami Beach, FL | hurricane, named_storm, storm_surge, wind_tier_1 | AE | 38900000 |\n| 12 | Miami, FL | hurricane, named_storm | X | 6200000 |\n\n# Notes\n\n| Broker Notes & Annotations | Broker Notes & Annotations | Broker Notes & Annotations | Broker Notes & Annotations |\n| - | - | - | - |\n\n| 1. Significant Gulf Coast hurricane exposure across LA, MS, FL locations. Recommend named-storm sublimit review at quote. 2. Location 3 (555 Magazine St) recently renovated \u2014 please verify replacement cost basis. 3. All FL coastal locations carry wind tier 1 designation; storm-surge values per 2024 ARA model. 4. Historic structures at locations 1, 11, and 15 \u2014 limited retrofit options. |\n| - |\n",
+      "fields": {
+        "InsuredName": {
+          "type": "string",
+          "valueString": "Magnolia Hospitality Group LLC",
+          "confidence": 1
+        },
+        "DBA": {
+          "type": "string",
+          "valueString": "Magnolia Hotels & Restaurants",
+          "confidence": 1
+        },
+        "MailingAddress": {
+          "type": "string",
+          "valueString": "200 Bourbon St, New Orleans, LA 70130",
+          "confidence": 1
+        },
+        "EffectiveDate": {
+          "type": "date",
+          "valueDate": "2026-09-01",
+          "confidence": 1
+        },
+        "ExpirationDate": {
+          "type": "date"
+        },
+        "PrimaryOperations": {
+          "type": "string",
+          "valueString": "Owner and operator of boutique hotels and full-service restaurants across the Gulf Coast region.",
+          "confidence": 1
+        },
+        "NAICS": {
+          "type": "string"
+        },
+        "Currency": {
+          "type": "string",
+          "valueString": "USD",
+          "confidence": 1
+        },
+        "ValuationDate": {
+          "type": "date",
+          "valueDate": "2026-05-15",
+          "confidence": 1
+        },
+        "TotalInsuredValue": {
+          "type": "number",
+          "valueNumber": 510500000,
+          "confidence": 1
+        },
+        "LocationCount": {
+          "type": "number",
+          "valueNumber": 15,
+          "confidence": 1
+        },
+        "BrokerName": {
+          "type": "string",
+          "valueString": "Crescent Insurance Services",
+          "confidence": 1
+        },
+        "BrokerContact": {
+          "type": "string",
+          "valueString": "Marie Boudreaux",
+          "confidence": 1
+        },
+        "BrokerEmail": {
+          "type": "string",
+          "valueString": "mboudreaux@crescentins.example.com",
+          "confidence": 1
+        },
+        "BrokerPhone": {
+          "type": "string",
+          "valueString": "(504) 555-0167",
+          "confidence": 1
+        },
+        "PreparedBy": {
+          "type": "string",
+          "valueString": "Marie Boudreaux, CIC",
+          "confidence": 1
+        },
+        "PreparedDate": {
+          "type": "date",
+          "valueDate": "2026-05-10",
+          "confidence": 1
+        },
+        "Locations": {
+          "type": "array",
+          "valueArray": [
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 1,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "200 Bourbon St",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "New Orleans",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "LA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "70130",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Masonry Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1925,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 65000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 120,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 22400000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 4800000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 6200000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2019,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "AE",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.5,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string",
+                  "valueString": "Historic structure, post-Katrina retrofit",
+                  "confidence": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 2,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "418 Royal St",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "New Orleans",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "LA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "70130",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Restaurant",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1890,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 2,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 8500,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 4200000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1100000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2018,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "AE",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.5,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "555 Magazine St",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "New Orleans",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "LA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "70130",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Restaurant",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1905,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 2,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 12000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 9800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1400000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 2200000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2020,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "X",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 1.2,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string",
+                  "valueString": "Recent renovation \u2014 verify replacement cost",
+                  "confidence": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1200 Decatur St",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "New Orleans",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "LA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "70116",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Masonry Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1998,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 6,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 88000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 155,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 28600000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 5400000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 7100000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2017,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "AE",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.3,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 5,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "100 Beachfront Dr",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Gulfport",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "MS",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "39507",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Masonry Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2010,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 5,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 110000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 180,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 32400000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 6200000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 8800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2018,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "VE",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.05,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string",
+                  "valueString": "Post-Katrina rebuild",
+                  "confidence": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 6,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "850 Casino Way",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Biloxi",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "MS",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "39530",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Masonry Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2008,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 8,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 145000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 220,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 41200000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 7800000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 11400000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2019,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "VE",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.1,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 7,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1500 Beach Blvd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Pensacola",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "FL",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "32507",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Masonry Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2005,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 95000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 140,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 24800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 4600000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 6400000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2016,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "VE",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.08,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 8,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "200 Pier Dr",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Destin",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "FL",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "32541",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Masonry Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2012,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 78000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 115,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 21600000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 4100000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 5800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2020,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "VE",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.02,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 9,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "440 Gulfshore Pkwy",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Naples",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "FL",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "34102",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Fire Resistive",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2018,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 7,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 125000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 200,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 48400000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 9200000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 13200000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2021,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "VE",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.1,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 10,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1100 Beach Rd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Sarasota",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "FL",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "34242",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Masonry Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2006,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 62000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 90,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 18200000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 3400000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 4800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2017,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "VE",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.5,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 11,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "300 Ocean Dr",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Miami Beach",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "FL",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "33139",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Fire Resistive",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1937,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 5,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 72000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 105,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 26400000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 5100000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 7400000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2015,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "AE",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.05,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string",
+                  "valueString": "Historic landmark",
+                  "confidence": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 12,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "850 Restaurant Row",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Miami",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "FL",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "33132",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Restaurant",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1995,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 1,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 9500,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 3800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 900000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1500000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2019,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "X",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "valueNumber": 0.8,
+                  "confidence": 1
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 13,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "75 Inland Ave",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Atlanta",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "GA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "30308",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Fire Resistive",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2014,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 12,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 180000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 240,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 52800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 9800000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 14200000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2021,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "X",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 14,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "200 Peachtree Way",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Atlanta",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "GA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "30309",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Restaurant",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2008,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 2,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 11000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 4400000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1100000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1700000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2020,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "X",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 15,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1450 Mountain View Dr",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Asheville",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "NC",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "28804",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Hotel",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1925,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 38000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "valueNumber": 56,
+                  "confidence": 1
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 9800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1900000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 2400000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 5,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "valueNumber": 2018,
+                  "confidence": 1
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "valueString": "X",
+                  "confidence": 1
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string",
+                  "valueString": "Historic property",
+                  "confidence": 1
+                }
+              }
+            }
+          ]
+        }
+      },
+      "kind": "document",
+      "startPageNumber": 1,
+      "endPageNumber": 1,
+      "analyzerId": "sovGenerateV1",
+      "mimeType": "application/zip"
+    }
+  ],
+  "_meta": {
+    "source_file": "03_magnolia_SOV.xlsx",
+    "approach": "standard-generate",
+    "analyzer_id": "sovGenerateV1",
+    "elapsed_sec": 19.18
+  }
+}

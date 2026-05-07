@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Normalized SOV Submission",
+  "description": "Canonical schema all broker SOV templates normalize to for CL & Specialty property underwriting.",
+  "type": "object",
+  "required": ["account", "locations"],
+  "properties": {
+    "account": {
+      "type": "object",
+      "description": "Account-level / submission-level fields, typically extracted from the SOV header block and the broker submission email.",
+      "properties": {
+        "insured_name":              { "type": "string" },
+        "dba":                       { "type": ["string", "null"] },
+        "mailing_address":           { "type": "string" },
+        "effective_date":            { "type": "string", "format": "date" },
+        "expiration_date":           { "type": ["string", "null"], "format": "date" },
+        "primary_operations":        { "type": "string", "description": "Free-text business description used to derive GL class code." },
+        "naics":                     { "type": ["string", "null"] },
+        "sic":                       { "type": ["string", "null"] },
+        "currency":                  { "type": "string", "default": "USD" },
+        "valuation_date":            { "type": ["string", "null"], "format": "date" },
+        "total_insured_value":       { "type": "number" },
+        "location_count":            { "type": "integer" },
+        "broker_name":               { "type": "string" },
+        "broker_contact":            { "type": ["string", "null"] },
+        "broker_email":              { "type": ["string", "null"], "format": "email" },
+        "broker_phone":              { "type": ["string", "null"] },
+        "prepared_by":               { "type": ["string", "null"] },
+        "prepared_date":             { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "locations": {
+      "type": "array",
+      "description": "Repeating location/building rows extracted from the SOV schedule.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "location_number":         { "type": ["integer", "string"] },
+          "building_number":         { "type": ["integer", "string", "null"] },
+          "street":                  { "type": "string" },
+          "city":                    { "type": "string" },
+          "state":                   { "type": "string", "description": "Two-letter US state code." },
+          "zip":                     { "type": ["string", "null"] },
+          "county":                  { "type": ["string", "null"] },
+          "construction_type":       { "type": ["string", "null"], "enum": [null, "Frame", "Joisted Masonry", "Non-Combustible", "Masonry Non-Combustible", "Modified Fire Resistive", "Fire Resistive"] },
+          "occupancy":               { "type": ["string", "null"] },
+          "operations_description":  { "type": ["string", "null"] },
+          "year_built":              { "type": ["integer", "null"] },
+          "stories":                 { "type": ["integer", "null"] },
+          "square_footage":          { "type": ["integer", "null"] },
+          "unit_count":              { "type": ["integer", "null"] },
+          "building_value":          { "type": ["number", "null"] },
+          "bpp_value":               { "type": ["number", "null"], "description": "Business Personal Property value." },
+          "bi_ee_value":             { "type": ["number", "null"], "description": "Business Income / Extra Expense value." },
+          "tiv_location":            { "type": ["number", "null"] },
+          "sprinklered":             { "type": ["boolean", "null"] },
+          "protection_class":        { "type": ["integer", "null"] },
+          "roof_year":               { "type": ["integer", "null"] },
+          "flood_zone":              { "type": ["string", "null"] },
+          "distance_to_coast_mi":    { "type": ["number", "null"] },
+          "cat_zone_flags":          { "type": "array", "items": { "type": "string" } },
+          "notes":                   { "type": ["string", "null"] }
+        }
+      }
+    },
+    "derived_flags": {
+      "type": "object",
+      "description": "Inferred / post-processed flags produced by validation and reasoning over the SOV.",
+      "properties": {
+        "in_appetite":               { "type": "boolean" },
+        "shooting_involved":         { "type": "boolean", "description": "True if any location involves firearms/indoor range/shooting operations." },
+        "high_hazard_present":       { "type": "boolean" },
+        "gl_class_codes":            { "type": "array", "items": { "type": "string" } },
+        "data_quality_issues":       {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "location_number": { "type": ["integer", "string", "null"] },
+              "field":           { "type": "string" },
+              "issue":           { "type": "string", "enum": ["missing", "flat_duplicate", "under_valuation", "over_valuation", "label_inconsistency", "address_quality", "currency_mismatch", "annotation"] },
+              "severity":        { "type": "string", "enum": ["info", "warning", "critical"] },
+              "detail":          { "type": "string" }
+            }
+          }
+        },
+        "cat_concentration": {
+          "type": "array",
+          "description": "Geographic CAT clustering detected.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "peril":              { "type": "string" },
+              "region":             { "type": "string" },
+              "location_count":     { "type": "integer" },
+              "tiv_in_region":      { "type": "number" },
+              "pct_of_total_tiv":   { "type": "number" }
+            }
+          }
+        },
+        "top_risk_locations": {
+          "type": "array",
+          "description": "Ranked top locations by composite risk score (0-100).",
+          "items": {
+            "type": "object",
+            "properties": {
+              "location_number": { "type": ["integer", "string"] },
+              "risk_score":      { "type": "number" },
+              "drivers":         { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    }
+  }
+}

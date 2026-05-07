@@ -1,0 +1,881 @@
+{
+  "analyzerId": "sovGenerateV1",
+  "apiVersion": "2025-11-01",
+  "createdAt": "2026-05-07T15:22:14Z",
+  "stringEncoding": "codePoint",
+  "warnings": [
+    {
+      "code": "LLMStats",
+      "message": "completion calls: 1; completion latency: 7.43s"
+    }
+  ],
+  "contents": [
+    {
+      "path": "input1",
+      "markdown": "# SOV\n\n| Loc # | Address | City | State | ZIP | Construction | Occupancy | Year Built | Square Footage | Building Value | BPP | BI | Sprinklered | Protection Class |\n| - | - | - | - | - | - | - | - | - | - | - | - | - | - |\n| 1 | 1500 Marine View Dr | Tacoma | WA | 98422 | Non-Combustible | Cold Storage | 2012 | 145000 | 22400000 | 3200000 | 1800000 | Yes | 3 |\n| 2 | 2200 Port Way | Seattle | WA | 98134 | Non-Combustible | Cold Storage | 2008 | 98000 | 16100000 | 2100000 | 1100000 | Yes | 3 |\n| 3 | 850 Commerce Blvd | Portland | OR | 97218 | Non-Combustible | Cold Storage | 2015 | 120000 | 19800000 | 2700000 | 1400000 | Yes | 3 |\n| 4 | 4400 Industrial Dr | Salem | OR | 97301 | Non-Combustible | Cold Storage | 2018 | 72000 | 14200000 | 1900000 | 1000000 | Yes | 4 |\n| 5 | 1200 Bayshore Way | Oakland | CA | 94607 | Non-Combustible | Cold Storage | 2005 | 80000 | 200000 | 1200000 | 800000 | Yes | 3 |\n| 6 | 300 Harbor Industrial Way | Long Beach | CA | 90802 | Non-Combustible | Cold Storage | 2010 | 95000 | 17600000 | 2300000 | 1200000 | Yes | 3 |\n| 7 | 750 Distribution Ct | Sacramento | CA | 95828 | Non-Combustible | Cold Storage | 2014 | 105000 | 18400000 | 2500000 | 1300000 | Yes | 4 |\n| 8 | 2100 Cold Spring Ln | Reno | NV | 89506 | Non-Combustible | Cold Storage | 2017 | 68000 | 12800000 | 1700000 | 900000 | Yes | 4 |\n",
+      "fields": {
+        "InsuredName": {
+          "type": "string"
+        },
+        "DBA": {
+          "type": "string"
+        },
+        "MailingAddress": {
+          "type": "string"
+        },
+        "EffectiveDate": {
+          "type": "date"
+        },
+        "ExpirationDate": {
+          "type": "date"
+        },
+        "PrimaryOperations": {
+          "type": "string"
+        },
+        "NAICS": {
+          "type": "string"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "ValuationDate": {
+          "type": "date"
+        },
+        "TotalInsuredValue": {
+          "type": "number"
+        },
+        "LocationCount": {
+          "type": "number",
+          "valueNumber": 8,
+          "confidence": 1
+        },
+        "BrokerName": {
+          "type": "string"
+        },
+        "BrokerContact": {
+          "type": "string"
+        },
+        "BrokerEmail": {
+          "type": "string"
+        },
+        "BrokerPhone": {
+          "type": "string"
+        },
+        "PreparedBy": {
+          "type": "string"
+        },
+        "PreparedDate": {
+          "type": "date"
+        },
+        "Locations": {
+          "type": "array",
+          "valueArray": [
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 1,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1500 Marine View Dr",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Tacoma",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "WA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "98422",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Cold Storage",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2012,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 145000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 22400000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 3200000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 2,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "2200 Port Way",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Seattle",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "WA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "98134",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Cold Storage",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2008,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 98000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 16100000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 2100000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1100000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "850 Commerce Blvd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Portland",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "OR",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "97218",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Cold Storage",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2015,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 120000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 19800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 2700000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1400000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "4400 Industrial Dr",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Salem",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "OR",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "97301",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Cold Storage",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2018,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 72000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 14200000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1900000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1000000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 5,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1200 Bayshore Way",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Oakland",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "CA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "94607",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Cold Storage",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2005,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 80000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 200000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1200000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 6,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "300 Harbor Industrial Way",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Long Beach",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "CA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "90802",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Cold Storage",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2010,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 95000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 17600000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 2300000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1200000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 7,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "750 Distribution Ct",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Sacramento",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "CA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "95828",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Cold Storage",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2014,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 105000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 18400000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 2500000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1300000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 8,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "2100 Cold Spring Ln",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Reno",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "NV",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "89506",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Cold Storage",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string"
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2017,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 68000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 12800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1700000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 900000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "valueString": "Yes",
+                  "confidence": 1
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "kind": "document",
+      "startPageNumber": 1,
+      "endPageNumber": 1,
+      "analyzerId": "sovGenerateV1",
+      "mimeType": "application/zip"
+    }
+  ],
+  "_meta": {
+    "source_file": "02_cascade_SOV.xlsx",
+    "approach": "standard-generate",
+    "analyzer_id": "sovGenerateV1",
+    "elapsed_sec": 12.83
+  }
+}

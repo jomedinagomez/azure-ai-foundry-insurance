@@ -1,0 +1,2421 @@
+{
+  "analyzerId": "sovGenerateV1",
+  "apiVersion": "2025-11-01",
+  "createdAt": "2026-05-07T15:21:41Z",
+  "stringEncoding": "codePoint",
+  "warnings": [
+    {
+      "code": "LLMStats",
+      "message": "completion calls: 1; completion latency: 18.75s"
+    }
+  ],
+  "contents": [
+    {
+      "path": "input1",
+      "markdown": "# SOV\n\n| STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. | STATEMENT OF VALUES \u2014 Acme Manufacturing & Distribution, Inc. |\n| - | - | - | - | - | - | - | - | - | - | - | - | - | - |\n\n| Named Insured | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. | Acme Manufacturing & Distribution, Inc. |\n| - | - | - | - | - | - | - | - | - | - | - | - | - | - |\n| DBA | Acme Industrial | Acme Industrial | Acme Industrial | Acme Industrial | Acme Industrial | Acme Industrial | Acme Industrial | Acme Industrial | Acme Industrial | Acme Industrial | Acme Industrial | Acme Industrial | Acme Industrial |\n| Mailing Address | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 | 4500 Industrial Pkwy, Cleveland, OH 44109 |\n| Effective Date | 2026-07-01 | 2026-07-01 | 2026-07-01 | 2026-07-01 | 2026-07-01 | 2026-07-01 | 2026-07-01 | 2026-07-01 | 2026-07-01 | 2026-07-01 | 2026-07-01 | 2026-07-01 | 2026-07-01 |\n| Policy Period | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 | 2026-07-01 to 2027-07-01 |\n| Currency | USD | USD | USD | USD | USD | USD | USD | USD | USD | USD | USD | USD | USD |\n| Valuation Date | 2026-04-30 | 2026-04-30 | 2026-04-30 | 2026-04-30 | 2026-04-30 | 2026-04-30 | 2026-04-30 | 2026-04-30 | 2026-04-30 | 2026-04-30 | 2026-04-30 | 2026-04-30 | 2026-04-30 |\n| Primary Operations | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. | Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels. |\n| NAICS | 332722 | 332722 | 332722 | 332722 | 332722 | 332722 | 332722 | 332722 | 332722 | 332722 | 332722 | 332722 | 332722 |\n| Total Insured Value | $370,100,000 | $370,100,000 | $370,100,000 | $370,100,000 | $370,100,000 | $370,100,000 | $370,100,000 | $370,100,000 | $370,100,000 | $370,100,000 | $370,100,000 | $370,100,000 | $370,100,000 |\n| Number of Locations | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) | 22 (+3 see embedded image below) |\n| Broker | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners | Sterling Risk Partners |\n| Producer Contact | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 | Jennifer Walsh | jwalsh@sterlingrisk.example.com | (216) 555-0142 |\n| Prepared By / Date | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 | Jennifer Walsh, CPCU \u2014 2026-05-02 |\n\n| SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS | SCHEDULE OF LOCATIONS |\n| - | - | - | - | - | - | - | - | - | - | - | - | - | - |\n\n| Loc # | Building # | Street Address | City | State | ZIP | Construction | Occupancy / Operations | Year Built | Sq Ft | Bldg Value | BPP Value | BI/EE Value | Notes | Internal |\n| - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |\n| 1 |  | 4500 Industrial Pkwy | Cleveland | OH | 44109 | Masonry Non-Combustible | Manufacturing \u2014 Fastener manufacturing \u2014 main plant | 1998 | 185000 | 28500000 | 12400000 | 8200000 | Headquarters / primary manufacturing | lookup_key_1 |\n| 2 |  | 812 Foundry Rd | Akron | OH | 44307 | Masonry Non-Combustible | Manufacturing \u2014 Heat treatment and finishing operations | 1985 | 92000 | 14200000 | 6100000 | 3800000 |  | lookup_key_2 |\n| 3 |  | 1200 Distribution Ct | Columbus | OH | 43219 | Non-Combustible | Warehouse \u2014 Regional distribution center | 2008 | 240000 | 21800000 | 4200000 | 2100000 |  | lookup_key_3 |\n| 4 |  | 55 Logistics Way | Indianapolis | IN | 46241 |  | Warehouse \u2014 Cross-dock and storage | 2012 | 165000 | 14500000 | 2800000 | 1400000 | Construction details pending broker confirmation | lookup_key_4 |\n| 5 |  | 3300 Commerce Dr | Louisville | KY | 40213 | Non-Combustible | Warehouse \u2014 Distribution and light assembly | 2005 | 180000 | 16200000 | 3100000 | 1600000 |  | lookup_key_5 |\n| 6 |  | 1450 Production Blvd | Pittsburgh | PA | 15233 | Joisted Masonry | Manufacturing \u2014 Specialty fastener machining | 1972 | 78000 | 9800000 | 4400000 | 2200000 |  | lookup_key_6 |\n| 7 |  | 920 Industrial Ave | Buffalo | NY | 14206 | Joisted Masonry | Manufacturing \u2014 Coating and plating operations |  | 62000 | 7400000 | 3200000 | 1500000 |  | lookup_key_7 |\n| 8 |  | 2200 Warehouse Row | Detroit | MI | 48211 | Non-Combustible | Warehouse \u2014 Bulk storage | 2001 | 155000 | 11900000 | 1800000 | 900000 |  | lookup_key_8 |\n| 9 |  | 780 Manufacturing Ln | Toledo | OH | 43605 | Masonry Non-Combustible | Manufacturing \u2014 Secondary manufacturing line | 1995 | 88000 | 12100000 | 5200000 | 2800000 |  | lookup_key_9 |\n| 10 |  | 4100 Logistics Pkwy | Chicago | IL | 60638 | Non-Combustible | Warehouse \u2014 Midwest hub distribution | 2010 | 220000 | 19400000 | 3600000 | 1800000 |  | lookup_key_10 |\n| 11 |  | 501 Industrial Park Rd | Cincinnati | OH | 45232 | Joisted Masonry | Warehouse \u2014 Satellite distribution | 2000 | 62000 | 5000000 | 900000 | 500000 |  | lookup_key_11 |\n| 12 |  | 775 Industrial Park Rd | Cincinnati | OH | 45232 | Joisted Masonry | Warehouse \u2014 Satellite distribution | 2000 | 64000 | 5000000 | 900000 | 500000 |  | lookup_key_12 |\n| 13 |  | 910 Industrial Park Rd | Cincinnati | OH | 45232 | Joisted Masonry | Warehouse \u2014 Satellite distribution | 2001 | 61000 | 5000000 | 900000 | 500000 |  | lookup_key_13 |\n| 14 |  | 1140 Industrial Park Rd | Cincinnati | OH | 45232 | Joisted Masonry | Warehouse \u2014 Satellite distribution | 2002 | 63000 | 5000000 | 900000 | 500000 |  | lookup_key_14 |\n| 15 |  | 650 Commerce St | St. Louis | MO | 63110 | Non-Combustible | Warehouse \u2014 Regional storage | 2007 | 140000 | 10200000 | 1900000 | 1000000 |  | lookup_key_15 |\n| 16 |  | 8800 Trade Center Dr | Memphis | TN | 38132 | Non-Combustible | Warehouse \u2014 Southern distribution hub | 2014 | 280000 | 24500000 | 4800000 | 2400000 |  | lookup_key_16 |\n| 17 |  | 2500 Industrial Dr | Nashville | TN | 37210 | Joisted Masonry | Warehouse \u2014 Regional distribution | 1990 | 95000 | 7800000 | 1500000 | 800000 |  | lookup_key_17 |\n| 18 |  | 1850 Old Mill Rd | Birmingham | AL | 35211 | Frame | Warehouse \u2014 Legacy storage facility | 1968 | 85000 | 850000 | 200000 | 100000 | Acquired 2024 \u2014 values pending appraisal | lookup_key_18 |\n| 19 |  | 445 Distribution Way | Atlanta | GA | 30336 | Non-Combustible | Warehouse \u2014 Southeast distribution | 2009 | 175000 | 15800000 | 2900000 | 1500000 |  | lookup_key_19 |\n\n| GRAND TOTAL |\n| - |\n\n| 2490000 | 234950000 | 61700000 | 34100000 |\n| - | - | - | - |\n\n| ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): | ADDITIONAL LOCATIONS (image \u2014 added late in cycle): |\n| - | - | - | - | - | - | - | - | - | - | - | - | - | - |\n",
+      "fields": {
+        "InsuredName": {
+          "type": "string",
+          "valueString": "Acme Manufacturing & Distribution, Inc.",
+          "confidence": 1
+        },
+        "DBA": {
+          "type": "string",
+          "valueString": "Acme Industrial",
+          "confidence": 1
+        },
+        "MailingAddress": {
+          "type": "string",
+          "valueString": "4500 Industrial Pkwy, Cleveland, OH 44109",
+          "confidence": 1
+        },
+        "EffectiveDate": {
+          "type": "date",
+          "valueDate": "2026-07-01",
+          "confidence": 1
+        },
+        "ExpirationDate": {
+          "type": "date",
+          "valueDate": "2027-07-01",
+          "confidence": 1
+        },
+        "PrimaryOperations": {
+          "type": "string",
+          "valueString": "Manufacturing of industrial fasteners and distribution of fastening hardware to commercial and retail channels.",
+          "confidence": 1
+        },
+        "NAICS": {
+          "type": "string",
+          "valueString": "332722",
+          "confidence": 1
+        },
+        "Currency": {
+          "type": "string",
+          "valueString": "USD",
+          "confidence": 1
+        },
+        "ValuationDate": {
+          "type": "date",
+          "valueDate": "2026-04-30",
+          "confidence": 1
+        },
+        "TotalInsuredValue": {
+          "type": "number",
+          "valueNumber": 370100000,
+          "confidence": 1
+        },
+        "LocationCount": {
+          "type": "number",
+          "valueNumber": 22,
+          "confidence": 1
+        },
+        "BrokerName": {
+          "type": "string",
+          "valueString": "Sterling Risk Partners",
+          "confidence": 1
+        },
+        "BrokerContact": {
+          "type": "string",
+          "valueString": "Jennifer Walsh",
+          "confidence": 1
+        },
+        "BrokerEmail": {
+          "type": "string",
+          "valueString": "jwalsh@sterlingrisk.example.com",
+          "confidence": 1
+        },
+        "BrokerPhone": {
+          "type": "string",
+          "valueString": "(216) 555-0142",
+          "confidence": 1
+        },
+        "PreparedBy": {
+          "type": "string",
+          "valueString": "Jennifer Walsh, CPCU",
+          "confidence": 1
+        },
+        "PreparedDate": {
+          "type": "date",
+          "valueDate": "2026-05-02",
+          "confidence": 1
+        },
+        "Locations": {
+          "type": "array",
+          "valueArray": [
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 1,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "4500 Industrial Pkwy",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Cleveland",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "OH",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "44109",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Masonry Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Manufacturing",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Fastener manufacturing \u2014 main plant",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1998,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 185000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 28500000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 12400000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 8200000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string",
+                  "valueString": "Headquarters / primary manufacturing",
+                  "confidence": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 2,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "812 Foundry Rd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Akron",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "OH",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "44307",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Masonry Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Manufacturing",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Heat treatment and finishing operations",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1985,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 92000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 14200000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 6100000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 3800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1200 Distribution Ct",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Columbus",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "OH",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "43219",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Regional distribution center",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2008,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 240000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 21800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 4200000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 2100000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "55 Logistics Way",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Indianapolis",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "IN",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "46241",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string"
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Cross-dock and storage",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2012,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 165000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 14500000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 2800000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1400000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string",
+                  "valueString": "Construction details pending broker confirmation",
+                  "confidence": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 5,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "3300 Commerce Dr",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Louisville",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "KY",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "40213",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Distribution and light assembly",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2005,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 180000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 16200000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 3100000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1600000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 6,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1450 Production Blvd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Pittsburgh",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "PA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "15233",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Manufacturing",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Specialty fastener machining",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1972,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 78000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 9800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 4400000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 2200000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 7,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "920 Industrial Ave",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Buffalo",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "NY",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "14206",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Manufacturing",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Coating and plating operations",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number"
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 62000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 7400000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 3200000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1500000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 8,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "2200 Warehouse Row",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Detroit",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "MI",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "48211",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Bulk storage",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2001,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 155000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 11900000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1800000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 900000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 9,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "780 Manufacturing Ln",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Toledo",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "OH",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "43605",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Masonry Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Manufacturing",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Secondary manufacturing line",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1995,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 88000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 12100000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 5200000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 2800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 10,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "4100 Logistics Pkwy",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Chicago",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "IL",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "60638",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Midwest hub distribution",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2010,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 220000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 19400000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 3600000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 11,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "501 Industrial Park Rd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Cincinnati",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "OH",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "45232",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Satellite distribution",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2000,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 62000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 5000000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 900000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 500000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 12,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "775 Industrial Park Rd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Cincinnati",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "OH",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "45232",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Satellite distribution",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2000,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 64000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 5000000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 900000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 500000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 13,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "910 Industrial Park Rd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Cincinnati",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "OH",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "45232",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Satellite distribution",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2001,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 61000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 5000000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 900000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 500000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 14,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1140 Industrial Park Rd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Cincinnati",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "OH",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "45232",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Satellite distribution",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2002,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 63000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 5000000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 900000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 500000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 15,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "650 Commerce St",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "St. Louis",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "MO",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "63110",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Regional storage",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2007,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 140000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 10200000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1900000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1000000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 16,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "8800 Trade Center Dr",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Memphis",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "TN",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "38132",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Southern distribution hub",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2014,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 280000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 24500000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 4800000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 2400000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 17,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "2500 Industrial Dr",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Nashville",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "TN",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "37210",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Regional distribution",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1990,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 95000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 7800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1500000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 18,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1850 Old Mill Rd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Birmingham",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "AL",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "35211",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Frame",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Legacy storage facility",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1968,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 85000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 850000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 200000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 100000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string",
+                  "valueString": "Acquired 2024 \u2014 values pending appraisal",
+                  "confidence": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 19,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "445 Distribution Way",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Atlanta",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "GA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "30336",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Warehouse",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Southeast distribution",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2009,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 175000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 15800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 2900000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1500000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 20,
+                  "spans": [
+                    {
+                      "offset": 185,
+                      "length": 2
+                    }
+                  ],
+                  "confidence": 0.652,
+                  "source": "D(1,12.0000,66.0000,27.0000,66.0000,27.0000,78.0000,12.0000,78.0000)"
+                },
+                "BuildingNumber": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "320 Industrial Way",
+                  "spans": [
+                    {
+                      "offset": 197,
+                      "length": 18
+                    }
+                  ],
+                  "confidence": 0.497,
+                  "source": "D(1,83.0000,66.0000,183.0000,66.0000,183.0000,80.0000,83.0000,80.0000)"
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Charlotte",
+                  "spans": [
+                    {
+                      "offset": 225,
+                      "length": 9
+                    }
+                  ],
+                  "confidence": 0.686,
+                  "source": "D(1,323.0000,66.0000,374.0000,66.0000,374.0000,79.0000,323.0000,79.0000)"
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "NC",
+                  "spans": [
+                    {
+                      "offset": 244,
+                      "length": 2
+                    }
+                  ],
+                  "confidence": 0.52,
+                  "source": "D(1,403.0000,66.0000,421.0000,66.0000,421.0000,78.0000,403.0000,78.0000)"
+                },
+                "Zip": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "Stories": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 11200000,
+                  "spans": [
+                    {
+                      "offset": 256,
+                      "length": 11
+                    }
+                  ],
+                  "confidence": 0.731,
+                  "source": "D(1,463.0000,65.0000,529.0000,65.0000,529.0000,80.0000,463.0000,80.0000)"
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 2100000,
+                  "spans": [
+                    {
+                      "offset": 277,
+                      "length": 10
+                    }
+                  ],
+                  "confidence": 0.679,
+                  "source": "D(1,593.0000,65.0000,653.0000,65.0000,653.0000,80.0000,593.0000,80.0000)"
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 1100000,
+                  "spans": [
+                    {
+                      "offset": 297,
+                      "length": 10
+                    }
+                  ],
+                  "confidence": 0.671,
+                  "source": "D(1,704.0000,65.0000,763.0000,65.0000,763.0000,80.0000,704.0000,80.0000)"
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "Notes": {
+                  "type": "string",
+                  "confidence": 0.788
+                }
+              },
+              "_source": "image[0]"
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 21,
+                  "spans": [
+                    {
+                      "offset": 328,
+                      "length": 2
+                    }
+                  ],
+                  "confidence": 0.652,
+                  "source": "D(1,12.0000,94.0000,26.0000,94.0000,26.0000,106.0000,12.0000,106.0000)"
+                },
+                "BuildingNumber": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1070 Logistics Cir",
+                  "spans": [
+                    {
+                      "offset": 340,
+                      "length": 18
+                    }
+                  ],
+                  "confidence": 0.467,
+                  "source": "D(1,84.0000,94.0000,177.0000,94.0000,177.0000,108.0000,84.0000,108.0000)"
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Greenville",
+                  "spans": [
+                    {
+                      "offset": 368,
+                      "length": 10
+                    }
+                  ],
+                  "confidence": 0.691,
+                  "source": "D(1,323.0000,94.0000,378.0000,95.0000,378.0000,107.0000,323.0000,107.0000)"
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "SC",
+                  "spans": [
+                    {
+                      "offset": 388,
+                      "length": 2
+                    }
+                  ],
+                  "confidence": 0.59,
+                  "source": "D(1,403.0000,94.0000,418.0000,94.0000,418.0000,106.0000,403.0000,106.0000)"
+                },
+                "Zip": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "Stories": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 9400000,
+                  "spans": [
+                    {
+                      "offset": 400,
+                      "length": 10
+                    }
+                  ],
+                  "confidence": 0.725,
+                  "source": "D(1,463.0051,93.4445,523.1296,94.0012,523.0000,108.0000,462.8755,107.4433)"
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1700000,
+                  "spans": [
+                    {
+                      "offset": 420,
+                      "length": 10
+                    }
+                  ],
+                  "confidence": 0.671,
+                  "source": "D(1,593.0000,93.0000,653.0000,93.0000,653.0000,108.0000,593.0000,108.0000)"
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 900000,
+                  "spans": [
+                    {
+                      "offset": 440,
+                      "length": 8
+                    }
+                  ],
+                  "confidence": 0.717,
+                  "source": "D(1,703.0270,92.8378,753.3254,94.0076,752.9962,108.1627,702.6978,106.9930)"
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "Notes": {
+                  "type": "string",
+                  "confidence": 0.788
+                }
+              },
+              "_source": "image[0]"
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 22,
+                  "spans": [
+                    {
+                      "offset": 469,
+                      "length": 2
+                    }
+                  ],
+                  "confidence": 0.572,
+                  "source": "D(1,13.0000,122.0000,27.0000,122.0000,27.0000,134.0000,13.0000,134.0000)"
+                },
+                "BuildingNumber": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "2200 Commerce Park Dr",
+                  "spans": [
+                    {
+                      "offset": 481,
+                      "length": 21
+                    }
+                  ],
+                  "confidence": 0.399,
+                  "source": "D(1,83.0000,121.0000,213.0000,121.0000,213.0000,135.0000,83.0000,135.0000)"
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Knoxville",
+                  "spans": [
+                    {
+                      "offset": 512,
+                      "length": 9
+                    }
+                  ],
+                  "confidence": 0.627,
+                  "source": "D(1,323.0000,122.0000,373.0000,122.0000,373.0000,135.0000,323.0000,135.0000)"
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "TN",
+                  "spans": [
+                    {
+                      "offset": 531,
+                      "length": 2
+                    }
+                  ],
+                  "confidence": 0.496,
+                  "source": "D(1,403.0000,122.0000,420.0000,122.0000,420.0000,134.0000,403.0000,134.0000)"
+                },
+                "Zip": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "Stories": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "UnitCount": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 10100000,
+                  "spans": [
+                    {
+                      "offset": 543,
+                      "length": 11
+                    }
+                  ],
+                  "confidence": 0.715,
+                  "source": "D(1,463.3724,116.5310,530.1586,122.0966,528.5448,141.4621,461.7586,135.8966)"
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1900000,
+                  "spans": [
+                    {
+                      "offset": 564,
+                      "length": 10
+                    }
+                  ],
+                  "confidence": 0.668,
+                  "source": "D(1,593.3379,116.9448,655.1586,122.0966,653.5793,141.0483,591.7586,135.8966)"
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 950000,
+                  "spans": [
+                    {
+                      "offset": 584,
+                      "length": 8
+                    }
+                  ],
+                  "confidence": 0.707,
+                  "source": "D(1,703.0000,121.0000,753.0000,121.0000,753.0000,136.0000,703.0000,136.0000)"
+                },
+                "Sprinklered": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "ProtectionClass": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "RoofYear": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "FloodZone": {
+                  "type": "string",
+                  "confidence": 0.788
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number",
+                  "confidence": 0.623
+                },
+                "Notes": {
+                  "type": "string",
+                  "confidence": 0.788
+                }
+              },
+              "_source": "image[0]"
+            }
+          ]
+        }
+      },
+      "kind": "document",
+      "startPageNumber": 1,
+      "endPageNumber": 1,
+      "analyzerId": "sovGenerateV1",
+      "mimeType": "application/zip"
+    }
+  ],
+  "_meta": {
+    "source_file": "01_acme_SOV.xlsx",
+    "approach": "pattern-c-xlsx-plus-image-merge",
+    "analyzer_id": "sovGenerateV1",
+    "image_calls": 1,
+    "added_from_images": 3,
+    "field_complements": 0,
+    "elapsed_main_sec": 22.56,
+    "elapsed_images_sec": 9.79,
+    "elapsed_total_sec": 32.35
+  }
+}

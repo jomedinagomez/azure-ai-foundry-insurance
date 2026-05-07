@@ -1,0 +1,693 @@
+{
+  "analyzerId": "sovGenerateV1",
+  "apiVersion": "2025-11-01",
+  "createdAt": "2026-05-07T15:23:39Z",
+  "stringEncoding": "codePoint",
+  "warnings": [
+    {
+      "code": "LLMStats",
+      "message": "completion calls: 1; completion latency: 6.78s"
+    }
+  ],
+  "contents": [
+    {
+      "path": "input1",
+      "markdown": "# Submission\n\n| ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission | ATLANTIC SPECIALTY BROKERS \u2014 Property Submission |\n| - | - | - | - | - | - | - | - | - | - | - | - | - |\n| Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) | Insured: Coastal Marine Services Inc. | Effective: 2026-12-01 | Currency: USD (mostly) |\n| Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 | Producer: Sarah Whitfield (swhitfield@atlanticspecialty.example.com, (910) 555-0173) Prepared: 2026-06-18 |\n\n| Loc | Property Address | Property Address | Property Address | Property Address | Construction | Occupancy / Use | Building | Building | Contents | Contents | Bldg Val | Notes |\n| - | - | - | - | - | - | - | - | - | - | - | - | - |\n| Loc | Street | City | State | ZIP | Construction | Occupancy / Use | Year | Sq Ft | BPP | BI/EE | Bldg Val | Notes |\n| 1 | 850 Harbor Way | Wilmington | NC | 28401 | Joisted Masonry | Marine/Boatyard \u2014 Boatyard operations and dockside warehouse | 1992 | 48000 | 1400000 | 800000 | 5800000 |  |\n| 2 | 1200 Marina Dr | Morehead City | NC | 28557 | Joisted Masonry | Marine/Boatyard \u2014 Marina storage and service facility | 1998 | 32000 | 1100000 | 600000 | 4200000 |  |\n| 3 | 750 Waterfront Ave | Charleston | SC | 29401 | Joisted Masonry | Marine/Boatyard \u2014 Historic district boat works and storage | 1965 | 28000 | 950000 | 500000 | 3800000 | Historic structure \u2014 limited retrofit |\n| 4 | 440 Dock St | Savannah | GA | 31401 | Joisted Masonry | Marine/Boatyard \u2014 Riverfront marine services | 2005 | 35000 | 1200000 | 700000 | 4600000 |  |\n| 5 | 2100 Ocean Hwy | Jacksonville | FL | 32218 | Non-Combustible | Marine/Boatyard \u2014 Coastal warehouse and equipment storage | 2012 | 52000 | 1600000 | 900000 | 6800000 |  |\n| US SUBTOTAL |  |  |  |  |  |  |  |  | 6250000 | 3500000 | 25200000 | (values labelled 'RC Bldg' on summary) |\n\n| CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD | CANADIAN OPERATIONS \u2014 values reported in CAD |\n| - | - | - | - | - | - | - | - | - | - | - | - | - |\n| 6 | 1500 Halifax Harbour Rd | Halifax | NS | B3J 1S9 | Joisted Masonry | Marine/Boatyard \u2014 Canadian operations \u2014 Atlantic hub | 2008 | 38000 | 1100000 | 600000 | 4400000 | VALUES IN CAD \u2014 convert at renewal FX rate |\n\n| GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | GRAND TOTAL \u2014 Building Replacement Cost (USD + CAD as reported, NOT FX-normalized): | 29600000 |\n| - | - | - | - | - | - | - | - | - | - | - | - |\n",
+      "fields": {
+        "InsuredName": {
+          "type": "string",
+          "valueString": "Coastal Marine Services Inc.",
+          "confidence": 1
+        },
+        "DBA": {
+          "type": "string"
+        },
+        "MailingAddress": {
+          "type": "string"
+        },
+        "EffectiveDate": {
+          "type": "date",
+          "valueDate": "2026-12-01",
+          "confidence": 1
+        },
+        "ExpirationDate": {
+          "type": "date"
+        },
+        "PrimaryOperations": {
+          "type": "string"
+        },
+        "NAICS": {
+          "type": "string"
+        },
+        "Currency": {
+          "type": "string",
+          "valueString": "USD",
+          "confidence": 1
+        },
+        "ValuationDate": {
+          "type": "date"
+        },
+        "TotalInsuredValue": {
+          "type": "number",
+          "valueNumber": 29600000,
+          "confidence": 1
+        },
+        "LocationCount": {
+          "type": "number",
+          "valueNumber": 6,
+          "confidence": 1
+        },
+        "BrokerName": {
+          "type": "string",
+          "valueString": "ATLANTIC SPECIALTY BROKERS",
+          "confidence": 1
+        },
+        "BrokerContact": {
+          "type": "string",
+          "valueString": "Sarah Whitfield",
+          "confidence": 1
+        },
+        "BrokerEmail": {
+          "type": "string",
+          "valueString": "swhitfield@atlanticspecialty.example.com",
+          "confidence": 1
+        },
+        "BrokerPhone": {
+          "type": "string",
+          "valueString": "(910) 555-0173",
+          "confidence": 1
+        },
+        "PreparedBy": {
+          "type": "string"
+        },
+        "PreparedDate": {
+          "type": "date",
+          "valueDate": "2026-06-18",
+          "confidence": 1
+        },
+        "Locations": {
+          "type": "array",
+          "valueArray": [
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 1,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "850 Harbor Way",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Wilmington",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "NC",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "28401",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Marine/Boatyard",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Boatyard operations and dockside warehouse",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1992,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 48000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 5800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1400000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 800000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 2,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1200 Marina Dr",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Morehead City",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "NC",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "28557",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Marine/Boatyard",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Marina storage and service facility",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1998,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 32000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 4200000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1100000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 600000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 3,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "750 Waterfront Ave",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Charleston",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "SC",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "29401",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Marine/Boatyard",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Historic district boat works and storage",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 1965,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 28000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 3800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 950000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 500000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string",
+                  "valueString": "Historic structure \u2014 limited retrofit",
+                  "confidence": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 4,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "440 Dock St",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Savannah",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "GA",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "31401",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Marine/Boatyard",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Riverfront marine services",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2005,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 35000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 4600000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1200000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 700000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 5,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "2100 Ocean Hwy",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Jacksonville",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "FL",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "32218",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Non-Combustible",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Marine/Boatyard",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Coastal warehouse and equipment storage",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2012,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 52000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 6800000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1600000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 900000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "valueObject": {
+                "LocationNumber": {
+                  "type": "number",
+                  "valueNumber": 6,
+                  "confidence": 1
+                },
+                "BuildingNumber": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string",
+                  "valueString": "1500 Halifax Harbour Rd",
+                  "confidence": 1
+                },
+                "City": {
+                  "type": "string",
+                  "valueString": "Halifax",
+                  "confidence": 1
+                },
+                "State": {
+                  "type": "string",
+                  "valueString": "NS",
+                  "confidence": 1
+                },
+                "Zip": {
+                  "type": "string",
+                  "valueString": "B3J 1S9",
+                  "confidence": 1
+                },
+                "ConstructionType": {
+                  "type": "string",
+                  "valueString": "Joisted Masonry",
+                  "confidence": 1
+                },
+                "Occupancy": {
+                  "type": "string",
+                  "valueString": "Marine/Boatyard",
+                  "confidence": 1
+                },
+                "OperationsDescription": {
+                  "type": "string",
+                  "valueString": "Canadian operations \u2014 Atlantic hub",
+                  "confidence": 1
+                },
+                "YearBuilt": {
+                  "type": "number",
+                  "valueNumber": 2008,
+                  "confidence": 1
+                },
+                "Stories": {
+                  "type": "number"
+                },
+                "SquareFootage": {
+                  "type": "number",
+                  "valueNumber": 38000,
+                  "confidence": 1
+                },
+                "UnitCount": {
+                  "type": "number"
+                },
+                "BuildingValue": {
+                  "type": "number",
+                  "valueNumber": 4400000,
+                  "confidence": 1
+                },
+                "BPPValue": {
+                  "type": "number",
+                  "valueNumber": 1100000,
+                  "confidence": 1
+                },
+                "BIEEValue": {
+                  "type": "number",
+                  "valueNumber": 600000,
+                  "confidence": 1
+                },
+                "Sprinklered": {
+                  "type": "string"
+                },
+                "ProtectionClass": {
+                  "type": "number"
+                },
+                "RoofYear": {
+                  "type": "number"
+                },
+                "FloodZone": {
+                  "type": "string"
+                },
+                "DistanceToCoastMiles": {
+                  "type": "number"
+                },
+                "Notes": {
+                  "type": "string",
+                  "valueString": "VALUES IN CAD \u2014 convert at renewal FX rate",
+                  "confidence": 1
+                }
+              }
+            }
+          ]
+        }
+      },
+      "kind": "document",
+      "startPageNumber": 1,
+      "endPageNumber": 1,
+      "analyzerId": "sovGenerateV1",
+      "mimeType": "application/zip"
+    }
+  ],
+  "_meta": {
+    "source_file": "06_coastal_SOV.xlsx",
+    "approach": "standard-generate",
+    "analyzer_id": "sovGenerateV1",
+    "elapsed_sec": 9.73
+  }
+}
