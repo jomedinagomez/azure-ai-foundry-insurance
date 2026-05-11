@@ -11,7 +11,7 @@ import {
 import {
   WeatherMoonRegular,
   WeatherSunnyRegular,
-  DocumentSplitHintRegular,
+  BeakerRegular,
   BuildingRegular,
   FlowRegular,
   InfoRegular,
@@ -27,7 +27,7 @@ interface HeaderProps {
 
 const tabConfigs = [
   {
-    icon: <DocumentSplitHintRegular />,
+    icon: <BeakerRegular />,
     value: "compare",
     label: "Analyzer Compare",
   },
@@ -54,15 +54,14 @@ const HeaderComponent: React.FC<HeaderProps> = ({
       {/* Brand */}
       <div className="headerTitle">
         <Avatar
-          initials="AC"
+          initials="IW"
           shape="square"
           color="brand"
           style={{ flexShrink: 0 }}
         />
         <div className="headerTitleText">
           <Subtitle2 style={{ whiteSpace: "nowrap" }}>
-            Analyzer Compare
-            <span style={{ fontWeight: 400 }}> | Tool</span>
+            Insurance Workbench
           </Subtitle2>
         </div>
       </div>

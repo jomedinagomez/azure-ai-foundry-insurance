@@ -50,7 +50,14 @@
         "type": "string",
         "method": "classify",
         "description": "Currency in which the account-level values are reported. Pick a single ISO 4217 code; ignore parenthetical qualifiers like '(mostly)'.",
-        "enum": ["USD", "CAD", "EUR", "GBP", "MXN", "AUD"]
+        "enum": [
+          "USD",
+          "CAD",
+          "EUR",
+          "GBP",
+          "MXN",
+          "AUD"
+        ]
       },
       "ValuationDate": {
         "type": "date",
@@ -90,12 +97,12 @@
       "PreparedBy": {
         "type": "string",
         "method": "extract",
-        "description": "Person who prepared the SOV, if stated."
+        "description": "Name of the person who prepared the SOV, including any professional designation suffix (e.g. ', CPCU', ', ARM', ', CIC') if one is present. The source cell may combine the name and designation with a date in a single field, separated by a dash, em-dash, slash, or the word 'on'. Strip only the trailing date — keep the full name and any designation suffix. If not stated, return null."
       },
       "PreparedDate": {
         "type": "date",
         "method": "extract",
-        "description": "Date the SOV was prepared, if stated."
+        "description": "Date the SOV was prepared. The source cell may combine the preparer's name with the date in a single field. Extract only the date portion. If not stated, return null."
       },
       "Locations": {
         "type": "array",
@@ -188,7 +195,10 @@
               "type": "string",
               "method": "classify",
               "description": "Whether the building is sprinklered. Map any of 'Yes', 'Y', 'true', 'sprinklered', a checked box, etc. to 'Yes'; 'No', 'N', 'false', or 'unsprinklered' to 'No'.",
-              "enum": ["Yes", "No"]
+              "enum": [
+                "Yes",
+                "No"
+              ]
             },
             "ProtectionClass": {
               "type": "number",

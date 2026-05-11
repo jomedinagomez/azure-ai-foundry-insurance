@@ -1026,8 +1026,8 @@ const ComparePage: React.FC = () => {
   const [analyzers, setAnalyzers]   = useState<PrebuiltAnalyzer[]>([]);
   const [apiVersions, setApiVersions] = useState<ApiVersions | null>(null);
 
-  const [diAnalyzerId, setDiAnalyzerId] = useState("prebuilt-invoice");
-  const [cuAnalyzerId, setCuAnalyzerId] = useState("prebuilt-documentSearch");
+  const [diAnalyzerId, setDiAnalyzerId] = useState("prebuilt-layout");
+  const [cuAnalyzerId, setCuAnalyzerId] = useState("prebuilt-layout");
   const [diApiVersion, setDiApiVersion] = useState("2024-11-30");
   const [cuApiVersion, setCuApiVersion] = useState("2025-11-01");
 
@@ -1041,8 +1041,8 @@ const ComparePage: React.FC = () => {
   const [elapsedMs, setElapsedMs] = useState<number | undefined>(undefined);
 
   // Track what was actually submitted (for display in result headers)
-  const [runDiId, setRunDiId]           = useState("prebuilt-invoice");
-  const [runCuId, setRunCuId]           = useState("prebuilt-documentSearch");
+  const [runDiId, setRunDiId]           = useState("prebuilt-layout");
+  const [runCuId, setRunCuId]           = useState("prebuilt-layout");
   const [runDiVersion, setRunDiVersion] = useState("2024-11-30");
   const [runCuVersion, setRunCuVersion] = useState("2025-11-01");
 

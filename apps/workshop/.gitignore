@@ -9,6 +9,9 @@ node_modules/
 build/
 dist/
 
+# Pipeline run artifacts (debug)
+api/.runs/
+
 # Env
 .env
 .env.local

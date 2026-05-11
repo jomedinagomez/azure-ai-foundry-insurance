@@ -80,11 +80,38 @@ def convert_libreoffice(
     return pdf
 
 
+def _trim_whitespace(im, *, threshold: int = 248, pad: int = 24):
+    """Crop white margins from a rendered page so CU sees a tight image.
+
+    LibreOffice paints the full Letter-size paper even when the print area
+    is small, so the rendered page has a wide white border. CU's layout
+    analyzer doesn't care about whitespace, but the wasted pixels inflate
+    the TIFF and dilute the page's content-density. Cropping with a small
+    pad gives CU a focused image and shaves significant bytes off the
+    payload uploaded to the analyzer.
+
+    Pad is intentionally generous (24px @ 800 DPI ≈ 0.03in) so the cropped
+    page never bleeds into the content's outer borders — early experiments
+    with a smaller pad caused CU to lose certain edge-aligned values.
+    """
+    gray = im.convert("L")
+    mask = gray.point(lambda v: 0 if v >= threshold else 255)
+    bbox = mask.getbbox()
+    if bbox is None:
+        return im
+    l = max(0, bbox[0] - pad)
+    t = max(0, bbox[1] - pad)
+    r = min(im.width, bbox[2] + pad)
+    b = min(im.height, bbox[3] + pad)
+    return im.crop((l, t, r, b))
+
+
 def rasterize_pdf_to_tiff(
     pdf_path: str | Path,
     out_dir: str | Path,
     *,
     dpi: int = 800,
+    trim_margins: bool = False,
 ) -> Path:
     """Render every PDF page to a single multi-page LZW TIFF.
 
@@ -94,6 +121,13 @@ def rasterize_pdf_to_tiff(
     Default DPI is 800 because 600 DPI clips parentheses on phone numbers
     in our test corpus. 800 closes the last OCR drift on Acme (1 acct miss
     at 600 → 0 at 800). See research notebook for the full DPI ablation.
+
+    `trim_margins` is **off by default**. Cropping the white border saves
+    ~47% on TIFF size, but in our corpus it caused CU to misread edge values
+    (e.g. flood_zone "X" → "<", stories 12 → 0.2 on magnolia). CU's layout
+    analysis appears to depend on consistent paper-relative geometry. Keep
+    the helper available for callers that want to opt in (e.g. preview
+    rendering on the API where the TIFF isn't sent to CU).
     """
     import pypdfium2 as pdfium
     from PIL import Image
@@ -109,6 +143,8 @@ def rasterize_pdf_to_tiff(
     ]
     if not imgs:
         raise RuntimeError(f"no pages in {pdf_path}")
+    if trim_margins:
+        imgs = [_trim_whitespace(im) for im in imgs]
 
     tiff = out_dir / (pdf_path.stem + ".tiff")
     imgs[0].save(

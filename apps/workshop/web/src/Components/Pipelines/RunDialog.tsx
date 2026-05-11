@@ -19,24 +19,61 @@ import { DismissRegular } from "@fluentui/react-icons";
 
 import {
   Pipeline,
-  PipelineRunResult,
   StepEvent,
   runPipelineStream,
 } from "../../services/pipelinesService";
 import PipelineDagView from "./PipelineDagView";
+
+/**
+ * Anything emitted on the SSE `complete` event. Both shapes carry `timings`
+ * so the dialog's "total time" readout stays generic; consumers downcast in
+ * their own `onComplete` callback.
+ */
+export interface RunCompletePayload {
+  timings: Record<string, number>;
+  // generic pipeline runner: { payload, timings, artifacts }
+  payload?: Record<string, unknown>;
+  // sov-specific projection: { result, timings, artifacts }
+  result?: unknown;
+  artifacts?: Record<string, string>;
+}
+
+/**
+ * Pluggable streaming function. Defaults to the generic
+ * `runPipelineStream` from pipelinesService. Pass a different one (e.g.
+ * `runSovPipelineStream`) to drive a different SSE endpoint while keeping
+ * the same per-step UI.
+ */
+export type RunStreamFn = (
+  pipelineId: string,
+  sampleName: string,
+  cb: {
+    onStep?: (e: StepEvent) => void;
+    onComplete?: (r: RunCompletePayload) => void;
+    onError?: (msg: string) => void;
+  },
+  saveAsCanonical?: boolean,
+  signal?: AbortSignal
+) => Promise<void>;
 
 export interface RunDialogProps {
   open: boolean;
   pipeline: Pipeline;
   sampleName: string;
   onClose: () => void;
-  onComplete?: (result: PipelineRunResult) => void;
+  onComplete?: (result: RunCompletePayload) => void;
+  /**
+   * Optional SSE driver. Defaults to `runPipelineStream` (generic
+   * `/pipelines/{id}/run/stream`). Pass `runSovPipelineStream` to hit
+   * `/sov/extract/pipeline/stream` and receive a projected SOV result.
+   */
+  streamFn?: RunStreamFn;
 }
 
 const useStyles = makeStyles({
-  surface: { width: "min(960px, 95vw)", maxHeight: "90vh" },
+  surface: { width: "min(1400px, 95vw)", maxWidth: "95vw", maxHeight: "92vh" },
   dag: {
-    height: "320px",
+    height: "480px",
     ...shorthands.border("1px", "solid", tokens.colorNeutralStroke3),
     ...shorthands.borderRadius("6px"),
     backgroundColor: tokens.colorNeutralBackground2,
@@ -78,11 +115,12 @@ export default function RunDialog({
   sampleName,
   onClose,
   onComplete,
+  streamFn,
 }: RunDialogProps) {
   const styles = useStyles();
   const [events, setEvents] = useState<Record<string, StepEvent>>({});
   const [errMsg, setErrMsg] = useState<string | null>(null);
-  const [result, setResult] = useState<PipelineRunResult | null>(null);
+  const [result, setResult] = useState<RunCompletePayload | null>(null);
   const [running, setRunning] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
 
@@ -97,7 +135,8 @@ export default function RunDialog({
     const ctrl = new AbortController();
     abortRef.current = ctrl;
 
-    runPipelineStream(
+    const drive: RunStreamFn = streamFn ?? (runPipelineStream as RunStreamFn);
+    drive(
       pipeline.id,
       sampleName,
       {
@@ -146,7 +185,10 @@ export default function RunDialog({
       }}
       modalType="modal"
     >
-      <DialogSurface className={styles.surface}>
+      <DialogSurface
+        className={styles.surface}
+        style={{ width: "min(1400px, 95vw)", maxWidth: "95vw" }}
+      >
         <DialogBody>
           <DialogTitle>
             Running <Text weight="semibold">{pipeline.name}</Text> on{" "}

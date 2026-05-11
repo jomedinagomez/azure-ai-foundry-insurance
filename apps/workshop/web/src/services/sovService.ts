@@ -1,6 +1,16 @@
 import axios from "axios";
+import { fetchEventSource } from "@microsoft/fetch-event-source";
+import type { StepEvent } from "./pipelinesService";
 
 const API_BASE = (process.env.REACT_APP_API_BASE_URL || "").replace(/\/$/, "");
+
+/** Resolve a server-relative path (e.g. an artifact URL) to an absolute one
+ * the browser can fetch. Useful for `<a href>` and `<img src>` attributes. */
+export function apiUrl(path: string): string {
+  if (/^https?:\/\//i.test(path)) return path;
+  if (!path.startsWith("/")) path = "/" + path;
+  return `${API_BASE}${path}`;
+}
 
 export interface SovSample {
   file_name: string;
@@ -152,6 +162,63 @@ export async function runPipelineExtraction(
     save_as_canonical: saveAsCanonical,
   });
   return r.data;
+}
+
+// ── Streaming pipeline run (SSE) projected to SovExtractionResult ──────────
+// Reuses the generic StepEvent shape from pipelinesService so the existing
+// RunDialog can stay generic over the stream-fn.
+
+export interface SovPipelineRunEnvelope {
+  /** Already-projected SOV result, ready to drop into setResult(). */
+  result: SovExtractionResult;
+  /** Per-step elapsed seconds (kept so the dialog can show total time). */
+  timings: Record<string, number>;
+  artifacts: Record<string, string>;
+}
+
+export interface SovPipelineStreamCallbacks {
+  onStep?: (e: StepEvent) => void;
+  onComplete?: (envelope: SovPipelineRunEnvelope) => void;
+  onError?: (msg: string) => void;
+}
+
+/**
+ * Same SSE protocol as `runPipelineStream` but the `complete` event payload
+ * is `{ result: SovExtractionResult, timings, artifacts }` instead of the
+ * raw CU `PipelineRunResult`. Server route: `POST /sov/extract/pipeline/stream`.
+ */
+export async function runSovPipelineStream(
+  pipelineId: string,
+  sampleName: string,
+  cb: SovPipelineStreamCallbacks,
+  saveAsCanonical = false,
+  signal?: AbortSignal
+): Promise<void> {
+  await fetchEventSource(`${API_BASE}/sov/extract/pipeline/stream`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "text/event-stream" },
+    body: JSON.stringify({
+      sample_name: sampleName,
+      pipeline_id: pipelineId,
+      save_as_canonical: saveAsCanonical,
+    }),
+    signal,
+    onmessage(ev) {
+      try {
+        const data = JSON.parse(ev.data);
+        if (ev.event === "step") cb.onStep?.(data as StepEvent);
+        else if (ev.event === "complete") cb.onComplete?.(data as SovPipelineRunEnvelope);
+        else if (ev.event === "error") cb.onError?.((data as { error: string }).error);
+      } catch (e: any) {
+        cb.onError?.(`bad event payload: ${e?.message ?? e}`);
+      }
+    },
+    onerror(err) {
+      cb.onError?.(err?.message ?? String(err));
+      throw err;
+    },
+    openWhenHidden: true,
+  });
 }
 
 export async function uploadAndExtract(file: File): Promise<SovExtractionResult> {
