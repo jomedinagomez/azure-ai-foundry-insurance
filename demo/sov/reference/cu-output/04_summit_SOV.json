@@ -1,12 +1,12 @@
 {
   "analyzerId": "sovExtractV1",
   "apiVersion": "2025-11-01",
-  "createdAt": "2026-05-07T15:22:50Z",
+  "createdAt": "2026-05-08T14:19:41Z",
   "stringEncoding": "codePoint",
   "warnings": [
     {
       "code": "LLMStats",
-      "message": "completion calls: 1; completion latency: 20.17s"
+      "message": "completion calls: 1; completion latency: 16.25s"
     }
   ],
   "contents": [
@@ -13503,6 +13503,6 @@
     "source_file": "04_summit_SOV.pdf",
     "approach": "standard-extract",
     "analyzer_id": "sovExtractV1",
-    "elapsed_sec": 25.81
+    "elapsed_sec": 23.49
   }
 }

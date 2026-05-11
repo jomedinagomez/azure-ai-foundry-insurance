@@ -1,12 +1,12 @@
 {
   "analyzerId": "sovGenerateV1",
   "apiVersion": "2025-11-01",
-  "createdAt": "2026-05-07T15:21:41Z",
+  "createdAt": "2026-05-08T16:52:07Z",
   "stringEncoding": "codePoint",
   "warnings": [
     {
       "code": "LLMStats",
-      "message": "completion calls: 1; completion latency: 18.75s"
+      "message": "completion calls: 1; completion latency: 14.39s"
     }
   ],
   "contents": [
@@ -2414,8 +2414,10 @@
     "image_calls": 1,
     "added_from_images": 3,
     "field_complements": 0,
-    "elapsed_main_sec": 22.56,
-    "elapsed_images_sec": 9.79,
-    "elapsed_total_sec": 32.35
+    "elapsed_main_sec": 19.37,
+    "elapsed_images_sec": 10.15,
+    "elapsed_total_sec": 29.52,
+    "pattern_requested": "C",
+    "from_cache": false
   }
 }

@@ -1,0 +1,27 @@
+{
+    "id": "xlsx_generate_with_images",
+    "name": "xlsx — generate + image fan-out",
+    "description": "Pattern C. Workbook + per-image fan-out, merged client-side. Use when the xlsx has embedded images and you can't preflight to PDF.",
+    "input_extensions": [
+        ".xlsx"
+    ],
+    "is_default": false,
+    "steps": [
+        {
+            "id": "extract_images",
+            "kind": "extract_embedded_images",
+            "label": "Pull embedded images",
+            "params": {}
+        },
+        {
+            "id": "analyze",
+            "kind": "cu_analyze",
+            "label": "CU sovGenerateV1 + fan-out",
+            "params": {
+                "analyzer_id": "sovGenerateV1",
+                "template_file": "sov_extraction_generate.json",
+                "mode": "fan_out_xlsx_images"
+            }
+        }
+    ]
+}

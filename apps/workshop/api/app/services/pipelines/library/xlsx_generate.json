@@ -1,0 +1,21 @@
+{
+    "id": "xlsx_generate",
+    "name": "xlsx — generate",
+    "description": "Production default for plain xlsx (no embedded images). LLM-driven extraction. No grounding or per-field confidence.",
+    "input_extensions": [
+        ".xlsx"
+    ],
+    "is_default": false,
+    "steps": [
+        {
+            "id": "analyze",
+            "kind": "cu_analyze",
+            "label": "CU sovGenerateV1",
+            "params": {
+                "analyzer_id": "sovGenerateV1",
+                "template_file": "sov_extraction_generate.json",
+                "mode": "single"
+            }
+        }
+    ]
+}

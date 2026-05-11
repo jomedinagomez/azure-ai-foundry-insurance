@@ -1,0 +1,14 @@
+{
+  "A": {
+    "analyzer_id": "sovExtractV1",
+    "template_file": "sov_extraction.json"
+  },
+  "B": {
+    "analyzer_id": "sovGenerateV1",
+    "template_file": "sov_extraction_generate.json"
+  },
+  "C": {
+    "analyzer_id": "sovGenerateV1",
+    "template_file": "sov_extraction_generate.json"
+  }
+}

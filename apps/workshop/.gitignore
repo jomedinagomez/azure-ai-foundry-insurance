@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Node
+node_modules/
+build/
+dist/
+
+# Env
+.env
+.env.local
+.env.standalone
+
+# Editor
+.vscode/
+.idea/

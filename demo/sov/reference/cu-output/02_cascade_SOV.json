@@ -1,12 +1,12 @@
 {
   "analyzerId": "sovGenerateV1",
   "apiVersion": "2025-11-01",
-  "createdAt": "2026-05-07T15:22:14Z",
+  "createdAt": "2026-05-08T14:19:12Z",
   "stringEncoding": "codePoint",
   "warnings": [
     {
       "code": "LLMStats",
-      "message": "completion calls: 1; completion latency: 7.43s"
+      "message": "completion calls: 1; completion latency: 6.79s"
     }
   ],
   "contents": [
@@ -876,6 +876,6 @@
     "source_file": "02_cascade_SOV.xlsx",
     "approach": "standard-generate",
     "analyzer_id": "sovGenerateV1",
-    "elapsed_sec": 12.83
+    "elapsed_sec": 9.67
   }
 }

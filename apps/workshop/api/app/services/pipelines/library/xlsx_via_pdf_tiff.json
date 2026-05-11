@@ -1,0 +1,44 @@
+{
+    "id": "xlsx_via_pdf_tiff",
+    "name": "xlsx — preflight → PDF → TIFF@800",
+    "description": "Recommended for xlsx. Preflight the workbook, render to PDF, rasterize to 800 DPI multi-page TIFF, then run sovExtractV1. Recovers grounding + confidence and subsumes Pattern C (embedded images survive the rasterization).",
+    "input_extensions": [
+        ".xlsx"
+    ],
+    "is_default": true,
+    "steps": [
+        {
+            "id": "preflight",
+            "kind": "xlsx_preflight",
+            "label": "Page-setup preflight",
+            "params": {
+                "autofit": true,
+                "print_gridlines": false
+            }
+        },
+        {
+            "id": "to_pdf",
+            "kind": "libreoffice_to_pdf",
+            "label": "LibreOffice → PDF",
+            "params": {}
+        },
+        {
+            "id": "to_tiff",
+            "kind": "pdf_to_tiff",
+            "label": "Rasterize → TIFF",
+            "params": {
+                "dpi": 800
+            }
+        },
+        {
+            "id": "analyze",
+            "kind": "cu_analyze",
+            "label": "CU sovExtractV1",
+            "params": {
+                "analyzer_id": "sovExtractV1",
+                "template_file": "sov_extraction.json",
+                "mode": "single"
+            }
+        }
+    ]
+}

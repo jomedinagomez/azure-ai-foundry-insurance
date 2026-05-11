@@ -1,12 +1,12 @@
 {
   "analyzerId": "sovExtractV1",
   "apiVersion": "2025-11-01",
-  "createdAt": "2026-05-07T15:23:16Z",
+  "createdAt": "2026-05-08T14:20:04Z",
   "stringEncoding": "codePoint",
   "warnings": [
     {
       "code": "LLMStats",
-      "message": "completion calls: 1; completion latency: 17.15s"
+      "message": "completion calls: 2; completion latency: 8.89s"
     }
   ],
   "contents": [
@@ -79,12 +79,16 @@
           "valueString": "USD",
           "spans": [
             {
+              "offset": 287,
+              "length": 9
+            },
+            {
               "offset": 306,
               "length": 3
             }
           ],
-          "confidence": 0.828,
-          "source": "D(1,3.6898,2.4103,4.0451,2.4103,4.0451,2.5789,3.6898,2.5789)"
+          "confidence": 0.915,
+          "source": "D(1,0.9868,2.3849,1.7498,2.3962,1.7472,2.5695,0.9842,2.5582);D(1,3.6898,2.4103,4.0451,2.4103,4.0451,2.5789,3.6898,2.5789)"
         },
         "ValuationDate": {
           "type": "date",
@@ -10317,6 +10321,6 @@
     "source_file": "05_heartland_SOV.pdf",
     "approach": "standard-extract",
     "analyzer_id": "sovExtractV1",
-    "elapsed_sec": 22.69
+    "elapsed_sec": 25.49
   }
 }

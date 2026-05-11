@@ -1,12 +1,12 @@
 {
   "analyzerId": "sovGenerateV1",
   "apiVersion": "2025-11-01",
-  "createdAt": "2026-05-07T15:23:39Z",
+  "createdAt": "2026-05-08T14:20:30Z",
   "stringEncoding": "codePoint",
   "warnings": [
     {
       "code": "LLMStats",
-      "message": "completion calls: 1; completion latency: 6.78s"
+      "message": "completion calls: 1; completion latency: 6.32s"
     }
   ],
   "contents": [
@@ -78,7 +78,9 @@
           "confidence": 1
         },
         "PreparedBy": {
-          "type": "string"
+          "type": "string",
+          "valueString": "Sarah Whitfield",
+          "confidence": 1
         },
         "PreparedDate": {
           "type": "date",
@@ -688,6 +690,6 @@
     "source_file": "06_coastal_SOV.xlsx",
     "approach": "standard-generate",
     "analyzer_id": "sovGenerateV1",
-    "elapsed_sec": 9.73
+    "elapsed_sec": 10.15
   }
 }

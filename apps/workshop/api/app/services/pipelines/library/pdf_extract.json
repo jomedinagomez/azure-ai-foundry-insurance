@@ -1,0 +1,21 @@
+{
+    "id": "pdf_extract",
+    "name": "PDF — extract",
+    "description": "Default for PDFs. One analyze call against sovExtractV1 with grounding boxes + per-field confidence.",
+    "input_extensions": [
+        ".pdf"
+    ],
+    "is_default": true,
+    "steps": [
+        {
+            "id": "analyze",
+            "kind": "cu_analyze",
+            "label": "CU sovExtractV1",
+            "params": {
+                "analyzer_id": "sovExtractV1",
+                "template_file": "sov_extraction.json",
+                "mode": "single"
+            }
+        }
+    ]
+}

@@ -11,17 +11,18 @@ How we use Azure AI **Content Understanding** to extract Statements of Values fr
   - **`sovExtractV1`** — used for **PDFs** (`prebuilt-document` + `method: extract` + grounding boxes + per-field confidence).
   - **`sovGenerateV1`** — used for **Excel** AND for **per-image fan-outs** of embedded images (`prebuilt-document` + `method: generate`, no pixel grounding).
 - A small set of fields with fixed value sets use **`method: classify`** with an enum (`Currency`, `Sprinklered`).
-- Three input shapes are handled by [`01_extract_sov.ipynb`](01_extract_sov.ipynb):
-  1. **PDF** → one analyze call with the extract analyzer.
-  2. **Plain Excel** → one analyze call with the generate analyzer.
-  3. **Excel with embedded images** → one analyze call on the workbook **plus** one extra call per embedded image (same generate analyzer, `image/png` content type), then the `Locations[]` arrays are merged client-side. *(The conceptually-cleaner "single Pro Mode call with multiple inputs" path is preview-only and currently region-limited — see the caveat below.)*
-- The validator [`02_validate_extraction.ipynb`](02_validate_extraction.ipynb) compares each extraction against ground truth in [`../reference/expected-output/`](../reference/expected-output/) using a tolerant comparator (case, unicode dashes/quotes, placeholder strings, numeric/boolean coercion).
+- **Four input shapes**, split across two notebooks:
+  1. **PDF** ([`01_extract_sov.ipynb`](01_extract_sov.ipynb)) → one analyze call with the extract analyzer.
+  2. **Plain Excel** ([`01_extract_sov.ipynb`](01_extract_sov.ipynb)) → one analyze call with the generate analyzer.
+  3. **Excel with embedded images** ([`01_extract_sov.ipynb`](01_extract_sov.ipynb)) → one analyze call on the workbook **plus** one extra call per embedded image (same generate analyzer, `image/png` content type), then the `Locations[]` arrays are merged client-side.
+  4. **`xlsx` via preflighted PDF → 800 DPI TIFF** ([`02_xlsx_via_pdf_tiff.ipynb`](02_xlsx_via_pdf_tiff.ipynb)) → preprocess the workbook into a multi-page TIFF and send it to the **same `sovExtractV1` analyzer used for PDFs**. Recovers grounding + per-field confidence + bounding boxes for spreadsheet inputs.
+- The validator [`03_validate_extraction.ipynb`](03_validate_extraction.ipynb) compares each extraction against ground truth in [`../reference/expected-output/`](../reference/expected-output/) using a tolerant comparator (case, unicode dashes/quotes, placeholder strings, numeric/boolean coercion). It reads cached outputs from `../reference/cu-output/` (Approaches 1–3) and `../reference/cu-output-tiff800/` (Approach 4).
 
 ---
 
-## The three extraction approaches
+## The four extraction approaches
 
-The same target schema is used in all three. What changes is **how** values get to the schema.
+The same target schema is used in all four. What changes is **how** values get to the schema.
 
 ### Approach 1 — PDF (native or scanned)
 
@@ -64,6 +65,29 @@ attachments/01_acme_SOV.xlsx
 
 Pattern C ships today on GA, requires no preview opt-in, and produces a more honest production story: a thin orchestration layer fans out, merges, and tags provenance. When Pro Mode returns to GA we can collapse Approach 3 into a single call.
 
+### Approach 4 — `xlsx` via preflighted PDF → 800 DPI TIFF (NEW)
+
+The cleanest workaround for the limitation that `extract` doesn't work on raw `.xlsx`. We preprocess the workbook client-side into a multi-page TIFF and send that to the **same `sovExtractV1` analyzer used for PDFs** — the wire format changes, the analyzer doesn't.
+
+```
+attachments/01_acme_SOV.xlsx
+   │
+   ├─ (openpyxl)   page-setup preflight                  → .print-ready.xlsx
+   ├─ (LibreOffice) headless convert to PDF              → .pdf
+   ├─ (pypdfium2)  rasterize every page @ 800 DPI        → multi-page TIFF
+   └─ (CU)         analyze_binary content_type=image/tiff→ sovExtractV1 payload
+```
+
+Three reasons this works where raw xlsx + `extract` doesn't:
+
+1. **CU's Standard (Layout) pipeline** accepts PDFs and images but treats Office files as Minimal-tier. Sending xlsx as TIFF promotes it to the grounded pipeline. (Documented in [`feedback/underwriting/research_xlsx_extract.ipynb`](../../../feedback/underwriting/research_xlsx_extract.ipynb).)
+2. **Vector PDFs of borderless tables** mis-merge adjacent rows in `prebuilt-layout`'s text-stream reader. Rasterizing forces the OCR path, which uses pure spatial geometry. (See [`BUG_REPORT.md`](../../../feedback/underwriting/research-output/pdfs/BUG_REPORT.md) for the full evidence.)
+3. **The preflight is non-negotiable** — without `fitToWidth=1` + autofit columns + image-aware print area, the PDF is unreadable.
+
+The preprocessing primitives live in [`../preprocess/`](../preprocess/) so the workshop app and the notebook share one implementation.
+
+**Acme accuracy vs. ground truth: 100.0%** at 800 DPI — ties the production `generate` route while restoring grounded per-field confidences and bounding boxes that `generate` doesn't provide. Plus, the rasterized pages include the embedded "ADDITIONAL LOCATIONS" image so this approach **subsumes Pattern C** for xlsx-with-images inputs (no client-side merge needed).
+
 ---
 
 ## Why a few fields use `classify` instead of `extract` / `generate`
@@ -90,7 +114,7 @@ The notebook [`01_extract_sov.ipynb`](01_extract_sov.ipynb) does these steps:
 5. Routes each file to the appropriate analyzer based on its suffix.
 6. Caches the raw CU result JSON to `reference/cu-output/<stem>.json` so subsequent runs are offline (and cheap).
 
-The notebook [`02_validate_extraction.ipynb`](02_validate_extraction.ipynb) consumes those cached outputs:
+The notebook [`03_validate_extraction.ipynb`](03_validate_extraction.ipynb) consumes those cached outputs:
 
 1. Discovers cached CU outputs and pairs each one with its expected-output JSON.
 2. Flattens the CU payload (PascalCase + `{type, valueX, confidence}` wrappers) into the canonical snake_case schema used by ground truth.
@@ -153,7 +177,7 @@ Buckets, in priority order:
 
 These are not implemented yet but follow naturally from the methodology above.
 
-1. **Embedded-image extraction for `.xlsx`.** Pre-extract images via `openpyxl`, run each through CU as a separate analyze call (probably with a smaller location-only schema), then merge into the main `Locations[]`.
+1. **Embedded-image extraction for `.xlsx`.** ✅ **Implemented** in [`02_xlsx_via_pdf_tiff.ipynb`](02_xlsx_via_pdf_tiff.ipynb) (Approach 4). The TIFF rasterization captures embedded images as part of the page, so the same `sovExtractV1` analyzer handles main schedule + image rows in one call. Approach 3 remains for environments where LibreOffice isn't available.
 2. **TIV cross-check.** A post-processing step that computes `sum(building_value + bpp_value + bi_ee_value)` across locations and flags any case where the extracted `TotalInsuredValue` differs by more than, say, 1%.
 3. **Field-presence reporting.** Track per-template which fields are populated vs null. Useful for the broker conversation ("your template doesn't include valuation date — please add").
 4. **Confidence-based human-in-the-loop routing.** PDFs already return per-field confidence. Below threshold → review queue. Excel via `generate` doesn't return field-level confidence the same way — we would need to either add a CU step that re-validates, or use the LLM-backed `generate` analyzer's overall warning signals.
@@ -165,9 +189,12 @@ These are not implemented yet but follow naturally from the methodology above.
 
 | File | Purpose |
 |---|---|
-| [`../reference/analyzer-templates/sov_extraction.json`](../reference/analyzer-templates/sov_extraction.json) | Master schema. All `extract` for PDFs; `classify` for fixed-set fields. |
+| [`../reference/analyzer-templates/sov_extraction.json`](../reference/analyzer-templates/sov_extraction.json) | Master schema. All `extract` for PDFs and TIFFs; `classify` for fixed-set fields. |
 | [`../reference/analyzer-templates/sov_extraction_generate.json`](../reference/analyzer-templates/sov_extraction_generate.json) | Same schema with `extract` → `generate`. Used for `.xlsx` AND for per-image fan-outs in Approach 3. |
-| [`../reference/cu-output/`](../reference/cu-output/) | Raw CU response JSON, one per attachment. Cached so the validation notebook is offline. |
+| [`../preprocess/`](../preprocess/) | Reusable preprocessing primitives used by Approach 4 and (later) by the workshop app: `apply_print_preflight`, `convert_libreoffice`, `rasterize_pdf_to_tiff`. |
+| [`../reference/cu-output/`](../reference/cu-output/) | Cached CU response JSON for Approaches 1–3, one per attachment. |
+| [`../reference/cu-output-tiff800/`](../reference/cu-output-tiff800/) | Cached CU response JSON for Approach 4, one per `.xlsx` attachment. |
 | [`../reference/expected-output/`](../reference/expected-output/) | Ground truth from `seed_data.py`. |
-| [`01_extract_sov.ipynb`](01_extract_sov.ipynb) | End-to-end extraction with the three-approach dispatcher + replay-from-cache. |
-| [`02_validate_extraction.ipynb`](02_validate_extraction.ipynb) | Offline side-by-side comparison with tolerant matching. |
+| [`01_extract_sov.ipynb`](01_extract_sov.ipynb) | End-to-end extraction with the three-approach dispatcher (Approaches 1–3) + replay-from-cache. |
+| [`02_xlsx_via_pdf_tiff.ipynb`](02_xlsx_via_pdf_tiff.ipynb) | Approach 4 — xlsx → preflight → PDF → TIFF@800 → `sovExtractV1`. |
+| [`03_validate_extraction.ipynb`](03_validate_extraction.ipynb) | Offline side-by-side comparison with tolerant matching. Reads both `cu-output/` and `cu-output-tiff800/`. |
