@@ -11,6 +11,7 @@ from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
 
 from helpers.azure_credential_utils import get_azure_credential
+from app.services import cost
 
 logger = logging.getLogger(__name__)
 
@@ -514,11 +515,35 @@ async def compare_analyzers(
     ]
     raw_results = await asyncio.gather(*tasks)
 
-    # Prefix analyzer_id with source and record which API version was used
-    results = [
-        {**r, "analyzer_id": f"{source}:{r['analyzer_id']}",
-         "api_version": di_api_version if source == "di" else cu_api_version}
-        for (source, _), r in zip(requested, raw_results)
-    ]
+    # Prefix analyzer_id with source, record which API version was used, and
+    # stamp an estimated cost per analyzer call.
+    results = []
+    for (source, aid), r in zip(requested, raw_results):
+        item = {
+            **r,
+            "analyzer_id": f"{source}:{r['analyzer_id']}",
+            "api_version": di_api_version if source == "di" else cu_api_version,
+        }
+        if r.get("status") == "succeeded" and r.get("result"):
+            try:
+                if source == "di":
+                    item["cost"] = cost.estimate_di_cost(r["result"], analyzer_id=aid)
+                else:
+                    item["cost"] = cost.estimate_cu_cost(r["result"])
+            except Exception:
+                item["cost"] = None
+        else:
+            item["cost"] = None
+        results.append(item)
 
-    return JSONResponse(content={"file_name": file.filename, "results": results})
+    aggregate_cost = cost.sum_breakdowns(
+        (r.get("cost") for r in results if r.get("cost"))
+    )
+
+    return JSONResponse(
+        content={
+            "file_name": file.filename,
+            "results": results,
+            "cost": aggregate_cost,
+        }
+    )

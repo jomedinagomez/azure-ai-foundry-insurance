@@ -19,6 +19,7 @@ from app.schemas.sov import (
     SovValidationResult,
 )
 from app.services import sov_service
+from app.services import cost
 from app.services.pipelines import (
     PipelineRunResult,
     StepEvent,
@@ -114,6 +115,8 @@ def run_pipeline_for_sample(req: SovPipelineRunRequest):
     artifacts_urls = _to_artifact_urls(run_id, result.artifacts, work_dir)
     payload["_meta"]["pipeline_artifacts"] = artifacts_urls
     payload["_meta"]["run_id"] = run_id
+    # Estimated cost — driven entirely by the `usage` block CU returns.
+    payload["_meta"]["cost"] = cost.estimate_pipeline_cost(payload)
 
     if req.save_as_canonical:
         sov_service.save_cached_payload(req.sample_name, payload)
@@ -160,6 +163,7 @@ def run_pipeline_for_sample_stream(req: SovPipelineRunRequest):
                     artifacts_urls = _to_artifact_urls(run_id, item.artifacts, work_dir)
                     payload["_meta"]["pipeline_artifacts"] = artifacts_urls
                     payload["_meta"]["run_id"] = run_id
+                    payload["_meta"]["cost"] = cost.estimate_pipeline_cost(payload)
                     if save_canonical:
                         try:
                             sov_service.save_cached_payload(sample_name, payload)
@@ -339,6 +343,16 @@ def get_cached(name: str):
     if "input" not in artifacts:
         artifacts["input"] = f"/sov/samples/{name}/raw"
         meta["pipeline_artifacts"] = artifacts
+    # Always recompute cost from the saved CU payload. Cached files may
+    # have been written by an older cost model; recomputing keeps the
+    # breakdown consistent with the current pricing.json + cost.py. If the
+    # saved payload predates `usage` capture, drop the cost so the UI
+    # doesn't show misleading partial numbers — the user can re-run to
+    # populate it.
+    if isinstance(payload.get("usage"), dict):
+        meta["cost"] = cost.estimate_pipeline_cost(payload)
+    else:
+        meta.pop("cost", None)
     return projected
 
 

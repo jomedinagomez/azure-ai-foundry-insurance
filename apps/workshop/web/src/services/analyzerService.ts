@@ -1,4 +1,5 @@
 import axios from "axios";
+import type { CostBreakdown } from "./sovService";
 
 const API_BASE = (process.env.REACT_APP_API_BASE_URL || "").replace(/\/$/, "");
 
@@ -27,11 +28,13 @@ export interface AnalyzerResult {
   error: string | null;
   api_version?: string;
   elapsed_ms?: number;
+  cost?: CostBreakdown | null;
 }
 
 export interface CompareResponse {
   file_name: string;
   results: AnalyzerResult[];
+  cost?: CostBreakdown;
 }
 
 export async function fetchPrebuiltAnalyzers(): Promise<PrebuiltAnalyzer[]> {

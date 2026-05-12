@@ -13,6 +13,9 @@ import {
   Button,
   MessageBar,
   MessageBarBody,
+  Popover,
+  PopoverSurface,
+  PopoverTrigger,
   Select,
   Spinner,
   Tab,
@@ -42,6 +45,7 @@ import {
   CompareResponse,
   PrebuiltAnalyzer,
 } from "../services/analyzerService";
+import { formatCost } from "../services/sovService";
 
 // ───────────────────────────────────────────────────────────────────────────────
 // Constants
@@ -762,6 +766,52 @@ const ResultPane: React.FC<ResultPaneProps> = ({
             <Badge appearance="tint" color="subtle" icon={<ClockRegular />}>
               {(elapsedMs / 1000).toFixed(1)}s
             </Badge>
+          )}
+          {result?.cost && (
+            <Popover withArrow positioning="below-end">
+              <PopoverTrigger disableButtonEnhancement>
+                <Badge
+                  appearance="tint"
+                  color="brand"
+                  style={{ cursor: "pointer" }}
+                  title="Estimated cost — click for breakdown"
+                >
+                  est. {formatCost(result.cost)}
+                </Badge>
+              </PopoverTrigger>
+              <PopoverSurface>
+                <div style={{ minWidth: 320, maxWidth: 480 }}>
+                  <Text weight="semibold">Cost breakdown (estimate)</Text>
+                  <table style={{ width: "100%", fontSize: 12, borderCollapse: "collapse", marginTop: 8 }}>
+                    <thead>
+                      <tr>
+                        <th style={{ textAlign: "left", borderBottom: "1px solid #ddd", padding: "4px 6px" }}>Component</th>
+                        <th style={{ textAlign: "right", borderBottom: "1px solid #ddd", padding: "4px 6px" }}>Qty</th>
+                        <th style={{ textAlign: "right", borderBottom: "1px solid #ddd", padding: "4px 6px" }}>Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {result.cost.components.map((c, i) => (
+                        <tr key={i}>
+                          <td style={{ padding: "4px 6px" }}>{c.label}</td>
+                          <td style={{ padding: "4px 6px", textAlign: "right" }}>{c.qty} {c.unit}</td>
+                          <td style={{ padding: "4px 6px", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                            ${c.amount.toFixed(4)}
+                          </td>
+                        </tr>
+                      ))}
+                      <tr>
+                        <td style={{ padding: "4px 6px", fontWeight: 600, borderTop: "1px solid #ddd" }}>Total</td>
+                        <td style={{ borderTop: "1px solid #ddd" }}></td>
+                        <td style={{ padding: "4px 6px", textAlign: "right", fontWeight: 600, borderTop: "1px solid #ddd", fontVariantNumeric: "tabular-nums" }}>
+                          {formatCost(result.cost)}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </PopoverSurface>
+            </Popover>
           )}
         </div>
       </div>

@@ -132,12 +132,35 @@ Core components:
 
 - **Content Understanding**
   - Document ingestion, extraction, classification
+  - Per-field source grounding and confidence scoring
 - **Custom analyzers & schemas**
-  - Field-level mapping and normalization
+  - Field-level mapping and normalization (`sovExtractV1`, `sovGenerateV1`)
 - **Post-processing logic**
-  - Confidence scoring and validation rules
+  - Confidence scoring, tolerant validation against ground truth, schema-as-code lifecycle
 - **Integration layer**
-  - APIs into underwriting systems (e.g., Pega)
+  - APIs into underwriting systems (e.g., Pega, Guidewire)
+
+### What's in this repo
+
+| Asset | Purpose |
+|---|---|
+| [`apps/workshop/`](apps/workshop/) | **Insurance Workbench** — local FastAPI + React app: Analyzer Compare, SOV Extraction with interactive PDF/TIFF visualizer and field-overlay highlighting, Pipelines DAG view, per-run **cost breakdown** popover. |
+| [`demo/sov/`](demo/sov/) | Six synthetic broker submissions (4 xlsx + 2 PDF) covering 30+ template variations, plus generators, ground-truth, and benchmarks. |
+| [`demo/sov/notebooks/`](demo/sov/notebooks/) | End-to-end extraction methodology, four input shapes (PDF / Excel / Excel+images / xlsx-via-TIFF), and tolerant validator. |
+| [`demo/sov/preprocess/`](demo/sov/preprocess/) | Reusable client primitives: page-setup preflight, LibreOffice render, TIFF rasterization. |
+| [`demo/sov/reference/analyzer-templates/`](demo/sov/reference/analyzer-templates/) | The two analyzer JSON templates (extract + generate). Schema-as-code; pushed via API. |
+| [`demo/sov/scripts/`](demo/sov/scripts/) | Validation harness (`review_xlsx.py`), model A/B (`ab_model_compare.py`), confidence-bucket analysis (`confidence_buckets.py`), token-cost audit (`inspect_token_cost.py`). |
+| [`slidedecks/`](slidedecks/) | Customer-facing deck content (Azure CU pitch, multi-modal accelerator overview, SOV demo closing notes). |
+
+### Where we landed today
+
+| Metric | Value |
+|---|---|
+| **Accuracy** | 100% (785/785 in-source fields across 4 xlsx samples) |
+| **Cost per SOV (gpt-4.1-mini)** | $0.03 – $0.05 typical |
+| **Cost vs. gpt-4.1** | ~70% cheaper, same accuracy (validated A/B) |
+| **Default analyzer model** | `gpt-4.1-mini` |
+| **Default DI/CU compare analyzers** | `prebuilt-layout` (both) |
 
 ---
 
@@ -184,20 +207,49 @@ To execute the scenario effectively:
 
 ---
 
-## Repository Structure (Suggested)
+## Repository Structure
 
-/docs
-sov.md
-claims.md
-/demo
-sample-sov/
-outputs/
-/architecture
-diagrams/
-/src
-processing/
-/infra
-deployment/
+```
+azure-ai-foundry-insurance/
+├── apps/workshop/                   # Insurance Workbench (local app)
+│   ├── api/                         # FastAPI + Pydantic backend
+│   └── web/                         # React + Fluent UI + pdf.js visualizer
+├── demo/sov/                        # Six synthetic SOV submissions + ground truth
+│   ├── attachments/                 # The 6 SOVs (xlsx + pdf)
+│   ├── emails/                      # Six broker .eml files
+│   ├── notebooks/                   # Methodology + four extraction approaches
+│   ├── preprocess/                  # Shared client primitives (preflight, render, rasterize)
+│   ├── reference/                   # Analyzer templates, target schema, ground-truth, benchmarks
+│   └── scripts/                     # Generators + validation/A-B harnesses
+├── Docs/                            # Customer-provided scoping artifacts
+├── slidedecks/                      # Microsoft-prepared decks + closing notes
+└── feedback/                        # Research notebooks documenting trade-offs and gotchas
+```
+
+## Getting started
+
+```powershell
+# One-time setup (Python deps shared across notebooks + workbench API)
+uv venv --python 3.12 .venv
+uv pip install -r requirements.txt
+
+# Backend
+cd apps/workshop/api
+copy .env.example .env   # set APP_CONTENT_UNDERSTANDING_ENDPOINT
+az login
+python standalone_api.py
+
+# Frontend (second terminal)
+cd apps/workshop/web
+npm install
+copy .env.example .env
+npm start
+```
+
+App at <http://localhost:3000>, API at <http://localhost:8000>.
+
+See [`apps/workshop/README.md`](apps/workshop/README.md) for app-specific details and
+[`demo/sov/notebooks/README.md`](demo/sov/notebooks/README.md) for extraction methodology.
 
 ---
 

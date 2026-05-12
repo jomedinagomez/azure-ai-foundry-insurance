@@ -231,7 +231,7 @@
     }
   },
   "models": {
-    "completion": "gpt-4.1",
+    "completion": "gpt-4.1-mini",
     "embedding": "text-embedding-3-large"
   }
 }

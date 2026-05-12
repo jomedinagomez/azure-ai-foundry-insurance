@@ -22,6 +22,31 @@ export interface SovSample {
 
 export type Pattern = "A" | "B" | "C";
 
+export interface CostComponent {
+  label: string;
+  qty: number;
+  unit: string;
+  amount: number;
+}
+
+export interface CostBreakdown {
+  currency: string;
+  total: number;
+  components: CostComponent[];
+  inputs?: Record<string, unknown>;
+}
+
+/** Format a USD cost. Uses 4 fractional digits below $0.01 so per-run
+ * sub-cent values stay readable; 2 digits otherwise. */
+export function formatCost(b: CostBreakdown | null | undefined): string {
+  if (!b) return "—";
+  const v = b.total;
+  const digits = v > 0 && v < 0.01 ? 4 : 2;
+  return `${b.currency === "USD" ? "$" : ""}${v.toFixed(digits)}${
+    b.currency !== "USD" ? " " + b.currency : ""
+  }`;
+}
+
 export interface SovExtractionMeta {
   source_file: string;
   approach?: string | null;

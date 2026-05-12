@@ -1,0 +1,74 @@
+{
+  "_note": "Per-unit prices in USD. Override these with your tenant-specific contracted rates. Last reviewed against public price lists 2026-05-11; verify against your enterprise agreement before quoting.",
+  "currency": "USD",
+  "cu": {
+    "_note": "Azure AI Content Understanding GA (2025-11-01). Source: https://azure.microsoft.com/pricing/details/content-understanding/ and https://learn.microsoft.com/azure/ai-services/content-understanding/pricing-explainer. Total cost = Content Extraction + Contextualization tokens + LLM input/output tokens + Embeddings tokens. CU charges PER 1,000 PAGES (or per hour for audio/video). The tier (minimal/basic/standard) is chosen by what processing CU actually performs: digital files (DOCX, XLSX, HTML, TXT, etc.) -> minimal; image-based with OCR-only (Read) -> basic; image-based with layout analysis -> standard. Contextualization tokens (`usage.contextualizationToken`) accrue whenever generative features are used (field extraction, figure analysis, segmentation, categorization, training). LLM tokens (`usage.tokens`) are billed by the underlying Foundry model deployment.",
+    "per_1000_pages": {
+      "minimal": 0.01,
+      "basic": 1.0,
+      "standard": 5.0
+    },
+    "per_audio_hour": 0.36,
+    "per_video_hour": 1.0,
+    "contextualization_per_1m_tokens": 1.0
+  },
+  "di": {
+    "_note": "Azure AI Document Intelligence pricing. Source: https://azure.microsoft.com/pricing/details/ai-document-intelligence/ (S0 Pay-As-You-Go, < 1M pages/mo). Rates are PER 1,000 PAGES. Commitment tiers and Read's high-volume break ($0.60/1k above 1M pages) are not modeled — adjust per_1000_pages.* if you have a contracted rate.",
+    "per_1000_pages": {
+      "prebuilt-layout": 10.0,
+      "prebuilt-read": 1.5,
+      "prebuilt-document": 10.0,
+      "prebuilt-invoice": 10.0,
+      "prebuilt-receipt": 10.0,
+      "prebuilt-idDocument": 10.0,
+      "prebuilt-businessCard": 10.0,
+      "prebuilt-contract": 10.0,
+      "prebuilt-healthInsuranceCard.us": 10.0,
+      "prebuilt-tax.us.w2": 10.0,
+      "prebuilt-tax.us.1098": 10.0,
+      "prebuilt-tax.us.1098E": 10.0,
+      "prebuilt-tax.us.1098T": 10.0,
+      "prebuilt-tax.us.1099": 10.0,
+      "prebuilt-tax.us.1040": 10.0,
+      "prebuilt-marriageCertificate.us": 10.0,
+      "prebuilt-payStub.us": 10.0,
+      "prebuilt-bankStatement.us": 10.0,
+      "prebuilt-mortgage.us.1003": 10.0,
+      "prebuilt-mortgage.us.1004": 10.0,
+      "prebuilt-mortgage.us.1005": 10.0,
+      "prebuilt-mortgage.us.1008": 10.0,
+      "prebuilt-mortgage.us.closingDisclosure": 10.0,
+      "_default": 10.0
+    }
+  },
+  "openai": {
+    "_note": "Per-1K-token rates. Used when CU's response includes a `usage.tokens` block keyed by model name. Add new model rows as CU starts using new models. Keys match CU's token keys WITHOUT the `-input`/`-output` suffix.",
+    "default_model": "gpt-4.1-mini",
+    "models": {
+      "gpt-4.1": {
+        "input_per_1k": 0.002,
+        "output_per_1k": 0.008
+      },
+      "gpt-4.1-mini": {
+        "input_per_1k": 0.0004,
+        "output_per_1k": 0.0016
+      },
+      "gpt-5.4": {
+        "input_per_1k": 0.003,
+        "output_per_1k": 0.012
+      },
+      "gpt-5.3-chat": {
+        "input_per_1k": 0.003,
+        "output_per_1k": 0.012
+      },
+      "gpt-5.2-chat": {
+        "input_per_1k": 0.0025,
+        "output_per_1k": 0.01
+      }
+    }
+  },
+  "compute": {
+    "_note": "Local pipeline compute (LibreOffice render, TIFF rasterization). Modeled as a flat per-run cost amortized over typical workloads. Set to 0 to exclude.",
+    "per_pipeline_run": 0.0005
+  }
+}

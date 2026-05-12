@@ -211,7 +211,30 @@ def _analyze_one(path: Path, analyzer_id: str, template_name: str, content_type:
             binary_input=f.read(),
             content_type=content_type,
         )
-    return _result_to_dict(poller.result()), time.perf_counter() - t0
+    payload = _result_to_dict(poller.result())
+    # CU returns billable usage (pages + per-model tokens) at the TOP LEVEL
+    # of the polling response, alongside `result` — not inside it. SDK 1.0.1
+    # doesn't surface this as a typed property, so we dig it out of the raw
+    # response. Newer SDKs have `poller.usage`; we prefer that when available.
+    try:
+        usage_dict = None
+        sdk_usage = getattr(poller, "usage", None)
+        if sdk_usage is not None:
+            if hasattr(sdk_usage, "as_dict"):
+                usage_dict = sdk_usage.as_dict()
+            else:
+                usage_dict = dict(sdk_usage)
+        else:
+            pm = poller.polling_method()
+            resp = pm._pipeline_response.http_response  # type: ignore[attr-defined]
+            body = resp.json() or {}
+            usage_dict = body.get("usage")
+        if usage_dict and "usage" not in payload:
+            payload["usage"] = usage_dict
+    except Exception:
+        # Cost estimation can degrade gracefully — never block the run.
+        pass
+    return payload, time.perf_counter() - t0
 
 
 # ── Public: extraction ──────────────────────────────────────────────────────

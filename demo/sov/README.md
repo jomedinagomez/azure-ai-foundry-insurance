@@ -3,6 +3,12 @@
 > **Slot:** Noon–12:15pm · **Demo lead:** Jose Medina Gomez
 > **Goal:** Show Azure AI Foundry **Content Understanding** ingesting realistic broker SOV submissions across **6 different template formats**, normalizing to a single schema, flagging anomalies, and producing a ranked risk view — directly addressing the typical "30+ template variations" concern from carrier intake teams.
 
+> **Demo lives in [`apps/workshop/`](../../apps/workshop/) — the "Insurance Workbench" app.**
+> Use it to drive the live portion of the demo: pick a sample → click Run →
+> visualizer with field overlays + per-run cost pill + 100% validation
+> against ground truth. Notebooks below (`notebooks/`) cover the deeper
+> methodology and the four extraction approaches.
+
 ---
 
 ## What's in this folder
@@ -78,14 +84,27 @@ Open each attachment briefly:
 > *"Six brokers. Six layouts. Same business need. This is the '30+ template variations' problem you mentioned."*
 
 ### 3. The Content Understanding analyzer (4 min)
-Switch to **Foundry → Content Understanding Studio**. Show:
-- The **analyzer schema** matching `reference/target-schema.json` — one schema, all 6 templates target it
-- Drag in **Acme** (the messy hero) → run extraction
-- Walk through the output:
-  - **Account-level fields** extracted from the header block (insured, effective date, broker, TIV)
-  - **Location rows** extracted from the schedule
-  - **3 extra locations** picked up from the **embedded image** — open the image preview in the studio to prove it
-  - **Confidence scores** per field (ties to Jim's question on slide 12)
+Switch to the **Insurance Workbench** (`apps/workshop/`, served at
+<http://localhost:3000>) and open the **SOV Extraction** tab. Show:
+
+- The **analyzer schema** matching `reference/target-schema.json` — one
+  schema, all 6 templates target it. The "View / Edit" panel exposes the
+  raw JSON so the audience sees schema-as-code.
+- Pick **Acme** (the messy hero) → click Run.
+- Walk through the output (left pane):
+  - **Account-level fields** extracted from the header block (insured,
+    effective date, broker, TIV) with confidence scores.
+  - **Location rows** extracted from the schedule.
+  - **3 extra locations** picked up from the **embedded image** — the
+    rasterized TIFF preview on the right shows the embedded image was
+    OCR'd as part of the page.
+  - **Hover any Output row** to highlight its source polygon on the
+    visualizer.
+- Click **Validate** to show 100% match against ground truth (785/785
+  in-source fields across the 4 xlsx samples).
+- Click the **`est. $0.03`** pill in the header to show the cost
+  breakdown: CU standard pages, contextualization tokens, GPT-4.1-mini
+  token usage.
 
 ### 4. Fan-out across all 6 templates (3 min)
 Run the remaining 5 SOVs through the **same** analyzer. Show side-by-side that:

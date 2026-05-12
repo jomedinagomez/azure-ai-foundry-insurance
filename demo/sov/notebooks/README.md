@@ -101,6 +101,19 @@ Two fields in the schema have a small fixed value set. For these we use `method:
 
 `classify` works the same way in both analyzer variants (extract and generate), so no per-format split is needed for these fields.
 
+> **Cost-tuning alternative.** Both `classify` and `extract` call the LLM (CU treats both as generative features), so swapping them does *not* shrink LLM cost meaningfully. The only thing `classify` adds is **server-side enum validation**. If you want a leaner schema (every byte of every description ships as prompt tokens on every call), you can rewrite these two fields as `extract` and normalize values in post-processing — accuracy is unchanged on this corpus.
+
+## Completion model — gpt-4.1-mini, not gpt-4.1
+
+The analyzers declare `"models": { "completion": "gpt-4.1-mini" }`. An A/B on the 4 in-source samples (785 fields total) showed:
+
+| Model | Cost (4 samples) | Accuracy |
+|---|---:|---:|
+| `gpt-4.1` | $0.3887 | 100% (785/785) |
+| **`gpt-4.1-mini`** | **$0.1156** | **100% (785/785)** |
+
+Mini is ~70% cheaper for identical accuracy. Re-run [`demo/sov/scripts/ab_model_compare.py`](../scripts/ab_model_compare.py) any time the schema or sample set changes materially.
+
 ---
 
 ## What ran end-to-end

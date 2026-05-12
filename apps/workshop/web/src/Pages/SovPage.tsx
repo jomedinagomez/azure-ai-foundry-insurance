@@ -16,6 +16,9 @@ import {
   MessageBar,
   MessageBarBody,
   Option,
+  Popover,
+  PopoverSurface,
+  PopoverTrigger,
   Spinner,
   Tab,
   TabList,
@@ -58,6 +61,8 @@ import {
   SovSample,
   SovValidationResult,
   SovValidationDiff,
+  CostBreakdown,
+  formatCost,
 } from "../services/sovService";
 import {
   fetchPipelines,
@@ -77,6 +82,83 @@ function FileTypeIcon({ type }: { type: string }) {
   if (type === "xlsx") return <DocumentTableRegular style={{ color: "#107C41" }} />;
   if (type === "pdf") return <DocumentPdfRegular style={{ color: "#B00020" }} />;
   return <DocumentRegular />;
+}
+
+/**
+ * Header pill that shows the estimated USD cost of a run, with a Popover
+ * that breaks the total down by line item. Click the pill to reveal
+ * components (CU pages, GPT completions, local compute, etc.) plus the
+ * raw counters under "inputs" for transparency.
+ */
+function CostPill({ cost }: { cost: CostBreakdown }) {
+  return (
+    <Popover withArrow positioning="below">
+      <PopoverTrigger disableButtonEnhancement>
+        <button
+          type="button"
+          style={{
+            cursor: "pointer",
+            backgroundColor: tokens.colorBrandBackground2,
+            color: tokens.colorBrandForeground1,
+            border: `1px solid ${tokens.colorBrandStroke2}`,
+            padding: "2px 8px",
+            borderRadius: "10px",
+            fontSize: 12,
+            fontWeight: 600,
+            lineHeight: 1.4,
+          }}
+          title="Estimated cost — click for breakdown"
+        >
+          est. {formatCost(cost)}
+        </button>
+      </PopoverTrigger>
+      <PopoverSurface>
+        <div style={{ minWidth: 320, maxWidth: 480 }}>
+          <Text weight="semibold">Cost breakdown (estimate)</Text>
+          <div style={{ marginTop: 8 }}>
+            <table style={{ width: "100%", fontSize: 12, borderCollapse: "collapse" }}>
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "left", borderBottom: "1px solid #ddd", padding: "4px 6px" }}>Component</th>
+                  <th style={{ textAlign: "right", borderBottom: "1px solid #ddd", padding: "4px 6px" }}>Qty</th>
+                  <th style={{ textAlign: "right", borderBottom: "1px solid #ddd", padding: "4px 6px" }}>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cost.components.map((c, i) => (
+                  <tr key={i}>
+                    <td style={{ padding: "4px 6px" }}>{c.label}</td>
+                    <td style={{ padding: "4px 6px", textAlign: "right" }}>
+                      {c.qty} {c.unit}
+                    </td>
+                    <td style={{ padding: "4px 6px", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                      ${c.amount.toFixed(4)}
+                    </td>
+                  </tr>
+                ))}
+                <tr>
+                  <td style={{ padding: "4px 6px", fontWeight: 600, borderTop: "1px solid #ddd" }}>Total</td>
+                  <td style={{ borderTop: "1px solid #ddd" }}></td>
+                  <td style={{ padding: "4px 6px", textAlign: "right", fontWeight: 600, borderTop: "1px solid #ddd", fontVariantNumeric: "tabular-nums" }}>
+                    {formatCost(cost)}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <Caption1 style={{ color: tokens.colorNeutralForeground3, marginTop: 8, display: "block" }}>
+            Estimate based on configured per-unit pricing. Verify against your enterprise agreement before quoting.
+          </Caption1>
+          <Caption1 style={{ color: tokens.colorNeutralForeground3, marginTop: 4, display: "block" }}>
+            <b>Tip:</b> Most cost comes from LLM tokens. You can lower it further
+            by replacing <code>classify</code> fields with <code>extract</code>
+            and normalizing values in post-processing — accuracy stays the same,
+            schema gets smaller, prompts stay leaner.
+          </Caption1>
+        </div>
+      </PopoverSurface>
+    </Popover>
+  );
 }
 
 const useStyles = makeStyles({
@@ -812,6 +894,9 @@ export default function SovPage() {
             <span className={styles.metaPill}>
               {(result.meta.elapsed_total_sec ?? result.meta.elapsed_sec ?? 0).toFixed(1)}s
             </span>
+          )}
+          {result && (result.meta as { cost?: CostBreakdown }).cost && (
+            <CostPill cost={(result.meta as { cost?: CostBreakdown }).cost!} />
           )}
 
           <div style={{ marginLeft: "auto", display: "flex", gap: 8, alignItems: "center" }}>
