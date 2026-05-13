@@ -446,10 +446,48 @@ async def _run_di_analyzer(
         return _with_elapsed({"analyzer_id": model_id, "status": "failed", "result": None, "error": str(exc)})
 
 
+async def _fetch_custom_cu_analyzers(endpoint: str, api_version: str = CU_API_VERSION) -> list[dict]:
+    """Fetch custom (non-prebuilt) analyzers deployed on the CU resource."""
+    if not endpoint:
+        return []
+    try:
+        headers = _get_cu_headers(endpoint)
+        url = f"{endpoint.rstrip('/')}/contentunderstanding/analyzers?api-version={api_version}"
+        async with httpx.AsyncClient(timeout=httpx.Timeout(15.0)) as client:
+            resp = await client.get(url, headers=headers)
+            if resp.status_code != 200:
+                logger.warning(f"CU list analyzers returned {resp.status_code}: {resp.text[:200]}")
+                return []
+            data = resp.json()
+        items = data.get("value", []) if isinstance(data, dict) else []
+        out: list[dict] = []
+        for a in items:
+            aid = a.get("analyzerId") or a.get("id")
+            if not aid or aid.startswith("prebuilt-"):
+                continue
+            out.append({
+                "id": aid,
+                "name": aid,
+                "category": "Custom",
+                "description": a.get("description") or f"Custom analyzer '{aid}' deployed on this Content Understanding resource.",
+                "source": "cu",
+                "custom": True,
+                "baseAnalyzerId": a.get("baseAnalyzerId"),
+                "status": a.get("status"),
+            })
+        return out
+    except Exception as exc:
+        logger.warning(f"Failed to fetch custom CU analyzers: {exc}")
+        return []
+
+
 @router.get("/analyzers")
 async def list_prebuilt_analyzers() -> list[dict]:
-    """Returns the list of supported prebuilt analyzers (both DI and CU)."""
-    return ALL_ANALYZERS
+    """Returns the list of supported prebuilt analyzers (DI + CU) plus any custom CU analyzers deployed on the configured resource."""
+    endpoint = os.environ.get("app_content_understanding_endpoint") or os.environ.get("APP_CONTENT_UNDERSTANDING_ENDPOINT", "")
+    endpoint = _normalize_cognitive_endpoint(endpoint)
+    custom = await _fetch_custom_cu_analyzers(endpoint) if endpoint else []
+    return ALL_ANALYZERS + custom
 
 
 @router.get("/api-versions")
@@ -499,7 +537,7 @@ async def compare_analyzers(
     unknown = [
         aid for source, aid in requested
         if (source == "di" and aid not in _DI_VALID_IDS)
-        or (source == "cu" and aid not in _CU_VALID_IDS)
+        or (source == "cu" and aid.startswith("prebuilt-") and aid not in _CU_VALID_IDS)
     ]
     if unknown:
         raise HTTPException(status_code=400, detail=f"Unknown analyzer ID(s): {', '.join(unknown)}")
