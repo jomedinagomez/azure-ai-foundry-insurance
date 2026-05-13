@@ -190,7 +190,7 @@ Buckets, in priority order:
 
 These are not implemented yet but follow naturally from the methodology above.
 
-1. **Embedded-image extraction for `.xlsx`.** ✅ **Implemented** in [`02_xlsx_via_pdf_tiff.ipynb`](02_xlsx_via_pdf_tiff.ipynb) (Approach 4). The TIFF rasterization captures embedded images as part of the page, so the same `sovExtractV1` analyzer handles main schedule + image rows in one call. Approach 3 remains for environments where LibreOffice isn't available.
+1. **Embedded-image extraction for `.xlsx`.**  **Implemented** in [`02_xlsx_via_pdf_tiff.ipynb`](02_xlsx_via_pdf_tiff.ipynb) (Approach 4). The TIFF rasterization captures embedded images as part of the page, so the same `sovExtractV1` analyzer handles main schedule + image rows in one call. Approach 3 remains for environments where LibreOffice isn't available.
 2. **TIV cross-check.** A post-processing step that computes `sum(building_value + bpp_value + bi_ee_value)` across locations and flags any case where the extracted `TotalInsuredValue` differs by more than, say, 1%.
 3. **Field-presence reporting.** Track per-template which fields are populated vs null. Useful for the broker conversation ("your template doesn't include valuation date — please add").
 4. **Confidence-based human-in-the-loop routing.** PDFs already return per-field confidence. Below threshold → review queue. Excel via `generate` doesn't return field-level confidence the same way — we would need to either add a CU step that re-validates, or use the LLM-backed `generate` analyzer's overall warning signals.
