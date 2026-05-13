@@ -150,7 +150,6 @@ Core components:
 | [`demo/sov/preprocess/`](demo/sov/preprocess/) | Reusable client primitives: page-setup preflight, LibreOffice render, TIFF rasterization. |
 | [`demo/sov/reference/analyzer-templates/`](demo/sov/reference/analyzer-templates/) | The two analyzer JSON templates (extract + generate). Schema-as-code; pushed via API. |
 | [`demo/sov/scripts/`](demo/sov/scripts/) | Validation harness (`review_xlsx.py`), model A/B (`ab_model_compare.py`), confidence-bucket analysis (`confidence_buckets.py`), token-cost audit (`inspect_token_cost.py`). |
-| [`slidedecks/`](slidedecks/) | Customer-facing deck content (Azure CU pitch, multi-modal accelerator overview, SOV demo closing notes). |
 
 ### Where we landed today
 
@@ -212,7 +211,7 @@ To execute the scenario effectively:
 ```
 azure-ai-foundry-insurance/
 ├── apps/workshop/                   # Insurance Workbench (local app)
-│   ├── api/                         # FastAPI + Pydantic backend
+│   ├── api/                         # FastAPI backend (standalone, no Cosmos/ServiceBus)
 │   └── web/                         # React + Fluent UI + pdf.js visualizer
 ├── demo/sov/                        # Six synthetic SOV submissions + ground truth
 │   ├── attachments/                 # The 6 SOVs (xlsx + pdf)
@@ -221,35 +220,95 @@ azure-ai-foundry-insurance/
 │   ├── preprocess/                  # Shared client primitives (preflight, render, rasterize)
 │   ├── reference/                   # Analyzer templates, target schema, ground-truth, benchmarks
 │   └── scripts/                     # Generators + validation/A-B harnesses
-├── Docs/                            # Customer-provided scoping artifacts
-├── slidedecks/                      # Microsoft-prepared decks + closing notes
-└── feedback/                        # Research notebooks documenting trade-offs and gotchas
+├── requirements.txt                 # Unified Python deps (workshop API + notebooks)
+└── .env.example                     # Repo-root env template (shared by API + notebooks)
 ```
+
+---
 
 ## Getting started
 
+### 1. Prerequisites
+
+| Tool | Version | Install (Windows) |
+|---|---|---|
+| Python | 3.12 | <https://www.python.org/downloads/> |
+| `uv` | latest | `winget install astral-sh.uv` |
+| Node.js | 18 LTS or newer | `winget install OpenJS.NodeJS.LTS` |
+| Azure CLI | latest | `winget install Microsoft.AzureCLI` |
+| LibreOffice *(optional)* | latest | `winget install TheDocumentFoundation.LibreOffice` — only needed for the `xlsx_via_pdf_tiff` pipeline |
+
+### 2. Azure prerequisites
+
+- An **Azure AI Foundry** (or Cognitive Services multi-service) resource with **Content Understanding** and **Document Intelligence** available in its region.
+- A model deployment named **`gpt-4.1-mini`** on that Foundry resource (and **`text-embedding-3-large`** if you exercise the default analyzers). The SOV analyzer templates declare `"models": { "completion": "gpt-4.1-mini" }`.
+- Your signed-in identity (the user running `az login`) must hold **`Cognitive Services User`** on the Foundry / Cognitive Services resource. The app and notebooks authenticate via `DefaultAzureCredential` — no keys are used or stored.
+
+### 3. Clone and configure
+
 ```powershell
-# One-time setup (Python deps shared across notebooks + workbench API)
+git clone https://github.com/jomedinagomez/azure-ai-foundry-insurance.git
+cd azure-ai-foundry-insurance
+
+# Create a single venv at the repo root, used by the API and the notebooks
 uv venv --python 3.12 .venv
 uv pip install -r requirements.txt
 
-# Backend
-cd apps/workshop/api
-copy .env.example .env   # set APP_CONTENT_UNDERSTANDING_ENDPOINT
-az login
-python standalone_api.py
-
-# Frontend (second terminal)
-cd apps/workshop/web
-npm install
+# Repo-root .env — picked up by both the API and the notebooks
 copy .env.example .env
+# Edit .env and set:
+#   APP_CONTENT_UNDERSTANDING_ENDPOINT=https://<your-foundry-or-cognitive-services-endpoint>/
+#   APP_ENV=dev
+
+az login
+```
+
+### 4. Run the Insurance Workbench (API + Web)
+
+Terminal 1 — API:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+cd apps\workshop\api
+python standalone_api.py
+# Smoke test: curl http://localhost:8000/health
+```
+
+Terminal 2 — Web:
+
+```powershell
+cd apps\workshop\web
+npm install
+copy .env.example .env   # REACT_APP_API_BASE_URL defaults to http://localhost:8000
 npm start
 ```
 
-App at <http://localhost:3000>, API at <http://localhost:8000>.
+Open <http://localhost:3000>. Three tabs are available: **Analyzer Compare**, **SOV Extraction**, **Pipelines**. See [`apps/workshop/README.md`](apps/workshop/README.md) for per-tab details, cost-pill behavior, and troubleshooting.
 
-See [`apps/workshop/README.md`](apps/workshop/README.md) for app-specific details and
-[`demo/sov/notebooks/README.md`](demo/sov/notebooks/README.md) for extraction methodology.
+### 5. Run the SOV extraction notebooks
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+code demo\sov\notebooks\01_extract_sov.ipynb
+```
+
+In VS Code, select the `.venv` kernel when prompted. The notebooks read `APP_CONTENT_UNDERSTANDING_ENDPOINT` from the **repo-root `.env`**. Run cells top-to-bottom; outputs are cached under `demo/sov/reference/cu-output/`.
+
+See [`demo/sov/notebooks/README.md`](demo/sov/notebooks/README.md) for the four extraction approaches, schema-as-code lifecycle, and the tolerant validator.
+
+### 6. (Optional) Verify reproducibility
+
+Run [`demo/sov/notebooks/03_validate_extraction.ipynb`](demo/sov/notebooks/03_validate_extraction.ipynb) end-to-end against the cached extractions in `demo/sov/reference/cu-output/`. Expected result: **100% accuracy on in-source fields** for all 4 xlsx samples.
+
+Optional deeper audits (require the API from step 4 to be running, since they hit `http://localhost:8000`):
+
+```powershell
+# Per-sample cost + token usage + accuracy against ground truth
+python demo\sov\scripts\ab_model_compare.py
+
+# Where LLM-input tokens go for one cached run (schema vs OCR text)
+python demo\sov\scripts\inspect_token_cost.py
+```
 
 ---
 
