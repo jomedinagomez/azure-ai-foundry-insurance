@@ -181,4 +181,9 @@ cython_debug/
 .cursorindexingignore
 # Customer/private docs (excluded from repo)
 Docs/
+slidedecks/
+feedback/
+
+# Office lock files
+~$*
 
