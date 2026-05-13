@@ -23,7 +23,6 @@ demo/sov/
 │   ├── benchmarks.csv          # $/sqft benchmarks for valuation reasonability
 │   └── expected-output/        # ground-truth normalized JSON (one per account)
 └── scripts/                    # generators (regenerate everything from seed data)
-    ├── requirements.txt
     ├── seed_data.py            # SINGLE SOURCE OF TRUTH for all 6 accounts
     ├── generate_logos.py
     ├── generate_excel.py
@@ -34,10 +33,11 @@ demo/sov/
 
 ## Regenerating the assets
 
+From the repo root (after the one-time `uv venv` + `uv pip install -r requirements.txt` in the top-level [README](../../README.md#3-clone-and-configure)):
+
 ```powershell
-cd demo/sov/scripts
-pip install -r requirements.txt
-python make_all.py
+.\.venv\Scripts\Activate.ps1
+python demo\sov\scripts\make_all.py
 ```
 
 ---
