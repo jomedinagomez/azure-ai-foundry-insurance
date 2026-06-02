@@ -30,11 +30,18 @@ if os.path.exists(_ROOT_ENV):
 else:
     load_dotenv(os.path.join(_HERE, ".env"))
 
+# Additively load demo/sov/.env when present — Terraform writes the deployed
+# model deployment names here (GPT41_MODEL_DEPLOYMENT, EMBEDDING_MODEL_DEPLOYMENT, ...)
+# and the SEC classifier needs them to be wired into Content Understanding.
+_SOV_ENV = os.path.join(_HERE, "..", "..", "..", "demo", "sov", ".env")
+if os.path.exists(_SOV_ENV):
+    load_dotenv(_SOV_ENV, override=False)
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routers import analyzer_compare, pipelines, sov
+from app.routers import analyzer_compare, pipelines, pro, sec, sov
 
 app = FastAPI(title="Analyzer Compare API", redirect_slashes=False)
 
@@ -48,7 +55,9 @@ app.add_middleware(
 
 app.include_router(analyzer_compare.router)
 app.include_router(sov.router)
+app.include_router(sec.router)
 app.include_router(pipelines.router)
+app.include_router(pro.router)
 
 
 @app.get("/health")

@@ -1,0 +1,116 @@
+{
+    "description": "Pro-mode analyzer focused on cross-document fraud-signal detection across an auto claim package. Reasons across the FNOL claim form, the police report, the repair estimate, and the damage photo, with the reference auto policy as a baseline for limits, VIN, and named insured. Each finding includes targeted evidence so the rule engine can correlate.",
+    "baseAnalyzerId": "prebuilt-documentAnalyzer",
+    "mode": "pro",
+    "processingLocation": "DataZone",
+    "config": {
+        "returnDetails": true
+    },
+    "fieldSchema": {
+        "name": "ProFraudFields",
+        "description": "Cross-document inconsistency detection for auto claim packages.",
+        "fields": {
+            "VinConsistency": {
+                "type": "string",
+                "method": "classify",
+                "description": "Compare the VIN printed on the FNOL claim form, the VIN printed on the repair estimate, and the VIN on the reference auto policy. 'Match' = all three agree exactly. 'Mismatch' = any disagreement (including single-character typos). 'Unknown' = a VIN is missing from one or more documents.",
+                "enum": [
+                    "Match",
+                    "Mismatch",
+                    "Unknown"
+                ]
+            },
+            "VinConsistencyEvidence": {
+                "type": "string",
+                "method": "generate",
+                "description": "Quote each VIN found and the document it came from. Example: 'Policy VIN 1HGCM82633A004352; FNOL VIN 1HGCM82633A004352; estimate VIN 1HGCM82633A004532 (last 3 chars differ).' If everything matches, say so explicitly."
+            },
+            "PolicyNumberConsistency": {
+                "type": "string",
+                "method": "classify",
+                "description": "Compare the policy number on the FNOL claim form and on the repair estimate against the policy number on the reference auto policy declarations page.",
+                "enum": [
+                    "Match",
+                    "Mismatch",
+                    "Unknown"
+                ]
+            },
+            "ClaimantNameConsistency": {
+                "type": "string",
+                "method": "classify",
+                "description": "Compare the claimant / customer name on the FNOL, the repair estimate, and the named insured on the reference policy. Case and trailing punctuation differences are not mismatches; different given or family names are.",
+                "enum": [
+                    "Match",
+                    "Mismatch",
+                    "Unknown"
+                ]
+            },
+            "TotalsVsSubLimit": {
+                "type": "string",
+                "method": "classify",
+                "description": "Compare the grand total on the repair estimate against the collision sub-limit on the reference policy. 'WithinLimit' = total <= sub-limit. 'ExceedsCollisionSubLimit' = total > sub-limit. 'Unknown' = either value missing.",
+                "enum": [
+                    "WithinLimit",
+                    "ExceedsCollisionSubLimit",
+                    "Unknown"
+                ]
+            },
+            "TotalsEvidence": {
+                "type": "string",
+                "method": "generate",
+                "description": "Quote the estimate grand total (with currency) and the policy's collision sub-limit. State the dollar gap explicitly when the estimate exceeds the sub-limit."
+            },
+            "EstimateDateVsDateOfLoss": {
+                "type": "string",
+                "method": "classify",
+                "description": "Compare the date on the repair estimate against the date of loss on the FNOL. 'Plausible' = estimate dated on or after the date of loss. 'EstimateBeforeLoss' = estimate dated BEFORE the date of loss (a strong red flag — the policy expressly excludes pre-existing damage). 'EstimateLongAfterLoss' = estimate dated more than 90 days after the loss. 'Unknown' = either date missing.",
+                "enum": [
+                    "Plausible",
+                    "EstimateBeforeLoss",
+                    "EstimateLongAfterLoss",
+                    "Unknown"
+                ]
+            },
+            "DateEvidence": {
+                "type": "string",
+                "method": "generate",
+                "description": "Quote the estimate date and the FNOL date of loss, in ISO 8601 YYYY-MM-DD form. State the number of days between them and which one is earlier."
+            },
+            "NarrativeImageConsistency": {
+                "type": "string",
+                "method": "classify",
+                "description": "Compare the damage described on the FNOL + police report against the damage visible in damage_photo.png and the line items on the repair estimate. 'Consistent' = the photo shows damage of roughly the severity the narrative describes and the estimate scope matches. 'Inconsistent' = the photo shows materially less damage than the estimate scope (e.g. minor cosmetic damage vs. a structural frame repair estimate). 'Unknown' = photo unavailable or unreadable.",
+                "enum": [
+                    "Consistent",
+                    "Inconsistent",
+                    "Unknown"
+                ]
+            },
+            "NarrativeImageEvidence": {
+                "type": "string",
+                "method": "generate",
+                "description": "Describe what the photo shows in one or two sentences, then identify the most expensive 1-2 line items on the estimate. State whether those line items are plausible given the visible damage."
+            },
+            "OverallFraudIndication": {
+                "type": "string",
+                "method": "classify",
+                "description": "Holistic rating of fraud risk across all signals. 'Low' = no material inconsistencies. 'Medium' = one significant inconsistency, or two minor ones. 'High' = multiple significant inconsistencies, or any single signal of likely deliberate tampering (e.g. estimate predates loss; total dramatically exceeds sub-limit; VIN swap).",
+                "enum": [
+                    "Low",
+                    "Medium",
+                    "High"
+                ]
+            },
+            "Rationale": {
+                "type": "string",
+                "method": "generate",
+                "description": "A 3-5 sentence claims-investigator-style rationale explaining the overall fraud rating. Reference specific documents and quoted values. Avoid hedging language."
+            }
+        }
+    },
+    "tags": {
+        "purpose": "pro-fraud-reasoning",
+        "version": "v1",
+        "mode": "pro"
+    }
+}

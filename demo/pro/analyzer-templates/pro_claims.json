@@ -1,0 +1,97 @@
+{
+    "description": "Pro-mode analyzer for first-notice-of-loss auto claim packages. Reasons across the FNOL claim form, the police report, the repair estimate, and the damage photo, validating each against the reference auto policy (deployed as reference data). Produces a structured summary plus a claims-handler verdict.",
+    "baseAnalyzerId": "prebuilt-documentAnalyzer",
+    "mode": "pro",
+    "processingLocation": "DataZone",
+    "config": {
+        "returnDetails": true
+    },
+    "fieldSchema": {
+        "name": "ProClaimsFields",
+        "description": "Auto claim package extraction + multi-step claims reasoning against the reference policy.",
+        "fields": {
+            "ClaimantName": {
+                "type": "string",
+                "method": "generate",
+                "description": "Full legal name of the claimant as it appears on the FNOL claim form (the document titled 'First Notice of Loss' or 'Auto Insurance Claim Form'). Return exactly the name string with no honorifics."
+            },
+            "PolicyNumber": {
+                "type": "string",
+                "method": "generate",
+                "description": "Policy number from the FNOL claim form. Format is typically letters-digits-year, e.g. 'PA-7421-2026'."
+            },
+            "VIN": {
+                "type": "string",
+                "method": "generate",
+                "description": "17-character Vehicle Identification Number reported on the FNOL claim form. Return the VIN exactly as printed (do not normalize against the police report or estimate)."
+            },
+            "DateOfLoss": {
+                "type": "date",
+                "method": "generate",
+                "description": "Date of loss reported on the FNOL claim form (the field labeled 'Date of Loss', 'Loss Date', or 'Accident Date'). Return ISO 8601 YYYY-MM-DD."
+            },
+            "LossLocation": {
+                "type": "string",
+                "method": "generate",
+                "description": "Free-text location of the loss as reported on the FNOL or police report (intersection, city, state). Prefer the police report's location when both are present."
+            },
+            "IncidentNarrative": {
+                "type": "string",
+                "method": "generate",
+                "description": "One- to two-paragraph factual narrative reconciling the description of the incident across the FNOL claim form and the police report. Mention any meaningful contradictions between the two sources."
+            },
+            "EstimatedTotal": {
+                "type": "number",
+                "method": "generate",
+                "description": "Grand total (USD) on the repair estimate, after discounts and before tax. Look for a line labeled 'Grand Total', 'Total', or the bottom-most highlighted total in the line-item table."
+            },
+            "DamageVisibleInPhoto": {
+                "type": "string",
+                "method": "generate",
+                "description": "One- to two-sentence description of the damage visible in damage_photo.png, including the affected vehicle area (front, rear, driver-side, passenger-side) and severity (minor scratch, moderate, severe / structural)."
+            },
+            "CoverageApplies": {
+                "type": "string",
+                "method": "classify",
+                "description": "Whether the reference policy (auto_policy.pdf) appears to cover this loss. Reason about: (a) is the date of loss within the policy period; (b) is the VIN on the FNOL the insured vehicle on the policy; (c) is the loss type (collision) a covered peril.",
+                "enum": [
+                    "Yes",
+                    "No",
+                    "Partial",
+                    "Unknown"
+                ]
+            },
+            "PoliceReportPresent": {
+                "type": "string",
+                "method": "classify",
+                "description": "Whether a police report document is present in the input package (look for a document containing 'Police Report' or 'Incident Report' header).",
+                "enum": [
+                    "Yes",
+                    "No"
+                ]
+            },
+            "DocumentSetCompleteness": {
+                "type": "string",
+                "method": "classify",
+                "description": "Per the policy conditions ('Required supporting documents' clause), claims over $2,000 require an FNOL, a police report, an itemized repair estimate, and photographs. Classify the package's completeness.",
+                "enum": [
+                    "Complete",
+                    "MissingPoliceReport",
+                    "MissingRepairEstimate",
+                    "MissingPhotos",
+                    "MissingMultiple"
+                ]
+            },
+            "ClaimsHandlerVerdict": {
+                "type": "string",
+                "method": "generate",
+                "description": "A 2-4 sentence claims-handler-style verdict: (1) summary of the loss, (2) whether the package supports settlement, (3) any open items the handler should follow up on. Be specific and reference the documents (FNOL, police report, estimate, photo, policy)."
+            }
+        }
+    },
+    "tags": {
+        "purpose": "pro-claims-reasoning",
+        "version": "v1",
+        "mode": "pro"
+    }
+}

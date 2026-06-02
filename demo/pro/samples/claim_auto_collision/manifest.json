@@ -1,0 +1,50 @@
+{
+  "id": "claim_auto_collision",
+  "title": "Auto collision \u2014 complete claim package",
+  "scenario": "claims",
+  "loss_type": "Auto collision",
+  "description": "First Notice of Loss for a single-vehicle collision at an intersection. Package includes a fully synthetic FNOL claim form, a Springfield PD traffic crash report, a body-shop repair estimate, and an annotated damage photograph. All documents are internally consistent and consistent with the reference policy (auto_policy.pdf).",
+  "claimant": "Sarah J. Whitfield",
+  "policy_number": "PA-7421-2026",
+  "vin": "2T2BZMCA5KC192847",
+  "vehicle": "2019 Lexus RX 350 AWD",
+  "date_of_loss": "2026-03-14",
+  "claim_number": "CL-2026-03-14-0445",
+  "estimated_total_usd": 7440.0,
+  "files": [
+    {
+      "name": "claim_form.pdf",
+      "kind": "fnol",
+      "media_type": "application/pdf"
+    },
+    {
+      "name": "police_report.pdf",
+      "kind": "police_report",
+      "media_type": "application/pdf"
+    },
+    {
+      "name": "repair_estimate.pdf",
+      "kind": "repair_estimate",
+      "media_type": "application/pdf"
+    },
+    {
+      "name": "damage_photo.png",
+      "kind": "damage_photo",
+      "media_type": "image/png"
+    }
+  ],
+  "expected_signals": [],
+  "expected_risk_score_range": [
+    0,
+    25
+  ],
+  "source": {
+    "provider": "Locally generated synthetic PDFs (reportlab) + damage_photo.png fetched from Microsoft CPSA v2.",
+    "generator_scripts": [
+      "demo/pro/scripts/generate_claim_form.py",
+      "demo/pro/scripts/generate_police_report.py",
+      "demo/pro/scripts/generate_clean_estimate.py",
+      "demo/pro/scripts/fetch_damage_photo.py"
+    ]
+  }
+}

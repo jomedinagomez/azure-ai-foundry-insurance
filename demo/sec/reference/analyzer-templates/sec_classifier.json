@@ -1,0 +1,37 @@
+{
+    "baseAnalyzerId": "prebuilt-document",
+    "description": "SEC 10-K/10-Q financial statement classifier. Segments filings into the five primary consolidated financial statements and routes each to the SEC financial-tables analyzer.",
+    "config": {
+        "returnDetails": true,
+        "enableSegment": true,
+        "contentCategories": {
+            "BalanceSheet": {
+                "description": "Consolidated Balance Sheets or Statement of Financial Position. Shows total assets, total liabilities, and stockholders' equity at specific reporting dates. Typically titled 'Consolidated Balance Sheets'.",
+                "analyzerId": "__ANALYZER_ID__"
+            },
+            "IncomeStatement": {
+                "description": "Consolidated Statements of Operations, Statements of Income, or Income Statements. Shows revenues, costs, expenses, and net income/loss over reporting periods. Does NOT include Statements of Comprehensive Income.",
+                "analyzerId": "__ANALYZER_ID__"
+            },
+            "ComprehensiveIncome": {
+                "description": "Consolidated Statements of Comprehensive Income (Loss). Shows net income plus other comprehensive income items such as unrealized gains/losses, foreign currency translation, and pension adjustments.",
+                "analyzerId": "__ANALYZER_ID__"
+            },
+            "Equity": {
+                "description": "Consolidated Statements of Changes in Stockholders' Equity. Shows changes in equity components (common stock, APIC, retained earnings, AOCI, treasury stock) across periods. May contain multiple sub-tables for different comparison periods.",
+                "analyzerId": "__ANALYZER_ID__"
+            },
+            "CashFlow": {
+                "description": "Consolidated Statements of Cash Flows. Shows operating, investing, and financing activities with beginning and ending cash balances.",
+                "analyzerId": "__ANALYZER_ID__"
+            },
+            "Other": {
+                "description": "Any page that is NOT one of the five primary financial statement tables. Includes: cover pages, table of contents, MD&A, notes to financial statements, auditor reports, exhibits, and all other content."
+            }
+        }
+    },
+    "tags": {
+        "purpose": "sec-fs-classifier",
+        "version": "v1"
+    }
+}

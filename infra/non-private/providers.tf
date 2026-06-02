@@ -1,0 +1,19 @@
+provider "azurerm" {
+  features {
+    resource_group {
+      prevent_deletion_if_contains_resources = false
+    }
+    cognitive_account {
+      purge_soft_delete_on_destroy = true
+    }
+  }
+
+  subscription_id     = var.subscription_id
+  storage_use_azuread = true
+}
+
+provider "azapi" {}
+
+provider "azuread" {}
+
+provider "time" {}

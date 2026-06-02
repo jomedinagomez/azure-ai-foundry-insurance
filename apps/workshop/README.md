@@ -1,6 +1,6 @@
 # Insurance Workbench
 
-Local-only workshop shell branded **Insurance Workbench**. Three tabs share one
+Local-only workshop shell branded **Insurance Workbench**. Four tabs share one
 FastAPI + React stack:
 
 - **Analyzer Compare** — side-by-side Azure Document Intelligence vs. Azure
@@ -16,6 +16,13 @@ FastAPI + React stack:
   - **TIFF viewer** with `react-zoom-pan-pinch` zoom/pan + multi-page nav +
     SVG **field-bounding-box overlays**, hover-driven from the Output pane
   - Returned **markdown** + raw **artifacts** sub-tabs
+- **SEC Filings** — two-stage Content Understanding extraction of the five
+  primary consolidated financial statements from a 10-K / 10-Q. One CU
+  call (classifier delegates to analyzer via `contentCategories.analyzerId`)
+  produces multi-segment output; the service merges, exports a multi-sheet
+  Excel workbook, and validates against ground truth. Companion notebooks
+  live in [`demo/sec/notebooks/`](../../demo/sec/notebooks/README.md) and
+  call the same `sec_service` functions the UI uses.
 - **Pipelines** — visual DAG editor for the seeded pipelines (PDF extract,
   xlsx generate, xlsx generate + image fan-out, xlsx via PDF→TIFF). SSE
   streaming for per-step progress events.

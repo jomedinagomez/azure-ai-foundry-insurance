@@ -13,8 +13,10 @@ import {
   WeatherSunnyRegular,
   BeakerRegular,
   BuildingRegular,
+  DocumentDataRegular,
   FlowRegular,
   InfoRegular,
+  ShieldTaskRegular,
 } from "@fluentui/react-icons";
 import "./Header.css";
 
@@ -37,9 +39,19 @@ const tabConfigs = [
     label: "SOV Extraction",
   },
   {
+    icon: <DocumentDataRegular />,
+    value: "sec",
+    label: "SEC Filings",
+  },
+  {
     icon: <FlowRegular />,
     value: "pipelines",
     label: "Pipelines",
+  },
+  {
+    icon: <ShieldTaskRegular />,
+    value: "pro",
+    label: "Pro Mode",
   },
 ];
 

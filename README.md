@@ -144,9 +144,11 @@ Core components:
 
 | Asset | Purpose |
 |---|---|
-| [`apps/workshop/`](apps/workshop/) | **Insurance Workbench** — local FastAPI + React app: Analyzer Compare, SOV Extraction with interactive PDF/TIFF visualizer and field-overlay highlighting, Pipelines DAG view, per-run **cost breakdown** popover. |
+| [`apps/workshop/`](apps/workshop/) | **Insurance Workbench** — local FastAPI + React app: Analyzer Compare, SOV Extraction with interactive PDF/TIFF visualizer and field-overlay highlighting, **SEC Filings** two-stage classifier+analyzer extraction with hierarchical statement tables and Excel export, Pipelines DAG view, per-run **cost breakdown** popover. |
 | [`demo/sov/`](demo/sov/) | Six synthetic broker submissions (4 xlsx + 2 PDF) covering 30+ template variations, plus generators, ground-truth, and benchmarks. |
 | [`demo/sov/notebooks/`](demo/sov/notebooks/) | End-to-end extraction methodology, four input shapes (PDF / Excel / Excel+images / xlsx-via-TIFF), and tolerant validator. |
+| [`demo/sec/`](demo/sec/) | Five real SEC 10-K / 10-Q PDFs, classifier+analyzer templates, cached CU outputs, and ground-truth expected line-items. |
+| [`demo/sec/notebooks/`](demo/sec/notebooks/README.md) | Six notebooks (`01_deploy_analyzers` → `06_end_to_end`) that call the **same** `sec_service` functions the SEC Filings tab uses — no drift between UI and workshop. |
 | [`demo/sov/preprocess/`](demo/sov/preprocess/) | Reusable client primitives: page-setup preflight, LibreOffice render, TIFF rasterization. |
 | [`demo/sov/reference/analyzer-templates/`](demo/sov/reference/analyzer-templates/) | The two analyzer JSON templates (extract + generate). Schema-as-code; pushed via API. |
 | [`demo/sov/scripts/`](demo/sov/scripts/) | Validation harness (`review_xlsx.py`), model A/B (`ab_model_compare.py`), confidence-bucket analysis (`confidence_buckets.py`), token-cost audit (`inspect_token_cost.py`). |

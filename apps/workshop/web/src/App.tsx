@@ -6,7 +6,9 @@ import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import Header from "./Components/Header/Header";
 import ComparePage from "./Pages/ComparePage";
 import SovPage from "./Pages/SovPage";
+import SecPage from "./Pages/SecPage";
 import PipelinesPage from "./Pages/PipelinesPage";
+import ProPage from "./Pages/ProPage";
 import { TabValue } from "@fluentui/react-components";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -22,7 +24,9 @@ const AppInner: React.FC<AppProps> = ({ isDarkMode, toggleTheme }) => {
   const routeToTab: Record<string, TabValue> = {
     "/compare": "compare",
     "/sov": "sov",
+    "/sec": "sec",
     "/pipelines": "pipelines",
+    "/pro": "pro",
   };
 
   const currentTab =
@@ -31,7 +35,9 @@ const AppInner: React.FC<AppProps> = ({ isDarkMode, toggleTheme }) => {
   const handleTabChange = (value: TabValue) => {
     if (value === "compare") navigate("/compare");
     if (value === "sov") navigate("/sov");
+    if (value === "sec") navigate("/sec");
     if (value === "pipelines") navigate("/pipelines");
+    if (value === "pro") navigate("/pro");
   };
 
   return (
@@ -47,7 +53,9 @@ const AppInner: React.FC<AppProps> = ({ isDarkMode, toggleTheme }) => {
           <Route path="/" element={<Navigate to="/compare" />} />
           <Route path="/compare" element={<ComparePage />} />
           <Route path="/sov" element={<SovPage />} />
+          <Route path="/sec" element={<SecPage />} />
           <Route path="/pipelines" element={<PipelinesPage />} />
+          <Route path="/pro" element={<ProPage />} />
           <Route path="*" element={<Navigate to="/compare" />} />
         </Routes>
       </main>

@@ -1,0 +1,675 @@
+{
+  "file_name": "10K-GOOG-01-31-2024.pdf",
+  "statements": [
+    {
+      "statement_type": "BalanceSheet",
+      "table_title": "Alphabet Inc. CONSOLIDATED BALANCE SHEETS (in millions, except par value per share amounts)",
+      "rows": [
+        {
+          "line_item": "Assets"
+        },
+        {
+          "line_item": "Current assets:"
+        },
+        {
+          "line_item": "Cash and cash equivalents"
+        },
+        {
+          "line_item": "Marketable securities"
+        },
+        {
+          "line_item": "Total cash, cash equivalents, and marketable securities"
+        },
+        {
+          "line_item": "Accounts receivable, net"
+        },
+        {
+          "line_item": "Other current assets"
+        },
+        {
+          "line_item": "Total current assets"
+        },
+        {
+          "line_item": "Non-marketable securities"
+        },
+        {
+          "line_item": "Deferred income taxes"
+        },
+        {
+          "line_item": "Property and equipment, net"
+        },
+        {
+          "line_item": "Operating lease assets"
+        },
+        {
+          "line_item": "Goodwill"
+        },
+        {
+          "line_item": "Other non-current assets"
+        },
+        {
+          "line_item": "Total assets"
+        },
+        {
+          "line_item": "Liabilities and Stockholders' Equity"
+        },
+        {
+          "line_item": "Current liabilities:"
+        },
+        {
+          "line_item": "Accounts payable"
+        },
+        {
+          "line_item": "Accrued compensation and benefits"
+        },
+        {
+          "line_item": "Accrued expenses and other current liabilities"
+        },
+        {
+          "line_item": "Accrued revenue share"
+        },
+        {
+          "line_item": "Deferred revenue"
+        },
+        {
+          "line_item": "Total current liabilities"
+        },
+        {
+          "line_item": "Long-term debt"
+        },
+        {
+          "line_item": "Deferred revenue, non-current"
+        },
+        {
+          "line_item": "Income taxes payable, non-current"
+        },
+        {
+          "line_item": "Deferred income taxes"
+        },
+        {
+          "line_item": "Operating lease liabilities"
+        },
+        {
+          "line_item": "Other long-term liabilities"
+        },
+        {
+          "line_item": "Total liabilities"
+        },
+        {
+          "line_item": "Commitments and Contingencies (Note 10)"
+        },
+        {
+          "line_item": "Stockholders' equity:"
+        },
+        {
+          "line_item": "Preferred stock, $0.001 par value per share, 100 shares authorized; no shares issued and outstanding"
+        },
+        {
+          "line_item": "Class A, Class B, and Class C stock and additional paid-in capital, $0.001 par value per share: 300,000 shares authorized (Class A 180,000, Class B 60.000. Class C 60,000); 12,849 (Class A 5,964, Class B 883, Class C 6,002) and 12,460 (Class A 5,899, Class B 870, Class C 5,691) shares issued and outstanding"
+        },
+        {
+          "line_item": "Accumulated other comprehensive income (loss)"
+        },
+        {
+          "line_item": "Retained earnings"
+        },
+        {
+          "line_item": "Total stockholders' equity"
+        },
+        {
+          "line_item": "Total liabilities and stockholders' equity"
+        }
+      ]
+    },
+    {
+      "statement_type": "IncomeStatement",
+      "table_title": "Alphabet Inc. CONSOLIDATED STATEMENTS OF INCOME (in millions, except per share amounts)",
+      "rows": [
+        {
+          "line_item": "Revenues"
+        },
+        {
+          "line_item": "Costs and expenses:"
+        },
+        {
+          "line_item": "Cost of revenues"
+        },
+        {
+          "line_item": "Research and development"
+        },
+        {
+          "line_item": "Sales and marketing"
+        },
+        {
+          "line_item": "General and administrative"
+        },
+        {
+          "line_item": "Total costs and expenses"
+        },
+        {
+          "line_item": "Income from operations"
+        },
+        {
+          "line_item": "Other income (expense), net"
+        },
+        {
+          "line_item": "Income before income taxes"
+        },
+        {
+          "line_item": "Provision for income taxes"
+        },
+        {
+          "line_item": "Net income"
+        },
+        {
+          "line_item": "Basic net income per share of Class A, Class B, and Class C stock"
+        },
+        {
+          "line_item": "Diluted net income per share of Class A, Class B, and Class C stock"
+        }
+      ]
+    },
+    {
+      "statement_type": "ComprehensiveIncome",
+      "table_title": "Alphabet Inc. CONSOLIDATED STATEMENTS OF COMPREHENSIVE INCOME (in millions)",
+      "rows": [
+        {
+          "line_item": "Net income"
+        },
+        {
+          "line_item": "Other comprehensive income (loss):"
+        },
+        {
+          "line_item": "Change in foreign currency translation adjustment"
+        },
+        {
+          "line_item": "Available-for-sale investments:"
+        },
+        {
+          "line_item": "Change in net unrealized gains (losses)"
+        },
+        {
+          "line_item": "Less: reclassification adjustment for net (gains) losses included in net income"
+        },
+        {
+          "line_item": "Net change, net of income tax benefit (expense) of $394, $1,056, and $(698)"
+        },
+        {
+          "line_item": "Cash flow hedges:"
+        },
+        {
+          "line_item": "Change in net unrealized gains (losses)"
+        },
+        {
+          "line_item": "Less: reclassification adjustment for net (gains) losses included in net income"
+        },
+        {
+          "line_item": "Net change, net of income tax benefit (expense) of $(122), $110, and $2"
+        },
+        {
+          "line_item": "Other comprehensive income (loss)"
+        },
+        {
+          "line_item": "Comprehensive income"
+        }
+      ]
+    },
+    {
+      "statement_type": "Equity",
+      "table_title": "Alphabet Inc. CONSOLIDATED STATEMENTS OF STOCKHOLDERS' EQUITY (in millions)",
+      "rows": [
+        {
+          "line_item": "Balance as of December 31, 2020"
+        },
+        {
+          "line_item": "Stock issued"
+        },
+        {
+          "line_item": "Stock-based compensation expense"
+        },
+        {
+          "line_item": "Tax withholding related to vesting of restricted stock units and other"
+        },
+        {
+          "line_item": "Repurchases of stock"
+        },
+        {
+          "line_item": "Sale of interest in consolidated entities"
+        },
+        {
+          "line_item": "Net income"
+        },
+        {
+          "line_item": "Other comprehensive income (loss)"
+        },
+        {
+          "line_item": "Balance as of December 31, 2021"
+        },
+        {
+          "line_item": "Stock issued"
+        },
+        {
+          "line_item": "Stock-based compensation expense"
+        },
+        {
+          "line_item": "Tax withholding related to vesting of restricted stock units and other"
+        },
+        {
+          "line_item": "Repurchases of stock"
+        },
+        {
+          "line_item": "Sale of interest in consolidated entities"
+        },
+        {
+          "line_item": "Net income"
+        },
+        {
+          "line_item": "Other comprehensive income (loss)"
+        },
+        {
+          "line_item": "Balance as of December 31, 2022"
+        },
+        {
+          "line_item": "Stock issued"
+        },
+        {
+          "line_item": "Stock-based compensation expense"
+        },
+        {
+          "line_item": "Tax withholding related to vesting of restricted stock units and other"
+        },
+        {
+          "line_item": "Repurchases of stock"
+        },
+        {
+          "line_item": "Net income"
+        },
+        {
+          "line_item": "Other comprehensive income (loss)"
+        },
+        {
+          "line_item": "Balance as of December 31, 2023"
+        }
+      ]
+    },
+    {
+      "statement_type": "CashFlow",
+      "table_title": "Alphabet Inc. CONSOLIDATED STATEMENTS OF CASH FLOWS (in millions)",
+      "rows": [
+        {
+          "line_item": "Operating activities"
+        },
+        {
+          "line_item": "Net income"
+        },
+        {
+          "line_item": "Adjustments:"
+        },
+        {
+          "line_item": "Depreciation of property and equipment"
+        },
+        {
+          "line_item": "Stock-based compensation expense"
+        },
+        {
+          "line_item": "Deferred income taxes"
+        },
+        {
+          "line_item": "(Gain) loss on debt and equity securities, net"
+        },
+        {
+          "line_item": "Other"
+        },
+        {
+          "line_item": "Changes in assets and liabilities, net of effects of acquisitions:"
+        },
+        {
+          "line_item": "Accounts receivable, net"
+        },
+        {
+          "line_item": "Income taxes, net"
+        },
+        {
+          "line_item": "Other assets"
+        },
+        {
+          "line_item": "Accounts payable"
+        },
+        {
+          "line_item": "Accrued expenses and other liabilities"
+        },
+        {
+          "line_item": "Accrued revenue share"
+        },
+        {
+          "line_item": "Deferred revenue"
+        },
+        {
+          "line_item": "Net cash provided by operating activities"
+        },
+        {
+          "line_item": "Investing activities"
+        },
+        {
+          "line_item": "Purchases of property and equipment"
+        },
+        {
+          "line_item": "Purchases of marketable securities"
+        },
+        {
+          "line_item": "Maturities and sales of marketable securities"
+        },
+        {
+          "line_item": "Purchases of non-marketable securities"
+        },
+        {
+          "line_item": "Maturities and sales of non-marketable securities"
+        },
+        {
+          "line_item": "Acquisitions, net of cash acquired, and purchases of intangible assets"
+        },
+        {
+          "line_item": "Other investing activities"
+        },
+        {
+          "line_item": "Net cash used in investing activities"
+        },
+        {
+          "line_item": "Financing activities"
+        },
+        {
+          "line_item": "Net payments related to stock-based award activities"
+        },
+        {
+          "line_item": "Repurchases of stock"
+        },
+        {
+          "line_item": "Proceeds from issuance of debt, net of costs"
+        },
+        {
+          "line_item": "Repayments of debt"
+        },
+        {
+          "line_item": "Proceeds from sale of interest in consolidated entities, net"
+        },
+        {
+          "line_item": "Net cash used in financing activities"
+        },
+        {
+          "line_item": "Effect of exchange rate changes on cash and cash equivalents"
+        },
+        {
+          "line_item": "Net increase (decrease) in cash and cash equivalents"
+        },
+        {
+          "line_item": "Cash and cash equivalents at beginning of period"
+        },
+        {
+          "line_item": "Cash and cash equivalents at end of period"
+        },
+        {
+          "line_item": "Supplemental disclosures of cash flow information"
+        },
+        {
+          "line_item": "Cash paid for income taxes, net of refunds"
+        }
+      ]
+    },
+    {
+      "statement_type": "ComprehensiveIncome",
+      "table_title": "Accumulated Other Comprehensive Income (Loss)",
+      "rows": [
+        {
+          "line_item": "Balance as of December 31, 2020"
+        },
+        {
+          "line_item": "Other comprehensive income (loss) before reclassifications"
+        },
+        {
+          "line_item": "Amounts excluded from the assessment of hedge effectiveness recorded in AOCI"
+        },
+        {
+          "line_item": "Amounts reclassified from AOCI"
+        },
+        {
+          "line_item": "Other comprehensive income (loss)"
+        },
+        {
+          "line_item": "Balance as of December 31, 2021"
+        },
+        {
+          "line_item": "Other comprehensive income (loss) before reclassifications"
+        },
+        {
+          "line_item": "Amounts excluded from the assessment of hedge effectiveness recorded in AOCI"
+        },
+        {
+          "line_item": "Amounts reclassified from AOCI"
+        },
+        {
+          "line_item": "Other comprehensive income (loss)"
+        },
+        {
+          "line_item": "Balance as of December 31, 2022"
+        },
+        {
+          "line_item": "Other comprehensive income (loss) before reclassifications"
+        },
+        {
+          "line_item": "Amounts excluded from the assessment of hedge effectiveness recorded in AOCI"
+        },
+        {
+          "line_item": "Amounts reclassified from AOCI"
+        },
+        {
+          "line_item": "Other comprehensive income (loss)"
+        },
+        {
+          "line_item": "Balance as of December 31, 2023"
+        }
+      ]
+    },
+    {
+      "statement_type": "ComprehensiveIncome",
+      "table_title": "The effects on net income of amounts reclassified from AOCI were as follows (in millions):",
+      "rows": [
+        {
+          "line_item": "Unrealized gains (losses) on available-"
+        },
+        {
+          "line_item": "for-sale investments"
+        },
+        {
+          "line_item": "Other income (expense), net"
+        },
+        {
+          "line_item": "Benefit (provision) for income taxes"
+        },
+        {
+          "line_item": "Net of income tax"
+        },
+        {
+          "line_item": "Unrealized gains (losses) on cash flow"
+        },
+        {
+          "line_item": "hedges"
+        },
+        {
+          "line_item": "Foreign exchange contracts"
+        },
+        {
+          "line_item": "Interest rate contracts"
+        },
+        {
+          "line_item": "Benefit (provision) for income taxes"
+        },
+        {
+          "line_item": "Net of income tax"
+        },
+        {
+          "line_item": "Total amount reclassified, net of income"
+        }
+      ]
+    },
+    {
+      "statement_type": "Equity",
+      "table_title": "The following table presents Class A and Class C shares repurchased and subsequently retired (in millions):",
+      "rows": [
+        {
+          "line_item": "Class A share repurchases"
+        },
+        {
+          "line_item": "Class C share repurchases"
+        },
+        {
+          "line_item": "Total share repurchases(1)"
+        }
+      ]
+    },
+    {
+      "statement_type": "Other",
+      "table_title": "",
+      "rows": []
+    },
+    {
+      "statement_type": "Other",
+      "table_title": "",
+      "rows": []
+    },
+    {
+      "statement_type": "Other",
+      "table_title": "The following table sets forth the computation of basic and diluted net income per share of Class A, Class B, and Class C stock (in millions, except per share amounts):",
+      "rows": [
+        {
+          "line_item": "Basic net income per share:"
+        },
+        {
+          "line_item": "Numerator"
+        },
+        {
+          "line_item": "Allocation of undistributed earnings"
+        },
+        {
+          "line_item": "Denominator"
+        },
+        {
+          "line_item": "Number of shares used in per share computation"
+        },
+        {
+          "line_item": "Basic net income per share"
+        },
+        {
+          "line_item": "Diluted net income per share:"
+        },
+        {
+          "line_item": "Numerator"
+        },
+        {
+          "line_item": "Allocation of undistributed earnings for basic computation"
+        },
+        {
+          "line_item": "Reallocation of undistributed earnings as a result of conversion of Class B to Class A\nshares"
+        },
+        {
+          "line_item": "Reallocation of undistributed earnings"
+        },
+        {
+          "line_item": "Allocation of undistributed earnings"
+        },
+        {
+          "line_item": "Denominator"
+        },
+        {
+          "line_item": "Number of shares used in basic computation"
+        },
+        {
+          "line_item": "Weighted-average effect of dilutive securities"
+        },
+        {
+          "line_item": "Add:"
+        },
+        {
+          "line_item": "Conversion of Class B to Class A shares outstanding"
+        },
+        {
+          "line_item": "Restricted stock units and other contingently issuable shares"
+        },
+        {
+          "line_item": "Number of shares used in per share computation"
+        },
+        {
+          "line_item": "Diluted net income per share"
+        }
+      ]
+    },
+    {
+      "statement_type": "Other",
+      "table_title": "The following table summarizes the activities for unvested Alphabet RSUs for the year ended December 31, 2023\n(in millions, except per share amounts):",
+      "rows": [
+        {
+          "line_item": "Unvested as of December 31, 2022"
+        },
+        {
+          "line_item": "Granted"
+        },
+        {
+          "line_item": "Vested"
+        },
+        {
+          "line_item": "Forfeited/canceled"
+        },
+        {
+          "line_item": "Unvested as of December 31, 2023"
+        }
+      ]
+    },
+    {
+      "statement_type": "Other",
+      "table_title": "Income from continuing operations before income taxes consisted of the following (in millions):",
+      "rows": [
+        {
+          "line_item": "Domestic operations"
+        },
+        {
+          "line_item": "Foreign operations"
+        },
+        {
+          "line_item": "Total"
+        }
+      ]
+    },
+    {
+      "statement_type": "Other",
+      "table_title": "Provision for income taxes consisted of the following (in millions):",
+      "rows": [
+        {
+          "line_item": "Current:"
+        },
+        {
+          "line_item": "Federal and state"
+        },
+        {
+          "line_item": "Foreign"
+        },
+        {
+          "line_item": "Total"
+        },
+        {
+          "line_item": "Deferred:"
+        },
+        {
+          "line_item": "Federal and state"
+        },
+        {
+          "line_item": "Foreign"
+        },
+        {
+          "line_item": "Total"
+        },
+        {
+          "line_item": "Provision for income taxes"
+        }
+      ]
+    }
+  ]
+}
