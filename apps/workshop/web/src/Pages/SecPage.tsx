@@ -30,12 +30,16 @@ import {
   CheckmarkCircleRegular,
   DocumentPdfRegular,
   DocumentDataRegular,
+  DocumentRegular,
+  ArrowUploadRegular,
+  DismissRegular,
 } from "@fluentui/react-icons";
 import { toast } from "react-toastify";
 
 import {
   fetchSecSamples,
   runSecExtractionStream,
+  runSecExtractionUploadStream,
   runSecValidation,
   saveSecExpected,
   secSampleFileUrl,
@@ -141,6 +145,38 @@ const useStyles = makeStyles({
     ...shorthands.padding("6px", "8px"),
     borderBottom: `1px solid ${tokens.colorNeutralStroke3}`,
   },
+  dropzone: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "4px",
+    ...shorthands.padding("14px", "10px"),
+    border: `1.5px dashed ${tokens.colorNeutralStroke2}`,
+    ...shorthands.borderRadius("6px"),
+    backgroundColor: tokens.colorNeutralBackground2,
+    cursor: "pointer",
+    textAlign: "center",
+    transitionProperty: "all",
+    transitionDuration: "150ms",
+    ":hover": {
+      borderColor: tokens.colorBrandStroke1,
+      backgroundColor: tokens.colorBrandBackground2,
+    },
+  },
+  dropzoneActive: {
+    borderColor: tokens.colorBrandStroke1,
+    backgroundColor: tokens.colorBrandBackground2,
+  },
+  fileChip: {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    ...shorthands.padding("6px", "8px"),
+    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    ...shorthands.borderRadius("4px"),
+    backgroundColor: tokens.colorNeutralBackground1,
+  },
 });
 
 function CostPill({ cost }: { cost: CostBreakdown }) {
@@ -229,6 +265,43 @@ export default function SecPage() {
   const [showConfidence, setShowConfidence] = useState(true);
   const [pdfPage, setPdfPage] = useState<number>(1);
 
+  // ── User-uploaded PDF (alternative to picking a bundled sample) ─────
+  // When `uploadFile` is set we hit /sec/extract/upload/stream which never
+  // touches the canonical cache so sample fixtures stay pristine.
+  const [uploadFile, setUploadFile] = useState<File | null>(null);
+  const [uploadObjectUrl, setUploadObjectUrl] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (!uploadFile) {
+      setUploadObjectUrl(null);
+      return;
+    }
+    const url = URL.createObjectURL(uploadFile);
+    setUploadObjectUrl(url);
+    return () => URL.revokeObjectURL(url);
+  }, [uploadFile]);
+
+  const handleUploadSelect = (f: File) => {
+    if (!f.name.toLowerCase().endsWith(".pdf")) {
+      toast.error("Only PDF uploads are supported for SEC extraction.");
+      return;
+    }
+    setUploadFile(f);
+    setSelected("");
+    setResult(null);
+    setValidation(null);
+    setEvents([]);
+    setError(null);
+    setPdfPage(1);
+  };
+  const clearUpload = () => {
+    setUploadFile(null);
+    setResult(null);
+    setValidation(null);
+  };
+
   const handleSelectStatement = (stmt: { page_start?: number | null }) => {
     if (stmt.page_start && stmt.page_start > 0) {
       setPdfPage(stmt.page_start);
@@ -276,7 +349,7 @@ export default function SecPage() {
   }, []);
 
   const handleRun = async () => {
-    if (!selected) return;
+    if (!selected && !uploadFile) return;
     setRunning(true);
     setError(null);
     setEvents([]);
@@ -284,15 +357,23 @@ export default function SecPage() {
     setValidation(null);
     setRunDialogOpen(true);
     try {
-      await runSecExtractionStream(selected, {
-        useCache,
-        // When running live, persist the raw CU response so the next
-        // load can recover per-segment page numbers (click-to-jump).
-        saveAsCanonical: !useCache,
-        onStep: (evt) => setEvents((prev) => [...prev, evt]),
-        onComplete: (r) => setResult(r),
-        onError: (e) => setError(e),
-      });
+      if (uploadFile) {
+        await runSecExtractionUploadStream(uploadFile, {
+          onStep: (evt) => setEvents((prev) => [...prev, evt]),
+          onComplete: (r) => setResult(r),
+          onError: (e) => setError(e),
+        });
+      } else {
+        await runSecExtractionStream(selected, {
+          useCache,
+          // When running live, persist the raw CU response so the next
+          // load can recover per-segment page numbers (click-to-jump).
+          saveAsCanonical: !useCache,
+          onStep: (evt) => setEvents((prev) => [...prev, evt]),
+          onComplete: (r) => setResult(r),
+          onError: (e) => setError(e),
+        });
+      }
     } catch {
       /* error already surfaced */
     } finally {
@@ -348,8 +429,17 @@ export default function SecPage() {
   const excelUrl = result?.meta?.artifacts?.excel
     ? apiUrl(result.meta.artifacts.excel)
     : null;
-  const pdfUrl = selected ? secSampleFileUrl(selected) : null;
-  const fileStem = selected ? selected.replace(/\.[^.]+$/, "") : "sec";
+  const pdfUrl = uploadFile
+    ? uploadObjectUrl
+    : selected
+    ? secSampleFileUrl(selected)
+    : null;
+  const fileStem = uploadFile
+    ? uploadFile.name.replace(/\.[^.]+$/, "")
+    : selected
+    ? selected.replace(/\.[^.]+$/, "")
+    : "sec";
+  const headerName = uploadFile?.name || selected || "—";
 
   const segCount = result?.meta?.segment_categories
     ? Object.values(result.meta.segment_categories).reduce(
@@ -367,7 +457,11 @@ export default function SecPage() {
           <Dropdown
             value={selected}
             selectedOptions={[selected]}
-            onOptionSelect={(_, d) => setSelected((d.optionValue as string) ?? "")}
+            onOptionSelect={(_, d) => {
+              const v = (d.optionValue as string) ?? "";
+              setSelected(v);
+              if (v) setUploadFile(null);
+            }}
             disabled={running || samples.length === 0}
             style={{ width: "100%" }}
           >
@@ -379,7 +473,7 @@ export default function SecPage() {
           </Dropdown>
         </div>
 
-        {sample && (
+        {sample && !uploadFile && (
           <Card className={styles.sampleCard}>
             <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
               <DocumentPdfRegular style={{ color: "#B00020", fontSize: 24, flex: "0 0 24px" }} />
@@ -397,6 +491,65 @@ export default function SecPage() {
               </div>
             </div>
           </Card>
+        )}
+
+        {/* ── Upload your own PDF ───────────────────────────── */}
+        <Text weight="semibold" style={{ marginTop: 8 }}>Or upload your own</Text>
+        <div
+          className={`${styles.dropzone}${isDragging ? " " + styles.dropzoneActive : ""}`}
+          onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setIsDragging(false);
+            const f = e.dataTransfer.files?.[0];
+            if (f) handleUploadSelect(f);
+          }}
+          onClick={() => fileInputRef.current?.click()}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === "Enter" && fileInputRef.current?.click()}
+        >
+          <ArrowUploadRegular style={{ fontSize: 20, color: tokens.colorBrandForeground1 }} />
+          <Text size={200} weight="semibold">
+            {isDragging ? "Drop here" : "Click or drag & drop"}
+          </Text>
+          <Caption1 style={{ color: tokens.colorNeutralForeground3 }}>PDF only</Caption1>
+        </div>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".pdf"
+          style={{ display: "none" }}
+          onChange={(e) => {
+            const f = e.target.files?.[0];
+            if (f) handleUploadSelect(f);
+            e.target.value = "";
+          }}
+        />
+        {uploadFile && (
+          <div className={styles.fileChip}>
+            <DocumentPdfRegular style={{ flexShrink: 0, color: "#B00020" }} />
+            <Text size={200} weight="semibold" style={{ flex: "1 1 auto", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+              {uploadFile.name}
+            </Text>
+            <Caption1 style={{ color: tokens.colorNeutralForeground3, flexShrink: 0 }}>
+              {(uploadFile.size / 1024).toFixed(0)} KB
+            </Caption1>
+            <Button
+              appearance="subtle"
+              size="small"
+              icon={<DismissRegular />}
+              style={{ padding: 2, minWidth: 0, flexShrink: 0 }}
+              onClick={(e) => { e.stopPropagation(); clearUpload(); }}
+              aria-label="Clear uploaded file"
+            />
+          </div>
+        )}
+        {uploadFile && (
+          <Caption1 style={{ color: tokens.colorNeutralForeground3 }}>
+            Upload mode always runs live (cache and ground-truth comparison are disabled).
+          </Caption1>
         )}
 
         <div>
@@ -439,7 +592,7 @@ export default function SecPage() {
       <div className={styles.main}>
         {/* Top header strip */}
         <div className={styles.headerStrip}>
-          <Body1Strong>{selected || "—"}</Body1Strong>
+          <Body1Strong>{headerName}</Body1Strong>
           <span className={styles.metaPill}>pipeline: classify → analyze</span>
           {result && (
             <>
@@ -483,22 +636,23 @@ export default function SecPage() {
               appearance="primary"
               icon={<PlayRegular />}
               onClick={handleRun}
-              disabled={running || !selected}
+              disabled={running || (!selected && !uploadFile)}
             >
               {running ? "Running…" : "Run"}
             </Button>
             <Button
               icon={<SaveRegular />}
               onClick={handleSaveGt}
-              disabled={!result || savingGt}
-              title="Write current line items to demo/sec/reference/expected-output/<stem>.json"
+              disabled={!result || savingGt || !!uploadFile}
+              title={uploadFile ? "Disabled for uploaded files" : "Write current line items to demo/sec/reference/expected-output/<stem>.json"}
             >
               {savingGt ? "Saving…" : "Save result"}
             </Button>
             <Button
               icon={<CheckmarkCircleRegular />}
               onClick={handleValidate}
-              disabled={!result || validating}
+              disabled={!result || validating || !!uploadFile}
+              title={uploadFile ? "Disabled for uploaded files" : undefined}
             >
               {validating ? "Validating…" : "Validate"}
             </Button>
@@ -520,7 +674,7 @@ export default function SecPage() {
               </DialogTitle>
               <DialogContent>
                 <Caption1 style={{ display: "block", marginBottom: 8, color: "var(--colorNeutralForeground3)" }}>
-                  {selected ?? ""} · pipeline: classify → analyze
+                  {headerName} · pipeline: classify → analyze
                 </Caption1>
                 <RunProgress events={events} running={running} error={error} />
               </DialogContent>
@@ -610,7 +764,7 @@ export default function SecPage() {
                 </div>
               )}
               {refTab === "preview" && !pdfUrl && (
-                <Caption1>Pick a sample to preview the source PDF.</Caption1>
+                <Caption1>Pick a sample or upload a PDF to preview the source.</Caption1>
               )}
               {refTab === "artifacts" && excelUrl && (
                 <div>

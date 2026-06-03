@@ -32,6 +32,8 @@ import {
   DismissCircleFilled,
   PlayRegular,
   ArrowSyncRegular,
+  ArrowUploadRegular,
+  DismissRegular,
   DocumentTableRegular,
   DocumentPdfRegular,
   DocumentRegular,
@@ -52,9 +54,11 @@ import {
   fetchSovSamples,
   pushAnalyzerToFoundry,
   runSovPipelineStream,
+  runSovUploadStream,
   runValidation,
   saveAnalyzerTemplate,
   saveResultToCache,
+  uploadAndExtract,
   apiUrl,
   SovAnalyzer,
   SovExtractionResult,
@@ -69,7 +73,37 @@ import {
   Pipeline,
 } from "../services/pipelinesService";
 import AnalyzerEditor from "../Components/Sov/AnalyzerEditor";
-import RunDialog from "../Components/Pipelines/RunDialog";
+import RunDialog, { RunStreamFn } from "../Components/Pipelines/RunDialog";
+
+// `uploadAndExtract` is still re-exported for any consumers that want the
+// non-streaming endpoint, but the page itself drives uploads through
+// `runSovUploadStream` so xlsx goes through the proper TIFF → sovExtractV1
+// pipeline (extract schema) instead of the legacy generate-schema fallback.
+void uploadAndExtract;
+
+function resolveUploadPipeline(
+  file: File,
+  pipelines: Pipeline[]
+): Pipeline | null {
+  const ext = "." + file.name.split(".").pop()!.toLowerCase();
+  const matches = pipelines.filter((p) => p.input_extensions.includes(ext));
+  return matches.find((p) => p.is_default) ?? matches[0] ?? null;
+}
+
+function makeUploadStreamFn(file: File): RunStreamFn {
+  return async (pipelineId, _sampleName, cb, _saveAsCanonical, signal) => {
+    await runSovUploadStream(
+      file,
+      {
+        onStep: cb.onStep,
+        onComplete: cb.onComplete,
+        onError: cb.onError,
+      },
+      pipelineId,
+      signal
+    );
+  };
+}
 
 // Use pdf.js's bundled worker (served by webpack). The CDN fallback the
 // react-pdf docs suggest doesn't work behind corporate networks.
@@ -377,6 +411,38 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     marginBottom: "4px",
   },
+  dropzone: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "4px",
+    ...shorthands.padding("14px", "10px"),
+    border: `1.5px dashed ${tokens.colorNeutralStroke2}`,
+    ...shorthands.borderRadius("6px"),
+    backgroundColor: tokens.colorNeutralBackground2,
+    cursor: "pointer",
+    textAlign: "center",
+    transitionProperty: "all",
+    transitionDuration: "150ms",
+    ":hover": {
+      borderColor: tokens.colorBrandStroke1,
+      backgroundColor: tokens.colorBrandBackground2,
+    },
+  },
+  dropzoneActive: {
+    borderColor: tokens.colorBrandStroke1,
+    backgroundColor: tokens.colorBrandBackground2,
+  },
+  fileChip: {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    ...shorthands.padding("6px", "8px"),
+    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    ...shorthands.borderRadius("4px"),
+    backgroundColor: tokens.colorNeutralBackground1,
+  },
 });
 
 function fmt(v: unknown): string {
@@ -504,6 +570,28 @@ export default function SovPage() {
   const [tab, setTab] = useState<string>("account");
   const [showConfidence, setShowConfidence] = useState(true);
 
+  // ── User-uploaded file (alternative to picking a bundled sample) ─────
+  // Mirrors the Analyzer Compare upload UX: hidden file input + dropzone.
+  // When `uploadFile` is set we bypass the pipeline RunDialog and call
+  // /sov/extract/upload directly (it routes by extension server-side).
+  const [uploadFile, setUploadFile] = useState<File | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleUploadSelect = (f: File) => {
+    setUploadFile(f);
+    setSelected(null);
+    setResult(null);
+    setValidation(null);
+    setError(null);
+  };
+  const clearUpload = () => {
+    setUploadFile(null);
+    setResult(null);
+    setValidation(null);
+  };
+
+
   // Cross-pane hover: Output pane sets this on row hover, ImagePreview reads
   // it to highlight the corresponding polygon. Null when nothing is hovered.
   const [hoveredField, setHoveredField] = useState<string | null>(null);
@@ -602,9 +690,26 @@ export default function SovPage() {
     return matches.find((p) => p.is_default) ?? matches[0] ?? null;
   };
 
-  const onRun = () => {
-    if (!selected) return;
+  const onRun = async () => {
     setError(null);
+    if (uploadFile) {
+      // Honor explicit Pipeline selection in upload mode; otherwise pick the
+      // default for the uploaded file's extension. xlsx → preflight → PDF
+      // → TIFF → sovExtractV1 (extract schema).
+      const p = runPipelineId
+        ? pipelines.find((x) => x.id === runPipelineId) ?? null
+        : resolveUploadPipeline(uploadFile, pipelines);
+      if (!p) {
+        setError(
+          `No pipeline available for ${uploadFile.name}. Wait for /pipelines to load.`
+        );
+        return;
+      }
+      setRunDialogPipeline(p);
+      setRunDialogOpen(true);
+      return;
+    }
+    if (!selected) return;
     const p = resolvePipelineForRun();
     if (!p) {
       setError(
@@ -747,6 +852,66 @@ export default function SovPage() {
           </Card>
         )}
 
+        {/* ── Upload your own SOV ────────────────────────────────────────── */}
+        <Text weight="semibold" style={{ marginTop: 12 }}>Or upload your own</Text>
+        <div
+          className={`${styles.dropzone}${isDragging ? " " + styles.dropzoneActive : ""}`}
+          onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setIsDragging(false);
+            const f = e.dataTransfer.files?.[0];
+            if (f) handleUploadSelect(f);
+          }}
+          onClick={() => fileInputRef.current?.click()}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === "Enter" && fileInputRef.current?.click()}
+        >
+          <ArrowUploadRegular style={{ fontSize: 20, color: tokens.colorBrandForeground1 }} />
+          <Text size={200} weight="semibold">
+            {isDragging ? "Drop here" : "Click or drag & drop"}
+          </Text>
+          <Caption1 style={{ color: tokens.colorNeutralForeground3 }}>PDF · XLSX</Caption1>
+        </div>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".pdf,.xlsx"
+          style={{ display: "none" }}
+          onChange={(e) => {
+            const f = e.target.files?.[0];
+            if (f) handleUploadSelect(f);
+            e.target.value = "";
+          }}
+        />
+        {uploadFile && (
+          <div className={styles.fileChip}>
+            <DocumentRegular style={{ flexShrink: 0, color: tokens.colorBrandForeground1 }} />
+            <Text size={200} weight="semibold" style={{ flex: "1 1 auto", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+              {uploadFile.name}
+            </Text>
+            <Caption1 style={{ color: tokens.colorNeutralForeground3, flexShrink: 0 }}>
+              {(uploadFile.size / 1024).toFixed(0)} KB
+            </Caption1>
+            <Button
+              appearance="subtle"
+              size="small"
+              icon={<DismissRegular />}
+              style={{ padding: 2, minWidth: 0, flexShrink: 0 }}
+              onClick={(e) => { e.stopPropagation(); clearUpload(); }}
+              aria-label="Clear uploaded file"
+            />
+          </div>
+        )}
+        {uploadFile && (
+          <Caption1 style={{ color: tokens.colorNeutralForeground3 }}>
+            Upload mode bypasses sample-bound pipelines and validation. Cached
+            results and ground-truth comparison are not available.
+          </Caption1>
+        )}
+
         <Text weight="semibold" style={{ marginTop: 12 }}>Analyzer</Text>
         <Dropdown
           value={selectedAnalyzer ?? ""}
@@ -784,6 +949,11 @@ export default function SovPage() {
           value={
             runPipelineId
               ? pipelines.find((p) => p.id === runPipelineId)?.name ?? runPipelineId
+              : uploadFile
+              ? `Auto → ${
+                  resolveUploadPipeline(uploadFile, pipelines)?.name ??
+                  "(no pipeline)"
+                }`
               : "Auto (by file type)"
           }
           selectedOptions={[runPipelineId ?? "__auto"]}
@@ -795,10 +965,21 @@ export default function SovPage() {
           <Option value="__auto" text="Auto (by file type)">
             <div style={{ display: "flex", flexDirection: "column" }}>
               <span>Auto</span>
-              <Caption1>use the default pipeline for the sample's extension</Caption1>
+              <Caption1>
+                {uploadFile
+                  ? "use the default pipeline for the uploaded file's extension"
+                  : "use the default pipeline for the sample's extension"}
+              </Caption1>
             </div>
           </Option>
-          {pipelines.map((p) => (
+          {(uploadFile
+            ? pipelines.filter((p) =>
+                p.input_extensions.includes(
+                  "." + uploadFile.name.split(".").pop()!.toLowerCase()
+                )
+              )
+            : pipelines
+          ).map((p) => (
             <Option key={p.id} value={p.id} text={p.name}>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <span>
@@ -869,7 +1050,7 @@ export default function SovPage() {
         )}
 
         <div className={styles.headerStrip}>
-          <Text size={500} weight="semibold">{selected ?? "Pick a sample"}</Text>
+          <Text size={500} weight="semibold">{selected ?? uploadFile?.name ?? "Pick a sample"}</Text>
           {result && (
             <span className={styles.metaPill}>
               {result.meta.pipeline_name || result.meta.pipeline_id
@@ -912,6 +1093,11 @@ export default function SovPage() {
               value={
                 runPipelineId
                   ? pipelines.find((p) => p.id === runPipelineId)?.name ?? runPipelineId
+                  : uploadFile
+                  ? `Auto → ${
+                      resolveUploadPipeline(uploadFile, pipelines)?.name ??
+                      "(no pipeline)"
+                    }`
                   : "Auto"
               }
               selectedOptions={[runPipelineId ?? "__auto"]}
@@ -924,10 +1110,21 @@ export default function SovPage() {
               <Option value="__auto" text="Auto">
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <span>Auto</span>
-                  <Caption1>default pipeline for sample's extension</Caption1>
+                  <Caption1>
+                    {uploadFile
+                      ? "default pipeline for the uploaded file's extension"
+                      : "default pipeline for sample's extension"}
+                  </Caption1>
                 </div>
               </Option>
-              {pipelines.map((p) => (
+              {(uploadFile
+                ? pipelines.filter((p) =>
+                    p.input_extensions.includes(
+                      "." + uploadFile.name.split(".").pop()!.toLowerCase()
+                    )
+                  )
+                : pipelines
+              ).map((p) => (
                 <Option key={p.id} value={p.id} text={p.name}>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <span>
@@ -945,7 +1142,7 @@ export default function SovPage() {
               icon={<PlayRegular />}
               appearance="primary"
               onClick={onRun}
-              disabled={!selected || loading || runDialogOpen}
+              disabled={(!selected && !uploadFile) || loading || runDialogOpen}
             >
               Run
             </Button>
@@ -1035,13 +1232,14 @@ export default function SovPage() {
         </div>
       </div>
 
-      {/* Live-progress run dialog (W2.4 reuse — drives /sov/extract/pipeline/stream) */}
-      {runDialogPipeline && selected && (
+      {/* Live-progress run dialog (W2.4 reuse — drives /sov/extract/pipeline/stream
+          for samples, or a synthetic one-step stream for uploaded files). */}
+      {runDialogPipeline && (selected || uploadFile) && (
         <RunDialog
           open={runDialogOpen}
           pipeline={runDialogPipeline}
-          sampleName={selected}
-          streamFn={runSovPipelineStream}
+          sampleName={uploadFile ? uploadFile.name : selected!}
+          streamFn={uploadFile ? makeUploadStreamFn(uploadFile) : runSovPipelineStream}
           onClose={() => setRunDialogOpen(false)}
           onComplete={(payload) => {
             // SOV stream emits { result: SovExtractionResult, timings, artifacts }

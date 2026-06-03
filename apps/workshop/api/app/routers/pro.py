@@ -25,6 +25,7 @@ from app.schemas.pro import (
     ProSampleManifest,
 )
 from app.services import pro_service
+from app.services.cu_errors import cu_error_status_code, friendly_cu_error
 
 router = APIRouter(prefix="/pro", tags=["pro"])
 
@@ -79,6 +80,9 @@ def analyze_sample(
             return pro_service.analyze_claims(files, sample_id=sample_id)
         return pro_service.analyze_fraud(files, sample_id=sample_id)
     except Exception as e:
+        friendly = friendly_cu_error(e)
+        if friendly:
+            raise HTTPException(status_code=cu_error_status_code(e), detail=friendly) from e
         raise HTTPException(status_code=500, detail=f"Analyze failed: {e}") from e
 
 
@@ -102,6 +106,9 @@ def analyze_claims_upload(files: list[UploadFile] = File(...)):
     try:
         return pro_service.analyze_claims(paths)
     except Exception as e:
+        friendly = friendly_cu_error(e)
+        if friendly:
+            raise HTTPException(status_code=cu_error_status_code(e), detail=friendly) from e
         raise HTTPException(status_code=500, detail=f"Analyze failed: {e}") from e
 
 
@@ -113,4 +120,7 @@ def analyze_fraud_upload(files: list[UploadFile] = File(...)):
     try:
         return pro_service.analyze_fraud(paths)
     except Exception as e:
+        friendly = friendly_cu_error(e)
+        if friendly:
+            raise HTTPException(status_code=cu_error_status_code(e), detail=friendly) from e
         raise HTTPException(status_code=500, detail=f"Analyze failed: {e}") from e

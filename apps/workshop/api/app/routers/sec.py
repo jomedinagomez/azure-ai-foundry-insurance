@@ -13,7 +13,7 @@ import uuid
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, File, HTTPException, Query, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 
@@ -24,6 +24,7 @@ from app.schemas.sec import (
     SecValidationResult,
 )
 from app.services import cost, sec_service
+from app.services.cu_errors import cu_error_status_code, friendly_cu_error
 
 router = APIRouter(prefix="/sec", tags=["sec"])
 
@@ -112,6 +113,93 @@ def extract(req: SecExtractRequest):
     return result
 
 
+def _sec_stream_gen(
+    pdf_bytes: bytes,
+    source_label: str,
+    *,
+    use_cache: bool,
+    save_canonical: bool,
+    run_id: str,
+    excel_out: Path,
+):
+    """Shared SSE generator for /extract/stream and /extract/upload/stream.
+
+    `source_label` is the filename used as cache key / projected `file_name`.
+    For uploads, `use_cache=False` and `save_canonical=False` so cached
+    sample payloads aren't accidentally clobbered."""
+    def _emit(step_id: str, status: str, **meta) -> str:
+        evt = {"step_id": step_id, "status": status, **meta}
+        return f"event: step\ndata: {json.dumps(evt)}\n\n"
+
+    try:
+        from_cache = False
+        t0 = time.time()
+        merged = None
+        retries = 0
+        raw = None
+
+        if use_cache:
+            yield _emit("load_cache", "running")
+            cached = sec_service.load_cached_payload(source_label)
+            if cached is not None:
+                contents = cached.get("contents") or []
+                has_segments = any("category" in (c or {}) for c in contents)
+                if has_segments:
+                    raw = cached
+                    merged = sec_service.merge_segments(cached)
+                else:
+                    merged = cached  # legacy flat cache; no page metadata
+                from_cache = True
+            yield _emit("load_cache", "done", from_cache=from_cache)
+
+        if not from_cache:
+            yield _emit("deploy_analyzers", "running")
+            statuses = sec_service.ensure_analyzers()
+            yield _emit("deploy_analyzers", "done", statuses=statuses)
+
+            yield _emit("cu_classify_and_extract", "running")
+            raw, retries = sec_service.classify_and_extract(pdf_bytes)
+            seg_counts = sec_service.segment_category_counts(raw)
+            yield _emit(
+                "cu_classify_and_extract",
+                "done",
+                retries=retries,
+                segment_categories=seg_counts,
+            )
+
+            yield _emit("merge_segments", "running")
+            merged = sec_service.merge_segments(raw)
+            if save_canonical:
+                # Persist raw so future loads can recover per-segment page metadata.
+                sec_service.save_cached_payload(source_label, raw)
+            yield _emit("merge_segments", "done")
+
+        yield _emit("excel_export", "running")
+        sec_service.export_to_excel(merged, excel_out)
+        yield _emit("excel_export", "done", file=excel_out.name)
+
+        elapsed = time.time() - t0
+        meta_extra = {
+            "elapsed_sec": round(elapsed, 2),
+            "retries": retries,
+            "segment_categories": sec_service.segment_category_counts(raw) if raw else {},
+            "missing_statements": sec_service.missing_categories(raw) if raw else [],
+            "from_cache": from_cache,
+            "run_id": run_id,
+            "artifacts": {"excel": f"/sec/runs/{run_id}/artifacts/{excel_out.name}"},
+            "cost": cost.estimate_cu_cost(merged) if merged.get("usage") else {},
+        }
+        projected = sec_service.project_result(
+            merged, file_name=source_label, meta_extra=meta_extra
+        )
+        envelope = {"result": projected, "run_id": run_id}
+        yield f"event: complete\ndata: {json.dumps(envelope)}\n\n"
+    except Exception as e:
+        friendly = friendly_cu_error(e)
+        msg = friendly or str(e)[:500]
+        yield f"event: error\ndata: {json.dumps({'error': msg})}\n\n"
+
+
 @router.post("/extract/stream")
 def extract_stream(req: SecExtractRequest):
     """SSE variant of /extract. Emits coarse step events:
@@ -124,83 +212,84 @@ def extract_stream(req: SecExtractRequest):
 
     run_id, work_dir = _new_run_dir(req.sample_name)
     excel_out = work_dir / f"{Path(req.sample_name).stem}.xlsx"
-    sample_name = req.sample_name
-    use_cache = req.use_cache
-    save_canonical = req.save_as_canonical
+    pdf_bytes = src.read_bytes()
+    return StreamingResponse(
+        _sec_stream_gen(
+            pdf_bytes,
+            req.sample_name,
+            use_cache=req.use_cache,
+            save_canonical=req.save_as_canonical,
+            run_id=run_id,
+            excel_out=excel_out,
+        ),
+        media_type="text/event-stream",
+    )
 
-    def _emit(step_id: str, status: str, **meta) -> str:
-        evt = {"step_id": step_id, "status": status, **meta}
-        return f"event: step\ndata: {json.dumps(evt)}\n\n"
 
-    def _gen():
-        try:
-            from_cache = False
-            t0 = time.time()
-            merged = None
-            retries = 0
-            raw = None
+@router.post("/extract/upload", response_model=SecExtractionResult)
+async def extract_upload(file: UploadFile = File(...)):
+    """Run end-to-end SEC extraction on an uploaded PDF (no caching)."""
+    if not file.filename:
+        raise HTTPException(status_code=400, detail="filename required")
+    pdf_bytes = await file.read()
+    if not pdf_bytes:
+        raise HTTPException(status_code=400, detail="empty upload")
+    if not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="Only PDF uploads are supported.")
 
-            if use_cache:
-                yield _emit("load_cache", "running")
-                cached = sec_service.load_cached_payload(sample_name)
-                if cached is not None:
-                    contents = cached.get("contents") or []
-                    has_segments = any("category" in (c or {}) for c in contents)
-                    if has_segments:
-                        raw = cached
-                        merged = sec_service.merge_segments(cached)
-                    else:
-                        merged = cached  # legacy flat cache; no page metadata
-                    from_cache = True
-                yield _emit("load_cache", "done", from_cache=from_cache)
+    safe_name = Path(file.filename).name
+    run_id, work_dir = _new_run_dir(safe_name)
+    excel_out = work_dir / f"{Path(safe_name).stem}.xlsx"
+    try:
+        sec_service.ensure_analyzers()
+        raw, retries = sec_service.classify_and_extract(pdf_bytes)
+        merged = sec_service.merge_segments(raw)
+        sec_service.export_to_excel(merged, excel_out)
+    except Exception as e:
+        friendly = friendly_cu_error(e)
+        if friendly:
+            raise HTTPException(status_code=cu_error_status_code(e), detail=friendly) from e
+        raise HTTPException(status_code=500, detail=f"Extraction failed: {e}") from e
 
-            if not from_cache:
-                yield _emit("deploy_analyzers", "running")
-                statuses = sec_service.ensure_analyzers()
-                yield _emit("deploy_analyzers", "done", statuses=statuses)
+    meta_extra = {
+        "retries": retries,
+        "segment_categories": sec_service.segment_category_counts(raw),
+        "missing_statements": sec_service.missing_categories(raw),
+        "from_cache": False,
+        "run_id": run_id,
+        "artifacts": {"excel": f"/sec/runs/{run_id}/artifacts/{excel_out.name}"},
+        "cost": cost.estimate_cu_cost(merged) if merged.get("usage") else {},
+    }
+    return sec_service.project_result(
+        merged, file_name=safe_name, meta_extra=meta_extra
+    )
 
-                yield _emit("cu_classify_and_extract", "running")
-                pdf_bytes = (sec_service.ATTACH_DIR / sample_name).read_bytes()
-                raw, retries = sec_service.classify_and_extract(pdf_bytes)
-                seg_counts = sec_service.segment_category_counts(raw)
-                yield _emit(
-                    "cu_classify_and_extract",
-                    "done",
-                    retries=retries,
-                    segment_categories=seg_counts,
-                )
 
-                yield _emit("merge_segments", "running")
-                merged = sec_service.merge_segments(raw)
-                if save_canonical:
-                    # Persist raw so future loads can recover per-segment page metadata.
-                    sec_service.save_cached_payload(sample_name, raw)
-                yield _emit("merge_segments", "done")
+@router.post("/extract/upload/stream")
+async def extract_upload_stream(file: UploadFile = File(...)):
+    """SSE variant of /extract/upload. Same step events as /extract/stream."""
+    if not file.filename:
+        raise HTTPException(status_code=400, detail="filename required")
+    pdf_bytes = await file.read()
+    if not pdf_bytes:
+        raise HTTPException(status_code=400, detail="empty upload")
+    if not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="Only PDF uploads are supported.")
 
-            yield _emit("excel_export", "running")
-            sec_service.export_to_excel(merged, excel_out)
-            yield _emit("excel_export", "done", file=excel_out.name)
-
-            elapsed = time.time() - t0
-            meta_extra = {
-                "elapsed_sec": round(elapsed, 2),
-                "retries": retries,
-                "segment_categories": sec_service.segment_category_counts(raw) if raw else {},
-                "missing_statements": sec_service.missing_categories(raw) if raw else [],
-                "from_cache": from_cache,
-                "run_id": run_id,
-                "artifacts": {"excel": f"/sec/runs/{run_id}/artifacts/{excel_out.name}"},
-                "cost": cost.estimate_cu_cost(merged) if merged.get("usage") else {},
-            }
-            projected = sec_service.project_result(
-                merged, file_name=sample_name, meta_extra=meta_extra
-            )
-            envelope = {"result": projected, "run_id": run_id}
-            yield f"event: complete\ndata: {json.dumps(envelope)}\n\n"
-        except Exception as e:
-            yield f"event: error\ndata: {json.dumps({'error': str(e)[:500]})}\n\n"
-
-    return StreamingResponse(_gen(), media_type="text/event-stream")
+    safe_name = Path(file.filename).name
+    run_id, work_dir = _new_run_dir(safe_name)
+    excel_out = work_dir / f"{Path(safe_name).stem}.xlsx"
+    return StreamingResponse(
+        _sec_stream_gen(
+            pdf_bytes,
+            safe_name,
+            use_cache=False,
+            save_canonical=False,
+            run_id=run_id,
+            excel_out=excel_out,
+        ),
+        media_type="text/event-stream",
+    )
 
 
 @router.get("/runs/{run_id}/artifacts/{filename}")

@@ -163,6 +163,61 @@ export async function runSecExtraction(
   return data;
 }
 
+export async function runSecExtractionUpload(file: File): Promise<SecExtractionResult> {
+  const fd = new FormData();
+  fd.append("file", file);
+  const { data } = await axios.post<SecExtractionResult>(
+    `${API_BASE}/sec/extract/upload`,
+    fd,
+    { headers: { "Content-Type": "multipart/form-data" }, timeout: 600_000 }
+  );
+  return data;
+}
+
+export async function runSecExtractionUploadStream(
+  file: File,
+  opts: RunCallbacks
+): Promise<void> {
+  const { onStep, onComplete, onError, signal } = opts;
+  const fd = new FormData();
+  fd.append("file", file);
+
+  await fetchEventSource(`${API_BASE}/sec/extract/upload/stream`, {
+    method: "POST",
+    body: fd,
+    signal,
+    openWhenHidden: true,
+    onmessage(ev) {
+      if (!ev.event) return;
+      if (ev.event === "step") {
+        try {
+          onStep?.(JSON.parse(ev.data));
+        } catch {
+          /* ignore */
+        }
+      } else if (ev.event === "complete") {
+        try {
+          const env = JSON.parse(ev.data);
+          onComplete?.(env.result as SecExtractionResult);
+        } catch (e) {
+          onError?.(String(e));
+        }
+      } else if (ev.event === "error") {
+        try {
+          const e = JSON.parse(ev.data);
+          onError?.(e.error || "unknown error");
+        } catch {
+          onError?.(ev.data || "stream error");
+        }
+      }
+    },
+    onerror(err) {
+      onError?.(String(err));
+      throw err;
+    },
+  });
+}
+
 export async function runSecValidation(
   result: SecExtractionResult
 ): Promise<SecValidationResult> {

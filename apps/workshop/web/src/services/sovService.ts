@@ -257,6 +257,45 @@ export async function uploadAndExtract(file: File): Promise<SovExtractionResult>
   return r.data;
 }
 
+/**
+ * SSE variant of `uploadAndExtract`. Routes the uploaded file through the
+ * same pipeline machinery the sample path uses, so xlsx uploads run
+ * preflight → PDF → TIFF → sovExtractV1 (extract schema) instead of the
+ * legacy single-call generate-schema fallback. Same envelope shape as
+ * `runSovPipelineStream` so RunDialog can consume it unchanged.
+ */
+export async function runSovUploadStream(
+  file: File,
+  cb: SovPipelineStreamCallbacks,
+  pipelineId?: string,
+  signal?: AbortSignal
+): Promise<void> {
+  const fd = new FormData();
+  fd.append("file", file);
+  if (pipelineId) fd.append("pipeline_id", pipelineId);
+  await fetchEventSource(`${API_BASE}/sov/extract/upload/stream`, {
+    method: "POST",
+    headers: { Accept: "text/event-stream" },
+    body: fd,
+    signal,
+    onmessage(ev) {
+      try {
+        const data = JSON.parse(ev.data);
+        if (ev.event === "step") cb.onStep?.(data as StepEvent);
+        else if (ev.event === "complete") cb.onComplete?.(data as SovPipelineRunEnvelope);
+        else if (ev.event === "error") cb.onError?.((data as { error: string }).error);
+      } catch (e: any) {
+        cb.onError?.(`bad event payload: ${e?.message ?? e}`);
+      }
+    },
+    onerror(err) {
+      cb.onError?.(err?.message ?? String(err));
+      throw err;
+    },
+    openWhenHidden: true,
+  });
+}
+
 export async function saveResultToCache(
   sampleName: string,
   payload: Record<string, unknown>

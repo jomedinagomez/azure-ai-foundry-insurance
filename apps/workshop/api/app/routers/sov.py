@@ -20,6 +20,7 @@ from app.schemas.sov import (
 )
 from app.services import sov_service
 from app.services import cost
+from app.services.cu_errors import cu_error_status_code, friendly_cu_error
 from app.services.pipelines import (
     PipelineRunResult,
     StepEvent,
@@ -421,8 +422,70 @@ async def extract_upload(file: UploadFile = File(...)):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e)) from e
     except Exception as e:
+        friendly = friendly_cu_error(e)
+        if friendly:
+            raise HTTPException(status_code=cu_error_status_code(e), detail=friendly) from e
         raise HTTPException(status_code=500, detail=f"Extraction failed: {e}") from e
     return sov_service.project_result(payload)
+
+
+@router.post("/extract/upload/stream")
+async def extract_upload_stream(
+    file: UploadFile = File(...),
+    pipeline_id: Optional[str] = Form(None),
+):
+    """Streaming variant of `/extract/upload`. Runs the same pipeline machinery
+    as `/extract/pipeline/stream` (so xlsx uploads go through preflight → PDF
+    → TIFF → sovExtractV1, *not* the legacy generate-schema path), and emits
+    the same SSE envelope the SOV RunDialog already understands.
+    """
+    file_name = file.filename or "upload.bin"
+    suffix = Path(file_name).suffix.lower()
+    if suffix not in {".pdf", ".xlsx"}:
+        raise HTTPException(status_code=400, detail=f"Unsupported file type: {suffix}")
+
+    data = await file.read()
+
+    if not pipeline_id:
+        p = default_pipeline_for(suffix)
+        if p is None:
+            raise HTTPException(
+                status_code=404, detail=f"No pipeline for extension {suffix!r}"
+            )
+        pipeline_id = p.id
+    resolved_pipeline_id = pipeline_id
+
+    run_id, work_dir = _new_run_dir(file_name, resolved_pipeline_id)
+    src = work_dir / file_name
+    src.write_bytes(data)
+
+    def _gen():
+        try:
+            for item in run_pipeline_stream(resolved_pipeline_id, src, work_dir=work_dir):
+                if isinstance(item, StepEvent):
+                    yield f"event: step\ndata: {item.model_dump_json()}\n\n"
+                elif isinstance(item, PipelineRunResult):
+                    payload = item.payload
+                    payload.setdefault("_meta", {})["source_file"] = file_name
+                    payload["_meta"]["uploaded"] = True
+                    artifacts_urls = _to_artifact_urls(run_id, item.artifacts, work_dir)
+                    payload["_meta"]["pipeline_artifacts"] = artifacts_urls
+                    payload["_meta"]["run_id"] = run_id
+                    payload["_meta"]["cost"] = cost.estimate_pipeline_cost(payload)
+                    projected = sov_service.project_result(payload)
+                    envelope = {
+                        "result": projected,
+                        "timings": item.timings,
+                        "artifacts": artifacts_urls,
+                        "run_id": run_id,
+                    }
+                    yield f"event: complete\ndata: {json.dumps(envelope)}\n\n"
+        except Exception as e:
+            friendly = friendly_cu_error(e)
+            err = {"error": (friendly or str(e))[:1000]}
+            yield f"event: error\ndata: {json.dumps(err)}\n\n"
+
+    return StreamingResponse(_gen(), media_type="text/event-stream")
 
 
 @router.get("/expected/{name}")

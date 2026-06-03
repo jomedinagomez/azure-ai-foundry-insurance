@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   Badge,
   Body1Strong,
@@ -9,15 +9,26 @@ import {
   MessageBarBody,
   MessageBarTitle,
   Spinner,
+  Switch,
   Tab,
   TabList,
+  Text,
   Title3,
+  tokens,
 } from "@fluentui/react-components";
-import { PlayRegular, CloudArrowUpRegular, BookRegular } from "@fluentui/react-icons";
+import {
+  PlayRegular,
+  CloudArrowUpRegular,
+  BookRegular,
+  ArrowUploadRegular,
+  DismissRegular,
+  DocumentRegular,
+} from "@fluentui/react-icons";
 import { toast } from "react-toastify";
 
 import {
   analyzeSample,
+  analyzeUpload,
   deployAnalyzers,
   getHealth,
   listSamples,
@@ -42,6 +53,35 @@ const ProPage: React.FC = () => {
   const [fraudResult, setFraudResult] = useState<ProFraudResult | null>(null);
   const [health, setHealth] = useState<ProHealthcheck | null>(null);
 
+  // ── User-uploaded files (alternative to picking a bundled sample) ──
+  // Pro mode is multi-input: claims accept FNOL + police report + estimate
+  // + photo together. We mirror that by allowing multi-file upload.
+  const [uploadMode, setUploadMode] = useState(false);
+  const [uploadFiles, setUploadFiles] = useState<File[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const addUploadFiles = (incoming: FileList | File[]) => {
+    const arr = Array.from(incoming);
+    if (!arr.length) return;
+    setUploadFiles((prev) => {
+      const seen = new Set(prev.map((f) => `${f.name}:${f.size}`));
+      const next = [...prev];
+      for (const f of arr) {
+        const key = `${f.name}:${f.size}`;
+        if (!seen.has(key)) {
+          next.push(f);
+          seen.add(key);
+        }
+      }
+      return next;
+    });
+  };
+  const removeUploadFile = (i: number) =>
+    setUploadFiles((prev) => prev.filter((_, idx) => idx !== i));
+  const clearUploadFiles = () => setUploadFiles([]);
+
+
   useEffect(() => {
     listSamples()
       .then(setSamples)
@@ -60,6 +100,27 @@ const ProPage: React.FC = () => {
   }, [scenario, samples, selectedId]);
 
   const onRun = async () => {
+    if (uploadMode) {
+      if (uploadFiles.length === 0) {
+        toast.warn("Drop in at least one file first.");
+        return;
+      }
+      setRunning(true);
+      try {
+        const r = await analyzeUpload(uploadFiles, scenario);
+        if (scenario === "claims") {
+          setClaimsResult(r as ProClaimsResult);
+        } else {
+          setFraudResult(r as ProFraudResult);
+        }
+        toast.success("Analysis complete.");
+      } catch (e: any) {
+        toast.error(`Analyze failed: ${e?.response?.data?.detail ?? e.message}`);
+      } finally {
+        setRunning(false);
+      }
+      return;
+    }
     if (!selectedId) {
       toast.warn("Pick a sample first.");
       return;
@@ -111,7 +172,10 @@ const ProPage: React.FC = () => {
     }}>
       {/* Left rail */}
       <div style={{ display: "flex", flexDirection: "column", rowGap: 12, overflowY: "auto" }}>
-        <Title3>Pro Mode</Title3>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <Title3>Pro Mode</Title3>
+          <Badge appearance="filled" color="warning" size="small">PREVIEW</Badge>
+        </div>
         <Caption1>
           Azure Content Understanding <b>pro mode</b> — preview API <code>2025-05-01-preview</code>.
           Multi-input, multi-step reasoning, with the auto policy deployed as reference data.
@@ -126,19 +190,141 @@ const ProPage: React.FC = () => {
           <Tab value="fraud">Fraud Detection</Tab>
         </TabList>
 
-        <SampleSelector
-          samples={samples}
-          selectedId={selectedId}
-          onSelect={setSelectedId}
-          filterScenario={scenario}
+        <Switch
+          checked={uploadMode}
+          onChange={(_, d) => {
+            const on = !!d.checked;
+            setUploadMode(on);
+            if (on) {
+              setClaimsResult(null);
+              setFraudResult(null);
+            } else {
+              clearUploadFiles();
+            }
+          }}
+          label="Use my own files"
         />
+
+        {!uploadMode && (
+          <SampleSelector
+            samples={samples}
+            selectedId={selectedId}
+            onSelect={setSelectedId}
+            filterScenario={scenario}
+          />
+        )}
+
+        {uploadMode && (
+          <>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 4,
+                padding: "14px 10px",
+                border: `1.5px dashed ${isDragging ? tokens.colorBrandStroke1 : tokens.colorNeutralStroke2}`,
+                borderRadius: 6,
+                backgroundColor: isDragging ? tokens.colorBrandBackground2 : tokens.colorNeutralBackground2,
+                cursor: "pointer",
+                textAlign: "center",
+                transition: "all 150ms",
+              }}
+              onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+              onDragLeave={() => setIsDragging(false)}
+              onDrop={(e) => {
+                e.preventDefault();
+                setIsDragging(false);
+                if (e.dataTransfer.files?.length) addUploadFiles(e.dataTransfer.files);
+              }}
+              onClick={() => fileInputRef.current?.click()}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === "Enter" && fileInputRef.current?.click()}
+            >
+              <ArrowUploadRegular style={{ fontSize: 20, color: tokens.colorBrandForeground1 }} />
+              <Text size={200} weight="semibold">
+                {isDragging ? "Drop here" : "Click or drag & drop"}
+              </Text>
+              <Caption1 style={{ color: tokens.colorNeutralForeground3 }}>
+                PDF · PNG · JPG · TIFF (multi-file)
+              </Caption1>
+            </div>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff"
+              multiple
+              style={{ display: "none" }}
+              onChange={(e) => {
+                if (e.target.files?.length) addUploadFiles(e.target.files);
+                e.target.value = "";
+              }}
+            />
+            {uploadFiles.length > 0 && (
+              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                {uploadFiles.map((f, i) => (
+                  <div
+                    key={`${f.name}:${i}`}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "6px 8px",
+                      border: `1px solid ${tokens.colorNeutralStroke2}`,
+                      borderRadius: 4,
+                      backgroundColor: tokens.colorNeutralBackground1,
+                    }}
+                  >
+                    <DocumentRegular style={{ flexShrink: 0, color: tokens.colorBrandForeground1 }} />
+                    <Text
+                      size={200}
+                      weight="semibold"
+                      style={{
+                        flex: "1 1 auto",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {f.name}
+                    </Text>
+                    <Caption1 style={{ color: tokens.colorNeutralForeground3, flexShrink: 0 }}>
+                      {(f.size / 1024).toFixed(0)} KB
+                    </Caption1>
+                    <Button
+                      appearance="subtle"
+                      size="small"
+                      icon={<DismissRegular />}
+                      style={{ padding: 2, minWidth: 0, flexShrink: 0 }}
+                      onClick={(e) => { e.stopPropagation(); removeUploadFile(i); }}
+                      aria-label={`Remove ${f.name}`}
+                    />
+                  </div>
+                ))}
+                <Button size="small" appearance="subtle" onClick={clearUploadFiles}>
+                  Clear all
+                </Button>
+              </div>
+            )}
+            <Caption1 style={{ color: tokens.colorNeutralForeground3 }}>
+              For <b>claims</b> upload the FNOL, police report, repair estimate
+              and damage photo together. For <b>fraud</b> include the same
+              bundle — the rule engine compares them.
+            </Caption1>
+          </>
+        )}
 
         <Divider />
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           <Button
             appearance="primary"
             icon={running ? <Spinner size="tiny" /> : <PlayRegular />}
-            disabled={running || !selectedId}
+            disabled={
+              running ||
+              (uploadMode ? uploadFiles.length === 0 : !selectedId)
+            }
             onClick={onRun}
           >
             {running ? "Analyzing…" : `Analyze ${scenario}`}
@@ -182,7 +368,7 @@ const ProPage: React.FC = () => {
       >
         {/* Output column */}
         <div style={{ overflowY: "auto", padding: "0 8px 0 4px", borderRight: "1px solid var(--colorNeutralStroke2)" }}>
-          {selected && (
+          {!uploadMode && selected && (
             <div style={{ marginBottom: 12 }}>
               <Body1Strong>{selected.title}</Body1Strong>
               <Caption1 style={{ display: "block" }}>
@@ -190,6 +376,17 @@ const ProPage: React.FC = () => {
                   {selected.scenario}
                 </Badge>
                 {selected.description}
+              </Caption1>
+            </div>
+          )}
+          {uploadMode && uploadFiles.length > 0 && (
+            <div style={{ marginBottom: 12 }}>
+              <Body1Strong>Uploaded bundle ({uploadFiles.length} file{uploadFiles.length === 1 ? "" : "s"})</Body1Strong>
+              <Caption1 style={{ display: "block" }}>
+                <Badge appearance="tint" color={scenario === "fraud" ? "danger" : "success"} style={{ marginRight: 6 }}>
+                  {scenario}
+                </Badge>
+                {uploadFiles.map((f) => f.name).join(" · ")}
               </Caption1>
             </div>
           )}
@@ -208,18 +405,31 @@ const ProPage: React.FC = () => {
           <div style={{ paddingBottom: 4, borderBottom: "1px solid var(--colorNeutralStroke2)", marginBottom: 6 }}>
             <Body1Strong>Reference</Body1Strong>
             <Caption1 style={{ display: "block" }}>
-              Source documents and the raw CU response for this run.
+              {uploadMode
+                ? "Uploaded source files and the raw CU response for this run."
+                : "Source documents and the raw CU response for this run."}
             </Caption1>
           </div>
           <div style={{ flex: 1, overflow: "hidden" }}>
-            <ProReferencePane
-              sample={selected}
-              rawResponse={
-                scenario === "claims"
-                  ? (claimsResult?.raw ?? null)
-                  : (fraudResult?.raw ?? null)
-              }
-            />
+            {uploadMode ? (
+              <UploadedReferencePane
+                files={uploadFiles}
+                rawResponse={
+                  scenario === "claims"
+                    ? (claimsResult?.raw ?? null)
+                    : (fraudResult?.raw ?? null)
+                }
+              />
+            ) : (
+              <ProReferencePane
+                sample={selected}
+                rawResponse={
+                  scenario === "claims"
+                    ? (claimsResult?.raw ?? null)
+                    : (fraudResult?.raw ?? null)
+                }
+              />
+            )}
           </div>
         </div>
       </div>
@@ -240,5 +450,113 @@ const EmptyState: React.FC<{ scenario: Scenario }> = ({ scenario }) => (
     </Caption1>
   </div>
 );
+
+/**
+ * Minimal reference pane used when the user uploaded their own files.
+ * Renders a previewable list of the uploaded files (object URLs) plus a
+ * raw-CU-response tab, mirroring the layout of `ProReferencePane` without
+ * requiring a server-side sample manifest.
+ */
+const UploadedReferencePane: React.FC<{
+  files: File[];
+  rawResponse: Record<string, unknown> | null;
+}> = ({ files, rawResponse }) => {
+  const [tab, setTab] = useState<"preview" | "raw">("preview");
+  const [selectedIdx, setSelectedIdx] = useState(0);
+  const [objectUrls, setObjectUrls] = useState<string[]>([]);
+
+  useEffect(() => {
+    const urls = files.map((f) => URL.createObjectURL(f));
+    setObjectUrls(urls);
+    setSelectedIdx(0);
+    return () => urls.forEach((u) => URL.revokeObjectURL(u));
+  }, [files]);
+
+  const active = files[selectedIdx];
+  const activeUrl = objectUrls[selectedIdx];
+  const isImage = active && /\.(png|jpe?g|tiff?|bmp|gif)$/i.test(active.name);
+  const isPdf = active && /\.pdf$/i.test(active.name);
+
+  if (!files.length) {
+    return (
+      <div style={{ padding: 16, opacity: 0.7 }}>
+        <Caption1>Upload one or more files to preview them here.</Caption1>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+      <TabList
+        selectedValue={tab}
+        onTabSelect={(_, d) => setTab(d.value as "preview" | "raw")}
+        size="small"
+      >
+        <Tab value="preview">Files ({files.length})</Tab>
+        <Tab value="raw" disabled={!rawResponse}>Raw response</Tab>
+      </TabList>
+      <div style={{ flex: 1, overflow: "auto", paddingTop: 8 }}>
+        {tab === "preview" && (
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+              {files.map((f, i) => (
+                <Button
+                  key={`${f.name}:${i}`}
+                  size="small"
+                  appearance={i === selectedIdx ? "primary" : "secondary"}
+                  onClick={() => setSelectedIdx(i)}
+                >
+                  {f.name}
+                </Button>
+              ))}
+            </div>
+            <div
+              style={{
+                border: "1px solid var(--colorNeutralStroke2)",
+                borderRadius: 4,
+                padding: 8,
+                background: "#fafafa",
+                minHeight: 320,
+              }}
+            >
+              {isImage && (
+                <img
+                  src={activeUrl}
+                  alt={active.name}
+                  style={{ maxWidth: "100%", height: "auto", display: "block" }}
+                />
+              )}
+              {isPdf && (
+                <iframe
+                  src={activeUrl}
+                  title={active.name}
+                  style={{ width: "100%", height: 600, border: 0 }}
+                />
+              )}
+              {!isImage && !isPdf && (
+                <Caption1>
+                  No inline preview for <code>{active.name}</code>.
+                </Caption1>
+              )}
+            </div>
+          </div>
+        )}
+        {tab === "raw" && rawResponse && (
+          <pre
+            style={{
+              fontFamily: "Consolas, monospace",
+              fontSize: 12,
+              whiteSpace: "pre-wrap",
+              wordBreak: "break-word",
+              margin: 0,
+            }}
+          >
+            {JSON.stringify(rawResponse, null, 2)}
+          </pre>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default ProPage;
