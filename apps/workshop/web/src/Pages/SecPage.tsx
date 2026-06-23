@@ -160,12 +160,12 @@ const useStyles = makeStyles({
     transitionProperty: "all",
     transitionDuration: "150ms",
     ":hover": {
-      borderColor: tokens.colorBrandStroke1,
+      border: `1.5px dashed ${tokens.colorBrandStroke1}`,
       backgroundColor: tokens.colorBrandBackground2,
     },
   },
   dropzoneActive: {
-    borderColor: tokens.colorBrandStroke1,
+    border: `1.5px dashed ${tokens.colorBrandStroke1}`,
     backgroundColor: tokens.colorBrandBackground2,
   },
   fileChip: {
