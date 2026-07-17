@@ -21,3 +21,7 @@ tabulate>=0.9.0
 
 # ── Source-doc auditing (used during ground-truth alignment) ─────
 pdfplumber>=0.11.0
+
+# ── Document Intelligence custom classifier demo (demo/classifier) ─
+azure-ai-documentintelligence>=1.0.0
+azure-storage-blob>=12.20.0
