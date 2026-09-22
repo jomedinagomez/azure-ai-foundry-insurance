@@ -1,6 +1,6 @@
 # Insurance Workbench
 
-Local-only workshop shell branded **Insurance Workbench**. Four tabs share one
+Local-only workshop shell branded **Insurance Workbench**. Five tabs share one
 FastAPI + React stack:
 
 - **Analyzer Compare** — side-by-side Azure Document Intelligence vs. Azure
@@ -26,6 +26,12 @@ FastAPI + React stack:
 - **Pipelines** — visual DAG editor for the seeded pipelines (PDF extract,
   xlsx generate, xlsx generate + image fan-out, xlsx via PDF→TIFF). SSE
   streaming for per-step progress events.
+- **Analyzer Workshop** — create a forms project, upload local training and
+  evaluation PDFs, auto-label with a named analyzer or label manually from OCR,
+  review one document at a time, export labeled triplets, build a learned
+  GPT-5.2 analyzer, and compare it against the zero-shot analyzer. Customers do
+  not need Content Understanding Studio or storage credentials; optional model
+  training uses temporary storage managed by the API host.
 
 Every SOV run carries a `meta.cost` breakdown computed from CU's `usage`
 block: per-tier page counts (minimal/basic/standard) × the published
@@ -47,8 +53,8 @@ apps/workshop/
 - Azure CLI signed in: `az login`
 - An Azure AI Foundry (or Cognitive Services) endpoint with both
   Document Intelligence and Content Understanding available
-- A Foundry model deployment named `gpt-4.1-mini` (and `text-embedding-3-large`
-  for the default analyzers) — the SOV analyzer templates declare
+- Foundry model deployments named `gpt-5.2`, `gpt-4.1-mini`, and
+  `text-embedding-3-large`. The SOV analyzer templates declare
   `"models": { "completion": "gpt-4.1-mini" }`. Re-run
   [`demo/sov/scripts/ab_model_compare.py`](../../demo/sov/scripts/ab_model_compare.py)
   before changing the model.
@@ -100,14 +106,19 @@ npm start
 Web serves on `http://localhost:3000` and proxies API calls to
 `REACT_APP_API_BASE_URL` (default `http://localhost:8000`).
 
-Open `http://localhost:3000`. Three tabs:
+Open `http://localhost:3000`. Five tabs:
 
 - **Analyzer Compare** — upload a doc, pick DI and CU analyzers (Layout is
   the default for both), run.
 - **SOV Extraction** — pick a sample from `demo/sov/attachments/`, optionally
   override the pipeline (Auto resolves by file extension), click Run, then
   hover Output rows to highlight their bounding box on the right.
+- **SEC Filings** — extract, inspect, validate, and export the five primary
+  financial statements from the bundled filing.
 - **Pipelines** — inspect / edit pipeline definitions.
+- **Analyzer Workshop** — create a project, add training/evaluation PDFs,
+  prepare or auto-label each document, review and export labels, then build and
+  score the learned analyzer.
 
 Each result has an `est. $0.0X` pill in the header — click it for the
 per-component breakdown.

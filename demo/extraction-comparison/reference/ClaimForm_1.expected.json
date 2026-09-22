@@ -1,0 +1,19 @@
+{
+  "document": "data/propertyclaims/ClaimForm_1.pdf",
+  "fields": {
+    "PolicyholderFirstName": "Sophia",
+    "PolicyholderLastName": "Kim",
+    "TelephoneNumber": "646-555-0789",
+    "PolicyNumber": "PH5678901",
+    "CoverageType": "Homeowners",
+    "ClaimNumber": "CLM5432109",
+    "PolicyEffectiveDate": "2022-07-01",
+    "PolicyExpirationDate": "2023-07-01",
+    "DamageDeductibleAmount": 1000,
+    "DateOfDamageOrLoss": "2023-05-10",
+    "TimeOfLoss": "13:20",
+    "DatePrepared": "2023-05-11",
+    "PropertyAddress": "3344 Birch St, New York, NY 10001",
+    "MailingAddress": "3344 Birch St, New York, NY 10001"
+  }
+}

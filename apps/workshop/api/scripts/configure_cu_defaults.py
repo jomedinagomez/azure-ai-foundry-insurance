@@ -1,8 +1,8 @@
 """One-shot setup: configure default model deployments on the workshop's
 Content Understanding resource.
 
-The SOV, SEC, and Pro analyzers use ``method: generate`` fields, which require
-defaults to be set on the CU resource (otherwise CU returns
+The workshop analyzers rely on resource-level model mappings, which must be
+configured on the CU resource (otherwise CU returns
 ``InvalidRequest / DefaultsNotSet`` on every call). Sample runs masked this
 because they're served from the cached payload under
 ``demo/sov/reference/cu-output/`` — file uploads always invoke the live API.
@@ -70,6 +70,7 @@ def _resolve_deployments() -> dict[str, str]:
     Falls back to convention-named deployments when the env doesn't override.
     """
     return {
+        "gpt-5.2": os.environ.get("GPT52_MODEL_DEPLOYMENT", "gpt-5.2"),
         "gpt-4.1": os.environ.get("GPT41_MODEL_DEPLOYMENT", "gpt-4.1"),
         "gpt-4.1-mini": (
             os.environ.get("GPT41_MINI_MODEL_DEPLOYMENT")

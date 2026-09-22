@@ -190,6 +190,12 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Local workshop projects can contain customer documents and labels.
+.workbench/
+.customerquestion/
+demo/handwritten/output/
+demo/extraction-comparison/output/
 # Customer/private docs (excluded from repo)
 Docs/
 slidedecks/
@@ -197,4 +203,3 @@ feedback/
 
 # Office lock files
 ~$*
-

@@ -4,19 +4,9 @@ variable "subscription_id" {
 }
 
 variable "region" {
-  description = <<-EOT
-    Azure region for all resources. Must be one of the three regions that
-    currently support the Content Understanding pro mode preview API
-    (api-version=2025-05-01-preview): westus, swedencentral, australiaeast.
-    See: https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/language-region-support#preview-api-2025-05-01-preview
-  EOT
+  description = "Azure region for all resources. Choose a region that supports Content Understanding and the configured model deployments."
   type        = string
   default     = "westus"
-
-  validation {
-    condition     = contains(["westus", "swedencentral", "australiaeast"], var.region)
-    error_message = "Content Understanding pro mode is only available in westus, swedencentral, or australiaeast."
-  }
 }
 
 variable "environment" {

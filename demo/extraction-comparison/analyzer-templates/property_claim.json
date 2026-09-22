@@ -1,0 +1,96 @@
+{
+  "baseAnalyzerId": "prebuilt-document",
+  "description": "Extract policy and claim information from a property loss or damage claim form.",
+  "config": {
+    "returnDetails": true,
+    "enableOcr": true,
+    "enableLayout": true,
+    "enableFormula": false,
+    "estimateFieldSourceAndConfidence": true
+  },
+  "fieldSchema": {
+    "name": "PropertyClaimComparisonFields",
+    "description": "Policyholder, policy, loss, and address fields used for a service comparison.",
+    "fields": {
+      "PolicyholderFirstName": {
+        "type": "string",
+        "method": "extract",
+        "description": "Policyholder given name in the Policy and Claim Information section."
+      },
+      "PolicyholderLastName": {
+        "type": "string",
+        "method": "extract",
+        "description": "Policyholder family name in the Policy and Claim Information section."
+      },
+      "TelephoneNumber": {
+        "type": "string",
+        "method": "extract",
+        "description": "Policyholder telephone number, preserving the number shown on the form."
+      },
+      "PolicyNumber": {
+        "type": "string",
+        "method": "extract",
+        "description": "Unique policy number adjacent to the Policy Number label."
+      },
+      "CoverageType": {
+        "type": "string",
+        "method": "extract",
+        "description": "Coverage type adjacent to the Coverage type label."
+      },
+      "ClaimNumber": {
+        "type": "string",
+        "method": "extract",
+        "description": "Unique claim number adjacent to the Claim Number label."
+      },
+      "PolicyEffectiveDate": {
+        "type": "date",
+        "method": "extract",
+        "description": "Policy effective date, not the loss date or prepared date."
+      },
+      "PolicyExpirationDate": {
+        "type": "date",
+        "method": "extract",
+        "description": "Policy expiration date, not the loss date or prepared date."
+      },
+      "DamageDeductibleAmount": {
+        "type": "number",
+        "method": "extract",
+        "description": "Monetary damage deductible in the policy information table."
+      },
+      "DateOfDamageOrLoss": {
+        "type": "date",
+        "method": "extract",
+        "description": "Calendar date when the property damage or loss occurred."
+      },
+      "TimeOfLoss": {
+        "type": "time",
+        "method": "extract",
+        "description": "Time of day when the property loss occurred."
+      },
+      "DatePrepared": {
+        "type": "date",
+        "method": "extract",
+        "description": "Date on which the claim form was prepared."
+      },
+      "PropertyAddress": {
+        "type": "string",
+        "method": "extract",
+        "description": "Full street, city, state, and ZIP address of the damaged property."
+      },
+      "MailingAddress": {
+        "type": "string",
+        "method": "extract",
+        "description": "Full policyholder mailing address, which may differ from the property address."
+      }
+    }
+  },
+  "models": {
+    "completion": "gpt-5.2",
+    "embedding": "text-embedding-3-large"
+  },
+  "tags": {
+    "demo": "claim-extraction-comparison",
+    "owner": "claim-extraction-comparison-notebook",
+    "schemaVersion": "1"
+  }
+}

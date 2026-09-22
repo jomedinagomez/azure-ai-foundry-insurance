@@ -30,7 +30,6 @@ import {
   CheckmarkCircleRegular,
   DocumentPdfRegular,
   DocumentDataRegular,
-  DocumentRegular,
   ArrowUploadRegular,
   DismissRegular,
 } from "@fluentui/react-icons";

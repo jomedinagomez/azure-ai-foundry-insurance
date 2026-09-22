@@ -41,7 +41,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routers import analyzer_compare, pipelines, pro, sec, sov
+from app.routers import analyzer_compare, labeled_analyzer, pipelines, sec, sov
 
 app = FastAPI(title="Analyzer Compare API", redirect_slashes=False)
 
@@ -57,7 +57,7 @@ app.include_router(analyzer_compare.router)
 app.include_router(sov.router)
 app.include_router(sec.router)
 app.include_router(pipelines.router)
-app.include_router(pro.router)
+app.include_router(labeled_analyzer.router)
 
 
 @app.get("/health")
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     uvicorn.run(
         "standalone_api:app",
-        host="0.0.0.0",
+        host=os.environ.get("HOST", "127.0.0.1"),
         port=port,
         reload=True,
         reload_dirs=[os.path.join(os.path.dirname(__file__), "app"),

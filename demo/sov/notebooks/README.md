@@ -57,13 +57,8 @@ attachments/01_acme_SOV.xlsx
                                               merged: 22 locations
 ```
 
-**Why not Pro Mode?** Pro Mode in Content Understanding accepts multiple inputs in a single analyze call and consolidates them itself — conceptually a perfect fit. We tried it. Three blockers:
-
-1. The GA `2025-11-01` ContentAnalyzer schema **has no `mode` field** — the GA service silently drops `mode: "pro"`. The November 2025 GA release notes confirm: *"The preview API doesn't carry forward Pro mode for cross-file analysis."*
-2. The preview API (`2025-05-01-preview`) does support Pro Mode but is **region-limited** to `westus`, `swedencentral`, and `australiaeast`. Our workshop resource is in `eastus2` and the preview API returns `404 Preview API is not supported in this region.`.
-3. Preview APIs are scheduled to be retired by July 15, 2026.
-
-Pattern C ships today on GA, requires no preview opt-in, and produces a more honest production story: a thin orchestration layer fans out, merges, and tags provenance. When Pro Mode returns to GA we can collapse Approach 3 into a single call.
+Pattern C uses the GA API and keeps orchestration explicit: a thin layer fans out,
+merges, and tags provenance across the workbook and embedded images.
 
 ### Approach 4 — `xlsx` via preflighted PDF → 800 DPI TIFF (NEW)
 

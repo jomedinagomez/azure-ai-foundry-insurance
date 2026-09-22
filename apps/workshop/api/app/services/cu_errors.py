@@ -23,7 +23,7 @@ from typing import Optional
 _FRIENDLY_BY_CODE = {
     "DefaultsNotSet": (
         "This Content Understanding resource is missing default model "
-        "deployments, which are required for SOV / SEC / Pro analyzers that "
+        "deployments, which are required for SOV, SEC, and labeled analyzers that "
         "use `generate` fields. Have an admin run "
         "`PATCH /contentunderstanding/defaults` on the CU resource (or "
         "configure defaults from the Foundry portal). See "

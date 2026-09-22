@@ -1,10 +1,9 @@
 # Insurance Workshop — Terraform example variables.
 # Copy to terraform.tfvars and fill in the values.
 #
-# Region constraint:
-#   Content Understanding pro mode (api-version=2025-05-01-preview) is
-#   currently only available in westus, swedencentral, australiaeast.
-#   westus also has the broadest model coverage for gpt-5.2.
+# Region:
+#   Choose a location that supports Content Understanding and the configured
+#   Azure OpenAI model deployments. westus is the workshop default.
 
 subscription_id = ""        # Your Azure subscription ID.
 user_object_id  = null      # Optional. Defaults to your `az login` principal.

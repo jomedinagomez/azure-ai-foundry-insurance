@@ -1,7 +1,7 @@
 # Insurance Workshop infrastructure
 
 Lean Terraform stack that provisions the minimum Azure surface required to
-run the workshop's API + UI + notebooks + Pro Mode demos.
+run the workshop's API, UI, and notebooks.
 
 ## What gets created
 
@@ -10,7 +10,7 @@ run the workshop's API + UI + notebooks + Pro Mode demos.
 | Resource group | (root) | Container for everything below. |
 | Log Analytics Workspace + Application Insights | `modules/app-insights` | Observability + diagnostics sink. |
 | Azure AI Foundry account (`Microsoft.CognitiveServices/accounts` kind `AIServices`) | `modules/foundry-resource` | Hosts Content Understanding + Azure OpenAI. |
-| `gpt-5.2`, `gpt-4.1`, `gpt-4.1-mini`, `text-embedding-3-large` deployments | `modules/foundry-resource` | Models used by the SOV, SEC, Pro Mode, and analyzer-compare flows. |
+| `gpt-5.2`, `gpt-4.1`, `gpt-4.1-mini`, `text-embedding-3-large` deployments | `modules/foundry-resource` | Models used by labeled training, SOV, SEC, and analyzer comparison. |
 | Foundry project + resource-level App Insights connection | `modules/foundry-project` | Required for project-scoped CU calls. |
 | RBAC for the signed-in developer | `modules/rbac` | Cognitive Services User / OpenAI User / Azure AI Developer / App Insights Contributor / LAW Reader. |
 
@@ -20,23 +20,17 @@ Container Apps / ACR. Modules are structured so any can be added later.
 
 ## Region
 
-Pinned to `westus` by default because that is currently the only region
-that supports both:
-
-- **Content Understanding pro mode preview** (`api-version=2025-05-01-preview`)
-- **GPT-5.2 deployments** in Azure OpenAI
-
-The region variable validates against the three supported pro-mode regions
-(`westus`, `swedencentral`, `australiaeast`). See
-[MS Learn — CU region support](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/language-region-support#preview-api-2025-05-01-preview).
+Pinned to `westus` by default. Choose a region that supports Content
+Understanding and all configured Azure OpenAI model deployments. See
+[MS Learn — CU region support](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/language-region-support).
 
 ## Prerequisites
 
 - Terraform >= 1.10
 - Azure CLI logged in: `az login --tenant <your-tenant>`
 - `az account set --subscription <your-subscription-id>`
-- An object ID with quota for the four model deployments in `westus`. Check with
-  `az cognitiveservices usage list --location westus`.
+- An object ID with quota for the four model deployments in your chosen region. Check with
+  `az cognitiveservices usage list --location <region>`.
 
 ## Usage
 
@@ -58,7 +52,6 @@ On every `terraform apply`, the stack writes the repo-root `.env` to
 ```
 APP_CONTENT_UNDERSTANDING_ENDPOINT=...
 APP_ENV=dev
-APP_CU_PRO_COMPLETION_DEPLOYMENT=gpt-5.2
 APP_CU_COMPLETION_DEPLOYMENT=gpt-4.1-mini
 GPT52_MODEL_DEPLOYMENT=gpt-5.2
 GPT41_MODEL_DEPLOYMENT=gpt-4.1
@@ -77,9 +70,6 @@ before being overwritten.
 
 1. Restart the workshop API: `python apps/workshop/api/standalone_api.py`.
 2. Open the web UI (`npm start` in `apps/workshop/web/`).
-3. Navigate to **Pro Mode** and click **Deploy analyzers** — this registers
-   `proClaimsV1` + `proFraudV1` with `auto_policy.pdf` as reference data
-   against the new Foundry resource.
 
 ## Tear down
 

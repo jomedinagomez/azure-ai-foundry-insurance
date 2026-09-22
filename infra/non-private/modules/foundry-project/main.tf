@@ -17,7 +17,7 @@ resource "azapi_resource" "project" {
     }
     properties = {
       displayName = var.project_display_name
-      description = "Insurance Workshop — Content Understanding demos (SOV, SEC, Pro Mode)."
+      description = "Insurance Workshop — Content Understanding demos (SOV, SEC, and labeled extraction)."
     }
   }
 

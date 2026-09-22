@@ -8,7 +8,7 @@ import ComparePage from "./Pages/ComparePage";
 import SovPage from "./Pages/SovPage";
 import SecPage from "./Pages/SecPage";
 import PipelinesPage from "./Pages/PipelinesPage";
-import ProPage from "./Pages/ProPage";
+import LabelingWorkspacePage from "./Pages/LabelingWorkspacePage";
 import { TabValue } from "@fluentui/react-components";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -26,7 +26,7 @@ const AppInner: React.FC<AppProps> = ({ isDarkMode, toggleTheme }) => {
     "/sov": "sov",
     "/sec": "sec",
     "/pipelines": "pipelines",
-    "/pro": "pro",
+    "/labeled-analyzer": "labeled-analyzer",
   };
 
   const currentTab =
@@ -37,7 +37,7 @@ const AppInner: React.FC<AppProps> = ({ isDarkMode, toggleTheme }) => {
     if (value === "sov") navigate("/sov");
     if (value === "sec") navigate("/sec");
     if (value === "pipelines") navigate("/pipelines");
-    if (value === "pro") navigate("/pro");
+    if (value === "labeled-analyzer") navigate("/labeled-analyzer");
   };
 
   return (
@@ -55,7 +55,7 @@ const AppInner: React.FC<AppProps> = ({ isDarkMode, toggleTheme }) => {
           <Route path="/sov" element={<SovPage />} />
           <Route path="/sec" element={<SecPage />} />
           <Route path="/pipelines" element={<PipelinesPage />} />
-          <Route path="/pro" element={<ProPage />} />
+          <Route path="/labeled-analyzer" element={<LabelingWorkspacePage />} />
           <Route path="*" element={<Navigate to="/compare" />} />
         </Routes>
       </main>

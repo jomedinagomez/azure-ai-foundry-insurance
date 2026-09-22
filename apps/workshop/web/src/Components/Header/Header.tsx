@@ -16,7 +16,7 @@ import {
   DocumentDataRegular,
   FlowRegular,
   InfoRegular,
-  ShieldTaskRegular,
+  DataTrendingRegular,
 } from "@fluentui/react-icons";
 import "./Header.css";
 
@@ -49,9 +49,9 @@ const tabConfigs = [
     label: "Pipelines",
   },
   {
-    icon: <ShieldTaskRegular />,
-    value: "pro",
-    label: "Pro Mode",
+    icon: <DataTrendingRegular />,
+    value: "labeled-analyzer",
+    label: "Analyzer Workshop",
   },
 ];
 
