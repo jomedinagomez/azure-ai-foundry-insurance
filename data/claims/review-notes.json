@@ -1,0 +1,155 @@
+{
+  "synthetic": true,
+  "scope": "review metadata - exclude from extraction/retrieval inputs",
+  "purpose": "Cohesive claims with meaningful embedded visual evidence and email attachments; not exhaustive extension coverage.",
+  "source_formats": [
+    ".msg",
+    ".pdf",
+    ".jpg",
+    ".png"
+  ],
+  "claims": [
+    {
+      "claim_id": "claim-001",
+      "claim_number": "AV-26-004181",
+      "scenario": "Typical commercial property claim",
+      "files": 10,
+      "pdf_pages": 8,
+      "insured": "Cedar Quay Warehousing LLC",
+      "loss_date": "2026-09-12",
+      "inspection_estimate": "18400.00",
+      "reserve": "25000.00",
+      "unresolved_evidence": "The incident form records 09:20. A later manager email reports 09:40 and says the first time was transcribed from a handwritten note. Neither time has been independently corroborated.",
+      "report_pages": {
+        "narrative": 1,
+        "estimate": 2,
+        "annotated_photos": 3,
+        "diagram": 4
+      },
+      "review_questions": [
+        "Which bay has the largest illustrated moisture reading? Bay C, 36%, in the embedded diagram.",
+        "Which door is shown for reinspection access? West service door."
+      ]
+    },
+    {
+      "claim_id": "claim-002",
+      "claim_number": "AV-26-004267",
+      "scenario": "Image-heavy fire and smoke claim",
+      "files": 9,
+      "pdf_pages": 8,
+      "insured": "Lantern Yard Bistro Ltd",
+      "loss_date": "2026-09-17",
+      "inspection_estimate": "32600.00",
+      "reserve": "42000.00",
+      "unresolved_evidence": "The first contractor scope allows cleaning of the extraction hood. The later proposal replaces the motor and controls without a diagnostic test report. That additional scope is not yet reconciled.",
+      "report_pages": {
+        "narrative": 1,
+        "estimate": 2,
+        "annotated_photos": 3,
+        "diagram": 4
+      },
+      "review_questions": [
+        "Does the dashed duct identify an ignition source? No; it denotes a concealed uninspected area.",
+        "What is visible? Hood and ceiling soot; replacement of concealed equipment is not proven."
+      ]
+    },
+    {
+      "claim_id": "claim-003",
+      "claim_number": "AV-26-004318",
+      "scenario": "Email-heavy commercial vehicle claim",
+      "files": 14,
+      "pdf_pages": 8,
+      "insured": "Harbor Route Delivery Services Inc",
+      "loss_date": "2026-09-22",
+      "inspection_estimate": "6840.00",
+      "reserve": "9500.00",
+      "unresolved_evidence": "The original estimate is 6,840.00. A later email quotes 7,420.00 including sensor checks, but supplies no replacement estimate PDF. Preserve both amounts and their source dates.",
+      "report_pages": {
+        "narrative": 1,
+        "estimate": 2,
+        "annotated_photos": 3,
+        "diagram": 4
+      },
+      "review_questions": [
+        "Which area is mapped? Rear-left lamp and bumper; concealed sensor condition remains unresolved.",
+        "Are USD 6,840.00 and USD 7,420.00 the same scope? No; the later verbal proposal has no replacement PDF."
+      ]
+    },
+    {
+      "claim_id": "claim-004",
+      "claim_number": "AV-26-004401",
+      "scenario": "Retail liability claim with conflicting site accounts",
+      "files": 9,
+      "pdf_pages": 8,
+      "insured": "Meadow Lane Household Supply Ltd",
+      "loss_date": "2026-10-02",
+      "inspection_estimate": "1250.00",
+      "reserve": "18000.00",
+      "unresolved_evidence": "The initial supervisor account says the warning sign was already placed. A later witness note says it was brought to the aisle after staff attended. The file does not resolve that conflict.",
+      "report_pages": {
+        "narrative": 1,
+        "estimate": 2,
+        "annotated_photos": 3,
+        "diagram": 4
+      },
+      "review_questions": [
+        "Does the later sign photograph prove its position before the incident? No; timing is disputed.",
+        "What cleaning-log gap is shown? 10:30-11:30."
+      ]
+    },
+    {
+      "claim_id": "claim-005",
+      "claim_number": "AV-26-004459",
+      "scenario": "Storage-unit damage and disputed contents inventory",
+      "files": 9,
+      "pdf_pages": 8,
+      "insured": "Bluegate Storage Operations LLC",
+      "loss_date": "2026-10-08",
+      "inspection_estimate": "8750.00",
+      "reserve": "12000.00",
+      "unresolved_evidence": "The early intake says three equipment cases may be missing; a later tenant note lists four. No reconciled schedule or invoices resolve the difference.",
+      "report_pages": {
+        "narrative": 1,
+        "estimate": 2,
+        "annotated_photos": 3,
+        "diagram": 4
+      },
+      "review_questions": [
+        "Do the entrance photos establish the contents inventory? No; the interior and missing-item count are not verified.",
+        "What visible features are linked? The latch and detached padlock."
+      ]
+    },
+    {
+      "claim_id": "claim-006",
+      "claim_number": "AV-26-004507",
+      "scenario": "Workshop water ingress and conflicting repair proposals",
+      "files": 11,
+      "pdf_pages": 8,
+      "insured": "Rivermark Fabrication Works Ltd",
+      "loss_date": "2026-10-14",
+      "inspection_estimate": "48600.00",
+      "reserve": "68000.00",
+      "unresolved_evidence": "The original inspection totals 48,600.00. A later PDF proposal adds 3,800.00 for controls and totals 52,400.00. The proposed addition has no supporting diagnostic report. The reserve of 68,000.00 is not a settlement or repair estimate.",
+      "report_pages": {
+        "narrative": 1,
+        "estimate": 2,
+        "annotated_photos": 3,
+        "diagram": 4
+      },
+      "review_questions": [
+        "Which area has the highest illustrated reading? Stock / Zone C, 42%, beside the north-wall area.",
+        "Where is the later USD 52,400.00 proposal? Only inside 04-revised-proposal.msg; earlier inspection is USD 48,600.00."
+      ]
+    }
+  ],
+  "validation": {
+    "source_files": 62,
+    "pdf_pages": 48,
+    "native_messages_opened": 24,
+    "original_jpgs_unchanged": true,
+    "embedded_photographs_and_diagrams_verified": true,
+    "exact_duplicate_and_attachment_only_relationships_verified": true,
+    "zip_and_other_compatibility_formats_removed": true,
+    "note": "Only MSG/PDF/JPG/PNG remain in source folders. No OCR, Markdown extraction, model evaluation or indexing has been run."
+  }
+}

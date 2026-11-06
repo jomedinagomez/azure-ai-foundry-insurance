@@ -1,0 +1,580 @@
+{
+  "synthetic": true,
+  "scope": "review metadata - not an additional claim source",
+  "messages": [
+    {
+      "claim_id": "claim-001",
+      "message": "claim-001/01-notification.msg",
+      "subject": "AV-26-004181 - notification and site photograph",
+      "sender": "Morgan Hale",
+      "sent_on": "2026-09-13T14:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "claim-form.pdf",
+          "bytes": 1813,
+          "sha256": "29c778e0261eb6326e50990e1440ef0ecc92ed63332ae845c6a6f93e6a5943ea",
+          "duplicate_loose_files": [
+            "claim-form.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "damage-01.jpg",
+          "bytes": 49288,
+          "sha256": "dced4e48ca24c1df7a8d417b8ce365a8561393d1d709778bfbc456d43633aee8",
+          "duplicate_loose_files": [
+            "damage-01.jpg"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-001",
+      "message": "claim-001/02-inspection-and-attachments.msg",
+      "subject": "AV-26-004181 - illustrated report, authority and access note",
+      "sender": "Meridian Field Adjusting",
+      "sent_on": "2026-09-14T16:30:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "inspection-review-copy.pdf",
+          "bytes": 346177,
+          "sha256": "fd9e9580fd9649ab746307d42c593d43bbbabb0153d04158afd4a315bf4d976b",
+          "duplicate_loose_files": [
+            "inspection.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "emergency-authorization.pdf",
+          "bytes": 1640,
+          "sha256": "ed533cfd69ffab80858e0626a80e893dd1d7f43257bf7e1d20edc9f6af4f1d5a",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "site-access.png",
+          "bytes": 14616,
+          "sha256": "64c651baf8aa4660877167519898f4df801c812062493468752170ba51ec4d4f",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-001",
+      "message": "claim-001/03-adjuster-follow-up.msg",
+      "subject": "RE: AV-26-004181 - outstanding evidence",
+      "sender": "Alex Rowan",
+      "sent_on": "2026-09-14T17:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": []
+    },
+    {
+      "claim_id": "claim-002",
+      "message": "claim-002/01-notification.msg",
+      "subject": "AV-26-004267 - notification and site photograph",
+      "sender": "Jamie Ellis",
+      "sent_on": "2026-09-17T14:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "claim-form.pdf",
+          "bytes": 1774,
+          "sha256": "890c2d9045687ad8634cf258ff8652fa8f6a314018bd511f8a1505a86c40f64f",
+          "duplicate_loose_files": [
+            "claim-form.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "damage-01.jpg",
+          "bytes": 77551,
+          "sha256": "7890f1cac63431761837087af42eb28ffb2c3c5e7167867ee6450dae6cc45074",
+          "duplicate_loose_files": [
+            "damage-01.jpg"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-002",
+      "message": "claim-002/02-inspection-and-attachments.msg",
+      "subject": "AV-26-004267 - illustrated report, authority and access note",
+      "sender": "Meridian Field Adjusting",
+      "sent_on": "2026-09-19T16:30:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "inspection-review-copy.pdf",
+          "bytes": 443010,
+          "sha256": "5db30c68bb85032fbe2d81b22b78e25bf6186866dbb72c596aa6e310b47bbd0e",
+          "duplicate_loose_files": [
+            "inspection.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "emergency-authorization.pdf",
+          "bytes": 1635,
+          "sha256": "2741c53b18430672ba5f89e2f1c1eddae4dddf2adc5b7c4e3db11bce61cd6ce4",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "site-access.png",
+          "bytes": 14437,
+          "sha256": "28b104d3d493353343716efa5db325361915d47c405f868f775234424aa2121a",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-002",
+      "message": "claim-002/03-adjuster-follow-up.msg",
+      "subject": "RE: AV-26-004267 - outstanding evidence",
+      "sender": "Priya Lane",
+      "sent_on": "2026-09-19T17:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": []
+    },
+    {
+      "claim_id": "claim-003",
+      "message": "claim-003/01-notification.msg",
+      "subject": "AV-26-004318 - notification and site photograph",
+      "sender": "Taylor Quinn",
+      "sent_on": "2026-09-23T14:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "claim-form.pdf",
+          "bytes": 1779,
+          "sha256": "d779497fd8ba0973cde35a9ce5b6474ae86c2cc4f58dd565aba5775c0483370d",
+          "duplicate_loose_files": [
+            "claim-form.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "damage-01.jpg",
+          "bytes": 65867,
+          "sha256": "440ad22230f10ff8b69958740225ea2e7ac503040e083b480b7c689af2c5537b",
+          "duplicate_loose_files": [
+            "damage-01.jpg"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-003",
+      "message": "claim-003/02-inspection-and-attachments.msg",
+      "subject": "AV-26-004318 - illustrated report, authority and access note",
+      "sender": "Meridian Field Adjusting",
+      "sent_on": "2026-09-24T16:30:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "inspection-review-copy.pdf",
+          "bytes": 373664,
+          "sha256": "cd5a54b5c0faaba8756891deb6eb749248bd54e5cee3ebedd82a7c9fb8ad6c27",
+          "duplicate_loose_files": [
+            "inspection.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "emergency-authorization.pdf",
+          "bytes": 1647,
+          "sha256": "7e496f9ef92a8da0b22011132d2372077451c69a676b661c8ff4d0922cfc68a7",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "site-access.png",
+          "bytes": 14592,
+          "sha256": "b6cc355d614a9709c86226bdf47f3ce006f74a636ce98e79b046176f8595989b",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-003",
+      "message": "claim-003/03-adjuster-follow-up.msg",
+      "subject": "RE: AV-26-004318 - outstanding evidence",
+      "sender": "Alex Rowan",
+      "sent_on": "2026-09-24T17:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": []
+    },
+    {
+      "claim_id": "claim-003",
+      "message": "claim-003/04-fleet-supervisor.msg",
+      "subject": "RE: AV-26-004318 - Depot incident sequence",
+      "sender": "Taylor Quinn",
+      "sent_on": "2026-09-25T18:00:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "email-signature.png",
+          "bytes": 3423,
+          "sha256": "9fb08f5c8a5abd0b433b1989a9cebad54e38cf142bf3b9df1a15e07b7541016a",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "inline-signature"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-003",
+      "message": "claim-003/05-repairer-revision.msg",
+      "subject": "RE: AV-26-004318 - Revised amount - supporting PDF outstanding",
+      "sender": "Workshop estimator",
+      "sent_on": "2026-09-26T18:00:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "email-signature.png",
+          "bytes": 3423,
+          "sha256": "9fb08f5c8a5abd0b433b1989a9cebad54e38cf142bf3b9df1a15e07b7541016a",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "inline-signature"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-003",
+      "message": "claim-003/06-access-forward.msg",
+      "subject": "RE: AV-26-004318 - FW: escort arrangements for unit HRD-17",
+      "sender": "Depot coordinator",
+      "sent_on": "2026-09-27T18:00:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "site-access.png",
+          "bytes": 14592,
+          "sha256": "b6cc355d614a9709c86226bdf47f3ce006f74a636ce98e79b046176f8595989b",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "AV-26-004318 - notification and site photograph.msg",
+          "bytes": 105984,
+          "sha256": "c60b164ca61bbede77a5ced4cb9fff6c76eeaea8127c966df3a875f9d993ecb2",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "email-signature.png",
+          "bytes": 3423,
+          "sha256": "9fb08f5c8a5abd0b433b1989a9cebad54e38cf142bf3b9df1a15e07b7541016a",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "inline-signature"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-003",
+      "message": "claim-003/07-cctv-request.msg",
+      "subject": "RE: AV-26-004318 - Request for original CCTV",
+      "sender": "Alex Rowan",
+      "sent_on": "2026-09-28T18:00:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "email-signature.png",
+          "bytes": 3423,
+          "sha256": "9fb08f5c8a5abd0b433b1989a9cebad54e38cf142bf3b9df1a15e07b7541016a",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "inline-signature"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-003",
+      "message": "claim-003/08-repair-status.msg",
+      "subject": "RE: AV-26-004318 - Repair status",
+      "sender": "Workshop estimator",
+      "sent_on": "2026-09-29T18:00:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "email-signature.png",
+          "bytes": 3423,
+          "sha256": "9fb08f5c8a5abd0b433b1989a9cebad54e38cf142bf3b9df1a15e07b7541016a",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "inline-signature"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-004",
+      "message": "claim-004/01-notification.msg",
+      "subject": "AV-26-004401 - notification and site photograph",
+      "sender": "Casey Mercer",
+      "sent_on": "2026-10-03T14:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "claim-form.pdf",
+          "bytes": 1808,
+          "sha256": "1918d510be64afc368ba915f7039b65e74cd902bccc6da2137cea4a62fa6a209",
+          "duplicate_loose_files": [
+            "claim-form.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "damage-01.jpg",
+          "bytes": 94664,
+          "sha256": "7daefd3f6ecb10e54398700f026922b4daee43b6ee2a020c7e4ab53c874ec7f1",
+          "duplicate_loose_files": [
+            "damage-01.jpg"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-004",
+      "message": "claim-004/02-inspection-and-attachments.msg",
+      "subject": "AV-26-004401 - illustrated report, authority and access note",
+      "sender": "Meridian Field Adjusting",
+      "sent_on": "2026-10-05T16:30:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "inspection-review-copy.pdf",
+          "bytes": 435277,
+          "sha256": "2fb9c8fba1254a700e90a50a94ded8f983f2faddae14c4722187fde7c9caab4b",
+          "duplicate_loose_files": [
+            "inspection.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "emergency-authorization.pdf",
+          "bytes": 1645,
+          "sha256": "f8c5579ce7f2aca23013a6443cd44be94a1f0f0c8217e6c11ce32bdd4e486929",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "site-access.png",
+          "bytes": 14537,
+          "sha256": "b94418df919f25519250b28ed767b9fe6584da2bd7f00b10ec0bf37f4a8096d7",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-004",
+      "message": "claim-004/03-adjuster-follow-up.msg",
+      "subject": "RE: AV-26-004401 - outstanding evidence",
+      "sender": "Elena Brooks",
+      "sent_on": "2026-10-05T17:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": []
+    },
+    {
+      "claim_id": "claim-005",
+      "message": "claim-005/01-notification.msg",
+      "subject": "AV-26-004459 - notification and site photograph",
+      "sender": "Riley Hart",
+      "sent_on": "2026-10-09T14:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "claim-form.pdf",
+          "bytes": 1812,
+          "sha256": "91ad2ba45039ff8bc8e849683998cb07813df4a237dbfb0927362597a6c6eb06",
+          "duplicate_loose_files": [
+            "claim-form.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "damage-01.jpg",
+          "bytes": 66877,
+          "sha256": "6470f4944468be09fb8ddc76b1b3687770e236e3dcb74ea33f8f766957682c6c",
+          "duplicate_loose_files": [
+            "damage-01.jpg"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-005",
+      "message": "claim-005/02-inspection-and-attachments.msg",
+      "subject": "AV-26-004459 - illustrated report, authority and access note",
+      "sender": "Meridian Field Adjusting",
+      "sent_on": "2026-10-10T16:30:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "inspection-review-copy.pdf",
+          "bytes": 408063,
+          "sha256": "7df2502cc69f48d6f4db1baa954e17b778a17ff54e8d3c5fce723be508c4a078",
+          "duplicate_loose_files": [
+            "inspection.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "emergency-authorization.pdf",
+          "bytes": 1638,
+          "sha256": "62c3a0d1c5ad8bda0b0500988d034096623b0439eafabb1554167103eee7bde6",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "site-access.png",
+          "bytes": 14411,
+          "sha256": "a7524cad05101b0a7c9266d0415fe7393708aeebaf834de10d15a16e64be2d68",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-005",
+      "message": "claim-005/03-adjuster-follow-up.msg",
+      "subject": "RE: AV-26-004459 - outstanding evidence",
+      "sender": "Priya Lane",
+      "sent_on": "2026-10-10T17:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": []
+    },
+    {
+      "claim_id": "claim-006",
+      "message": "claim-006/01-notification.msg",
+      "subject": "AV-26-004507 - notification and site photograph",
+      "sender": "Jordan Avery",
+      "sent_on": "2026-10-15T14:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "claim-form.pdf",
+          "bytes": 1807,
+          "sha256": "6b911ef238e856f997c73b8a9b2f1aed1e6cafa5c608d0790b3e8e3366bea754",
+          "duplicate_loose_files": [
+            "claim-form.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "damage-01.jpg",
+          "bytes": 79483,
+          "sha256": "180a90b33847e278452c71fb6387f9ab391f4dc7e90e873db74fad39d2fdb1fc",
+          "duplicate_loose_files": [
+            "damage-01.jpg"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-006",
+      "message": "claim-006/02-inspection-and-attachments.msg",
+      "subject": "AV-26-004507 - illustrated report, authority and access note",
+      "sender": "Meridian Field Adjusting",
+      "sent_on": "2026-10-16T16:30:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "inspection-review-copy.pdf",
+          "bytes": 408544,
+          "sha256": "d5e78d669d9db80a4221653ec8b1b0d5aa0cf574e729c9c20644359ad01de4bf",
+          "duplicate_loose_files": [
+            "inspection.pdf"
+          ],
+          "attachment_only": false,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "emergency-authorization.pdf",
+          "bytes": 1641,
+          "sha256": "2f1f09e615cdb1ffd821fc2be6878aed16ff2dd82254ed6593867c951f8547b3",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        },
+        {
+          "file_name": "site-access.png",
+          "bytes": 14563,
+          "sha256": "5381fda31561dc3fdb64191eb81511f67b1775f18c90d41d876ae602fa2d56a5",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    },
+    {
+      "claim_id": "claim-006",
+      "message": "claim-006/03-adjuster-follow-up.msg",
+      "subject": "RE: AV-26-004507 - outstanding evidence",
+      "sender": "Elena Brooks",
+      "sent_on": "2026-10-16T17:10:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": []
+    },
+    {
+      "claim_id": "claim-006",
+      "message": "claim-006/04-revised-proposal.msg",
+      "subject": "AV-26-004507 - revised PDF proposal for review",
+      "sender": "Contractor estimator",
+      "sent_on": "2026-10-19T12:00:00.0000000Z",
+      "simulation_metadata_verified": true,
+      "attachments": [
+        {
+          "file_name": "contractor-revision-2.pdf",
+          "bytes": 1592,
+          "sha256": "2d0d4bd62af553ab37a218817845e4dc7e14d636026872135b6575c59db432d5",
+          "duplicate_loose_files": [],
+          "attachment_only": true,
+          "role": "evidence-or-forwarded-message"
+        }
+      ]
+    }
+  ]
+}

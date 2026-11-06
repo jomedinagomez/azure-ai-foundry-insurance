@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Claims local agent API (.venv)",
+      "type": "debugpy",
+      "request": "launch",
+      "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "module": "uvicorn",
+      "args": ["standalone_api:app", "--host", "127.0.0.1", "--port", "8000"],
+      "cwd": "${workspaceFolder}\\apps\\workshop\\api",
+      "envFile": "${workspaceFolder}\\.env",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

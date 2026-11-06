@@ -3,6 +3,8 @@
 
 > SOV-first. Built for underwriting. Designed to scale to claims and beyond.
 
+Already set up? [Launch the Insurance Workbench](#4-run-the-insurance-workbench).
+
 ## Overview
 
 This repository provides a **reference implementation and workshop materials** for applying **Azure AI Foundry** to insurance document workflows.
@@ -144,12 +146,14 @@ Core components:
 
 | Asset | Purpose |
 |---|---|
-| [`apps/workshop/`](apps/workshop/) | **Insurance Workbench** — local FastAPI + React app: Analyzer Compare, SOV Extraction, SEC Filings, Pipelines, and an **Analyzer Workshop** for local labeling, export, learned-analyzer creation, and zero-shot comparison. |
+| [`apps/workshop/`](apps/workshop/) | **Insurance Workbench** — local FastAPI + React app: Analyzer Compare, SOV Extraction, SEC Filings, Pipelines, and **Claims Explorer** for evidence visualization, structured records, semantic hybrid retrieval and a local two-tool agent chat with verified Foundry traces. |
 | [`demo/sov/`](demo/sov/) | Six synthetic broker submissions (4 xlsx + 2 PDF) covering 30+ template variations, plus generators, ground-truth, and benchmarks. |
 | [`demo/sov/notebooks/`](demo/sov/notebooks/) | End-to-end extraction methodology, four input shapes (PDF / Excel / Excel+images / xlsx-via-TIFF), and tolerant validator. |
 | [`demo/sec/`](demo/sec/) | Five real SEC 10-K / 10-Q PDFs, classifier+analyzer templates, cached CU outputs, and ground-truth expected line-items. |
 | [`demo/sec/notebooks/`](demo/sec/notebooks/README.md) | Six notebooks (`01_deploy_analyzers` → `06_end_to_end`) that call the **same** `sec_service` functions the SEC Filings tab uses — no drift between UI and workshop. |
-| [`demo/labeled-analyzer/`](demo/labeled-analyzer/) | Forms labeling workflow plus one self-contained notebook that builds and compares GPT-5.2 analyzers from the UI's exported ZIP. |
+| [`demo/content-understanding/`](demo/content-understanding/README.md) | Reused official Microsoft multimodal notebooks: PDF, receipt image, audio, video/keyframes, field extraction and classification; pinned upstream sources and MIT attribution included. |
+| [`demo/architecture/`](demo/architecture/) | Current local claims architecture and proposed Azure-hosted agent + Databricks Genie architecture, with editable diagrams and slide previews. |
+| [`data/claims-operations/`](data/claims-operations/README.md) | Six authored synthetic operational claim records and a local read-only API-tool contract for assignment, financials, activities and claim log notes. |
 | [`demo/handwritten/`](demo/handwritten/) | Self-contained field-extraction notebook comparing GPT-5.2 handwriting judgments with Document Intelligence's native handwriting signal. |
 | [`demo/classifier/`](demo/classifier/) | Document Intelligence custom classifier for invoice-vs-claim routing, with local and Blob inference examples. |
 | [`demo/sov/preprocess/`](demo/sov/preprocess/) | Reusable client primitives: page-setup preflight, LibreOffice render, TIFF rasterization. |
@@ -260,35 +264,66 @@ uv venv --python 3.12 .venv
 uv pip install -r requirements.txt
 
 # Repo-root .env — picked up by both the API and the notebooks
-copy .env.example .env
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 # Edit .env and set:
 #   APP_CONTENT_UNDERSTANDING_ENDPOINT=https://<your-foundry-or-cognitive-services-endpoint>/
 #   APP_ENV=dev
 
+# Install web dependencies and create its configuration once
+Set-Location apps\workshop\web
+npm install
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
+Set-Location ..\..\..
+
 az login
 ```
 
-### 4. Run the Insurance Workbench (API + Web)
+### 4. Run the Insurance Workbench
 
-Terminal 1 — API:
+Open two VS Code PowerShell terminals at the repository root. These steps assume
+the `.venv`, web dependencies, and `.env` files were configured in step 3.
+There is no need to reinstall dependencies or copy `.env` files on each launch.
+
+**Terminal 1 — API:**
 
 ```powershell
-.\.venv\Scripts\Activate.ps1
-cd apps\workshop\api
-python standalone_api.py
-# Smoke test: curl http://localhost:8000/health
+Set-Location apps\workshop\api
+& '..\..\..\.venv\Scripts\python.exe' 'standalone_api.py'
 ```
 
-Terminal 2 — Web:
+**Terminal 2 — Web:**
 
 ```powershell
-cd apps\workshop\web
-npm install
-copy .env.example .env   # REACT_APP_API_BASE_URL defaults to http://localhost:8000
+Set-Location apps\workshop\web
 npm start
 ```
 
-Open <http://localhost:3000>. Five tabs are available: **Analyzer Compare**, **SOV Extraction**, **SEC Filings**, **Pipelines**, and **Labeled Analyzer**. See [`apps/workshop/README.md`](apps/workshop/README.md) for per-tab details, cost-pill behavior, and troubleshooting.
+If `npm` is not on PATH but Microsoft Scout is installed, run the following
+instead of `npm start` in the web terminal. This uses Scout's bundled Node.js
+and requires the web dependencies to have already been installed:
+
+```powershell
+$nodeDir = Join-Path $env:LOCALAPPDATA 'Programs\Microsoft Scout\resources\node'
+$env:PATH = "$nodeDir;$env:PATH"
+$env:BROWSER = 'none'
+& "$nodeDir\node.exe" '.\node_modules\react-scripts\bin\react-scripts.js' start
+```
+
+If that Node.js executable is unavailable, install Node.js with npm as listed
+in the prerequisites and reopen the terminal. If the web dependencies have not
+been installed, complete that part of step 3 before running `npm start`.
+
+Once the web server finishes compiling, open <http://localhost:3000>. Check the
+API at <http://localhost:8000/health>; it should return `{"message":"I'm alive!"}`.
+The health check confirms the API is running, not that Azure authentication is
+valid. Run `az login` if an Azure-backed operation needs a new session.
+
+Keep both terminals open while using the app. Press **Ctrl+C** in each terminal
+to stop it. If a port is already in use, check whether the app is already running.
+
+Five tabs are available: **Analyzer Compare**, **SOV Extraction**, **SEC Filings**,
+**Pipelines**, and **Claims Explorer**. See [`apps/workshop/README.md`](apps/workshop/README.md)
+for per-tab details, cost-pill behavior, and troubleshooting.
 
 ### 5. Run the SOV extraction notebooks
 

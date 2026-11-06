@@ -41,7 +41,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routers import analyzer_compare, labeled_analyzer, pipelines, sec, sov
+from app.routers import analyzer_compare, claim_operations, claims, claims_agent, pipelines, sec, sov
 
 app = FastAPI(title="Analyzer Compare API", redirect_slashes=False)
 
@@ -57,7 +57,9 @@ app.include_router(analyzer_compare.router)
 app.include_router(sov.router)
 app.include_router(sec.router)
 app.include_router(pipelines.router)
-app.include_router(labeled_analyzer.router)
+app.include_router(claims.router)
+app.include_router(claim_operations.router)
+app.include_router(claims_agent.router)
 
 
 @app.get("/health")

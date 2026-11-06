@@ -16,7 +16,7 @@ import {
   DocumentDataRegular,
   FlowRegular,
   InfoRegular,
-  DataTrendingRegular,
+  FolderRegular,
 } from "@fluentui/react-icons";
 import "./Header.css";
 
@@ -44,14 +44,14 @@ const tabConfigs = [
     label: "SEC Filings",
   },
   {
+    icon: <FolderRegular />,
+    value: "claims",
+    label: "Claims Explorer",
+  },
+  {
     icon: <FlowRegular />,
     value: "pipelines",
     label: "Pipelines",
-  },
-  {
-    icon: <DataTrendingRegular />,
-    value: "labeled-analyzer",
-    label: "Analyzer Workshop",
   },
 ];
 

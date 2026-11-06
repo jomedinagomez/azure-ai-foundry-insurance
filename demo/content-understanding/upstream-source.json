@@ -1,0 +1,202 @@
+{
+  "repository": "https://github.com/Azure-Samples/azure-ai-content-understanding-python",
+  "commit": "19f1a9d68ef5de66abef056564f32e4bc49f4067",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "d494b116cb354b153d2291ce672a4a67ffda779fa4f385ce6ac62b7eb2e5c934",
+      "upstreamGitBlob": "2bae6a114b0ca6bb608efb7c20cd4a14bd6e81e1"
+    },
+    {
+      "path": "analyzer_templates/audio_transcription.json",
+      "sha256": "607b1527881dfd70a81c04ce0387e0ad08dd01674f447a321d0ba76717dace8e",
+      "upstreamGitBlob": "9f7c0724d9f8e40b916b1e85cffcc5b81b1d1770"
+    },
+    {
+      "path": "analyzer_templates/call_recording_analytics.json",
+      "sha256": "9ce7e19d564732e7e051b99513c39b016628b82f61d94355e556aeadc7a12e18",
+      "upstreamGitBlob": "dc68fdfb56192f32c9c8a10a765ec0b306159aba"
+    },
+    {
+      "path": "analyzer_templates/call_recording_analytics_text.json",
+      "sha256": "260c801082f112a5d2e2165d95d9ad9b71ce5a6f81a578543bdeac9ec5eae258",
+      "upstreamGitBlob": "ea4e5d266e2b164a3bb1767fe41eec0bf66588f9"
+    },
+    {
+      "path": "analyzer_templates/content_document.json",
+      "sha256": "06baebeb392e74252d25900f06d14c5354204a7058c4387e40174c0ca3bbbc94",
+      "upstreamGitBlob": "f7bf0babcce14ae08d54e76663b2b27afa5d6bf0"
+    },
+    {
+      "path": "analyzer_templates/content_video.json",
+      "sha256": "20625cda70e36ea5526d5f600244881beba437b6578472e5e1d0fbe16035a8b2",
+      "upstreamGitBlob": "f949a3d96ab5fc4afb265ebe8e8c6daca6a97a5f"
+    },
+    {
+      "path": "analyzer_templates/conversational_audio_analytics.json",
+      "sha256": "bc796a5222068edb6246e820263d99274e8b9816cee0d3a4fcaca73dd779018b",
+      "upstreamGitBlob": "5dce9f04cc8be183a614328a4d3112a88eab8349"
+    },
+    {
+      "path": "analyzer_templates/face_aware_in_video.json",
+      "sha256": "28764b163fff5669899921d42d2591419c32f84e1ff4449eff5afdbd605ea562",
+      "upstreamGitBlob": "b4a40d8a2cd0d15ddd510b971b8d8c3c03a78e82"
+    },
+    {
+      "path": "analyzer_templates/image_chart.json",
+      "sha256": "4cd5113bf7ed3225ab1e23922697d7e64c184340e4c10318c94006e8977f5eaf",
+      "upstreamGitBlob": "df5760259414edb04e9918949dab6126142ddb75"
+    },
+    {
+      "path": "analyzer_templates/insurance_claims_review_pro_mode.json",
+      "sha256": "33bd9d12f6211cb7aef211119aa063305bc2831741393ce5bc8f1eff629408d0",
+      "upstreamGitBlob": "65cfea23bebe1f4a318f1f406cf94b8adc9414f0"
+    },
+    {
+      "path": "analyzer_templates/invoice.json",
+      "sha256": "98e97c8ce1c884efbcee0e859f066c0375adb0653c50c582cbe79658f792f898",
+      "upstreamGitBlob": "085ec5cf6ba60dbdc69fe92806cfe852aad71907"
+    },
+    {
+      "path": "analyzer_templates/invoice_contract_verification_pro_mode.json",
+      "sha256": "b4e6886bd2ce7fd05634d8141a30f4c365fc742892b212a995ad4d29c6db72af",
+      "upstreamGitBlob": "855f4d6601b847ac1b8139fc37f5fdc12b4ecfa8"
+    },
+    {
+      "path": "analyzer_templates/invoice_field_source.json",
+      "sha256": "a062b72d736e2f2f4f586690c3153be02bce78da57a69e53c00d88b1cd7670be",
+      "upstreamGitBlob": "2d1e32e8c236cd65b49454334f898c5bcec4c14a"
+    },
+    {
+      "path": "analyzer_templates/marketing_video.json",
+      "sha256": "2c546e6f315182bf1cfc9c23389ec232f3c5bb392ebf796a790c28dbd54f9488",
+      "upstreamGitBlob": "4ebec487cf351ff3d3d9c36fc74d04180158762a"
+    },
+    {
+      "path": "analyzer_templates/marketing_video_segmenation_auto.json",
+      "sha256": "5a8c71495898846035d8ec010afede2ec736abb1c792e1dadb60bd632f57fe5c",
+      "upstreamGitBlob": "40a393b122755083ebe5d2a90413783a12431dda"
+    },
+    {
+      "path": "analyzer_templates/marketing_video_segmenation_custom.json",
+      "sha256": "4695c5b75ce5edca4b98f88bea533d82e250c2d966f70d8a68a84b3fd6271150",
+      "upstreamGitBlob": "b2fb8f0e777d78c23d93e371bd0f515b10af7c6e"
+    },
+    {
+      "path": "analyzer_templates/receipt.json",
+      "sha256": "96110f3e259889beb8f3fa2cd100125f879cc2bb8839748ed89e7a320d930447",
+      "upstreamGitBlob": "8d16b12a0e5e912d30a56e7dee3db72c5131d9fd"
+    },
+    {
+      "path": "analyzer_templates/video_chapters_dynamic.json",
+      "sha256": "8f801457a2aa5b94a4485403353e8622747a5676db9e0b1074a91b71063ee1ea",
+      "upstreamGitBlob": "9c547fbb758df7ca8bee67a4ad319dbddf8a51ff"
+    },
+    {
+      "path": "analyzer_templates/video_chapters_structured.json",
+      "sha256": "810394cd41f52ab7c3eca34989993f99254e181eebf4c30dfbe1e73d268d2c94",
+      "upstreamGitBlob": "744f1a2169a9fa42f9144ed90557aacc99b50594"
+    },
+    {
+      "path": "data/FlightSimulator.mp4",
+      "sha256": "6a06dea1590664a9a02bf0595bc38ccec8f46b934e3c851d49ef1f53936257a8",
+      "upstreamGitBlob": "f88c8096bc433e335514e92f7209eae2b139cc22"
+    },
+    {
+      "path": "data/audio.wav",
+      "sha256": "40a5ace7beda05bb1e152ff1561792f96f34b10e9c0648febe45a56764a56082",
+      "upstreamGitBlob": "97d98d841b6186f98aa09315e71ed807b6895ec8"
+    },
+    {
+      "path": "data/callCenterRecording.mp3",
+      "sha256": "202e76aaded074daf834554873c5e8cd1864bd38c718a5c216e4f95370c8d8ea",
+      "upstreamGitBlob": "bfbdd790101c2d39710a023880fd9d47f984ed1a"
+    },
+    {
+      "path": "data/invoice.pdf",
+      "sha256": "4da941f20655cb852986df272a22f66aff47c97a18b103a1e8e44641cf581642",
+      "upstreamGitBlob": "f761500a54f89308e556f19458b19f02a97c3c3c"
+    },
+    {
+      "path": "data/mixed_financial_docs.pdf",
+      "sha256": "dacd225d4af0cb0ca4357af2cfcb5a777ab5e356f2c4aff0d6f12e69f5656361",
+      "upstreamGitBlob": "90ae0885b19998caa75071a105d82c09517e47de"
+    },
+    {
+      "path": "data/pieChart.jpg",
+      "sha256": "2fdbc2cf41499651e685c5296ba7454ef78c75915aef62e68af59432ee29e823",
+      "upstreamGitBlob": "ca3d900b5c0c23229efc7e1bc75cc0e2d9b721cf"
+    },
+    {
+      "path": "data/receipt.png",
+      "sha256": "888235286a379a6bf6f4012a7f1a14bb5b6b3217e34de2b3bb9f0acddf799a42",
+      "upstreamGitBlob": "954f406850d00509583845128f38e2df8dd28dc4"
+    },
+    {
+      "path": "notebooks/analyzer_training.ipynb",
+      "sha256": "31e6c8bce9cfd0f2dfd40869035a31eca085af8cefa4db2990b616b5f17976cd",
+      "upstreamGitBlob": "056a0b04b84f2d10a2ce6a2d8bd83314f626d919"
+    },
+    {
+      "path": "notebooks/classifier.ipynb",
+      "sha256": "2ae381420dd7d91a5ac420832d9b8d938616aa9ec8a1c18d7921f4a6652465bd",
+      "upstreamGitBlob": "ef75327bc09c6e673c83a6046ceef66d45676c9b"
+    },
+    {
+      "path": "notebooks/content_extraction.ipynb",
+      "sha256": "47501bb36d22ec4806a2ed1cf884830e2bb8e3cd507ca3f4f403fbf651232e96",
+      "upstreamGitBlob": "dc69346f5da51216eda14d64ade97850b7d7d040"
+    },
+    {
+      "path": "notebooks/field_extraction.ipynb",
+      "sha256": "78537a636c8e2de08254a8c856588e552272e20d5027d28c9e021362c7a42b53",
+      "upstreamGitBlob": "e13e74787f20787b676714dc6a00651a01d626d4"
+    },
+    {
+      "path": "notebooks/management.ipynb",
+      "sha256": "f9eb24758f9826b6a873e81e24d10e7a18e044199eb0656150676a21724188fc",
+      "upstreamGitBlob": "045131cb9f62fc4e8687e1dbb5c594b6750ea4df"
+    },
+    {
+      "path": "python/chapters_utility.py",
+      "sha256": "d501d22e1c2d942f0d75a67d3f8d8397faed22f39ab1013dacc1a090169f5d18",
+      "upstreamGitBlob": "ae0397770bac40d8f63deb1dc4e48be950759a24"
+    },
+    {
+      "path": "python/content_understanding_client.py",
+      "sha256": "28d1567c923d94196c6150f9b2bb0bd9f8650dac9fbc94108807e1a00829379a",
+      "upstreamGitBlob": "7b7cc68f6a2b6db2fd0f3f6cc9ff699dc2b8def0"
+    },
+    {
+      "path": "python/extension/document_processor.py",
+      "sha256": "c24f51ffc55f553f17e4c6e058252c901bd0fedf23dabce1b33f4e45a8a53ca9",
+      "upstreamGitBlob": "fd97ce20d436f5f5fed317fe48cc5bb377ef0360"
+    },
+    {
+      "path": "python/extension/sample_helper.py",
+      "sha256": "81eba96eee0089d7299cfc742e6e6a1a6cb05fee9b7185e6e9f36340b5461410",
+      "upstreamGitBlob": "8cc9a0a953bcc684c98c76aade7f443268fe6063"
+    },
+    {
+      "path": "python/extension/transcripts_processor.py",
+      "sha256": "70c9e6600b9fc3935346cd353d063c4f74e9ecec3f7e44f7add8a371811b8f49",
+      "upstreamGitBlob": "e8277725605f81824d6f408bba0fb9413a01ea17"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "8ad354d7efd39486464988e3a9cbd5ddbb3846ff0400d89892bdb5ddb516c813",
+      "upstreamGitBlob": "18e6dd64e0a1546600c51a3231c7888cf165bdf7"
+    }
+  ],
+  "hashScope": "sha256 identifies the original downloaded upstream bytes, before local adaptations.",
+  "localAdaptations": [
+    "notebooks/content_extraction.ipynb",
+    "notebooks/field_extraction.ipynb",
+    "notebooks/classifier.ipynb",
+    "python/extension/sample_helper.py"
+  ],
+  "referenceRelocations": {
+    "notebooks/management.ipynb": "reference-notebooks/management.ipynb",
+    "notebooks/analyzer_training.ipynb": "reference-notebooks/analyzer_training.ipynb"
+  }
+}

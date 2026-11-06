@@ -1,0 +1,920 @@
+{
+  "id": "c855d264-a3d0-4b27-9804-21bc1e306f8f",
+  "status": "Succeeded",
+  "result": {
+    "analyzerId": "prebuilt-receipt",
+    "apiVersion": "2025-11-01",
+    "createdAt": "2026-11-06T08:35:27Z",
+    "stringEncoding": "codePoint",
+    "warnings": [],
+    "contents": [
+      {
+        "path": "input1/segment1",
+        "category": "receipt.generic",
+        "markdown": "Contoso\n\n123 Main Street\nRedmond, WA 98052\n\n987-654-3210\n\n6/10/2019 13:59\nSales Associate: Paul\n\n2 Surface Pro 6\n\n$1,998.00\n\n3 Surface Pen\n\n$299.97\n\nSub-Total\n\n$2,297.97\n\nTax\n\n$218.31\n\nTotal\n\n$2,516.28\n",
+        "fields": {
+          "MerchantName": {
+            "type": "string",
+            "valueString": "Contoso",
+            "spans": [
+              {
+                "offset": 0,
+                "length": 7
+              }
+            ],
+            "confidence": 0.378,
+            "source": "D(1,775.0000,73.0000,973.0000,72.0000,973.0000,111.0000,775.0000,112.0000)"
+          },
+          "MerchantPhoneNumber": {
+            "type": "string",
+            "valueString": "987-654-3210",
+            "spans": [
+              {
+                "offset": 44,
+                "length": 12
+              }
+            ],
+            "confidence": 0.418,
+            "source": "D(1,700.0000,298.0000,842.0000,298.0000,842.0000,323.0000,700.0000,323.0000)"
+          },
+          "MerchantAddress": {
+            "type": "string",
+            "valueString": "123 Main Street Redmond, WA 98052",
+            "spans": [
+              {
+                "offset": 9,
+                "length": 15
+              },
+              {
+                "offset": 25,
+                "length": 17
+              }
+            ],
+            "confidence": 0.372,
+            "source": "D(1,700.0000,189.0000,858.0000,189.0000,858.0000,213.0000,700.0000,213.0000);D(1,700.0000,223.0000,911.0000,223.0000,911.0000,249.0000,700.0000,249.0000)"
+          },
+          "TotalAmount": {
+            "type": "object",
+            "valueObject": {
+              "Amount": {
+                "type": "number",
+                "valueNumber": 2516.28,
+                "spans": [
+                  {
+                    "offset": 193,
+                    "length": 8
+                  }
+                ],
+                "confidence": 0.328,
+                "source": "D(1,971.0000,710.0000,1054.0000,710.0000,1054.0000,737.0000,971.0000,737.0000)"
+              },
+              "CurrencyCode": {
+                "type": "string",
+                "valueString": "USD"
+              }
+            }
+          },
+          "TransactionDate": {
+            "type": "date",
+            "valueDate": "2019-06-10",
+            "spans": [
+              {
+                "offset": 58,
+                "length": 9
+              }
+            ],
+            "confidence": 0.419,
+            "source": "D(1,699.0000,372.0000,794.0000,373.0000,794.0000,399.0000,699.0000,400.0000)"
+          },
+          "TransactionTime": {
+            "type": "time",
+            "valueTime": "13:59:00",
+            "spans": [
+              {
+                "offset": 68,
+                "length": 5
+              }
+            ],
+            "confidence": 0.348,
+            "source": "D(1,802.0000,373.0000,853.0000,373.0000,853.0000,399.0000,802.0000,399.0000)"
+          },
+          "SubtotalAmount": {
+            "type": "object",
+            "valueObject": {
+              "Amount": {
+                "type": "number",
+                "valueNumber": 2297.97
+              },
+              "CurrencyCode": {
+                "type": "string",
+                "valueString": "USD"
+              }
+            }
+          },
+          "TotalTaxAmount": {
+            "type": "object",
+            "valueObject": {
+              "Amount": {
+                "type": "number",
+                "valueNumber": 218.31
+              },
+              "CurrencyCode": {
+                "type": "string",
+                "valueString": "USD"
+              }
+            }
+          },
+          "TipAmount": {
+            "type": "object",
+            "valueObject": {
+              "Amount": {
+                "type": "number",
+                "confidence": 0.975
+              },
+              "CurrencyCode": {
+                "type": "string"
+              }
+            }
+          },
+          "LineItems": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "object",
+                "valueObject": {
+                  "TotalAmount": {
+                    "type": "object",
+                    "valueObject": {
+                      "Amount": {
+                        "type": "number",
+                        "valueNumber": 1998,
+                        "spans": [
+                          {
+                            "offset": 114,
+                            "length": 9
+                          }
+                        ],
+                        "confidence": 0.429,
+                        "source": "D(1,952.0000,482.0000,1048.0000,482.0000,1048.0000,509.0000,952.0000,509.0000)"
+                      },
+                      "CurrencyCode": {
+                        "type": "string",
+                        "valueString": "USD"
+                      }
+                    }
+                  },
+                  "Description": {
+                    "type": "string",
+                    "valueString": "Surface Pro 6",
+                    "spans": [
+                      {
+                        "offset": 99,
+                        "length": 13
+                      }
+                    ],
+                    "confidence": 0.487,
+                    "source": "D(1,729.0000,483.0000,874.0000,483.0000,874.0000,508.0000,729.0000,508.0000)"
+                  },
+                  "Quantity": {
+                    "type": "number",
+                    "valueNumber": 2,
+                    "spans": [
+                      {
+                        "offset": 97,
+                        "length": 1
+                      }
+                    ],
+                    "confidence": 0.414,
+                    "source": "D(1,705.0000,483.0000,716.0000,483.0000,716.0000,508.0000,705.0000,508.0000)"
+                  },
+                  "UnitPrice": {
+                    "type": "object",
+                    "valueObject": {
+                      "Amount": {
+                        "type": "number",
+                        "confidence": 0.927
+                      },
+                      "CurrencyCode": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "ProductCode": {
+                    "type": "string",
+                    "confidence": 0.856
+                  },
+                  "QuantityUnit": {
+                    "type": "string",
+                    "confidence": 0.856
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "valueObject": {
+                  "TotalAmount": {
+                    "type": "object",
+                    "valueObject": {
+                      "Amount": {
+                        "type": "number",
+                        "valueNumber": 299.97,
+                        "spans": [
+                          {
+                            "offset": 140,
+                            "length": 7
+                          }
+                        ],
+                        "confidence": 0.495,
+                        "source": "D(1,969.0000,520.0000,1049.0000,520.0000,1049.0000,546.0000,969.0000,546.0000)"
+                      },
+                      "CurrencyCode": {
+                        "type": "string",
+                        "valueString": "USD"
+                      }
+                    }
+                  },
+                  "Description": {
+                    "type": "string",
+                    "valueString": "Surface Pen",
+                    "spans": [
+                      {
+                        "offset": 127,
+                        "length": 11
+                      }
+                    ],
+                    "confidence": 0.496,
+                    "source": "D(1,729.0000,522.0000,858.0000,522.0000,858.0000,546.0000,729.0000,546.0000)"
+                  },
+                  "Quantity": {
+                    "type": "number",
+                    "valueNumber": 3,
+                    "spans": [
+                      {
+                        "offset": 125,
+                        "length": 1
+                      }
+                    ],
+                    "confidence": 0.414,
+                    "source": "D(1,705.0000,522.0000,715.0000,522.0000,715.0000,546.0000,705.0000,546.0000)"
+                  },
+                  "UnitPrice": {
+                    "type": "object",
+                    "valueObject": {
+                      "Amount": {
+                        "type": "number",
+                        "confidence": 0.927
+                      },
+                      "CurrencyCode": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "ProductCode": {
+                    "type": "string",
+                    "confidence": 0.856
+                  },
+                  "QuantityUnit": {
+                    "type": "string",
+                    "confidence": 0.856
+                  }
+                }
+              }
+            ]
+          },
+          "CountryRegion": {
+            "type": "string",
+            "valueString": "USA"
+          },
+          "TaxDetails": {
+            "type": "array"
+          }
+        },
+        "kind": "document",
+        "startPageNumber": 1,
+        "endPageNumber": 1,
+        "unit": "pixel",
+        "pages": [
+          {
+            "pageNumber": 1,
+            "angle": 0,
+            "width": 1743,
+            "height": 878,
+            "spans": [
+              {
+                "offset": 0,
+                "length": 202
+              }
+            ],
+            "words": [
+              {
+                "content": "Contoso",
+                "span": {
+                  "offset": 0,
+                  "length": 7
+                },
+                "confidence": 0.995,
+                "source": "D(1,775,73,973,72,973,111,775,112)"
+              },
+              {
+                "content": "123",
+                "span": {
+                  "offset": 9,
+                  "length": 3
+                },
+                "confidence": 0.987,
+                "source": "D(1,700,189,729,189,729,213,700,213)"
+              },
+              {
+                "content": "Main",
+                "span": {
+                  "offset": 13,
+                  "length": 4
+                },
+                "confidence": 0.988,
+                "source": "D(1,737,189,785,189,785,212,737,213)"
+              },
+              {
+                "content": "Street",
+                "span": {
+                  "offset": 18,
+                  "length": 6
+                },
+                "confidence": 0.993,
+                "source": "D(1,793,189,858,189,858,212,793,212)"
+              },
+              {
+                "content": "Redmond",
+                "span": {
+                  "offset": 25,
+                  "length": 7
+                },
+                "confidence": 0.993,
+                "source": "D(1,700,224,794,224,794,249,700,249)"
+              },
+              {
+                "content": ",",
+                "span": {
+                  "offset": 32,
+                  "length": 1
+                },
+                "confidence": 0.997,
+                "source": "D(1,795,224,800,224,800,249,795,249)"
+              },
+              {
+                "content": "WA",
+                "span": {
+                  "offset": 34,
+                  "length": 2
+                },
+                "confidence": 0.987,
+                "source": "D(1,805,224,839,224,839,249,805,249)"
+              },
+              {
+                "content": "98052",
+                "span": {
+                  "offset": 37,
+                  "length": 5
+                },
+                "confidence": 0.983,
+                "source": "D(1,845,223,911,223,911,248,845,249)"
+              },
+              {
+                "content": "987-654-3210",
+                "span": {
+                  "offset": 44,
+                  "length": 12
+                },
+                "confidence": 0.967,
+                "source": "D(1,700,298,842,298,842,323,700,323)"
+              },
+              {
+                "content": "6/10/2019",
+                "span": {
+                  "offset": 58,
+                  "length": 9
+                },
+                "confidence": 0.987,
+                "source": "D(1,699,372,794,373,794,399,699,400)"
+              },
+              {
+                "content": "13",
+                "span": {
+                  "offset": 68,
+                  "length": 2
+                },
+                "confidence": 0.997,
+                "source": "D(1,802,373,821,373,821,399,802,399)"
+              },
+              {
+                "content": ":",
+                "span": {
+                  "offset": 70,
+                  "length": 1
+                },
+                "confidence": 0.999,
+                "source": "D(1,822,373,826,373,826,399,822,399)"
+              },
+              {
+                "content": "59",
+                "span": {
+                  "offset": 71,
+                  "length": 2
+                },
+                "confidence": 0.997,
+                "source": "D(1,827,373,853,373,853,399,827,399)"
+              },
+              {
+                "content": "Sales",
+                "span": {
+                  "offset": 74,
+                  "length": 5
+                },
+                "confidence": 0.998,
+                "source": "D(1,700,409,756,410,756,433,700,433)"
+              },
+              {
+                "content": "Associate",
+                "span": {
+                  "offset": 80,
+                  "length": 9
+                },
+                "confidence": 0.997,
+                "source": "D(1,762,410,863,410,863,433,762,433)"
+              },
+              {
+                "content": ":",
+                "span": {
+                  "offset": 89,
+                  "length": 1
+                },
+                "confidence": 0.999,
+                "source": "D(1,864,410,869,409,869,433,864,433)"
+              },
+              {
+                "content": "Paul",
+                "span": {
+                  "offset": 91,
+                  "length": 4
+                },
+                "confidence": 0.998,
+                "source": "D(1,876,409,923,409,923,433,876,433)"
+              },
+              {
+                "content": "2",
+                "span": {
+                  "offset": 97,
+                  "length": 1
+                },
+                "confidence": 0.998,
+                "source": "D(1,705,483,716,483,716,508,705,508)"
+              },
+              {
+                "content": "Surface",
+                "span": {
+                  "offset": 99,
+                  "length": 7
+                },
+                "confidence": 0.995,
+                "source": "D(1,729,483,811,483,811,508,729,508)"
+              },
+              {
+                "content": "Pro",
+                "span": {
+                  "offset": 107,
+                  "length": 3
+                },
+                "confidence": 0.991,
+                "source": "D(1,819,483,855,483,855,508,819,508)"
+              },
+              {
+                "content": "6",
+                "span": {
+                  "offset": 111,
+                  "length": 1
+                },
+                "confidence": 0.985,
+                "source": "D(1,861,483,874,483,874,508,861,508)"
+              },
+              {
+                "content": "$",
+                "span": {
+                  "offset": 114,
+                  "length": 1
+                },
+                "confidence": 0.998,
+                "source": "D(1,952,482,963,482,963,509,952,509)"
+              },
+              {
+                "content": "1,998.00",
+                "span": {
+                  "offset": 115,
+                  "length": 8
+                },
+                "confidence": 0.962,
+                "source": "D(1,964,482,1048,482,1048,508,964,509)"
+              },
+              {
+                "content": "3",
+                "span": {
+                  "offset": 125,
+                  "length": 1
+                },
+                "confidence": 0.998,
+                "source": "D(1,705,522,715,522,715,546,705,546)"
+              },
+              {
+                "content": "Surface",
+                "span": {
+                  "offset": 127,
+                  "length": 7
+                },
+                "confidence": 0.992,
+                "source": "D(1,729,522,812,522,812,546,729,546)"
+              },
+              {
+                "content": "Pen",
+                "span": {
+                  "offset": 135,
+                  "length": 3
+                },
+                "confidence": 0.996,
+                "source": "D(1,819,522,858,522,858,546,819,546)"
+              },
+              {
+                "content": "$",
+                "span": {
+                  "offset": 140,
+                  "length": 1
+                },
+                "confidence": 0.997,
+                "source": "D(1,969,520,980,520,980,546,969,546)"
+              },
+              {
+                "content": "299.97",
+                "span": {
+                  "offset": 141,
+                  "length": 6
+                },
+                "confidence": 0.969,
+                "source": "D(1,981,520,1049,520,1049,546,981,546)"
+              },
+              {
+                "content": "Sub",
+                "span": {
+                  "offset": 149,
+                  "length": 3
+                },
+                "confidence": 0.992,
+                "source": "D(1,764,598,804,597,804,621,764,622)"
+              },
+              {
+                "content": "-",
+                "span": {
+                  "offset": 152,
+                  "length": 1
+                },
+                "confidence": 0.998,
+                "source": "D(1,804,597,813,597,813,621,804,621)"
+              },
+              {
+                "content": "Total",
+                "span": {
+                  "offset": 153,
+                  "length": 5
+                },
+                "confidence": 0.971,
+                "source": "D(1,814,597,868,597,868,621,814,621)"
+              },
+              {
+                "content": "$",
+                "span": {
+                  "offset": 160,
+                  "length": 1
+                },
+                "confidence": 0.997,
+                "source": "D(1,953,597,964,597,964,623,953,623)"
+              },
+              {
+                "content": "2,297.97",
+                "span": {
+                  "offset": 161,
+                  "length": 8
+                },
+                "confidence": 0.932,
+                "source": "D(1,965,597,1050,597,1050,622,965,623)"
+              },
+              {
+                "content": "Tax",
+                "span": {
+                  "offset": 171,
+                  "length": 3
+                },
+                "confidence": 0.962,
+                "source": "D(1,768,635,805,636,805,659,768,658)"
+              },
+              {
+                "content": "$",
+                "span": {
+                  "offset": 176,
+                  "length": 1
+                },
+                "confidence": 0.999,
+                "source": "D(1,976,634,987,634,987,660,976,660)"
+              },
+              {
+                "content": "218.31",
+                "span": {
+                  "offset": 177,
+                  "length": 6
+                },
+                "confidence": 0.987,
+                "source": "D(1,989,634,1050,634,1050,660,989,660)"
+              },
+              {
+                "content": "Total",
+                "span": {
+                  "offset": 185,
+                  "length": 5
+                },
+                "confidence": 0.997,
+                "source": "D(1,769,712,822,712,822,737,769,737)"
+              },
+              {
+                "content": "$",
+                "span": {
+                  "offset": 192,
+                  "length": 1
+                },
+                "confidence": 0.998,
+                "source": "D(1,959,710,970,710,970,737,959,737)"
+              },
+              {
+                "content": "2,516.28",
+                "span": {
+                  "offset": 193,
+                  "length": 8
+                },
+                "confidence": 0.944,
+                "source": "D(1,971,710,1054,710,1054,737,971,737)"
+              }
+            ],
+            "lines": [
+              {
+                "content": "Contoso",
+                "source": "D(1,775,73,973,72,973,111,775,112)",
+                "span": {
+                  "offset": 0,
+                  "length": 7
+                }
+              },
+              {
+                "content": "123 Main Street",
+                "source": "D(1,700,189,858,188,858,212,700,213)",
+                "span": {
+                  "offset": 9,
+                  "length": 15
+                }
+              },
+              {
+                "content": "Redmond, WA 98052",
+                "source": "D(1,700,224,911,223,911,248,700,250)",
+                "span": {
+                  "offset": 25,
+                  "length": 17
+                }
+              },
+              {
+                "content": "987-654-3210",
+                "source": "D(1,700,298,842,298,842,323,700,323)",
+                "span": {
+                  "offset": 44,
+                  "length": 12
+                }
+              },
+              {
+                "content": "6/10/2019 13:59",
+                "source": "D(1,699,372,853,372,853,400,699,400)",
+                "span": {
+                  "offset": 58,
+                  "length": 15
+                }
+              },
+              {
+                "content": "Sales Associate: Paul",
+                "source": "D(1,700,409,923,409,923,433,700,433)",
+                "span": {
+                  "offset": 74,
+                  "length": 21
+                }
+              },
+              {
+                "content": "2 Surface Pro 6",
+                "source": "D(1,705,483,874,483,874,508,705,508)",
+                "span": {
+                  "offset": 97,
+                  "length": 15
+                }
+              },
+              {
+                "content": "$1,998.00",
+                "source": "D(1,952,482,1048,482,1048,509,952,509)",
+                "span": {
+                  "offset": 114,
+                  "length": 9
+                }
+              },
+              {
+                "content": "3 Surface Pen",
+                "source": "D(1,705,522,858,522,858,546,705,546)",
+                "span": {
+                  "offset": 125,
+                  "length": 13
+                }
+              },
+              {
+                "content": "$299.97",
+                "source": "D(1,969,520,1049,520,1049,546,969,546)",
+                "span": {
+                  "offset": 140,
+                  "length": 7
+                }
+              },
+              {
+                "content": "Sub-Total",
+                "source": "D(1,764,598,868,597,868,621,764,622)",
+                "span": {
+                  "offset": 149,
+                  "length": 9
+                }
+              },
+              {
+                "content": "$2,297.97",
+                "source": "D(1,953,597,1050,596,1050,623,953,623)",
+                "span": {
+                  "offset": 160,
+                  "length": 9
+                }
+              },
+              {
+                "content": "Tax",
+                "source": "D(1,768,635,805,636,805,659,767,658)",
+                "span": {
+                  "offset": 171,
+                  "length": 3
+                }
+              },
+              {
+                "content": "$218.31",
+                "source": "D(1,976,634,1050,634,1050,660,976,660)",
+                "span": {
+                  "offset": 176,
+                  "length": 7
+                }
+              },
+              {
+                "content": "Total",
+                "source": "D(1,769,712,822,712,822,737,769,737)",
+                "span": {
+                  "offset": 185,
+                  "length": 5
+                }
+              },
+              {
+                "content": "$2,516.28",
+                "source": "D(1,959,710,1054,710,1054,737,959,737)",
+                "span": {
+                  "offset": 192,
+                  "length": 9
+                }
+              }
+            ]
+          }
+        ],
+        "paragraphs": [
+          {
+            "content": "Contoso",
+            "source": "D(1,775,73,973,72,973,111,775,112)",
+            "span": {
+              "offset": 0,
+              "length": 7
+            }
+          },
+          {
+            "content": "123 Main Street Redmond, WA 98052",
+            "source": "D(1,700,189,910,188,911,248,700,250)",
+            "span": {
+              "offset": 9,
+              "length": 33
+            }
+          },
+          {
+            "content": "987-654-3210",
+            "source": "D(1,700,298,842,298,842,323,700,323)",
+            "span": {
+              "offset": 44,
+              "length": 12
+            }
+          },
+          {
+            "content": "6/10/2019 13:59 Sales Associate: Paul",
+            "source": "D(1,699,372,923,372,923,433,699,433)",
+            "span": {
+              "offset": 58,
+              "length": 37
+            }
+          },
+          {
+            "content": "2 Surface Pro 6",
+            "source": "D(1,705,483,874,483,874,508,705,508)",
+            "span": {
+              "offset": 97,
+              "length": 15
+            }
+          },
+          {
+            "content": "$1,998.00",
+            "source": "D(1,952,482,1048,482,1048,509,952,509)",
+            "span": {
+              "offset": 114,
+              "length": 9
+            }
+          },
+          {
+            "content": "3 Surface Pen",
+            "source": "D(1,705,522,858,522,858,546,705,546)",
+            "span": {
+              "offset": 125,
+              "length": 13
+            }
+          },
+          {
+            "content": "$299.97",
+            "source": "D(1,969,520,1049,520,1049,546,969,546)",
+            "span": {
+              "offset": 140,
+              "length": 7
+            }
+          },
+          {
+            "content": "Sub-Total",
+            "source": "D(1,764,598,868,597,868,621,764,622)",
+            "span": {
+              "offset": 149,
+              "length": 9
+            }
+          },
+          {
+            "content": "$2,297.97",
+            "source": "D(1,953,597,1050,596,1050,623,953,623)",
+            "span": {
+              "offset": 160,
+              "length": 9
+            }
+          },
+          {
+            "content": "Tax",
+            "source": "D(1,768,635,805,636,805,659,767,658)",
+            "span": {
+              "offset": 171,
+              "length": 3
+            }
+          },
+          {
+            "content": "$218.31",
+            "source": "D(1,976,634,1050,634,1050,660,976,660)",
+            "span": {
+              "offset": 176,
+              "length": 7
+            }
+          },
+          {
+            "content": "Total",
+            "source": "D(1,769,712,822,712,822,737,769,737)",
+            "span": {
+              "offset": 185,
+              "length": 5
+            }
+          },
+          {
+            "content": "$2,516.28",
+            "source": "D(1,959,710,1054,710,1054,737,959,737)",
+            "span": {
+              "offset": 192,
+              "length": 9
+            }
+          }
+        ],
+        "analyzerId": "prebuilt-receipt.generic",
+        "mimeType": "image/png"
+      }
+    ]
+  },
+  "usage": {
+    "documentPagesStandard": 1,
+    "contextualizationTokens": 1000,
+    "tokens": {
+      "gpt-5.2-input": 5189,
+      "gpt-5.2-output": 247
+    }
+  }
+}

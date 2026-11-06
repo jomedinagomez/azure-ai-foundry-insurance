@@ -1,11 +1,14 @@
+from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-import standalone_api
+from app.routers import labeled_analyzer
 from app.services import labeled_analyzer_service as service
 from app.services import labeling_workspace_service as workspace
 
 
-client = TestClient(standalone_api.app)
+legacy_app = FastAPI()
+legacy_app.include_router(labeled_analyzer.router)
+client = TestClient(legacy_app)
 
 
 def test_status_and_samples_are_available_without_azure():

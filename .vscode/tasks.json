@@ -1,0 +1,103 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Validate Claims Explorer",
+			"type": "shell",
+			"command": "& { $ErrorActionPreference = 'Stop'; Set-Location '${workspaceFolder}'; & '.\\.venv\\Scripts\\python.exe' -m compileall -q 'apps\\workshop\\api\\app\\services\\claims_service.py' 'apps\\workshop\\api\\app\\routers\\claims.py' 'apps\\workshop\\api\\app\\schemas\\claim_operations.py' 'apps\\workshop\\api\\app\\services\\claim_operations_service.py' 'apps\\workshop\\api\\app\\routers\\claim_operations.py' 'apps\\workshop\\api\\standalone_api.py'; if ($LASTEXITCODE -ne 0) { throw 'Python syntax validation failed.' }; Set-Location 'apps\\workshop\\web'; $node = if (Get-Command node -ErrorAction SilentlyContinue) { 'node' } else { Join-Path $env:LOCALAPPDATA 'Programs\\Microsoft Scout\\resources\\node\\node.exe' }; & $node '.\\node_modules\\typescript\\bin\\tsc' --noEmit; if ($LASTEXITCODE -ne 0) { throw 'TypeScript validation failed.' } }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Build Claims Explorer web",
+			"type": "shell",
+			"command": "& { $ErrorActionPreference = 'Stop'; Set-Location '${workspaceFolder}\\apps\\workshop\\web'; $node = if (Get-Command node -ErrorAction SilentlyContinue) { 'node' } else { Join-Path $env:LOCALAPPDATA 'Programs\\Microsoft Scout\\resources\\node\\node.exe' }; & $node '.\\node_modules\\react-scripts\\bin\\react-scripts.js' build; if ($LASTEXITCODE -ne 0) { throw 'Frontend build failed.' } }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Claims Explorer API",
+			"type": "shell",
+			"command": "& { Set-Location '${workspaceFolder}\\apps\\workshop\\api'; & '${workspaceFolder}\\.venv\\Scripts\\python.exe' -m uvicorn standalone_api:app --host 127.0.0.1 --port 8000 --reload --reload-dir app }",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Claims Explorer web",
+			"type": "shell",
+			"command": "& { Set-Location '${workspaceFolder}\\apps\\workshop\\web'; $node = if (Get-Command node -ErrorAction SilentlyContinue) { 'node' } else { Join-Path $env:LOCALAPPDATA 'Programs\\Microsoft Scout\\resources\\node\\node.exe' }; $env:BROWSER = 'none'; & $node '.\\node_modules\\react-scripts\\bin\\react-scripts.js' start }",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Test Claims Explorer UI",
+			"type": "shell",
+			"command": "& { Set-Location '${workspaceFolder}\\apps\\workshop\\web'; $node = if (Get-Command node -ErrorAction SilentlyContinue) { 'node' } else { Join-Path $env:LOCALAPPDATA 'Programs\\Microsoft Scout\\resources\\node\\node.exe' }; $env:CI = 'true'; & $node '.\\node_modules\\react-scripts\\bin\\react-scripts.js' test --watchAll=false --runInBand --testPathPattern 'ClaimsPage.test.jsx|executionTreeModel.test.jsx|ClaimOperationsPanel.test.jsx|ClaimsAgentChat.test.jsx'; if ($LASTEXITCODE -ne 0) { throw 'Claims Explorer UI tests failed.' } }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check Claims Explorer API",
+			"type": "shell",
+			"command": "& { $ErrorActionPreference = 'Stop'; $health = Invoke-RestMethod 'http://127.0.0.1:8000/health'; Write-Output $health.message; $claims = Invoke-RestMethod 'http://127.0.0.1:8000/claims'; $claims.claims | Select-Object claim_id, original_files, evidence_files, chunks | Format-Table; }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify Claims backend locally",
+			"type": "shell",
+			"command": "& { Set-Location '${workspaceFolder}'; & '.\\.venv\\Scripts\\python.exe' -m pytest 'apps\\workshop\\api\\tests\\test_claims_service.py' 'apps\\workshop\\api\\tests\\test_claims_router.py' 'apps\\workshop\\api\\tests\\test_standalone_api.py' -q; if ($LASTEXITCODE -ne 0) { throw 'Local Claims backend verification failed.' } }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Final Claims Explorer check",
+			"type": "shell",
+			"command": "& { $ErrorActionPreference = 'Stop'; Set-Location '${workspaceFolder}'; git --no-pager diff --check; if ($LASTEXITCODE -ne 0) { throw 'Whitespace validation failed.' }; $tasks = Get-Content -LiteralPath '.vscode\\tasks.json' -Raw | ConvertFrom-Json; Write-Output ('Task configuration valid: ' + $tasks.tasks.Count + ' tasks'); $health = Invoke-RestMethod 'http://127.0.0.1:8000/health'; Write-Output ('API health: ' + $health.message); $overview = Invoke-RestMethod 'http://127.0.0.1:8000/claims'; if ($overview.claims.Count -ne 6) { throw 'Expected all six claim folders.' }; Write-Output ('Claims Explorer: ' + $overview.claims.Count + ' folders available'); }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Lint Claims execution tree",
+			"type": "shell",
+			"command": "& { Set-Location '${workspaceFolder}\\apps\\workshop\\web'; $node = if (Get-Command node -ErrorAction SilentlyContinue) { 'node' } else { Join-Path $env:LOCALAPPDATA 'Programs\\Microsoft Scout\\resources\\node\\node.exe' }; & $node '.\\node_modules\\eslint\\bin\\eslint.js' 'src\\Components\\Claims' 'src\\Pages\\ClaimsPage.tsx' --ext '.ts,.tsx' --max-warnings 0; if ($LASTEXITCODE -ne 0) { throw 'Claims execution tree lint failed.' } }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Validate structured claims data",
+			"type": "shell",
+			"command": "& { Set-Location '${workspaceFolder}'; & '.\\.venv\\Scripts\\python.exe' -m pytest 'apps\\workshop\\api\\tests\\test_claim_operations.py' 'apps\\workshop\\api\\tests\\test_standalone_api.py' 'apps\\workshop\\api\\tests\\test_claims_router.py' -q; if ($LASTEXITCODE -ne 0) { throw 'Structured claims data validation failed.' } }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Restore claims agent dependencies",
+			"type": "shell",
+			"command": "& { Set-Location '${workspaceFolder}'; & '.\\.venv\\Scripts\\python.exe' -m pip install 'azure-ai-projects>=2.9.0,<3' 'openai>=3.0.0,<4' 'azure-monitor-opentelemetry>=1.6.0,<2' 'opentelemetry-instrumentation-openai-v2==2.4b0' 'opentelemetry-util-genai==0.4b0' 'debugpy>=1.8.0,<2'; if ($LASTEXITCODE -ne 0) { throw 'Claims agent dependency restore failed.' } }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check local claims agent code",
+			"type": "shell",
+			"command": "& { Set-Location '${workspaceFolder}'; & '.\\.venv\\Scripts\\python.exe' -m compileall -q 'apps\\workshop\\api\\app\\services\\claims_agent_service.py' 'apps\\workshop\\api\\app\\services\\claims_agent_telemetry.py' 'apps\\workshop\\api\\app\\routers\\claims_agent.py'; if ($LASTEXITCODE -ne 0) { throw 'Agent Python syntax failed.' }; Set-Location 'apps\\workshop\\web'; $node = if (Get-Command node -ErrorAction SilentlyContinue) { 'node' } else { Join-Path $env:LOCALAPPDATA 'Programs\\Microsoft Scout\\resources\\node\\node.exe' }; & $node '.\\node_modules\\typescript\\bin\\tsc' --noEmit; if ($LASTEXITCODE -ne 0) { throw 'Agent UI types failed.' }; & $node '.\\node_modules\\eslint\\bin\\eslint.js' 'src\\Components\\Claims\\ClaimsAgentChat.tsx' 'src\\services\\claimsAgentService.ts' 'src\\Pages\\ClaimsPage.tsx' --max-warnings 0; if ($LASTEXITCODE -ne 0) { throw 'Agent UI lint failed.' } }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Test local claims agent",
+			"type": "shell",
+			"command": "& { Set-Location '${workspaceFolder}'; & '.\\.venv\\Scripts\\python.exe' -m pytest 'apps\\workshop\\api\\tests\\test_claims_agent.py' 'apps\\workshop\\api\\tests\\test_claim_operations.py' 'apps\\workshop\\api\\tests\\test_claims_service.py' 'apps\\workshop\\api\\tests\\test_standalone_api.py' -q; if ($LASTEXITCODE -ne 0) { throw 'Local agent tests failed.' } }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Build and test claims agent UI",
+			"type": "shell",
+			"command": "& { Set-Location '${workspaceFolder}\\apps\\workshop\\web'; $node = if (Get-Command node -ErrorAction SilentlyContinue) { 'node' } else { Join-Path $env:LOCALAPPDATA 'Programs\\Microsoft Scout\\resources\\node\\node.exe' }; & $node '.\\node_modules\\typescript\\bin\\tsc' --noEmit; if ($LASTEXITCODE -ne 0) { throw 'UI type check failed.' }; & $node '.\\node_modules\\eslint\\bin\\eslint.js' 'src\\Components\\Claims\\ClaimsAgentChat.tsx' 'src\\services\\claimsAgentService.ts' 'src\\Pages\\ClaimsPage.tsx' --max-warnings 0; if ($LASTEXITCODE -ne 0) { throw 'UI lint failed.' }; $env:CI='true'; & $node '.\\node_modules\\react-scripts\\bin\\react-scripts.js' test --watchAll=false --runInBand --testPathPattern 'ClaimsPage.test.jsx|executionTreeModel.test.jsx|ClaimOperationsPanel.test.jsx|ClaimsAgentChat.test.jsx'; if ($LASTEXITCODE -ne 0) { throw 'UI tests failed.' }; $env:CI='false'; & $node '.\\node_modules\\react-scripts\\bin\\react-scripts.js' build; if ($LASTEXITCODE -ne 0) { throw 'UI production build failed.' }; Write-Output 'CLAIMS_AGENT_UI_VALIDATED' }",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

@@ -1,0 +1,1733 @@
+{
+  "id": "0de0bdc4-2dfe-4e7e-9960-d3fe35b41a02",
+  "status": "Succeeded",
+  "result": {
+    "analyzerId": "prebuilt-audioSearch",
+    "apiVersion": "2025-11-01",
+    "createdAt": "2026-11-06T08:32:41Z",
+    "stringEncoding": "utf8",
+    "warnings": [],
+    "contents": [
+      {
+        "path": "input1",
+        "markdown": "# Audio: 00:00.000 => 01:54.670\n\nTranscript\n```\nWEBVTT\n\n00:00.110 --> 00:02.190\n<v Speaker 1>Thank you for calling Woodgrove Travel.\n\n00:02.990 --> 00:04.590\n<v Speaker 1>My name is Isabella Taylor.\n\n00:05.310 --> 00:06.910\n<v Speaker 1>How may I assist you today?\n\n00:07.710 --> 00:10.270\n<v Speaker 2>Hi Isabella, my name is John Smith.\n\n00:11.070 --> 00:17.950\n<v Speaker 2>I recently traveled from New York City to Los Angeles on a business trip, and I had a terrible experience with my flight.\n\n00:18.750 --> 00:20.910\n<v Speaker 1>I'm sorry to hear that, John.\n\n00:21.710 --> 00:27.230\n<v Speaker 1>Could you please provide me with the details of your flight, such as the airline name and flight number?\n\n00:28.010 --> 00:31.370\n<v Speaker 2>I flew with Contoso Airways on flight CA123.\n\n00:32.090 --> 00:35.130\n<v Speaker 2>The departure date was March 25th at 9am.\n\n00:35.850 --> 00:39.050\n<v Speaker 1>I apologize for any inconvenience you experienced.\n\n00:39.770 --> 00:43.450\n<v Speaker 1>Could you please let me know what specifically went wrong during your flight?\n\n00:44.170 --> 00:48.330\n<v Speaker 2>The flight was delayed for several hours due to technical issues with the aircraft.\n\n00:49.050 --> 00:52.170\n<v Speaker 2>It caused me to miss an important meeting in Los Angeles.\n\n00:52.970 --> 00:56.490\n<v Speaker 1>I understand how frustrating that must have been, John.\n\n00:57.330 --> 01:00.210\n<v Speaker 1>Let me check what options we have to address this issue.\n\n01:01.090 --> 01:02.610\n<v Speaker 1>Please hold on for a moment.\n\n01:03.410 --> 01:05.010\n<v Speaker 2>Thank you, Isabella.\n\n01:05.810 --> 01:07.250\n<v Speaker 2>I appreciate your help.\n\n01:08.050 --> 01:13.890\n<v Speaker 1>I've looked into your situation, John, and I apologize for the inconvenience caused by the flight delay.\n\n01:14.690 --> 01:22.370\n<v Speaker 1>I have reached out to Contoso Airways on your behalf, and they have offered to provide you with a partial refund for the inconvenience caused.\n\n01:23.090 --> 01:25.170\n<v Speaker 2>That's great to hear, Isabella.\n\n01:26.020 --> 01:29.060\n<v Speaker 2>I really appreciate your assistance in resolving this matter.\n\n01:29.860 --> 01:30.380\n<v Speaker 2>Thank you.\n\n01:31.220 --> 01:32.900\n<v Speaker 1>You're welcome, John.\n\n01:33.700 --> 01:34.980\n<v Speaker 1>I'm glad I could help.\n\n01:35.780 --> 01:38.020\n<v Speaker 1>Is there anything else I can assist you with?\n\n01:38.820 --> 01:40.500\n<v Speaker 2>No, that's all for now.\n\n01:41.300 --> 01:44.420\n<v Speaker 2>Thank you again for your excellent service, Isabella.\n\n01:45.220 --> 01:47.060\n<v Speaker 1>It was my pleasure, John.\n\n01:47.860 --> 01:52.260\n<v Speaker 1>If you need any further assistance in the future, don't hesitate to reach out.\n\n01:53.060 --> 01:54.020\n<v Speaker 1>Have a great day.\n```",
+        "fields": {
+          "Summary": {
+            "type": "string",
+            "valueString": "John Smith calls Woodgrove Travel and speaks with agent Isabella Taylor to complain about a terrible business-trip flight experience traveling from New York City to Los Angeles. He provides the flight details: Contoso Airways flight CA123, departing March 25th at 9am, which was delayed for several hours due to technical issues and caused him to miss an important meeting in Los Angeles. Isabella checks options, contacts the airline on his behalf, and reports that Contoso Airways will provide a partial refund; John thanks her and ends the call."
+          }
+        },
+        "kind": "audioVisual",
+        "startTimeMs": 0,
+        "endTimeMs": 114670,
+        "transcriptPhrases": [
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 110,
+            "endTimeMs": 2190,
+            "text": "Thank you for calling Woodgrove Travel.",
+            "confidence": 0.967,
+            "words": [
+              {
+                "startTimeMs": 110,
+                "endTimeMs": 430,
+                "text": "Thank"
+              },
+              {
+                "startTimeMs": 430,
+                "endTimeMs": 590,
+                "text": "you"
+              },
+              {
+                "startTimeMs": 590,
+                "endTimeMs": 750,
+                "text": "for"
+              },
+              {
+                "startTimeMs": 750,
+                "endTimeMs": 1150,
+                "text": "calling"
+              },
+              {
+                "startTimeMs": 1150,
+                "endTimeMs": 1710,
+                "text": "Woodgrove"
+              },
+              {
+                "startTimeMs": 1710,
+                "endTimeMs": 2190,
+                "text": "Travel."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 2990,
+            "endTimeMs": 4590,
+            "text": "My name is Isabella Taylor.",
+            "confidence": 0.967,
+            "words": [
+              {
+                "startTimeMs": 2990,
+                "endTimeMs": 3150,
+                "text": "My"
+              },
+              {
+                "startTimeMs": 3150,
+                "endTimeMs": 3470,
+                "text": "name"
+              },
+              {
+                "startTimeMs": 3470,
+                "endTimeMs": 3630,
+                "text": "is"
+              },
+              {
+                "startTimeMs": 3630,
+                "endTimeMs": 4110,
+                "text": "Isabella"
+              },
+              {
+                "startTimeMs": 4110,
+                "endTimeMs": 4590,
+                "text": "Taylor."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 5310,
+            "endTimeMs": 6910,
+            "text": "How may I assist you today?",
+            "confidence": 0.967,
+            "words": [
+              {
+                "startTimeMs": 5310,
+                "endTimeMs": 5630,
+                "text": "How"
+              },
+              {
+                "startTimeMs": 5630,
+                "endTimeMs": 5790,
+                "text": "may"
+              },
+              {
+                "startTimeMs": 5790,
+                "endTimeMs": 5950,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 5950,
+                "endTimeMs": 6350,
+                "text": "assist"
+              },
+              {
+                "startTimeMs": 6350,
+                "endTimeMs": 6510,
+                "text": "you"
+              },
+              {
+                "startTimeMs": 6510,
+                "endTimeMs": 6910,
+                "text": "today?"
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 7710,
+            "endTimeMs": 10270,
+            "text": "Hi Isabella, my name is John Smith.",
+            "confidence": 0.967,
+            "words": [
+              {
+                "startTimeMs": 7710,
+                "endTimeMs": 7950,
+                "text": "Hi"
+              },
+              {
+                "startTimeMs": 7950,
+                "endTimeMs": 8590,
+                "text": "Isabella,"
+              },
+              {
+                "startTimeMs": 8910,
+                "endTimeMs": 9070,
+                "text": "my"
+              },
+              {
+                "startTimeMs": 9070,
+                "endTimeMs": 9390,
+                "text": "name"
+              },
+              {
+                "startTimeMs": 9390,
+                "endTimeMs": 9550,
+                "text": "is"
+              },
+              {
+                "startTimeMs": 9550,
+                "endTimeMs": 9870,
+                "text": "John"
+              },
+              {
+                "startTimeMs": 9870,
+                "endTimeMs": 10270,
+                "text": "Smith."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 11070,
+            "endTimeMs": 17950,
+            "text": "I recently traveled from New York City to Los Angeles on a business trip, and I had a terrible experience with my flight.",
+            "confidence": 0.967,
+            "words": [
+              {
+                "startTimeMs": 11070,
+                "endTimeMs": 11230,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 11230,
+                "endTimeMs": 11790,
+                "text": "recently"
+              },
+              {
+                "startTimeMs": 11790,
+                "endTimeMs": 12190,
+                "text": "traveled"
+              },
+              {
+                "startTimeMs": 12190,
+                "endTimeMs": 12430,
+                "text": "from"
+              },
+              {
+                "startTimeMs": 12430,
+                "endTimeMs": 12590,
+                "text": "New"
+              },
+              {
+                "startTimeMs": 12590,
+                "endTimeMs": 12910,
+                "text": "York"
+              },
+              {
+                "startTimeMs": 12910,
+                "endTimeMs": 13230,
+                "text": "City"
+              },
+              {
+                "startTimeMs": 13230,
+                "endTimeMs": 13350,
+                "text": "to"
+              },
+              {
+                "startTimeMs": 13350,
+                "endTimeMs": 13630,
+                "text": "Los"
+              },
+              {
+                "startTimeMs": 13630,
+                "endTimeMs": 14190,
+                "text": "Angeles"
+              },
+              {
+                "startTimeMs": 14190,
+                "endTimeMs": 14310,
+                "text": "on"
+              },
+              {
+                "startTimeMs": 14310,
+                "endTimeMs": 14350,
+                "text": "a"
+              },
+              {
+                "startTimeMs": 14350,
+                "endTimeMs": 14830,
+                "text": "business"
+              },
+              {
+                "startTimeMs": 14830,
+                "endTimeMs": 15230,
+                "text": "trip,"
+              },
+              {
+                "startTimeMs": 15550,
+                "endTimeMs": 15710,
+                "text": "and"
+              },
+              {
+                "startTimeMs": 15710,
+                "endTimeMs": 15790,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 15790,
+                "endTimeMs": 16070,
+                "text": "had"
+              },
+              {
+                "startTimeMs": 16070,
+                "endTimeMs": 16110,
+                "text": "a"
+              },
+              {
+                "startTimeMs": 16110,
+                "endTimeMs": 16510,
+                "text": "terrible"
+              },
+              {
+                "startTimeMs": 16510,
+                "endTimeMs": 17150,
+                "text": "experience"
+              },
+              {
+                "startTimeMs": 17150,
+                "endTimeMs": 17310,
+                "text": "with"
+              },
+              {
+                "startTimeMs": 17310,
+                "endTimeMs": 17470,
+                "text": "my"
+              },
+              {
+                "startTimeMs": 17470,
+                "endTimeMs": 17950,
+                "text": "flight."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 18750,
+            "endTimeMs": 20910,
+            "text": "I'm sorry to hear that, John.",
+            "confidence": 0.967,
+            "words": [
+              {
+                "startTimeMs": 18750,
+                "endTimeMs": 18990,
+                "text": "I'm"
+              },
+              {
+                "startTimeMs": 18990,
+                "endTimeMs": 19310,
+                "text": "sorry"
+              },
+              {
+                "startTimeMs": 19310,
+                "endTimeMs": 19470,
+                "text": "to"
+              },
+              {
+                "startTimeMs": 19470,
+                "endTimeMs": 19710,
+                "text": "hear"
+              },
+              {
+                "startTimeMs": 19710,
+                "endTimeMs": 20110,
+                "text": "that,"
+              },
+              {
+                "startTimeMs": 20430,
+                "endTimeMs": 20910,
+                "text": "John."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 21710,
+            "endTimeMs": 27230,
+            "text": "Could you please provide me with the details of your flight, such as the airline name and flight number?",
+            "confidence": 0.967,
+            "words": [
+              {
+                "startTimeMs": 21710,
+                "endTimeMs": 21950,
+                "text": "Could"
+              },
+              {
+                "startTimeMs": 21950,
+                "endTimeMs": 22070,
+                "text": "you"
+              },
+              {
+                "startTimeMs": 22070,
+                "endTimeMs": 22350,
+                "text": "please"
+              },
+              {
+                "startTimeMs": 22350,
+                "endTimeMs": 22830,
+                "text": "provide"
+              },
+              {
+                "startTimeMs": 22830,
+                "endTimeMs": 22990,
+                "text": "me"
+              },
+              {
+                "startTimeMs": 22990,
+                "endTimeMs": 23150,
+                "text": "with"
+              },
+              {
+                "startTimeMs": 23150,
+                "endTimeMs": 23230,
+                "text": "the"
+              },
+              {
+                "startTimeMs": 23230,
+                "endTimeMs": 23790,
+                "text": "details"
+              },
+              {
+                "startTimeMs": 23790,
+                "endTimeMs": 23950,
+                "text": "of"
+              },
+              {
+                "startTimeMs": 23950,
+                "endTimeMs": 24110,
+                "text": "your"
+              },
+              {
+                "startTimeMs": 24110,
+                "endTimeMs": 24510,
+                "text": "flight,"
+              },
+              {
+                "startTimeMs": 24830,
+                "endTimeMs": 25230,
+                "text": "such"
+              },
+              {
+                "startTimeMs": 25230,
+                "endTimeMs": 25390,
+                "text": "as"
+              },
+              {
+                "startTimeMs": 25390,
+                "endTimeMs": 25510,
+                "text": "the"
+              },
+              {
+                "startTimeMs": 25550,
+                "endTimeMs": 25990,
+                "text": "airline"
+              },
+              {
+                "startTimeMs": 25990,
+                "endTimeMs": 26270,
+                "text": "name"
+              },
+              {
+                "startTimeMs": 26270,
+                "endTimeMs": 26430,
+                "text": "and"
+              },
+              {
+                "startTimeMs": 26430,
+                "endTimeMs": 26750,
+                "text": "flight"
+              },
+              {
+                "startTimeMs": 26750,
+                "endTimeMs": 27230,
+                "text": "number?"
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 28010,
+            "endTimeMs": 31370,
+            "text": "I flew with Contoso Airways on flight CA123.",
+            "confidence": 0.946,
+            "words": [
+              {
+                "startTimeMs": 28010,
+                "endTimeMs": 28090,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 28090,
+                "endTimeMs": 28330,
+                "text": "flew"
+              },
+              {
+                "startTimeMs": 28330,
+                "endTimeMs": 28570,
+                "text": "with"
+              },
+              {
+                "startTimeMs": 28570,
+                "endTimeMs": 29130,
+                "text": "Contoso"
+              },
+              {
+                "startTimeMs": 29130,
+                "endTimeMs": 29610,
+                "text": "Airways"
+              },
+              {
+                "startTimeMs": 29610,
+                "endTimeMs": 29770,
+                "text": "on"
+              },
+              {
+                "startTimeMs": 29770,
+                "endTimeMs": 30170,
+                "text": "flight"
+              },
+              {
+                "startTimeMs": 30170,
+                "endTimeMs": 31370,
+                "text": "CA123."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 32090,
+            "endTimeMs": 35130,
+            "text": "The departure date was March 25th at 9am.",
+            "confidence": 0.946,
+            "words": [
+              {
+                "startTimeMs": 32090,
+                "endTimeMs": 32250,
+                "text": "The"
+              },
+              {
+                "startTimeMs": 32250,
+                "endTimeMs": 32770,
+                "text": "departure"
+              },
+              {
+                "startTimeMs": 32770,
+                "endTimeMs": 33050,
+                "text": "date"
+              },
+              {
+                "startTimeMs": 33050,
+                "endTimeMs": 33210,
+                "text": "was"
+              },
+              {
+                "startTimeMs": 33210,
+                "endTimeMs": 33530,
+                "text": "March"
+              },
+              {
+                "startTimeMs": 33530,
+                "endTimeMs": 34250,
+                "text": "25th"
+              },
+              {
+                "startTimeMs": 34250,
+                "endTimeMs": 34330,
+                "text": "at"
+              },
+              {
+                "startTimeMs": 34330,
+                "endTimeMs": 35130,
+                "text": "9am."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 35850,
+            "endTimeMs": 39050,
+            "text": "I apologize for any inconvenience you experienced.",
+            "confidence": 0.946,
+            "words": [
+              {
+                "startTimeMs": 35850,
+                "endTimeMs": 36090,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 36090,
+                "endTimeMs": 36810,
+                "text": "apologize"
+              },
+              {
+                "startTimeMs": 36810,
+                "endTimeMs": 37050,
+                "text": "for"
+              },
+              {
+                "startTimeMs": 37050,
+                "endTimeMs": 37290,
+                "text": "any"
+              },
+              {
+                "startTimeMs": 37290,
+                "endTimeMs": 38010,
+                "text": "inconvenience"
+              },
+              {
+                "startTimeMs": 38010,
+                "endTimeMs": 38170,
+                "text": "you"
+              },
+              {
+                "startTimeMs": 38170,
+                "endTimeMs": 39050,
+                "text": "experienced."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 39770,
+            "endTimeMs": 43450,
+            "text": "Could you please let me know what specifically went wrong during your flight?",
+            "confidence": 0.946,
+            "words": [
+              {
+                "startTimeMs": 39770,
+                "endTimeMs": 40090,
+                "text": "Could"
+              },
+              {
+                "startTimeMs": 40090,
+                "endTimeMs": 40170,
+                "text": "you"
+              },
+              {
+                "startTimeMs": 40170,
+                "endTimeMs": 40490,
+                "text": "please"
+              },
+              {
+                "startTimeMs": 40490,
+                "endTimeMs": 40690,
+                "text": "let"
+              },
+              {
+                "startTimeMs": 40690,
+                "endTimeMs": 40890,
+                "text": "me"
+              },
+              {
+                "startTimeMs": 40890,
+                "endTimeMs": 41050,
+                "text": "know"
+              },
+              {
+                "startTimeMs": 41050,
+                "endTimeMs": 41290,
+                "text": "what"
+              },
+              {
+                "startTimeMs": 41290,
+                "endTimeMs": 41930,
+                "text": "specifically"
+              },
+              {
+                "startTimeMs": 41930,
+                "endTimeMs": 42170,
+                "text": "went"
+              },
+              {
+                "startTimeMs": 42170,
+                "endTimeMs": 42490,
+                "text": "wrong"
+              },
+              {
+                "startTimeMs": 42490,
+                "endTimeMs": 42810,
+                "text": "during"
+              },
+              {
+                "startTimeMs": 42810,
+                "endTimeMs": 42970,
+                "text": "your"
+              },
+              {
+                "startTimeMs": 42970,
+                "endTimeMs": 43450,
+                "text": "flight?"
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 44170,
+            "endTimeMs": 48330,
+            "text": "The flight was delayed for several hours due to technical issues with the aircraft.",
+            "confidence": 0.946,
+            "words": [
+              {
+                "startTimeMs": 44170,
+                "endTimeMs": 44330,
+                "text": "The"
+              },
+              {
+                "startTimeMs": 44330,
+                "endTimeMs": 44650,
+                "text": "flight"
+              },
+              {
+                "startTimeMs": 44650,
+                "endTimeMs": 44810,
+                "text": "was"
+              },
+              {
+                "startTimeMs": 44810,
+                "endTimeMs": 45210,
+                "text": "delayed"
+              },
+              {
+                "startTimeMs": 45210,
+                "endTimeMs": 45370,
+                "text": "for"
+              },
+              {
+                "startTimeMs": 45370,
+                "endTimeMs": 45770,
+                "text": "several"
+              },
+              {
+                "startTimeMs": 45770,
+                "endTimeMs": 46090,
+                "text": "hours"
+              },
+              {
+                "startTimeMs": 46090,
+                "endTimeMs": 46250,
+                "text": "due"
+              },
+              {
+                "startTimeMs": 46250,
+                "endTimeMs": 46410,
+                "text": "to"
+              },
+              {
+                "startTimeMs": 46450,
+                "endTimeMs": 46970,
+                "text": "technical"
+              },
+              {
+                "startTimeMs": 46970,
+                "endTimeMs": 47330,
+                "text": "issues"
+              },
+              {
+                "startTimeMs": 47330,
+                "endTimeMs": 47490,
+                "text": "with"
+              },
+              {
+                "startTimeMs": 47490,
+                "endTimeMs": 47570,
+                "text": "the"
+              },
+              {
+                "startTimeMs": 47610,
+                "endTimeMs": 48330,
+                "text": "aircraft."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 49050,
+            "endTimeMs": 52170,
+            "text": "It caused me to miss an important meeting in Los Angeles.",
+            "confidence": 0.946,
+            "words": [
+              {
+                "startTimeMs": 49050,
+                "endTimeMs": 49290,
+                "text": "It"
+              },
+              {
+                "startTimeMs": 49290,
+                "endTimeMs": 49570,
+                "text": "caused"
+              },
+              {
+                "startTimeMs": 49570,
+                "endTimeMs": 49770,
+                "text": "me"
+              },
+              {
+                "startTimeMs": 49770,
+                "endTimeMs": 49890,
+                "text": "to"
+              },
+              {
+                "startTimeMs": 49890,
+                "endTimeMs": 50090,
+                "text": "miss"
+              },
+              {
+                "startTimeMs": 50090,
+                "endTimeMs": 50210,
+                "text": "an"
+              },
+              {
+                "startTimeMs": 50210,
+                "endTimeMs": 50730,
+                "text": "important"
+              },
+              {
+                "startTimeMs": 50730,
+                "endTimeMs": 51050,
+                "text": "meeting"
+              },
+              {
+                "startTimeMs": 51050,
+                "endTimeMs": 51210,
+                "text": "in"
+              },
+              {
+                "startTimeMs": 51210,
+                "endTimeMs": 51530,
+                "text": "Los"
+              },
+              {
+                "startTimeMs": 51530,
+                "endTimeMs": 52170,
+                "text": "Angeles."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 52970,
+            "endTimeMs": 56490,
+            "text": "I understand how frustrating that must have been, John.",
+            "confidence": 0.946,
+            "words": [
+              {
+                "startTimeMs": 52970,
+                "endTimeMs": 53210,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 53210,
+                "endTimeMs": 53810,
+                "text": "understand"
+              },
+              {
+                "startTimeMs": 53810,
+                "endTimeMs": 54010,
+                "text": "how"
+              },
+              {
+                "startTimeMs": 54010,
+                "endTimeMs": 54690,
+                "text": "frustrating"
+              },
+              {
+                "startTimeMs": 54690,
+                "endTimeMs": 54890,
+                "text": "that"
+              },
+              {
+                "startTimeMs": 54890,
+                "endTimeMs": 55130,
+                "text": "must"
+              },
+              {
+                "startTimeMs": 55130,
+                "endTimeMs": 55290,
+                "text": "have"
+              },
+              {
+                "startTimeMs": 55290,
+                "endTimeMs": 55770,
+                "text": "been,"
+              },
+              {
+                "startTimeMs": 56010,
+                "endTimeMs": 56490,
+                "text": "John."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 57330,
+            "endTimeMs": 60210,
+            "text": "Let me check what options we have to address this issue.",
+            "confidence": 0.97,
+            "words": [
+              {
+                "startTimeMs": 57330,
+                "endTimeMs": 57530,
+                "text": "Let"
+              },
+              {
+                "startTimeMs": 57530,
+                "endTimeMs": 57730,
+                "text": "me"
+              },
+              {
+                "startTimeMs": 57730,
+                "endTimeMs": 57970,
+                "text": "check"
+              },
+              {
+                "startTimeMs": 57970,
+                "endTimeMs": 58210,
+                "text": "what"
+              },
+              {
+                "startTimeMs": 58210,
+                "endTimeMs": 58690,
+                "text": "options"
+              },
+              {
+                "startTimeMs": 58690,
+                "endTimeMs": 58850,
+                "text": "we"
+              },
+              {
+                "startTimeMs": 58850,
+                "endTimeMs": 59010,
+                "text": "have"
+              },
+              {
+                "startTimeMs": 59010,
+                "endTimeMs": 59210,
+                "text": "to"
+              },
+              {
+                "startTimeMs": 59210,
+                "endTimeMs": 59570,
+                "text": "address"
+              },
+              {
+                "startTimeMs": 59570,
+                "endTimeMs": 59810,
+                "text": "this"
+              },
+              {
+                "startTimeMs": 59810,
+                "endTimeMs": 60210,
+                "text": "issue."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 61090,
+            "endTimeMs": 62610,
+            "text": "Please hold on for a moment.",
+            "confidence": 0.97,
+            "words": [
+              {
+                "startTimeMs": 61090,
+                "endTimeMs": 61410,
+                "text": "Please"
+              },
+              {
+                "startTimeMs": 61410,
+                "endTimeMs": 61730,
+                "text": "hold"
+              },
+              {
+                "startTimeMs": 61730,
+                "endTimeMs": 61890,
+                "text": "on"
+              },
+              {
+                "startTimeMs": 61890,
+                "endTimeMs": 62090,
+                "text": "for"
+              },
+              {
+                "startTimeMs": 62090,
+                "endTimeMs": 62130,
+                "text": "a"
+              },
+              {
+                "startTimeMs": 62130,
+                "endTimeMs": 62610,
+                "text": "moment."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 63410,
+            "endTimeMs": 65010,
+            "text": "Thank you, Isabella.",
+            "confidence": 0.97,
+            "words": [
+              {
+                "startTimeMs": 63410,
+                "endTimeMs": 63730,
+                "text": "Thank"
+              },
+              {
+                "startTimeMs": 63730,
+                "endTimeMs": 63970,
+                "text": "you,"
+              },
+              {
+                "startTimeMs": 64370,
+                "endTimeMs": 65010,
+                "text": "Isabella."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 65810,
+            "endTimeMs": 67250,
+            "text": "I appreciate your help.",
+            "confidence": 0.97,
+            "words": [
+              {
+                "startTimeMs": 65810,
+                "endTimeMs": 65970,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 65970,
+                "endTimeMs": 66690,
+                "text": "appreciate"
+              },
+              {
+                "startTimeMs": 66690,
+                "endTimeMs": 66850,
+                "text": "your"
+              },
+              {
+                "startTimeMs": 66850,
+                "endTimeMs": 67250,
+                "text": "help."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 68050,
+            "endTimeMs": 73890,
+            "text": "I've looked into your situation, John, and I apologize for the inconvenience caused by the flight delay.",
+            "confidence": 0.97,
+            "words": [
+              {
+                "startTimeMs": 68050,
+                "endTimeMs": 68290,
+                "text": "I've"
+              },
+              {
+                "startTimeMs": 68290,
+                "endTimeMs": 68530,
+                "text": "looked"
+              },
+              {
+                "startTimeMs": 68530,
+                "endTimeMs": 68810,
+                "text": "into"
+              },
+              {
+                "startTimeMs": 68810,
+                "endTimeMs": 69010,
+                "text": "your"
+              },
+              {
+                "startTimeMs": 69010,
+                "endTimeMs": 69890,
+                "text": "situation,"
+              },
+              {
+                "startTimeMs": 69890,
+                "endTimeMs": 70370,
+                "text": "John,"
+              },
+              {
+                "startTimeMs": 70370,
+                "endTimeMs": 70610,
+                "text": "and"
+              },
+              {
+                "startTimeMs": 70610,
+                "endTimeMs": 70770,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 70770,
+                "endTimeMs": 71490,
+                "text": "apologize"
+              },
+              {
+                "startTimeMs": 71490,
+                "endTimeMs": 71650,
+                "text": "for"
+              },
+              {
+                "startTimeMs": 71650,
+                "endTimeMs": 71770,
+                "text": "the"
+              },
+              {
+                "startTimeMs": 71770,
+                "endTimeMs": 72530,
+                "text": "inconvenience"
+              },
+              {
+                "startTimeMs": 72530,
+                "endTimeMs": 72890,
+                "text": "caused"
+              },
+              {
+                "startTimeMs": 72890,
+                "endTimeMs": 73090,
+                "text": "by"
+              },
+              {
+                "startTimeMs": 73090,
+                "endTimeMs": 73170,
+                "text": "the"
+              },
+              {
+                "startTimeMs": 73170,
+                "endTimeMs": 73490,
+                "text": "flight"
+              },
+              {
+                "startTimeMs": 73490,
+                "endTimeMs": 73890,
+                "text": "delay."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 74690,
+            "endTimeMs": 82370,
+            "text": "I have reached out to Contoso Airways on your behalf, and they have offered to provide you with a partial refund for the inconvenience caused.",
+            "confidence": 0.97,
+            "words": [
+              {
+                "startTimeMs": 74690,
+                "endTimeMs": 74850,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 74850,
+                "endTimeMs": 75010,
+                "text": "have"
+              },
+              {
+                "startTimeMs": 75010,
+                "endTimeMs": 75410,
+                "text": "reached"
+              },
+              {
+                "startTimeMs": 75410,
+                "endTimeMs": 75610,
+                "text": "out"
+              },
+              {
+                "startTimeMs": 75610,
+                "endTimeMs": 75730,
+                "text": "to"
+              },
+              {
+                "startTimeMs": 75730,
+                "endTimeMs": 76370,
+                "text": "Contoso"
+              },
+              {
+                "startTimeMs": 76370,
+                "endTimeMs": 76850,
+                "text": "Airways"
+              },
+              {
+                "startTimeMs": 76850,
+                "endTimeMs": 77010,
+                "text": "on"
+              },
+              {
+                "startTimeMs": 77010,
+                "endTimeMs": 77170,
+                "text": "your"
+              },
+              {
+                "startTimeMs": 77170,
+                "endTimeMs": 77730,
+                "text": "behalf,"
+              },
+              {
+                "startTimeMs": 78050,
+                "endTimeMs": 78330,
+                "text": "and"
+              },
+              {
+                "startTimeMs": 78330,
+                "endTimeMs": 78450,
+                "text": "they"
+              },
+              {
+                "startTimeMs": 78450,
+                "endTimeMs": 78610,
+                "text": "have"
+              },
+              {
+                "startTimeMs": 78610,
+                "endTimeMs": 79010,
+                "text": "offered"
+              },
+              {
+                "startTimeMs": 79010,
+                "endTimeMs": 79090,
+                "text": "to"
+              },
+              {
+                "startTimeMs": 79090,
+                "endTimeMs": 79490,
+                "text": "provide"
+              },
+              {
+                "startTimeMs": 79490,
+                "endTimeMs": 79650,
+                "text": "you"
+              },
+              {
+                "startTimeMs": 79650,
+                "endTimeMs": 79890,
+                "text": "with"
+              },
+              {
+                "startTimeMs": 79890,
+                "endTimeMs": 79930,
+                "text": "a"
+              },
+              {
+                "startTimeMs": 79930,
+                "endTimeMs": 80370,
+                "text": "partial"
+              },
+              {
+                "startTimeMs": 80370,
+                "endTimeMs": 80810,
+                "text": "refund"
+              },
+              {
+                "startTimeMs": 80810,
+                "endTimeMs": 80930,
+                "text": "for"
+              },
+              {
+                "startTimeMs": 80930,
+                "endTimeMs": 81050,
+                "text": "the"
+              },
+              {
+                "startTimeMs": 81050,
+                "endTimeMs": 81810,
+                "text": "inconvenience"
+              },
+              {
+                "startTimeMs": 81810,
+                "endTimeMs": 82370,
+                "text": "caused."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 83090,
+            "endTimeMs": 85170,
+            "text": "That's great to hear, Isabella.",
+            "confidence": 0.97,
+            "words": [
+              {
+                "startTimeMs": 83090,
+                "endTimeMs": 83410,
+                "text": "That's"
+              },
+              {
+                "startTimeMs": 83410,
+                "endTimeMs": 83770,
+                "text": "great"
+              },
+              {
+                "startTimeMs": 83770,
+                "endTimeMs": 83850,
+                "text": "to"
+              },
+              {
+                "startTimeMs": 83850,
+                "endTimeMs": 84210,
+                "text": "hear,"
+              },
+              {
+                "startTimeMs": 84530,
+                "endTimeMs": 85170,
+                "text": "Isabella."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 86020,
+            "endTimeMs": 89060,
+            "text": "I really appreciate your assistance in resolving this matter.",
+            "confidence": 0.965,
+            "words": [
+              {
+                "startTimeMs": 86020,
+                "endTimeMs": 86100,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 86100,
+                "endTimeMs": 86420,
+                "text": "really"
+              },
+              {
+                "startTimeMs": 86420,
+                "endTimeMs": 87060,
+                "text": "appreciate"
+              },
+              {
+                "startTimeMs": 87060,
+                "endTimeMs": 87300,
+                "text": "your"
+              },
+              {
+                "startTimeMs": 87300,
+                "endTimeMs": 87780,
+                "text": "assistance"
+              },
+              {
+                "startTimeMs": 87780,
+                "endTimeMs": 87940,
+                "text": "in"
+              },
+              {
+                "startTimeMs": 87940,
+                "endTimeMs": 88420,
+                "text": "resolving"
+              },
+              {
+                "startTimeMs": 88420,
+                "endTimeMs": 88660,
+                "text": "this"
+              },
+              {
+                "startTimeMs": 88660,
+                "endTimeMs": 89060,
+                "text": "matter."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 89860,
+            "endTimeMs": 90380,
+            "text": "Thank you.",
+            "confidence": 0.965,
+            "words": [
+              {
+                "startTimeMs": 89860,
+                "endTimeMs": 90180,
+                "text": "Thank"
+              },
+              {
+                "startTimeMs": 90180,
+                "endTimeMs": 90380,
+                "text": "you."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 91220,
+            "endTimeMs": 92900,
+            "text": "You're welcome, John.",
+            "confidence": 0.965,
+            "words": [
+              {
+                "startTimeMs": 91220,
+                "endTimeMs": 91540,
+                "text": "You're"
+              },
+              {
+                "startTimeMs": 91540,
+                "endTimeMs": 92100,
+                "text": "welcome,"
+              },
+              {
+                "startTimeMs": 92420,
+                "endTimeMs": 92900,
+                "text": "John."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 93700,
+            "endTimeMs": 94980,
+            "text": "I'm glad I could help.",
+            "confidence": 0.965,
+            "words": [
+              {
+                "startTimeMs": 93700,
+                "endTimeMs": 93940,
+                "text": "I'm"
+              },
+              {
+                "startTimeMs": 93940,
+                "endTimeMs": 94260,
+                "text": "glad"
+              },
+              {
+                "startTimeMs": 94260,
+                "endTimeMs": 94340,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 94340,
+                "endTimeMs": 94580,
+                "text": "could"
+              },
+              {
+                "startTimeMs": 94580,
+                "endTimeMs": 94980,
+                "text": "help."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 95780,
+            "endTimeMs": 98020,
+            "text": "Is there anything else I can assist you with?",
+            "confidence": 0.965,
+            "words": [
+              {
+                "startTimeMs": 95780,
+                "endTimeMs": 96020,
+                "text": "Is"
+              },
+              {
+                "startTimeMs": 96020,
+                "endTimeMs": 96180,
+                "text": "there"
+              },
+              {
+                "startTimeMs": 96180,
+                "endTimeMs": 96660,
+                "text": "anything"
+              },
+              {
+                "startTimeMs": 96660,
+                "endTimeMs": 96940,
+                "text": "else"
+              },
+              {
+                "startTimeMs": 96940,
+                "endTimeMs": 96980,
+                "text": "I"
+              },
+              {
+                "startTimeMs": 96980,
+                "endTimeMs": 97220,
+                "text": "can"
+              },
+              {
+                "startTimeMs": 97220,
+                "endTimeMs": 97620,
+                "text": "assist"
+              },
+              {
+                "startTimeMs": 97620,
+                "endTimeMs": 97700,
+                "text": "you"
+              },
+              {
+                "startTimeMs": 97700,
+                "endTimeMs": 98020,
+                "text": "with?"
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 98820,
+            "endTimeMs": 100500,
+            "text": "No, that's all for now.",
+            "confidence": 0.965,
+            "words": [
+              {
+                "startTimeMs": 98820,
+                "endTimeMs": 99220,
+                "text": "No,"
+              },
+              {
+                "startTimeMs": 99460,
+                "endTimeMs": 99860,
+                "text": "that's"
+              },
+              {
+                "startTimeMs": 99860,
+                "endTimeMs": 100020,
+                "text": "all"
+              },
+              {
+                "startTimeMs": 100020,
+                "endTimeMs": 100180,
+                "text": "for"
+              },
+              {
+                "startTimeMs": 100180,
+                "endTimeMs": 100500,
+                "text": "now."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 2",
+            "startTimeMs": 101300,
+            "endTimeMs": 104420,
+            "text": "Thank you again for your excellent service, Isabella.",
+            "confidence": 0.965,
+            "words": [
+              {
+                "startTimeMs": 101300,
+                "endTimeMs": 101620,
+                "text": "Thank"
+              },
+              {
+                "startTimeMs": 101620,
+                "endTimeMs": 101780,
+                "text": "you"
+              },
+              {
+                "startTimeMs": 101780,
+                "endTimeMs": 102100,
+                "text": "again"
+              },
+              {
+                "startTimeMs": 102100,
+                "endTimeMs": 102260,
+                "text": "for"
+              },
+              {
+                "startTimeMs": 102260,
+                "endTimeMs": 102420,
+                "text": "your"
+              },
+              {
+                "startTimeMs": 102420,
+                "endTimeMs": 102900,
+                "text": "excellent"
+              },
+              {
+                "startTimeMs": 102900,
+                "endTimeMs": 103460,
+                "text": "service,"
+              },
+              {
+                "startTimeMs": 103780,
+                "endTimeMs": 104420,
+                "text": "Isabella."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 105220,
+            "endTimeMs": 107060,
+            "text": "It was my pleasure, John.",
+            "confidence": 0.965,
+            "words": [
+              {
+                "startTimeMs": 105220,
+                "endTimeMs": 105380,
+                "text": "It"
+              },
+              {
+                "startTimeMs": 105380,
+                "endTimeMs": 105620,
+                "text": "was"
+              },
+              {
+                "startTimeMs": 105620,
+                "endTimeMs": 105780,
+                "text": "my"
+              },
+              {
+                "startTimeMs": 105780,
+                "endTimeMs": 106340,
+                "text": "pleasure,"
+              },
+              {
+                "startTimeMs": 106580,
+                "endTimeMs": 107060,
+                "text": "John."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 107860,
+            "endTimeMs": 112260,
+            "text": "If you need any further assistance in the future, don't hesitate to reach out.",
+            "confidence": 0.965,
+            "words": [
+              {
+                "startTimeMs": 107860,
+                "endTimeMs": 108100,
+                "text": "If"
+              },
+              {
+                "startTimeMs": 108100,
+                "endTimeMs": 108180,
+                "text": "you"
+              },
+              {
+                "startTimeMs": 108180,
+                "endTimeMs": 108460,
+                "text": "need"
+              },
+              {
+                "startTimeMs": 108460,
+                "endTimeMs": 108660,
+                "text": "any"
+              },
+              {
+                "startTimeMs": 108660,
+                "endTimeMs": 109060,
+                "text": "further"
+              },
+              {
+                "startTimeMs": 109060,
+                "endTimeMs": 109620,
+                "text": "assistance"
+              },
+              {
+                "startTimeMs": 109620,
+                "endTimeMs": 109740,
+                "text": "in"
+              },
+              {
+                "startTimeMs": 109740,
+                "endTimeMs": 109860,
+                "text": "the"
+              },
+              {
+                "startTimeMs": 109860,
+                "endTimeMs": 110420,
+                "text": "future,"
+              },
+              {
+                "startTimeMs": 110740,
+                "endTimeMs": 111060,
+                "text": "don't"
+              },
+              {
+                "startTimeMs": 111060,
+                "endTimeMs": 111580,
+                "text": "hesitate"
+              },
+              {
+                "startTimeMs": 111580,
+                "endTimeMs": 111660,
+                "text": "to"
+              },
+              {
+                "startTimeMs": 111660,
+                "endTimeMs": 111940,
+                "text": "reach"
+              },
+              {
+                "startTimeMs": 111940,
+                "endTimeMs": 112260,
+                "text": "out."
+              }
+            ],
+            "locale": "en-US"
+          },
+          {
+            "speaker": "Speaker 1",
+            "startTimeMs": 113060,
+            "endTimeMs": 114020,
+            "text": "Have a great day.",
+            "confidence": 0.965,
+            "words": [
+              {
+                "startTimeMs": 113060,
+                "endTimeMs": 113340,
+                "text": "Have"
+              },
+              {
+                "startTimeMs": 113340,
+                "endTimeMs": 113380,
+                "text": "a"
+              },
+              {
+                "startTimeMs": 113380,
+                "endTimeMs": 113700,
+                "text": "great"
+              },
+              {
+                "startTimeMs": 113700,
+                "endTimeMs": 114020,
+                "text": "day."
+              }
+            ],
+            "locale": "en-US"
+          }
+        ],
+        "analyzerId": "prebuilt-audioSearch",
+        "mimeType": "audio/wav"
+      }
+    ]
+  },
+  "usage": {
+    "audioHours": 0.032,
+    "contextualizationTokens": 3194,
+    "tokens": {
+      "gpt-5.2-input": 1951,
+      "gpt-5.2-output": 122
+    }
+  }
+}

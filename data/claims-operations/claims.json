@@ -1,0 +1,269 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "source_system": "simulated_databricks_genie",
+  "as_of": "2026-11-05T18:00:00Z",
+  "claims": [
+    {
+      "claim_id": "claim-001",
+      "claim_number": "AV-26-004181",
+      "insured_name": "Cedar Quay Warehousing LLC",
+      "line_of_business": "commercial_property",
+      "reported_loss": "Reported warehouse wind damage and water entry",
+      "loss_date": "2026-09-12",
+      "status": "open",
+      "phase": "evidence_collection",
+      "assigned_adjuster": "Alex Rowan",
+      "assigned_team": "Commercial Property East",
+      "opened_at": "2026-09-12T14:00:00Z",
+      "updated_at": "2026-11-05T16:30:00Z",
+      "coverage_decision": "under_review",
+      "policy": {
+        "policy_number": "AV-CP-260101",
+        "effective_from": "2026-01-01",
+        "effective_to": "2026-12-31",
+        "currency": "USD",
+        "specimen_limit": "500000.00",
+        "specimen_deductible": "2500.00",
+        "source_ref": "claim-001/policy.pdf"
+      },
+      "financials": {
+        "currency": "USD",
+        "outstanding_indemnity_reserve": "21000.00",
+        "outstanding_expense_reserve": "4000.00",
+        "approved_settlement_amount": null,
+        "payments": [
+          {"payment_id": "PAY-001-01", "kind": "expense", "status": "posted", "payee": "Meridian Field Adjusting", "amount": "375.00", "purpose": "Initial inspection fee, not a repair payment", "created_at": "2026-09-18T10:00:00Z", "updated_at": "2026-09-21T15:00:00Z", "posted_at": "2026-09-21T15:00:00Z"},
+          {"payment_id": "PAY-001-02", "kind": "indemnity", "status": "pending", "payee": "Cedar Quay Warehousing LLC", "amount": "1200.00", "purpose": "Requested temporary weather-protection reimbursement; invoice review pending", "created_at": "2026-11-03T11:00:00Z", "updated_at": "2026-11-05T14:00:00Z", "posted_at": null}
+        ]
+      },
+      "activities": [
+        {"activity_id": "ACT-001-01", "title": "Obtain corroboration for the reported incident time", "status": "awaiting_external", "owner_team": "Commercial Property East", "priority": "high", "blocking": true, "requested_at": "2026-10-29T10:00:00Z", "due_date": "2026-11-04", "completed_at": null, "source_refs": ["claim-001/incident-report-scan.pdf"]},
+        {"activity_id": "ACT-001-02", "title": "Obtain roof maintenance records and a cause assessment", "status": "awaiting_external", "owner_team": "Commercial Property East", "priority": "high", "blocking": true, "requested_at": "2026-11-02T09:00:00Z", "due_date": "2026-11-09", "completed_at": null, "source_refs": ["claim-001/inspection.pdf"]},
+        {"activity_id": "ACT-001-03", "title": "Link the inspection report and original photographs", "status": "completed", "owner_team": "Claims Operations", "priority": "normal", "blocking": false, "requested_at": "2026-10-30T09:00:00Z", "due_date": "2026-11-02", "completed_at": "2026-11-02T13:00:00Z", "source_refs": ["claim-001/inspection.pdf", "claim-001/damage-01.jpg", "claim-001/damage-02.jpg"]}
+      ],
+      "log_notes": [
+        {"note_id": "NOTE-001-01", "recorded_at": "2026-11-02T13:10:00Z", "author_role": "Claims operations analyst", "category": "document_review", "text": "The original photos and illustrated inspection are linked. The time discrepancy remains unresolved; document availability does not corroborate either reported time.", "activity_id": "ACT-001-03", "source_refs": ["claim-001/inspection.pdf", "claim-001/incident-report-scan.pdf"]},
+        {"note_id": "NOTE-001-02", "recorded_at": "2026-11-04T15:00:00Z", "author_role": "Assigned adjuster", "category": "follow_up", "text": "A reminder was sent for independent incident-time corroboration. No response was logged by this snapshot; leave the activity awaiting external evidence.", "activity_id": "ACT-001-01", "source_refs": []},
+        {"note_id": "NOTE-001-03", "recorded_at": "2026-11-05T16:30:00Z", "author_role": "Claims financial analyst", "category": "financial", "text": "Outstanding loss and expense reserves total USD 25,000.00. Only the USD 375.00 inspection expense has posted. The USD 1,200.00 mitigation request is pending, not money already paid; no settlement amount is approved.", "activity_id": null, "source_refs": []}
+      ]
+    },
+    {
+      "claim_id": "claim-002",
+      "claim_number": "AV-26-004267",
+      "insured_name": "Lantern Yard Bistro Ltd",
+      "line_of_business": "commercial_property",
+      "reported_loss": "Reported restaurant fire and smoke contamination",
+      "loss_date": "2026-09-17",
+      "status": "open",
+      "phase": "scope_review",
+      "assigned_adjuster": "Casey Vale",
+      "assigned_team": "Commercial Property East",
+      "opened_at": "2026-09-17T15:00:00Z",
+      "updated_at": "2026-11-05T15:45:00Z",
+      "coverage_decision": "under_review",
+      "policy": {
+        "policy_number": "AV-CP-260207",
+        "effective_from": "2026-01-01",
+        "effective_to": "2026-12-31",
+        "currency": "USD",
+        "specimen_limit": "350000.00",
+        "specimen_deductible": "1000.00",
+        "source_ref": "claim-002/policy.pdf"
+      },
+      "financials": {
+        "currency": "USD",
+        "outstanding_indemnity_reserve": "36000.00",
+        "outstanding_expense_reserve": "6000.00",
+        "approved_settlement_amount": null,
+        "payments": [
+          {"payment_id": "PAY-002-01", "kind": "expense", "status": "posted", "payee": "Meridian Field Adjusting", "amount": "620.00", "purpose": "Fire and smoke inspection fee", "created_at": "2026-09-24T11:00:00Z", "updated_at": "2026-09-28T15:00:00Z", "posted_at": "2026-09-28T15:00:00Z"},
+          {"payment_id": "PAY-002-02", "kind": "expense", "status": "voided", "payee": "Lantern Technical Survey", "amount": "200.00", "purpose": "Duplicate administrative fee request voided before disbursement", "created_at": "2026-11-02T11:00:00Z", "updated_at": "2026-11-03T16:00:00Z", "posted_at": null}
+        ]
+      },
+      "activities": [
+        {"activity_id": "ACT-002-01", "title": "Obtain diagnostics supporting motor and controls replacement", "status": "awaiting_external", "owner_team": "Commercial Property East", "priority": "high", "blocking": true, "requested_at": "2026-10-28T10:00:00Z", "due_date": "2026-11-03", "completed_at": null, "source_refs": ["claim-002/inspection.pdf"]},
+        {"activity_id": "ACT-002-02", "title": "Reconcile cleaning and replacement scopes after diagnostics arrive", "status": "open", "owner_team": "Technical Claims Review", "priority": "normal", "blocking": true, "requested_at": "2026-11-02T12:00:00Z", "due_date": "2026-11-10", "completed_at": null, "source_refs": ["claim-002/inspection.pdf"]},
+        {"activity_id": "ACT-002-03", "title": "Record the original illustrated inspection as received", "status": "completed", "owner_team": "Claims Operations", "priority": "normal", "blocking": false, "requested_at": "2026-10-30T09:00:00Z", "due_date": "2026-11-02", "completed_at": "2026-11-01T14:00:00Z", "source_refs": ["claim-002/inspection.pdf"]}
+      ],
+      "log_notes": [
+        {"note_id": "NOTE-002-01", "recorded_at": "2026-11-01T14:15:00Z", "author_role": "Claims operations analyst", "category": "document_review", "text": "The inspection is received. Receipt does not establish the condition of concealed equipment or authorize the later replacement scope.", "activity_id": "ACT-002-03", "source_refs": ["claim-002/inspection.pdf"]},
+        {"note_id": "NOTE-002-02", "recorded_at": "2026-11-03T16:00:00Z", "author_role": "Claims financial analyst", "category": "financial", "text": "The duplicate USD 200.00 fee request was voided before payment. Paid expense remains USD 620.00; there is no posted indemnity payment.", "activity_id": null, "source_refs": []},
+        {"note_id": "NOTE-002-03", "recorded_at": "2026-11-05T15:45:00Z", "author_role": "Assigned adjuster", "category": "follow_up", "text": "No motor or controls diagnostic report has been logged. The overdue diagnostic request and subsequent scope reconciliation remain open; the USD 42,000.00 reserve is not repair approval.", "activity_id": "ACT-002-01", "source_refs": ["claim-002/inspection.pdf"]}
+      ]
+    },
+    {
+      "claim_id": "claim-003",
+      "claim_number": "AV-26-004318",
+      "insured_name": "Harbor Route Delivery Services Inc",
+      "line_of_business": "commercial_auto",
+      "reported_loss": "Reported commercial van rear-left damage",
+      "loss_date": "2026-09-22",
+      "status": "open",
+      "phase": "repair_scope_review",
+      "assigned_adjuster": "Jordan Pike",
+      "assigned_team": "Commercial Auto",
+      "opened_at": "2026-09-22T13:00:00Z",
+      "updated_at": "2026-11-05T14:20:00Z",
+      "coverage_decision": "under_review",
+      "policy": {
+        "policy_number": "AV-CV-260319",
+        "effective_from": "2026-01-01",
+        "effective_to": "2026-12-31",
+        "currency": "USD",
+        "specimen_limit": "65000.00",
+        "specimen_deductible": "1000.00",
+        "source_ref": "claim-003/policy.pdf"
+      },
+      "financials": {
+        "currency": "USD",
+        "outstanding_indemnity_reserve": "8000.00",
+        "outstanding_expense_reserve": "1500.00",
+        "approved_settlement_amount": null,
+        "payments": [
+          {"payment_id": "PAY-003-01", "kind": "expense", "status": "posted", "payee": "Meridian Fleet Survey", "amount": "180.00", "purpose": "Vehicle damage inspection fee", "created_at": "2026-09-28T10:00:00Z", "updated_at": "2026-09-30T15:00:00Z", "posted_at": "2026-09-30T15:00:00Z"},
+          {"payment_id": "PAY-003-02", "kind": "indemnity", "status": "pending", "payee": "Harbor Route Vehicle Repair", "amount": "450.00", "purpose": "Sensor-related repair allowance request awaiting itemized support", "created_at": "2026-11-02T10:00:00Z", "updated_at": "2026-11-05T14:00:00Z", "posted_at": null}
+        ]
+      },
+      "activities": [
+        {"activity_id": "ACT-003-01", "title": "Obtain the itemized PDF supporting the later repair quotation", "status": "awaiting_external", "owner_team": "Commercial Auto", "priority": "high", "blocking": true, "requested_at": "2026-10-29T10:00:00Z", "due_date": "2026-11-04", "completed_at": null, "source_refs": ["claim-003/inspection.pdf"]},
+        {"activity_id": "ACT-003-02", "title": "Obtain documented sensor checks before reviewing added scope", "status": "awaiting_external", "owner_team": "Commercial Auto", "priority": "normal", "blocking": true, "requested_at": "2026-11-02T11:00:00Z", "due_date": "2026-11-09", "completed_at": null, "source_refs": ["claim-003/inspection.pdf", "claim-003/damage-01.jpg"]},
+        {"activity_id": "ACT-003-03", "title": "Link the forwarded email thread without duplicating attachments", "status": "completed", "owner_team": "Claims Operations", "priority": "normal", "blocking": false, "requested_at": "2026-10-30T09:00:00Z", "due_date": "2026-11-03", "completed_at": "2026-11-03T12:00:00Z", "source_refs": ["claim-003/inspection.pdf"]}
+      ],
+      "log_notes": [
+        {"note_id": "NOTE-003-01", "recorded_at": "2026-11-02T11:15:00Z", "author_role": "Assigned adjuster", "category": "scope_review", "text": "Keep the original USD 6,840.00 inspection separate from the USD 7,420.00 amount quoted in later correspondence. No replacement estimate PDF has been logged; neither amount is an approved payment.", "activity_id": "ACT-003-01", "source_refs": ["claim-003/inspection.pdf"]},
+        {"note_id": "NOTE-003-02", "recorded_at": "2026-11-03T12:10:00Z", "author_role": "Claims operations analyst", "category": "document_review", "text": "The forwarded message is linked. A linked email is not the missing itemized estimate or proof that sensor checks were completed.", "activity_id": "ACT-003-03", "source_refs": []},
+        {"note_id": "NOTE-003-03", "recorded_at": "2026-11-05T14:20:00Z", "author_role": "Claims financial analyst", "category": "financial", "text": "Paid expense is USD 180.00. The USD 450.00 sensor allowance remains pending and excluded from paid totals. Outstanding reserves remain USD 9,500.00; no settlement authority is recorded.", "activity_id": "ACT-003-02", "source_refs": []}
+      ]
+    },
+    {
+      "claim_id": "claim-004",
+      "claim_number": "AV-26-004401",
+      "insured_name": "Meadow Lane Household Supply Ltd",
+      "line_of_business": "general_liability",
+      "reported_loss": "Reported retail slip incident with disputed site accounts",
+      "loss_date": "2026-10-02",
+      "status": "open",
+      "phase": "liability_investigation",
+      "assigned_adjuster": "Robin Ellis",
+      "assigned_team": "Commercial Liability",
+      "opened_at": "2026-10-02T14:00:00Z",
+      "updated_at": "2026-11-05T13:10:00Z",
+      "coverage_decision": "under_review",
+      "policy": {
+        "policy_number": "AV-GL-260406",
+        "effective_from": "2026-01-01",
+        "effective_to": "2026-12-31",
+        "currency": "USD",
+        "specimen_limit": "1000000.00",
+        "specimen_deductible": "500.00",
+        "source_ref": "claim-004/policy.pdf"
+      },
+      "financials": {
+        "currency": "USD",
+        "outstanding_indemnity_reserve": "15000.00",
+        "outstanding_expense_reserve": "3000.00",
+        "approved_settlement_amount": null,
+        "payments": []
+      },
+      "activities": [
+        {"activity_id": "ACT-004-01", "title": "Reconcile supervisor and witness accounts of warning-sign timing", "status": "awaiting_external", "owner_team": "Commercial Liability", "priority": "high", "blocking": true, "requested_at": "2026-10-28T10:00:00Z", "due_date": "2026-11-04", "completed_at": null, "source_refs": ["claim-004/inspection.pdf"]},
+        {"activity_id": "ACT-004-02", "title": "Obtain the missing cleaning-log interval", "status": "awaiting_external", "owner_team": "Commercial Liability", "priority": "high", "blocking": true, "requested_at": "2026-11-02T10:00:00Z", "due_date": "2026-11-09", "completed_at": null, "source_refs": ["claim-004/inspection.pdf"]},
+        {"activity_id": "ACT-004-03", "title": "Preserve later site photographs without assigning incident-time facts", "status": "completed", "owner_team": "Claims Operations", "priority": "normal", "blocking": false, "requested_at": "2026-10-30T09:00:00Z", "due_date": "2026-11-02", "completed_at": "2026-11-02T12:00:00Z", "source_refs": ["claim-004/damage-01.jpg", "claim-004/damage-02.jpg"]}
+      ],
+      "log_notes": [
+        {"note_id": "NOTE-004-01", "recorded_at": "2026-11-02T12:15:00Z", "author_role": "Claims operations analyst", "category": "document_review", "text": "Later site images are preserved. Their availability does not establish whether the warning sign was present before the incident.", "activity_id": "ACT-004-03", "source_refs": ["claim-004/damage-01.jpg"]},
+        {"note_id": "NOTE-004-02", "recorded_at": "2026-11-04T16:00:00Z", "author_role": "Assigned adjuster", "category": "follow_up", "text": "Supervisor and witness accounts remain unreconciled. The 10:30-11:30 cleaning-log gap still requires source records; the system does not select one account as fact.", "activity_id": "ACT-004-01", "source_refs": ["claim-004/inspection.pdf"]},
+        {"note_id": "NOTE-004-03", "recorded_at": "2026-11-05T13:10:00Z", "author_role": "Claims financial analyst", "category": "financial", "text": "No payments have posted. The USD 18,000.00 outstanding reserve is a system financial position, not an admission of liability or an approved settlement.", "activity_id": null, "source_refs": []}
+      ]
+    },
+    {
+      "claim_id": "claim-005",
+      "claim_number": "AV-26-004459",
+      "insured_name": "Bluegate Storage Operations LLC",
+      "line_of_business": "commercial_property",
+      "reported_loss": "Reported storage-unit damage and disputed contents inventory",
+      "loss_date": "2026-10-08",
+      "status": "open",
+      "phase": "inventory_reconciliation",
+      "assigned_adjuster": "Taylor Quinn",
+      "assigned_team": "Commercial Property West",
+      "opened_at": "2026-10-08T14:00:00Z",
+      "updated_at": "2026-11-05T15:20:00Z",
+      "coverage_decision": "under_review",
+      "policy": {
+        "policy_number": "AV-CP-260512",
+        "effective_from": "2026-01-01",
+        "effective_to": "2026-12-31",
+        "currency": "USD",
+        "specimen_limit": "100000.00",
+        "specimen_deductible": "1500.00",
+        "source_ref": "claim-005/policy.pdf"
+      },
+      "financials": {
+        "currency": "USD",
+        "outstanding_indemnity_reserve": "10500.00",
+        "outstanding_expense_reserve": "1500.00",
+        "approved_settlement_amount": null,
+        "payments": [
+          {"payment_id": "PAY-005-01", "kind": "expense", "status": "posted", "payee": "Meridian Field Adjusting", "amount": "225.00", "purpose": "Exterior latch and lock inspection fee", "created_at": "2026-10-14T10:00:00Z", "updated_at": "2026-10-16T15:00:00Z", "posted_at": "2026-10-16T15:00:00Z"},
+          {"payment_id": "PAY-005-02", "kind": "indemnity", "status": "pending", "payee": "Bluegate Storage Operations LLC", "amount": "600.00", "purpose": "Latch repair reimbursement request awaiting ownership and invoice checks", "created_at": "2026-11-02T10:00:00Z", "updated_at": "2026-11-05T15:00:00Z", "posted_at": null}
+        ]
+      },
+      "activities": [
+        {"activity_id": "ACT-005-01", "title": "Obtain a reconciled missing-items schedule with ownership evidence", "status": "awaiting_external", "owner_team": "Commercial Property West", "priority": "high", "blocking": true, "requested_at": "2026-10-29T10:00:00Z", "due_date": "2026-11-04", "completed_at": null, "source_refs": ["claim-005/inspection.pdf"]},
+        {"activity_id": "ACT-005-02", "title": "Obtain purchase records and evidence of the unit interior", "status": "awaiting_external", "owner_team": "Commercial Property West", "priority": "normal", "blocking": true, "requested_at": "2026-11-02T10:00:00Z", "due_date": "2026-11-10", "completed_at": null, "source_refs": ["claim-005/inspection.pdf", "claim-005/damage-01.jpg"]},
+        {"activity_id": "ACT-005-03", "title": "Link the exterior latch and padlock photographs", "status": "completed", "owner_team": "Claims Operations", "priority": "normal", "blocking": false, "requested_at": "2026-10-30T09:00:00Z", "due_date": "2026-11-02", "completed_at": "2026-11-02T11:00:00Z", "source_refs": ["claim-005/damage-01.jpg", "claim-005/damage-02.jpg"]}
+      ],
+      "log_notes": [
+        {"note_id": "NOTE-005-01", "recorded_at": "2026-11-02T11:15:00Z", "author_role": "Claims operations analyst", "category": "document_review", "text": "Exterior photographs are linked. They do not verify the contents of the unit or establish whether three or four equipment cases were present.", "activity_id": "ACT-005-03", "source_refs": ["claim-005/damage-01.jpg", "claim-005/damage-02.jpg"]},
+        {"note_id": "NOTE-005-02", "recorded_at": "2026-11-04T15:00:00Z", "author_role": "Assigned adjuster", "category": "follow_up", "text": "A reconciled contents schedule and ownership support are still outstanding. Do not populate an authoritative missing-item count from the conflicting accounts.", "activity_id": "ACT-005-01", "source_refs": ["claim-005/inspection.pdf"]},
+        {"note_id": "NOTE-005-03", "recorded_at": "2026-11-05T15:20:00Z", "author_role": "Claims financial analyst", "category": "financial", "text": "Only USD 225.00 of inspection expense has posted. The USD 600.00 latch repair request remains pending; outstanding reserve is USD 12,000.00 and no settlement is approved.", "activity_id": null, "source_refs": []}
+      ]
+    },
+    {
+      "claim_id": "claim-006",
+      "claim_number": "AV-26-004507",
+      "insured_name": "Rivermark Fabrication Works Ltd",
+      "line_of_business": "commercial_property",
+      "reported_loss": "Reported workshop water ingress and wet stock",
+      "loss_date": "2026-10-14",
+      "status": "open",
+      "phase": "scope_review",
+      "assigned_adjuster": "Morgan Reed",
+      "assigned_team": "Commercial Property West",
+      "opened_at": "2026-10-14T13:00:00Z",
+      "updated_at": "2026-11-05T17:00:00Z",
+      "coverage_decision": "under_review",
+      "policy": {
+        "policy_number": "AV-CP-260618",
+        "effective_from": "2026-01-01",
+        "effective_to": "2026-12-31",
+        "currency": "USD",
+        "specimen_limit": "750000.00",
+        "specimen_deductible": "5000.00",
+        "source_ref": "claim-006/policy.pdf"
+      },
+      "financials": {
+        "currency": "USD",
+        "outstanding_indemnity_reserve": "60000.00",
+        "outstanding_expense_reserve": "8000.00",
+        "approved_settlement_amount": null,
+        "payments": [
+          {"payment_id": "PAY-006-01", "kind": "expense", "status": "posted", "payee": "Meridian Field Adjusting", "amount": "950.00", "purpose": "Workshop damage survey fee", "created_at": "2026-10-21T10:00:00Z", "updated_at": "2026-10-23T15:00:00Z", "posted_at": "2026-10-23T15:00:00Z"},
+          {"payment_id": "PAY-006-02", "kind": "expense", "status": "posted", "payee": "Rivermark Site Assessment Services", "amount": "150.00", "purpose": "Supplementary site-assessment fee, not controls repair", "created_at": "2026-11-02T10:00:00Z", "updated_at": "2026-11-03T15:00:00Z", "posted_at": "2026-11-03T15:00:00Z"}
+        ]
+      },
+      "activities": [
+        {"activity_id": "ACT-006-01", "title": "Obtain diagnostics supporting the controls addition", "status": "awaiting_external", "owner_team": "Commercial Property West", "priority": "high", "blocking": true, "requested_at": "2026-10-29T10:00:00Z", "due_date": "2026-11-04", "completed_at": null, "source_refs": ["claim-006/04-revised-proposal.msg"]},
+        {"activity_id": "ACT-006-02", "title": "Reconcile the revised proposal with the original scope and stock records", "status": "open", "owner_team": "Technical Claims Review", "priority": "high", "blocking": true, "requested_at": "2026-11-02T11:00:00Z", "due_date": "2026-11-09", "completed_at": null, "source_refs": ["claim-006/inspection.pdf", "claim-006/04-revised-proposal.msg"]},
+        {"activity_id": "ACT-006-03", "title": "Register the proposal attachment from the later email", "status": "completed", "owner_team": "Claims Operations", "priority": "normal", "blocking": false, "requested_at": "2026-10-30T10:00:00Z", "due_date": "2026-11-02", "completed_at": "2026-11-02T14:00:00Z", "source_refs": ["claim-006/04-revised-proposal.msg"]}
+      ],
+      "log_notes": [
+        {"note_id": "NOTE-006-01", "recorded_at": "2026-11-02T14:15:00Z", "author_role": "Claims operations analyst", "category": "document_review", "text": "The later USD 52,400.00 proposal remains an attachment to the revised-proposal email. Keep it separate from the original USD 48,600.00 inspection; receipt of a proposal is not scope approval.", "activity_id": "ACT-006-03", "source_refs": ["claim-006/inspection.pdf", "claim-006/04-revised-proposal.msg"]},
+        {"note_id": "NOTE-006-02", "recorded_at": "2026-11-04T16:00:00Z", "author_role": "Assigned adjuster", "category": "follow_up", "text": "No controls diagnostic report has been logged. The added USD 3,800.00 remains unsupported; the ingress route and stock component still require reconciliation.", "activity_id": "ACT-006-01", "source_refs": ["claim-006/04-revised-proposal.msg"]},
+        {"note_id": "NOTE-006-03", "recorded_at": "2026-11-05T17:00:00Z", "author_role": "Claims financial analyst", "category": "financial", "text": "Posted assessment expenses total USD 1,100.00. No indemnity payment or settlement is approved. The USD 68,000.00 outstanding reserve is distinct from either repair proposal.", "activity_id": null, "source_refs": []}
+      ]
+    }
+  ]
+}

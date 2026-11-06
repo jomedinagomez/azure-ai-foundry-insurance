@@ -194,6 +194,7 @@ cython_debug/
 # Local workshop projects can contain customer documents and labels.
 .workbench/
 .customerquestion/
+output/claims/
 demo/handwritten/output/
 demo/extraction-comparison/output/
 # Customer/private docs (excluded from repo)

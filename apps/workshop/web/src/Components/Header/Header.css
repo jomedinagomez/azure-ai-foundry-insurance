@@ -29,6 +29,18 @@ header {
   align-items: center;
   justify-content: left;
   margin-bottom: -2px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.headerNav > .fui-TabList {
+  flex-shrink: 0;
+}
+
+.headerTitle,
+.headerTools {
+  flex-shrink: 0;
 }
 
 .headerTag {
@@ -58,5 +70,11 @@ header {
 @media only screen and (max-width: 900px) {
   .headerTitleText {
     display: none;
+  }
+
+  @media only screen and (max-width: 1400px) {
+    .headerTag {
+      display: none;
+    }
   }
 }
