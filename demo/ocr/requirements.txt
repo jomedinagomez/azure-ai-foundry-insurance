@@ -1,0 +1,9 @@
+azure-ai-contentunderstanding>=1.1.0,<2
+azure-identity>=1.17.0
+python-dotenv>=1.0.0
+pypdfium2>=4.30.0
+Pillow>=10.0.0
+numpy
+opencv-python-headless>=4.10.0
+pandas
+ipykernel
